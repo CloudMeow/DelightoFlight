@@ -1,0 +1,22 @@
+{
+  "type": "farmersdelight:cooking",
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "delighto_flight:phantom_wing"
+    },
+	{
+      "item": "delighto_flight:phantom_wing"
+    },
+    {
+      "tag": "c:crops/onion"
+    },
+	{
+      "item": "minecraft:nether_wart"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "id": "delighto_flight:new_orleans_phantom_wing"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "delighto_flight:block/cloud_silk_bed",
+  "textures": {
+    "particle": "minecraft:block/oak_planks"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "farmersdelight:cooking",
+  "experience": 1.0,
+  "container": {
+    "count": 1,
+    "id": "minecraft:bucket"
+  },
+  "ingredients": [
+    {
+      "tag": "c:foods/raw_pork"
+    },
+	{
+      "item": "delighto_flight:thunder_fruit"
+    },
+    {
+      "tag": "c:crops/onion"
+    },
+	{
+      "item": "minecraft:sugar"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "id": "delighto_flight:thunder_fruit_stew_block"
+  }
+}

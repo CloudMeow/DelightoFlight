@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    [
+      {
+        "item": "farmersdelight:rice"
+      },
+      {
+        "item": "minecraft:wheat"
+      }
+    ],
+    {
+      "tag": "c:seeds"
+    },
+    {
+      "tag": "c:seeds"
+    }
+  ],
+  "result": {
+    "id": "delighto_flight:bird_feed"
+  },
+  "show_notification": false
+}

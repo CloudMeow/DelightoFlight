@@ -1,0 +1,10 @@
+{
+  "entity.electric_current.discharge": {
+    "subtitle": "delighto_flight.subtitles.electric_current.discharge",
+    "sounds": [
+      {
+        "name": "delighto_flight:shock"
+      }
+    ]
+  }
+}

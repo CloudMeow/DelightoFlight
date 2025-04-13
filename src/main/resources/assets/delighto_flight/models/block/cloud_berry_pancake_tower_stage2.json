@@ -1,0 +1,98 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"render_type": "cutout",
+	"textures": {
+		"1": "farmersdelight:block/tray_bottom",
+		"2": "delighto_flight:block/tray_top",
+		"3": "delighto_flight:block/cloud_berry_pancake_tower",
+		"particle": "delighto_flight:block/cloud_berry_pancake_tower"
+	},
+	"elements": [
+		{
+			"from": [1, 0, 1],
+			"to": [15, 2, 15],
+			"faces": {
+				"north": {"uv": [1, 11, 15, 13], "texture": "#1"},
+				"east": {"uv": [1, 11, 15, 13], "texture": "#1"},
+				"south": {"uv": [1, 11, 15, 13], "texture": "#1"},
+				"west": {"uv": [1, 11, 15, 13], "texture": "#1"},
+				"up": {"uv": [1, 1, 15, 15], "texture": "#2"},
+				"down": {"uv": [1, 1, 15, 15], "texture": "#1"}
+			}
+		},
+		{
+			"from": [3, 2, 3],
+			"to": [13, 4, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [3, 2, 3]},
+			"faces": {
+				"north": {"uv": [0, 13, 5, 14], "texture": "#3"},
+				"east": {"uv": [5.5, 10, 10.5, 11], "texture": "#3"},
+				"south": {"uv": [5.5, 10, 10.5, 11], "texture": "#3"},
+				"west": {"uv": [5.5, 10, 10.5, 11], "texture": "#3"},
+				"up": {"uv": [5.5, 5, 10.5, 10], "texture": "#3"},
+				"down": {"uv": [5.5, 6, 10.5, 11], "texture": "#3"}
+			}
+		},
+		{
+			"from": [3, 4, 3],
+			"to": [13, 6, 13],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [8, 4, 8]},
+			"faces": {
+				"north": {"uv": [0, 14, 5, 15], "texture": "#3"},
+				"east": {"uv": [5.5, 10, 10.5, 11], "texture": "#3"},
+				"south": {"uv": [5.5, 10, 10.5, 11], "texture": "#3"},
+				"west": {"uv": [5.5, 10, 10.5, 11], "texture": "#3"},
+				"up": {"uv": [5.5, 0, 10.5, 5], "texture": "#3"},
+				"down": {"uv": [5.5, 6, 10.5, 11], "texture": "#3"}
+			}
+		},
+		{
+			"from": [3, 5, 11],
+			"to": [5, 7, 13],
+			"rotation": {"angle": 45, "axis": "z", "origin": [4, 5, 12]},
+			"faces": {
+				"north": {"uv": [10.5, 10, 11.5, 11], "texture": "#3"},
+				"east": {"uv": [10.5, 10, 11.5, 11], "texture": "#3"},
+				"south": {"uv": [10.5, 10, 11.5, 11], "texture": "#3"},
+				"west": {"uv": [10.5, 10, 11.5, 11], "texture": "#3"},
+				"up": {"uv": [10.5, 10, 11.5, 11], "texture": "#3"},
+				"down": {"uv": [10.5, 10, 11.5, 11], "texture": "#3"}
+			}
+		},
+		{
+			"from": [2.70711, 5.5, 12.70711],
+			"to": [4.70711, 5.5, 15.70711],
+			"rotation": {"angle": -45, "axis": "y", "origin": [4, 5, 12]},
+			"faces": {
+				"north": {"uv": [11.5, 10, 13, 11], "texture": "#3"},
+				"east": {"uv": [11.5, 10, 13, 11], "texture": "#3"},
+				"south": {"uv": [11.5, 10, 13, 11], "texture": "#3"},
+				"west": {"uv": [11.5, 10, 13, 11], "texture": "#3"},
+				"up": {"uv": [11.5, 10, 13, 11], "rotation": 90, "texture": "#3"},
+				"down": {"uv": [11.5, 11, 13, 10], "rotation": 270, "texture": "#3"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "root",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [
+				{
+					"name": "plate",
+					"origin": [8, 8, 8],
+					"color": 0,
+					"children": [0]
+				},
+				{
+					"name": "pancakes",
+					"origin": [8, 8, 8],
+					"color": 0,
+					"children": [1, 2, 3, 4]
+				}
+			]
+		}
+	]
+}

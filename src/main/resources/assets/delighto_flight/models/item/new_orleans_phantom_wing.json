@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "delighto_flight:item/new_orleans_phantom_wing"
+  }
+}
