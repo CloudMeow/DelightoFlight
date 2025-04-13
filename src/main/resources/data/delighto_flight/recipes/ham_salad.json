@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "delighto_flight:cloud_berries"
+    },
+    {
+      "item": "delighto_flight:thunder_fruit"
+    },
+    {
+      "item": "farmersdelight:smoked_ham"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "delighto_flight:ham_salad"
+  }
+}

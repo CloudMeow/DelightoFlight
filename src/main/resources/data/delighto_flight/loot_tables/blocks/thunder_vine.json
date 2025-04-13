@@ -1,0 +1,55 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "name": "pool1",
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "delighto_flight:thunder_fruit"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "delighto_flight:thunder_vine",
+          "properties": {
+            "age": "3"
+          }
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": {
+            "min": 1.0,
+            "max": 1.0,
+            "type": "minecraft:uniform"
+          }
+        }
+      ]
+    },
+    {
+      "name": "pool2",
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "delighto_flight:thunder_fruit_seeds"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "delighto_flight:thunder_vine"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "function": "minecraft:explosion_decay"
+    }
+  ]
+}

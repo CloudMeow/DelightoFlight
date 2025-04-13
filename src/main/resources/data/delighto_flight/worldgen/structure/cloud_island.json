@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:jigsaw",
+  "biomes": "#delighto_flight:has_structure/cloud_island",
+  "step": "surface_structures",
+  "start_pool": "delighto_flight:start_pool",
+  "size": 1,
+  "project_start_to_heightmap": "WORLD_SURFACE_WG",
+  "use_expansion_hack": false,
+  "start_height": {
+    "absolute": 100
+  },
+  "max_distance_from_center": 128,
+  "spawn_overrides": {
+    "monster": {
+      "bounding_box": "piece",
+      "spawns": [
+      ]
+    },
+    "creature": {
+      "bounding_box": "piece",
+      "spawns": [
+      ]
+    },
+    "ambient": {
+      "bounding_box": "piece",
+      "spawns": [
+      ]
+    }
+  }
+}

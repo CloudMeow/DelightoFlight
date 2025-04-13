@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "delighto_flight:phantom_wing"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "minecraft:phantom_membrane"
+    },
+	{
+      "count": 1,
+      "item": "minecraft:bone"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

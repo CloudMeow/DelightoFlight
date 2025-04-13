@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "entries": [
+    "delighto_flight:phantom_membrane_replace",
+    "delighto_flight:add_loot_mineshaft",
+    "delighto_flight:add_loot_snowy_village",
+    "delighto_flight:add_loot_taiga_village",
+    "delighto_flight:add_loot_shipwreck"
+  ]
+}

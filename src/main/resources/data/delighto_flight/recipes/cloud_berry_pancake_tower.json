@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "delighto_flight:cloud_berries"
+    },
+    {
+      "item": "delighto_flight:cloud_berries"
+    },
+    {
+      "item": "delighto_flight:cloud_berries"
+    },
+    {
+      "tag": "forge:dough"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "tag": "forge:dough"
+    },
+    {
+      "tag": "forge:eggs"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "tag": "forge:eggs"
+    }
+  ],
+  "result": {
+    "item": "delighto_flight:cloud_berry_pancake_tower"
+  }
+}

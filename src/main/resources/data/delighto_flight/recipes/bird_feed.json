@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "forge:grain"
+    },
+    {
+      "tag": "forge:seeds"
+    },
+    {
+      "tag": "forge:seeds"
+    }
+  ],
+  "result": {
+    "item": "delighto_flight:bird_feed"
+  },
+  "show_notification": false
+}

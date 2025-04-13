@@ -1,0 +1,17 @@
+{
+  "type": "farmersrespite:kettle_pouring",
+  "amount": 250,
+  "container": {
+    "item": "minecraft:glass_bottle"
+  },
+  "fluid": "delighto_flight:charged_rose_tea",
+  "output": {
+    "item": "delighto_flight:charged_rose_tea"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersrespite"
+    }
+  ]
+}

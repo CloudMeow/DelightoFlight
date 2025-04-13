@@ -1,0 +1,43 @@
+{
+  "itemGroup.delighto_flight": "云端之乐",
+
+  "item.delighto_flight.cloud_silk": "云绸",
+  "item.delighto_flight.phantom_wing": "幻翼翅",
+  "item.delighto_flight.bird_feed": "鸟食",
+  "item.delighto_flight.new_orleans_phantom_wing": "新奥尔良烤幻翼翅",
+  "item.delighto_flight.cloud_berries": "云莓",
+  "item.delighto_flight.cheese_cloud_berry_jam": "云莓酱奶酪",
+  "item.delighto_flight.thunder_fruit_seeds": "雷电果种子",
+  "item.delighto_flight.thunder_fruit": "雷电果",
+  "item.delighto_flight.magic_chef_hat": "魔法厨师帽",
+  "item.delighto_flight.ham_salad": "火腿沙拉",
+  "item.delighto_flight.thunder_fruit_stew": "盘装雷电果炖肉",
+  "item.delighto_flight.charged_rose_tea": "充能玫瑰茶",
+  "item.delighto_flight.cloud_berry_steamed_bun": "云莓糕",
+  "item.delighto_flight.cloud_berry_pancake": "云莓酱煎饼",
+  "item.delighto_flight.copper_thunder_fruit": "铜雷果",
+  "item.delighto_flight.cook_book": "菜品配方书",
+
+  "block.delighto_flight.cloud": "云块",
+  "block.delighto_flight.cloud_silk_block": "云绸块",
+  "block.delighto_flight.cloud_silk_bed": "云绸床",
+  "block.delighto_flight.cloud_berry_bush": "云莓丛",
+  "block.delighto_flight.thunder_vine": "雷电藤",
+  "block.delighto_flight.cloud_berry_pancake_tower": "云莓酱煎饼塔",
+  "block.delighto_flight.thunder_fruit_stew_block": "雷电果炖肉",
+
+  "effect.delighto_flight.turbulence": "湍流",
+  "effect.delighto_flight.turbulence.description": "让飞行生物飞更快",
+  "effect.delighto_flight.arc": "电弧",
+  "effect.delighto_flight.arc.description": "电击周围的生物",
+
+  "entity.delighto_flight.electric_current": "电流",
+
+  "fluid_type.delighto_flight.charged_rose_tea_type": "充能玫瑰茶",
+
+  "delighto_flight.tooltip.bird_feed.when_feeding": "喂给已驯服的鹦鹉时：",
+  "delighto_flight.subtitles.electric_current.discharge": "放电",
+  "delighto_flight.container.cook_book": "菜品配方书",
+
+  "death.attack.delighto_flight.shock": "强电流穿过了 %s 的身体"
+}

@@ -1,0 +1,25 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "container": {
+    "item": "minecraft:bucket"
+  },
+  "ingredients": [
+    {
+      "tag": "forge:raw_pork"
+    },
+	{
+      "item": "delighto_flight:thunder_fruit"
+    },
+    {
+      "tag": "forge:crops/onion"
+    },
+	{
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "delighto_flight:thunder_fruit_stew_block"
+  }
+}

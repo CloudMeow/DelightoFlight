@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "age=0": { "model": "delighto_flight:block/thunder_vine_stage0" },
+        "age=1": { "model": "delighto_flight:block/thunder_vine_stage1" },
+		"age=2": { "model": "delighto_flight:block/thunder_vine_stage2" },
+		"age=3": { "model": "delighto_flight:block/thunder_vine_stage3" }
+    }
+}

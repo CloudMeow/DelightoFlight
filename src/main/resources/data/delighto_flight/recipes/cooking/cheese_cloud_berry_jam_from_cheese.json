@@ -1,0 +1,31 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "item": "delighto_flight:cloud_berries"
+    },
+    {
+      "item": "delighto_flight:cloud_berries"
+    },
+    {
+      "tag": "forge:cheese"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "delighto_flight:cheese_cloud_berry_jam"
+  },
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:cheese"
+      }
+    }
+  ]
+}

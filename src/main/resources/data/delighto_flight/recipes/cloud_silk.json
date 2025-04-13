@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "delighto_flight:cloud"
+    },
+    "X": {
+      "tag": "forge:string"
+    }
+  },
+  "pattern": [
+    " X ",
+    "X#X",
+	" X "
+  ],
+  "result": {
+    "item": "delighto_flight:cloud_silk"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.cloudmeow.delightoflight.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "delighto_flight.refmap.json",
+  "mixins": [
+    "AllayAiMixin",
+    "AllayMixin",
+    "FirstFloorRoomCollectionMixin",
+    "ServerLevelMixin",
+    "VillagerGoalPackagesMixin",
+    "VillagerMixin",
+    "WoodlandMansionPieceMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

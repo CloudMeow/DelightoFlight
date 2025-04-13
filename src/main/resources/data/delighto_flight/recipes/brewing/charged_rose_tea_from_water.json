@@ -1,0 +1,27 @@
+{
+  "type": "farmersrespite:brewing",
+  "base": {
+    "count": 1000,
+    "fluid": "minecraft:water"
+  },
+  "cookingtime": 2400,
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "item": "delighto_flight:thunder_fruit"
+    },
+    {
+      "item": "farmersrespite:rose_hips"
+    }
+  ],
+  "result": {
+    "count": 1000,
+    "fluid": "delighto_flight:charged_rose_tea"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "farmersrespite"
+    }
+  ]
+}

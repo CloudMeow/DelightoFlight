@@ -1,0 +1,28 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "item": "delighto_flight:thunder_fruit"
+    },
+    {
+      "item": "minecraft:rose_bush"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "delighto_flight:charged_rose_tea"
+  },
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "farmersrespite"
+      }
+    }
+  ]
+}

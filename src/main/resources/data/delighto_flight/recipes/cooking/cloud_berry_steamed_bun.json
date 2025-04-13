@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "tag": "forge:dough"
+    },
+    {
+      "item": "delighto_flight:cloud_berries"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "count": 2,
+    "item": "delighto_flight:cloud_berry_steamed_bun"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "item": "delighto_flight:phantom_wing"
+    },
+	{
+      "item": "delighto_flight:phantom_wing"
+    },
+    {
+      "tag": "forge:crops/onion"
+    },
+	{
+      "item": "minecraft:nether_wart"
+    }
+  ],
+  "result": {
+    "item": "delighto_flight:new_orleans_phantom_wing"
+  }
+}

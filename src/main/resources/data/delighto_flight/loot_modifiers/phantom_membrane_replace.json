@@ -1,0 +1,16 @@
+{
+  "type": "delighto_flight:replace_item",
+  "conditions": [
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "type": "minecraft:phantom"
+      }
+    }
+  ],
+  "removed_item": "minecraft:phantom_membrane",
+  "added_item": "delighto_flight:phantom_wing",
+  "min": 0,
+  "max": 1
+}
