@@ -22,30 +22,37 @@ import java.util.List;
 import java.util.Optional;
 
 public class GetItemFromContainer<E extends LivingEntity> extends Behavior<E> {
+    private int coolDown = 0;
+
     public GetItemFromContainer() {
         super(ImmutableMap.of(DFMemoryTypes.BASKET.get(), MemoryStatus.VALUE_PRESENT));
     }
 
     @Override
-    protected boolean checkExtraStartConditions(ServerLevel p_22538_, E livingEntity) {
+    protected boolean checkExtraStartConditions(ServerLevel level, E livingEntity) {
         Optional<GlobalPos> optional = livingEntity.getBrain().getMemory(DFMemoryTypes.BASKET.get());
         return optional.filter(globalPos -> livingEntity.blockPosition().distManhattan(globalPos.pos()) <= 1).isPresent() && DFUtilities.checkCookBookExist(livingEntity);
     }
 
     @Override
-    protected boolean canStillUse(ServerLevel p_22545_, E livingEntity, long p_22547_) {
-        return livingEntity.getBrain().getMemory(DFMemoryTypes.BASKET.get()).isPresent() && DFUtilities.checkCookBookExist(livingEntity);
+    protected boolean canStillUse(ServerLevel level, E livingEntity, long p_22547_) {
+        Optional<GlobalPos> optional = livingEntity.getBrain().getMemory(DFMemoryTypes.BASKET.get());
+        return livingEntity.getBrain().getMemory(DFMemoryTypes.BASKET.get()).isPresent() && DFUtilities.checkCookBookExist(livingEntity) && optional.filter(globalPos -> livingEntity.blockPosition().distManhattan(globalPos.pos()) <= 1).isPresent();
     }
 
     @Override
     protected void tick(ServerLevel level, E livingEntity, long p_22553_) {
-        Optional<GlobalPos> optional = livingEntity.getBrain().getMemory(DFMemoryTypes.BASKET.get());
-        if (optional.isPresent()) {
-            BlockEntity entity = level.getBlockEntity(optional.get().pos());
-            if (entity instanceof Container container) {
-                getIngredient(container, livingEntity);
+        if (coolDown <= 0) {
+            Optional<GlobalPos> optional = livingEntity.getBrain().getMemory(DFMemoryTypes.BASKET.get());
+            if (optional.isPresent()) {
+                BlockEntity entity = level.getBlockEntity(optional.get().pos());
+                if (entity instanceof Container container) {
+                    getIngredient(container, livingEntity);
+                }
             }
+            coolDown = 20;
         }
+        coolDown--;
     }
 
     public void getIngredient(Container container, E livingEntity) {
