@@ -31,7 +31,8 @@ public class PutItemIntoPot<E extends LivingEntity> extends Behavior<E> {
 
     @Override
     protected boolean canStillUse(ServerLevel p_22545_, E livingEntity, long p_22547_) {
-        return livingEntity.getBrain().getMemory(DFMemoryTypes.POT.get()).isPresent() && DFUtilities.checkChefHatExist(livingEntity);
+        Optional<GlobalPos> optional = livingEntity.getBrain().getMemory(DFMemoryTypes.POT.get());
+        return livingEntity.getBrain().getMemory(DFMemoryTypes.POT.get()).isPresent() && DFUtilities.checkChefHatExist(livingEntity) && optional.filter(globalPos -> livingEntity.blockPosition().distManhattan(globalPos.pos()) <= 1).isPresent();
     }
 
     @Override
