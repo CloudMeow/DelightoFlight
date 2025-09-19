@@ -32,6 +32,9 @@ import net.minecraftforge.fml.common.Mod;
 public class ServerEvent {
     @SubscribeEvent
     public static void onEffectRemove(MobEffectEvent.Remove event) {
+        if (event.getEffectInstance() == null) {
+            return;
+        }
         if (event.getEffectInstance().getEffect() == DFEffects.ARC.get()) {
             CompoundTag entityData = event.getEntity().getPersistentData();
             entityData.putBoolean("discharge", false);

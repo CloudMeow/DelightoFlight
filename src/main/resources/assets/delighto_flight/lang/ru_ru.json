@@ -1,0 +1,43 @@
+{
+  "itemGroup.delighto_flight": "Delight'o Flight",
+
+  "item.delighto_flight.cloud_silk": "Облачный шёлк",
+  "item.delighto_flight.phantom_wing": "Крыло фантома",
+  "item.delighto_flight.bird_feed": "Птичий корм",
+  "item.delighto_flight.new_orleans_phantom_wing": "Крыло фантома по-новоорлеански",
+  "item.delighto_flight.cloud_berries": "Морошка",
+  "item.delighto_flight.cheese_cloud_berry_jam": "Сыр с морошковым вареньем",
+  "item.delighto_flight.thunder_fruit_seeds": "Семена громофрукта",
+  "item.delighto_flight.thunder_fruit": "Громофрукт",
+  "item.delighto_flight.magic_chef_hat": "Магический колпак",
+  "item.delighto_flight.ham_salad": "Салат с ветчиной",
+  "item.delighto_flight.thunder_fruit_stew": "Тарелка тушёного громофрукта",
+  "item.delighto_flight.charged_rose_tea": "Заряженный розовый чай",
+  "item.delighto_flight.cloud_berry_steamed_bun": "Морошковая бань бао",
+  "item.delighto_flight.cloud_berry_pancake": "Морошковый блинчик",
+  "item.delighto_flight.copper_thunder_fruit": "Медный громофрукт",
+  "item.delighto_flight.cook_book": "Поваренная книга",
+
+  "block.delighto_flight.cloud": "Блок облака",
+  "block.delighto_flight.cloud_silk_block": "Блок облачного шёлка",
+  "block.delighto_flight.cloud_silk_bed": "Кровать из облачного шёлка",
+  "block.delighto_flight.cloud_berry_bush": "Морошковый куст",
+  "block.delighto_flight.thunder_vine": "Гром-лоза",
+  "block.delighto_flight.cloud_berry_pancake_tower": "Башня морошковых блинчиков",
+  "block.delighto_flight.thunder_fruit_stew_block": "Тушёный громофрукт",
+
+  "effect.delighto_flight.turbulence": "Турбулентность",
+  "effect.delighto_flight.turbulence.description": "Делает летающих существ быстрее.",
+  "effect.delighto_flight.arc": "Искра",
+  "effect.delighto_flight.arc.description": "Шокирует существ рядом с вами.",
+
+  "entity.delighto_flight.electric_current": "Электрический ток",
+
+  "fluid_type.delighto_flight.charged_rose_tea_type": "Заряженный розовый чай",
+
+  "delighto_flight.tooltip.bird_feed.when_feeding": "Если скормить прирученному попугаю:",
+  "delighto_flight.subtitles.electric_current.discharge": "Разряд",
+  "delighto_flight.container.cook_book": "Поваренная книга",
+
+  "death.attack.delighto_flight.shock": "%s пронизан сильным током"
+}
