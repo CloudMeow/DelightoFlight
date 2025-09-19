@@ -32,6 +32,9 @@ import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 public class ServerEvent {
     @SubscribeEvent
     public static void onEffectRemove(MobEffectEvent.Remove event) {
+        if (event.getEffectInstance() == null) {
+            return;
+        }
         if (event.getEffectInstance().getEffect() == DFEffects.ARC) {
             CompoundTag entityData = event.getEntity().getPersistentData();
             entityData.putBoolean("discharge", false);
