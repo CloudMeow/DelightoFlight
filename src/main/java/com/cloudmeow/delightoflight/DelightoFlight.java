@@ -2,6 +2,7 @@ package com.cloudmeow.delightoflight;
 
 import com.cloudmeow.delightoflight.client.ClientSetup;
 import com.cloudmeow.delightoflight.registry.*;
+import com.cloudmeow.delightoflight.utility.DFUtilities;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -36,5 +37,9 @@ public class DelightoFlight
         DFCreativeModeTabs.TABS.register(modEventBus);
         DFLootModifiers.LOOT_MODIFIERS.register(modEventBus);
         DFMenus.MENUS.register(modEventBus);
+
+        if (!DFUtilities.chefDelightLoad()) {
+            DFPoi.POT_POI_TYPE.register(modEventBus);
+        }
     }
 }

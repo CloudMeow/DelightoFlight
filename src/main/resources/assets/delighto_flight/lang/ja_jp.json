@@ -1,0 +1,43 @@
+{
+  "itemGroup.delighto_flight": "Delight'o Flight",
+
+  "item.delighto_flight.cloud_silk": "空絹",
+  "item.delighto_flight.phantom_wing": "ファントムの羽",
+  "item.delighto_flight.bird_feed": "鳥の餌",
+  "item.delighto_flight.new_orleans_phantom_wing": "ニューオーリンズのファントムの羽",
+  "item.delighto_flight.cloud_berries": "クラウドベリー",
+  "item.delighto_flight.cheese_cloud_berry_jam": "クラウドベリージャム添えチーズ",
+  "item.delighto_flight.thunder_fruit_seeds": "サンダーフルーツの種",
+  "item.delighto_flight.thunder_fruit": "サンダーフルーツ",
+  "item.delighto_flight.magic_chef_hat": "魔法のシェフハット",
+  "item.delighto_flight.ham_salad": "ハムとサラダ",
+  "item.delighto_flight.thunder_fruit_stew": "皿に盛りつけられたサンダーフルーツのシチュー",
+  "item.delighto_flight.charged_rose_tea": "雷を帯びたローズティー",
+  "item.delighto_flight.cloud_berry_steamed_bun": "クラウドベリーの蒸しパン",
+  "item.delighto_flight.cloud_berry_pancake": "クラウドベリーのパンケーキ",
+  "item.delighto_flight.copper_thunder_fruit": "銅のサンダーフルーツ",
+  "item.delighto_flight.cook_book": "料理本",
+
+  "block.delighto_flight.cloud": "曇ブロック",
+  "block.delighto_flight.cloud_silk_block": "空絹ブロック",
+  "block.delighto_flight.cloud_silk_bed": "空絹のベッド",
+  "block.delighto_flight.cloud_berry_bush": "クラウドベリーの茂み",
+  "block.delighto_flight.thunder_vine": "雷のツタ",
+  "block.delighto_flight.cloud_berry_pancake_tower": "クラウドベリージャムのパンケーキタワー",
+  "block.delighto_flight.thunder_fruit_stew_block": "サンダーフルーツのシチュー",
+
+  "effect.delighto_flight.turbulence": "乱気流",
+  "effect.delighto_flight.turbulence.description": "飛ぶエンティティを速くする",
+  "effect.delighto_flight.arc": "アーク",
+  "effect.delighto_flight.arc.description": "周囲の生物に電撃を与える",
+
+  "entity.delighto_flight.electric_current": "電流",
+
+  "fluid_type.delighto_flight.charged_rose_tea_type": "雷を帯びたローズティー",
+
+  "delighto_flight.tooltip.bird_feed.when_feeding": "手懐けたオウムに与えると：",
+  "delighto_flight.subtitles.electric_current.discharge": "放電",
+  "delighto_flight.container.cook_book": "料理本",
+
+  "death.attack.delighto_flight.shock": "%s の体に電流が走った！"
+}
