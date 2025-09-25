@@ -1,6 +1,7 @@
 package com.cloudmeow.delightoflight;
 
 import com.cloudmeow.delightoflight.registry.*;
+import com.cloudmeow.delightoflight.utility.DFUtilities;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -29,5 +30,9 @@ public class DelightoFlight
         DFLootModifiers.LOOT_MODIFIERS.register(modEventBus);
         DFDataComponents.DATA_COMPONENTS.register(modEventBus);
         DFMenus.MENUS.register(modEventBus);
+
+        if (!DFUtilities.chefDelightLoad()) {
+            DFPoi.POT_POI_TYPE.register(modEventBus);
+        }
     }
 }

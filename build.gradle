@@ -93,6 +93,7 @@ dependencies {
     runtimeOnly("mezz.jei:jei-${jei_minecraft}-neoforge:${jei_version}")
 
     implementation "curse.maven:farmersdelight-398521:${farmersdelight_version}"
+    implementation "curse.maven:chefs-delight-forge-832983:6393917"
 
     compileOnly "squeek.appleskin:appleskin-neoforge:${appleskin_version}:api"
     runtimeOnly "squeek.appleskin:appleskin-neoforge:${appleskin_version}"
