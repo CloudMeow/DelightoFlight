@@ -28,4 +28,6 @@ public class DFBlocks {
             ()-> new CloudBerryPancakeTowerBlock(Block.Properties.copy(Blocks.WHITE_WOOL)));
     public static final RegistryObject<Block> THUNDER_FRUIT_STEW_BLOCK = BLOCKS.register("thunder_fruit_stew_block",
             ()-> new ThunderFruitStewBlock(BlockBehaviour.Properties.of().strength(0.5F, 6.0F).sound(SoundType.LANTERN)));
+    public static final RegistryObject<Block> STORM_SOIL_FARMLAND = BLOCKS.register("storm_soil_farmland",
+            ()-> new StormSoilFarmlandBlock(Block.Properties.copy(Blocks.FARMLAND)));
 }

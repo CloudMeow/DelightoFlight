@@ -1,0 +1,43 @@
+{
+  "itemGroup.delighto_flight": "Delight'o Flight",
+
+  "item.delighto_flight.cloud_silk": "Seda das Nuvens",
+  "item.delighto_flight.phantom_wing": "Asa Fantasma",
+  "item.delighto_flight.bird_feed": "Alpiste",
+  "item.delighto_flight.new_orleans_phantom_wing": "Asa Fantasma Caipira",
+  "item.delighto_flight.cloud_berries": "Fruta das Nuvens",
+  "item.delighto_flight.cheese_cloud_berry_jam": "Queijo com Geleia de Nuvem",
+  "item.delighto_flight.thunder_fruit_seeds": "Sementes do Trovão",
+  "item.delighto_flight.thunder_fruit": "Fruto do Trovão",
+  "item.delighto_flight.magic_chef_hat": "Chapéu Mágico de Chef",
+  "item.delighto_flight.ham_salad": "Salada de Presunto",
+  "item.delighto_flight.thunder_fruit_stew": "Ensopado Trovejante",
+  "item.delighto_flight.charged_rose_tea": "Chá Rosa Energizado",
+  "item.delighto_flight.cloud_berry_steamed_bun": "Pão de Nuvem",
+  "item.delighto_flight.cloud_berry_pancake": "Panqueca de Nuvem",
+  "item.delighto_flight.copper_thunder_fruit": "Fruto do Trovão Cobreado",
+  "item.delighto_flight.cook_book": "Livro de Receitas",
+
+  "block.delighto_flight.cloud": "Nuvem",
+  "block.delighto_flight.cloud_silk_block": "Bloco de Seda das Nuvens",
+  "block.delighto_flight.cloud_silk_bed": "Cama de Seda das Nuvens",
+  "block.delighto_flight.cloud_berry_bush": "Arbusto de Nuvem",
+  "block.delighto_flight.thunder_vine": "Videira Trovejante",
+  "block.delighto_flight.cloud_berry_pancake_tower": "Panquecas de Nuvem",
+  "block.delighto_flight.thunder_fruit_stew_block": "Ensopado do Trovão",
+
+  "effect.delighto_flight.turbulence": "Turbulência",
+  "effect.delighto_flight.turbulence.description": "Aumenta a velocidade de criaturas voadoras.",
+  "effect.delighto_flight.arc": "Arco Elétrico",
+  "effect.delighto_flight.arc.description": "Eletrocuta criaturas próximas.",
+
+  "entity.delighto_flight.electric_current": "Corrente Elétrica",
+
+  "fluid_type.delighto_flight.charged_rose_tea_type": "Chá Rosa Energizado",
+
+  "delighto_flight.tooltip.bird_feed.when_feeding": "Se usado em um papagaio domesticado:",
+  "delighto_flight.subtitles.electric_current.discharge": "Descarga elétrica",
+  "delighto_flight.container.cook_book": "Livro de Receitas",
+
+  "death.attack.delighto_flight.shock": "%s foi atingido por uma descarga elétrica"
+}

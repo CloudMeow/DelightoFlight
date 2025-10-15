@@ -25,6 +25,7 @@
   "block.delighto_flight.thunder_vine": "雷电藤",
   "block.delighto_flight.cloud_berry_pancake_tower": "云莓酱煎饼塔",
   "block.delighto_flight.thunder_fruit_stew_block": "雷电果炖肉",
+  "block.delighto_flight.storm_soil_farmland": "风暴沃土耕地",
 
   "effect.delighto_flight.turbulence": "湍流",
   "effect.delighto_flight.turbulence.description": "让飞行生物飞更快",
@@ -38,6 +39,12 @@
   "delighto_flight.tooltip.bird_feed.when_feeding": "喂给已驯服的鹦鹉时：",
   "delighto_flight.subtitles.electric_current.discharge": "放电",
   "delighto_flight.container.cook_book": "菜品配方书",
+
+  "delighto_flight.jei.info.thunder_fruit_seed": "被闪电束击中时，若背包内存在瓶子草荚果，会将其转化为雷电果种子。",
+  "delighto_flight.jei.info.copper_thunder_fruit": "喂给苦力怕或村民有惊喜。",
+  "delighto_flight.jei.info.magic_chef_hat": "静静地躺在林地府邸厨房的柜子里。",
+  "delighto_flight.jei.info.cook_book": "与屠夫村民交易获取。",
+  "delighto_flight.jei.info.cloud_berries": "生长在寒冷群系的云栖岛上。",
 
   "death.attack.delighto_flight.shock": "强电流穿过了 %s 的身体"
 }

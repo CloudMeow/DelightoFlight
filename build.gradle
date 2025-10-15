@@ -140,7 +140,7 @@ dependencies {
      fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
 
     runtimeOnly fg.deobf("curse.maven:appleskin-248787:4605078")
-    implementation fg.deobf("curse.maven:farmers-delight-398521:6154802")
+    implementation fg.deobf("curse.maven:farmers-delight-398521:6917255")
     implementation fg.deobf("curse.maven:chefs-delight-forge-832983:4751395")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'

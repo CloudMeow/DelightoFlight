@@ -61,6 +61,8 @@ public class DFItems {
             ()-> new BlockItem(DFBlocks.CLOUD_BERRY_PANCAKE_TOWER.get(), new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> THUNDER_FRUIT_STEW_BLOCK = ITEMS.register("thunder_fruit_stew_block",
             ()-> new BlockItem(DFBlocks.THUNDER_FRUIT_STEW_BLOCK.get(), new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> STORM_SOIL_FARMLAND = ITEMS.register("storm_soil_farmland",
+            ()-> new BlockItem(DFBlocks.STORM_SOIL_FARMLAND.get(), new Item.Properties()));
     public static final RegistryObject<Item> CHARGED_ROSE_TEA = ITEMS.register("charged_rose_tea",
             ()-> new DrinkableItem(drinkItem().food(DFFoodValue.CHARGED_ROSE_TEA), true, false));
     public static final RegistryObject<Item> COOK_BOOK = ITEMS.register("cook_book",

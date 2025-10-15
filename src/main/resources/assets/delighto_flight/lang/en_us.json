@@ -25,6 +25,7 @@
   "block.delighto_flight.thunder_vine": "Thunder Vine",
   "block.delighto_flight.cloud_berry_pancake_tower": "Pancake Tower with Cloud berry Jam",
   "block.delighto_flight.thunder_fruit_stew_block": "Thunder Fruit Stew",
+  "block.delighto_flight.storm_soil_farmland": "Storm Soil Farmland",
 
   "effect.delighto_flight.turbulence": "Turbulence",
   "effect.delighto_flight.turbulence.description": "Make flying entity faster",
@@ -38,6 +39,12 @@
   "delighto_flight.tooltip.bird_feed.when_feeding": "When fed to a tamed Parrot:",
   "delighto_flight.subtitles.electric_current.discharge": "Discharge",
   "delighto_flight.container.cook_book": "Cook Book",
+
+  "delighto_flight.jei.info.thunder_fruit_seed": "When you are struck by lightning, pitcher pod will transform into thunder fruit seeds in inventory.",
+  "delighto_flight.jei.info.copper_thunder_fruit": "Feed to creeper or villager.",
+  "delighto_flight.jei.info.magic_chef_hat": "Hidden in the cabinet of a woodland mansion.",
+  "delighto_flight.jei.info.cook_book": "Trade with butcher villager.",
+  "delighto_flight.jei.info.cloud_berries": "Found on the cloud island.",
 
   "death.attack.delighto_flight.shock": "heavy current flowed through %s's body"
 }
