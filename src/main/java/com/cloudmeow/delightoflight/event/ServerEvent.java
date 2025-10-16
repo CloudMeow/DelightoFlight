@@ -1,9 +1,11 @@
 package com.cloudmeow.delightoflight.event;
 
 import com.cloudmeow.delightoflight.DelightoFlight;
+import com.cloudmeow.delightoflight.registry.DFBlocks;
 import com.cloudmeow.delightoflight.registry.DFEffects;
 import com.cloudmeow.delightoflight.registry.DFItems;
 import com.cloudmeow.delightoflight.utility.DFUtilities;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
@@ -18,15 +20,25 @@ import net.minecraft.world.entity.animal.allay.Allay;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.npc.Villager;
+import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.trading.ItemCost;
+import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.village.VillagerTradesEvent;
+import vectorwing.farmersdelight.common.registry.ModBlocks;
+
+import java.util.List;
 
 @EventBusSubscriber(modid = DelightoFlight.MOD_ID)
 public class ServerEvent {
@@ -127,6 +139,35 @@ public class ServerEvent {
                             serverWorld.addFreshEntity(lightningbolt);
                         }
                         heldStack.shrink(1);
+                    }
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void addCustomTrades(VillagerTradesEvent event) {
+        if (event.getType() == VillagerProfession.BUTCHER) {
+            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+            trades.get(4).add((trader, rand) -> {
+                return new MerchantOffer(new ItemCost(Items.EMERALD, 10), new ItemStack(DFItems.COOK_BOOK.get(), 1), 6, 6, 0.05F);
+            });
+        }
+    }
+
+    @SubscribeEvent
+    public static void onEntityJoinLevel(EntityJoinLevelEvent event) {
+        if (event.getEntity() instanceof LightningBolt bolt && event.getLevel() instanceof ServerLevel level) {
+            BlockPos pos = bolt.blockPosition();
+            int radius = 3;
+            for (int x = -radius; x <= radius; x++) {
+                for (int y = -1; y <= 1; y++) {
+                    for (int z = -radius; z <= radius; z++) {
+                        BlockPos nearbyPos = pos.offset(x, y, z);
+                        BlockState state = level.getBlockState(nearbyPos);
+                        if (state.is(ModBlocks.RICH_SOIL_FARMLAND.get())) {
+                            level.setBlockAndUpdate(nearbyPos, DFBlocks.STORM_SOIL_FARMLAND.get().defaultBlockState());
+                        }
                     }
                 }
             }

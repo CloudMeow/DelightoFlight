@@ -36,6 +36,7 @@ public class DFCreativeModeTabs {
                 output.accept(DFItems.CLOUD.get());
                 output.accept(DFItems.CLOUD_SILK_BLOCK.get());
                 output.accept(DFItems.CLOUD_SILK_BED.get());
+                output.accept(DFItems.STORM_SOIL_FARMLAND.get());
             })
             .build());
 }
