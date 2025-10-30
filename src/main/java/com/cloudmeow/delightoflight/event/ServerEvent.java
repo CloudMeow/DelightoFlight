@@ -166,7 +166,10 @@ public class ServerEvent {
                         BlockPos nearbyPos = pos.offset(x, y, z);
                         BlockState state = level.getBlockState(nearbyPos);
                         if (state.is(ModBlocks.RICH_SOIL_FARMLAND.get())) {
-                            level.setBlockAndUpdate(nearbyPos, DFBlocks.STORM_SOIL_FARMLAND.get().defaultBlockState());
+                            level.setBlockAndUpdate(nearbyPos, DFBlocks.WEATHER_SOIL_FARMLAND.get().defaultBlockState());
+                        }
+                        if (state.is(ModBlocks.RICH_SOIL.get())) {
+                            level.setBlockAndUpdate(nearbyPos, DFBlocks.WEATHER_SOIL.get().defaultBlockState());
                         }
                     }
                 }

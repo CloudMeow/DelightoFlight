@@ -52,6 +52,12 @@ public class DFItems {
             ()-> new ConsumableItem(bowlFoodItem(DFFoodValue.HAM_SALAD), true));
     public static final Supplier<Item> THUNDER_FRUIT_STEW = ITEMS.register("thunder_fruit_stew",
             ()-> new ConsumableItem(bowlFoodItem(DFFoodValue.THUNDER_FRUIT_STEW), true));
+    public static final Supplier<Item> RAIN_STEW = ITEMS.register("rain_stew",
+            ()-> new ConsumableItem(bowlFoodItem(DFFoodValue.RAIN_STEW), true));
+    public static final Supplier<Item> MUSHROOM_HOTPOT = ITEMS.register("mushroom_hotpot",
+            ()-> new ConsumableItem(bowlFoodItem(DFFoodValue.MUSHROOM_HOTPOT), true));
+    public static final Supplier<Item> CLOUD_BREAD = ITEMS.register("cloud_bread",
+            ()-> new ConsumableItem(new Item.Properties().food(DFFoodValue.CLOUD_BREAD), true));
     public static final Supplier<Item> CLOUD = ITEMS.register("cloud",
             ()-> new BlockItem(DFBlocks.CLOUD.get(), new Item.Properties()));
     public static final Supplier<Item> CLOUD_SILK_BLOCK = ITEMS.register("cloud_silk_block",
@@ -62,10 +68,24 @@ public class DFItems {
             ()-> new BlockItem(DFBlocks.CLOUD_BERRY_PANCAKE_TOWER.get(), new Item.Properties().stacksTo(1)));
     public static final Supplier<Item> THUNDER_FRUIT_STEW_BLOCK = ITEMS.register("thunder_fruit_stew_block",
             ()-> new BlockItem(DFBlocks.THUNDER_FRUIT_STEW_BLOCK.get(), new Item.Properties().stacksTo(1)));
-    public static final Supplier<Item> STORM_SOIL_FARMLAND = ITEMS.register("storm_soil_farmland",
-            ()-> new BlockItem(DFBlocks.STORM_SOIL_FARMLAND.get(), new Item.Properties()));
+    public static final Supplier<Item> MUSHROOM_HOTPOT_BLOCK = ITEMS.register("mushroom_hotpot_block",
+            ()-> new BlockItem(DFBlocks.MUSHROOM_HOTPOT_BLOCK.get(), new Item.Properties().stacksTo(1)));
+    public static final Supplier<Item> WEATHER_SOIL_FARMLAND = ITEMS.register("weather_soil_farmland",
+            ()-> new BlockItem(DFBlocks.WEATHER_SOIL_FARMLAND.get(), new Item.Properties()));
+    public static final Supplier<Item> WEATHER_SOIL = ITEMS.register("weather_soil",
+            ()-> new BlockItem(DFBlocks.WEATHER_SOIL.get(), new Item.Properties()));
+    public static final Supplier<Item> CLEAR_CLOUDSHROOM = ITEMS.register("clear_cloudshroom",
+            ()-> new BlockItem(DFBlocks.CLEAR_CLOUDSHROOM.get(), new Item.Properties()));
+    public static final Supplier<Item> RAINY_CLOUDSHROOM = ITEMS.register("rainy_cloudshroom",
+            ()-> new BlockItem(DFBlocks.RAINY_CLOUDSHROOM.get(), new Item.Properties()));
+    public static final Supplier<Item> THUNDER_CLOUDSHROOM = ITEMS.register("thunder_cloudshroom",
+            ()-> new BlockItem(DFBlocks.THUNDER_CLOUDSHROOM.get(), new Item.Properties()));
+    public static final Supplier<Item> CLOUDSHROOM_COLONY = ITEMS.register("cloudshroom_colony",
+            ()-> new BlockItem(DFBlocks.CLOUDSHROOM_COLONY.get(), new Item.Properties()));
     public static final Supplier<Item> CHARGED_ROSE_TEA = ITEMS.register("charged_rose_tea",
             ()-> new DrinkableItem(drinkItem().food(DFFoodValue.CHARGED_ROSE_TEA), true, false));
+    public static final Supplier<Item> SPARKTRICITY_SODA = ITEMS.register("sparktricity_soda",
+            ()-> new DrinkableItem(drinkItem().food(DFFoodValue.SPARKTRICITY_SODA), true, false));
     public static final Supplier<Item> COOK_BOOK = ITEMS.register("cook_book",
             ()-> new CookBook(new Item.Properties().stacksTo(1)));
 }

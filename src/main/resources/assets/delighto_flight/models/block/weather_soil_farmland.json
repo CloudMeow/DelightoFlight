@@ -1,7 +1,7 @@
 {
   "parent": "farmersdelight:block/template_farmland_custom",
   "textures": {
-    "top": "delighto_flight:block/storm_soil_farmland",
+    "top": "delighto_flight:block/weather_soil_farmland",
     "bottom": "farmersdelight:block/rich_soil",
     "side": "farmersdelight:block/rich_soil_farmland_moist_side"
   }

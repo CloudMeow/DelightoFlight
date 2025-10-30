@@ -3,6 +3,7 @@ package com.cloudmeow.delightoflight.registry;
 import com.cloudmeow.delightoflight.DelightoFlight;
 import com.cloudmeow.delightoflight.effect.ArcEffect;
 import com.cloudmeow.delightoflight.effect.TurbulenceEffect;
+import com.cloudmeow.delightoflight.effect.WeatherSensingEffect;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffect;
@@ -13,4 +14,5 @@ public class DFEffects {
 
     public static final Holder<MobEffect> TURBULENCE = EFFECTS.register("turbulence", TurbulenceEffect::new);
     public static final Holder<MobEffect> ARC = EFFECTS.register("arc", ArcEffect::new);
+    public static final Holder<MobEffect> WEATHER_SENSING = EFFECTS.register("weather_sensing", WeatherSensingEffect::new);
 }

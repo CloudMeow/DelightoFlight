@@ -1,0 +1,40 @@
+{
+  "variants": {
+    "age=0,weather=0": {
+      "model": "delighto_flight:block/cloudshroom_colony_stage0"
+    },
+    "age=0,weather=1": {
+      "model": "delighto_flight:block/cloudshroom_colony_stage0a"
+    },
+    "age=0,weather=2": {
+      "model": "delighto_flight:block/cloudshroom_colony_stage0b"
+    },
+    "age=1,weather=0": {
+      "model": "delighto_flight:block/cloudshroom_colony_stage1"
+    },
+    "age=1,weather=1": {
+      "model": "delighto_flight:block/cloudshroom_colony_stage1a"
+    },
+    "age=1,weather=2": {
+      "model": "delighto_flight:block/cloudshroom_colony_stage1b"
+    },
+    "age=2,weather=0": {
+      "model": "delighto_flight:block/cloudshroom_colony_stage2"
+    },
+    "age=2,weather=1": {
+      "model": "delighto_flight:block/cloudshroom_colony_stage2a"
+    },
+    "age=2,weather=2": {
+      "model": "delighto_flight:block/cloudshroom_colony_stage2b"
+    },
+    "age=3,weather=0": {
+      "model": "delighto_flight:block/cloudshroom_colony_stage3"
+    },
+    "age=3,weather=1": {
+      "model": "delighto_flight:block/cloudshroom_colony_stage3a"
+    },
+    "age=3,weather=2": {
+      "model": "delighto_flight:block/cloudshroom_colony_stage3b"
+    }
+  }
+}

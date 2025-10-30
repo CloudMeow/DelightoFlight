@@ -5,11 +5,18 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.level.block.Block;
 
 public class DFTags {
     public static final TagKey<EntityType<?>> BIRD_FEED_USERS = modEntityTag("bird_feed_users");
 
+    public static final TagKey<Block> MUSHROOM = modBlockTag("mushroom");
+
     private static TagKey<EntityType<?>> modEntityTag(String path) {
         return TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(DelightoFlight.MOD_ID, path));
+    }
+
+    private static TagKey<Block> modBlockTag(String path) {
+        return TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DelightoFlight.MOD_ID, path));
     }
 }

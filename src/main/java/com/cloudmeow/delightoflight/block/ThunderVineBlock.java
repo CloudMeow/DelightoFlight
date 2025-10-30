@@ -54,7 +54,7 @@ public class ThunderVineBlock extends CropBlock {
     public void randomTick(BlockState blockState, ServerLevel level, BlockPos blockPos, RandomSource source) {
         BlockPos pos = blockPos.below();
         BlockState state = level.getBlockState(pos);
-        if (!state.is(DFBlocks.STORM_SOIL_FARMLAND.get()) && !level.isThundering()) return;
+        if (!state.is(DFBlocks.WEATHER_SOIL_FARMLAND.get()) && !level.isThundering()) return;
         int i = blockState.getValue(AGE);
         if(i < 3 && CommonHooks.canCropGrow(level, blockPos, blockState, source.nextInt(4) == 0)) {
             BlockState blockstate = blockState.setValue(AGE, Integer.valueOf(i + 1));

@@ -18,6 +18,12 @@ public class DFBlocks {
             ()-> new CloudBlock(Block.Properties.ofFullCopy(Blocks.ORANGE_WOOL).strength(0.2f).sound(SoundType.WOOL).noOcclusion()));
     public static final Supplier<Block> CLOUD_SILK_BLOCK = BLOCKS.register("cloud_silk_block",
             ()-> new Block(Block.Properties.ofFullCopy(Blocks.ORANGE_WOOL).strength(0.2f).sound(SoundType.WOOL)));
+    public static final Supplier<Block> CLEAR_CLOUDSHROOM = BLOCKS.register("clear_cloudshroom",
+            ()-> new Block(Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM)));
+    public static final Supplier<Block> RAINY_CLOUDSHROOM = BLOCKS.register("rainy_cloudshroom",
+            ()-> new Block(Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM)));
+    public static final Supplier<Block> THUNDER_CLOUDSHROOM = BLOCKS.register("thunder_cloudshroom",
+            ()-> new Block(Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM)));
     public static final Supplier<Block> CLOUD_SILK_BED = BLOCKS.register("cloud_silk_bed", () -> {
         return new CloudSilkBedBlock(Block.Properties.ofFullCopy(Blocks.BLUE_BED));
     });
@@ -29,6 +35,12 @@ public class DFBlocks {
             ()-> new CloudBerryPancakeTowerBlock(Block.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
     public static final Supplier<Block> THUNDER_FRUIT_STEW_BLOCK = BLOCKS.register("thunder_fruit_stew_block",
             ()-> new ThunderFruitStewBlock(BlockBehaviour.Properties.of().strength(0.5F, 6.0F).sound(SoundType.LANTERN)));
-    public static final Supplier<Block> STORM_SOIL_FARMLAND = BLOCKS.register("storm_soil_farmland",
-            ()-> new StormSoilFarmlandBlock(Block.Properties.ofFullCopy(Blocks.FARMLAND)));
+    public static final Supplier<Block> MUSHROOM_HOTPOT_BLOCK = BLOCKS.register("mushroom_hotpot_block",
+            ()-> new MushroomHotpotBlock(BlockBehaviour.Properties.of().strength(0.5F, 3.0F).sound(SoundType.COPPER)));
+    public static final Supplier<Block> WEATHER_SOIL_FARMLAND = BLOCKS.register("weather_soil_farmland",
+            ()-> new WeatherSoilFarmlandBlock(Block.Properties.ofFullCopy(Blocks.FARMLAND)));
+    public static final Supplier<Block> WEATHER_SOIL = BLOCKS.register("weather_soil",
+            ()-> new WeatherSoilBlock(Block.Properties.ofFullCopy(Blocks.FARMLAND)));
+    public static final Supplier<Block> CLOUDSHROOM_COLONY = BLOCKS.register("cloudshroom_colony",
+            ()-> new CloudshroomColonyBlock(Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM)));
 }

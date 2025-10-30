@@ -30,7 +30,28 @@ public class DFFoodValue {
             .nutrition(13).saturationModifier(0.8f)
             .effect(() -> new MobEffectInstance(ModEffects.COMFORT, 6000, 0), 1.0F)
             .effect(() -> new MobEffectInstance(DFEffects.ARC, 1200, 0), 1.0F).build();
+    public static final FoodProperties RAIN_STEW = (new FoodProperties.Builder())
+            .nutrition(9).saturationModifier(0.8f)
+            .effect(() -> new MobEffectInstance(ModEffects.COMFORT, 6000, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.WATER_BREATHING, 3600, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(DFEffects.WEATHER_SENSING, 1200, 0), 1.0F).build();
+    public static final FoodProperties MUSHROOM_HOTPOT = (new FoodProperties.Builder())
+            .nutrition(10).saturationModifier(1.1f)
+            .effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 100, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.LEVITATION, 100, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.WATER_BREATHING, 1200, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(ModEffects.COMFORT, 6000, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(DFEffects.ARC, 600, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(DFEffects.WEATHER_SENSING, 3600, 0), 1.0F).build();
+    public static final FoodProperties CLOUD_BREAD = (new FoodProperties.Builder())
+            .nutrition(5).saturationModifier(0.7f)
+            .effect(() -> new MobEffectInstance(MobEffects.LEVITATION, 200, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(DFEffects.WEATHER_SENSING, 600, 0), 1.0F).build();
 
     public static final FoodProperties CHARGED_ROSE_TEA = (new FoodProperties.Builder())
             .alwaysEdible().effect(() -> new MobEffectInstance(DFEffects.ARC, 600, 1), 1.0F).build();
+    public static final FoodProperties SPARKTRICITY_SODA = (new FoodProperties.Builder())
+            .alwaysEdible()
+            .effect(() -> new MobEffectInstance(DFEffects.ARC, 200, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(DFEffects.WEATHER_SENSING, 600, 0), 1.0F).build();
 }

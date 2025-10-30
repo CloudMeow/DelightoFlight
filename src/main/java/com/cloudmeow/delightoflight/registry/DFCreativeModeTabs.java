@@ -20,10 +20,15 @@ public class DFCreativeModeTabs {
                 output.accept(DFItems.PHANTOM_WING.get());
                 output.accept(DFItems.MAGIC_CHEF_HAT.get());
                 output.accept(DFItems.BIRD_FEED.get());
+                output.accept(DFItems.CLEAR_CLOUDSHROOM.get());
+                output.accept(DFItems.RAINY_CLOUDSHROOM.get());
+                output.accept(DFItems.THUNDER_CLOUDSHROOM.get());
+                output.accept(DFItems.CLOUDSHROOM_COLONY.get());
                 output.accept(DFItems.THUNDER_FRUIT_SEED.get());
                 output.accept(DFItems.COPPER_THUNDER_FRUIT.get());
                 output.accept(DFItems.THUNDER_FRUIT.get());
                 output.accept(DFItems.CLOUD_BERRY.get());
+                output.accept(DFItems.CLOUD_BREAD.get());
                 output.accept(DFItems.CLOUD_BERRY_STEAMED_BUN.get());
                 output.accept(DFItems.CLOUD_BERRY_PANCAKE_TOWER.get());
                 output.accept(DFItems.CLOUD_BERRY_PANCAKE.get());
@@ -32,11 +37,16 @@ public class DFCreativeModeTabs {
                 output.accept(DFItems.HAM_SALAD.get());
                 output.accept(DFItems.THUNDER_FRUIT_STEW_BLOCK.get());
                 output.accept(DFItems.THUNDER_FRUIT_STEW.get());
+                output.accept(DFItems.RAIN_STEW.get());
+                output.accept(DFItems.MUSHROOM_HOTPOT_BLOCK.get());
+                output.accept(DFItems.MUSHROOM_HOTPOT.get());
                 output.accept(DFItems.CHARGED_ROSE_TEA.get());
+                output.accept(DFItems.SPARKTRICITY_SODA.get());
                 output.accept(DFItems.CLOUD.get());
                 output.accept(DFItems.CLOUD_SILK_BLOCK.get());
                 output.accept(DFItems.CLOUD_SILK_BED.get());
-                output.accept(DFItems.STORM_SOIL_FARMLAND.get());
+                output.accept(DFItems.WEATHER_SOIL.get());
+                output.accept(DFItems.WEATHER_SOIL_FARMLAND.get());
             })
             .build());
 }
