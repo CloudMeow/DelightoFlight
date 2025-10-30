@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "delighto_flight:cloud"
+    },
+    "X": {
+      "item": "delighto_flight:clear_cloudshroom"
+    },
+    "M": {
+      "tag": "forge:milk"
+    }
+  },
+  "pattern": [
+    " # ",
+    " X ",
+	" M "
+  ],
+  "result": {
+    "item": "delighto_flight:cloud_bread"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "itemGroup.delighto_flight": "Delight'o Flight",
+  "itemGroup.delighto_flight": "Delight o' Flight",
 
   "item.delighto_flight.cloud_silk": "Cloud Silk",
   "item.delighto_flight.phantom_wing": "Phantom Wing",
@@ -17,6 +17,10 @@
   "item.delighto_flight.cloud_berry_pancake": "Cloud Berry Pancake",
   "item.delighto_flight.copper_thunder_fruit": "Copper Thunder Fruit",
   "item.delighto_flight.cook_book": "Cook Book",
+  "item.delighto_flight.cloud_bread": "Cloud Bread",
+  "item.delighto_flight.sparktricity_soda": "Sparktricity Soda",
+  "item.delighto_flight.rain_stew": "Rain Stew",
+  "item.delighto_flight.mushroom_hotpot": "Bowl of Mushroom Hotpot",
 
   "block.delighto_flight.cloud": "Cloud Block",
   "block.delighto_flight.cloud_silk_block": "Cloud Silk Block",
@@ -25,12 +29,20 @@
   "block.delighto_flight.thunder_vine": "Thunder Vine",
   "block.delighto_flight.cloud_berry_pancake_tower": "Pancake Tower with Cloud berry Jam",
   "block.delighto_flight.thunder_fruit_stew_block": "Thunder Fruit Stew",
-  "block.delighto_flight.storm_soil_farmland": "Storm Soil Farmland",
+  "block.delighto_flight.mushroom_hotpot_block": "Mushroom Hotpot",
+  "block.delighto_flight.weather_soil": "Weather Soil",
+  "block.delighto_flight.weather_soil_farmland": "Weather Soil Farmland",
+  "block.delighto_flight.cloudshroom_colony": "Cloudshroom Colony",
+  "block.delighto_flight.clear_cloudshroom": "Clear Cloudshroom",
+  "block.delighto_flight.rainy_cloudshroom": "Rainy Cloudshroom",
+  "block.delighto_flight.thunder_cloudshroom": "Thunder Cloudshroom",
 
   "effect.delighto_flight.turbulence": "Turbulence",
   "effect.delighto_flight.turbulence.description": "Make flying entity faster",
   "effect.delighto_flight.arc": "Arc",
   "effect.delighto_flight.arc.description": "Shock nearby creatures",
+  "effect.delighto_flight.weather_sensing": "Weather Sensing",
+  "effect.delighto_flight.weather_sensing.description": "Get different effects depending on the weather",
 
   "entity.delighto_flight.electric_current": "Electric Current",
 

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "farmersdelight:rich_soil"
+    },
+    {
+      "item": "delighto_flight:cloud"
+    }
+  ],
+  "result": {
+    "item": "delighto_flight:weather_soil"
+  },
+  "show_notification": false
+}

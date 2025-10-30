@@ -52,7 +52,7 @@ public class ThunderVineBlock extends CropBlock {
 
     @Override
     public void randomTick(BlockState blockState, ServerLevel level, BlockPos blockPos, RandomSource source) {
-        if (!blockState.is(DFBlocks.STORM_SOIL_FARMLAND.get()) && !level.isThundering()) return;
+        if (!blockState.is(DFBlocks.WEATHER_SOIL_FARMLAND.get()) && !level.isThundering()) return;
         int i = blockState.getValue(AGE);
         if(i < 3 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(level, blockPos, blockState, source.nextInt(4) == 0)) {
             BlockState blockstate = blockState.setValue(AGE, Integer.valueOf(i + 1));

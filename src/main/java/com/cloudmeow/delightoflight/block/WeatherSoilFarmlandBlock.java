@@ -16,8 +16,8 @@ import vectorwing.farmersdelight.common.registry.ModBlocks;
 import vectorwing.farmersdelight.common.tag.ModTags;
 import vectorwing.farmersdelight.common.utility.MathUtils;
 
-public class StormSoilFarmlandBlock extends RichSoilFarmlandBlock {
-    public StormSoilFarmlandBlock(Properties properties) {
+public class WeatherSoilFarmlandBlock extends RichSoilFarmlandBlock {
+    public WeatherSoilFarmlandBlock(Properties properties) {
         super(properties);
     }
 

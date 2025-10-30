@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "delighto_flight:clear_cloudshroom"
+    },
+	"R": {
+      "item": "delighto_flight:rainy_cloudshroom"
+    },
+	"T": {
+      "item": "delighto_flight:thunder_cloudshroom"
+    },
+    "X": {
+      "item": "minecraft:copper_ingot"
+    },
+	"S": {
+      "item": "farmersdelight:bone_broth"
+    },
+	"F": {
+      "item": "minecraft:campfire"
+    }
+  },
+  "pattern": [
+    "CRT",
+    "XSX",
+	"XFX"
+  ],
+  "result": {
+    "item": "delighto_flight:mushroom_hotpot_block"
+  },
+  "show_notification": true
+}

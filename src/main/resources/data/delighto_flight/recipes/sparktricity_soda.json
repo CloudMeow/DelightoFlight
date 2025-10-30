@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:ice"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+	{
+      "item": "delighto_flight:thunder_cloudshroom"
+    },
+	{
+      "item": "minecraft:potion"
+    }
+  ],
+  "result": {
+    "item": "delighto_flight:sparktricity_soda"
+  },
+  "show_notification": false
+}

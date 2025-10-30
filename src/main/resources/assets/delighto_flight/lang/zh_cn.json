@@ -17,6 +17,10 @@
   "item.delighto_flight.cloud_berry_pancake": "云莓酱煎饼",
   "item.delighto_flight.copper_thunder_fruit": "铜雷果",
   "item.delighto_flight.cook_book": "菜品配方书",
+  "item.delighto_flight.cloud_bread": "云朵面包",
+  "item.delighto_flight.sparktricity_soda": "电火花气泡水",
+  "item.delighto_flight.rain_stew": "雨水煲",
+  "item.delighto_flight.mushroom_hotpot": "碗装菌汤火锅",
 
   "block.delighto_flight.cloud": "云块",
   "block.delighto_flight.cloud_silk_block": "云绸块",
@@ -25,12 +29,20 @@
   "block.delighto_flight.thunder_vine": "雷电藤",
   "block.delighto_flight.cloud_berry_pancake_tower": "云莓酱煎饼塔",
   "block.delighto_flight.thunder_fruit_stew_block": "雷电果炖肉",
-  "block.delighto_flight.storm_soil_farmland": "风暴沃土耕地",
+  "block.delighto_flight.mushroom_hotpot_block": "菌汤火锅",
+  "block.delighto_flight.weather_soil": "气象沃土",
+  "block.delighto_flight.weather_soil_farmland": "气象沃土耕地",
+  "block.delighto_flight.cloudshroom_colony": "云蘑菇菌落",
+  "block.delighto_flight.clear_cloudshroom": "白云蘑菇",
+  "block.delighto_flight.rainy_cloudshroom": "雨云蘑菇",
+  "block.delighto_flight.thunder_cloudshroom": "雷云蘑菇",
 
   "effect.delighto_flight.turbulence": "湍流",
   "effect.delighto_flight.turbulence.description": "让飞行生物飞更快",
   "effect.delighto_flight.arc": "电弧",
   "effect.delighto_flight.arc.description": "电击周围的生物",
+  "effect.delighto_flight.weather_sensing": "天气感知",
+  "effect.delighto_flight.weather_sensing.description": "根据不同天气获得不同效果",
 
   "entity.delighto_flight.electric_current": "电流",
 
