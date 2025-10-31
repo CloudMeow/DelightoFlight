@@ -17,6 +17,10 @@
   "item.delighto_flight.cloud_berry_pancake": "Морошковый блинчик",
   "item.delighto_flight.copper_thunder_fruit": "Медный громофрукт",
   "item.delighto_flight.cook_book": "Поваренная книга",
+  "item.delighto_flight.cloud_bread": "Облачный хлеб",
+  "item.delighto_flight.sparktricity_soda": "Искроэлектрическая сода",
+  "item.delighto_flight.rain_stew": "Дождевое рагу",
+  "item.delighto_flight.mushroom_hotpot": "Тарелка грибного хого",
 
   "block.delighto_flight.cloud": "Блок облака",
   "block.delighto_flight.cloud_silk_block": "Блок облачного шёлка",
@@ -25,11 +29,20 @@
   "block.delighto_flight.thunder_vine": "Гром-лоза",
   "block.delighto_flight.cloud_berry_pancake_tower": "Башня морошковых блинчиков",
   "block.delighto_flight.thunder_fruit_stew_block": "Тушёный громофрукт",
+  "block.delighto_flight.mushroom_hotpot_block": "Грибное хого",
+  "block.delighto_flight.weather_soil": "Погодная почва",
+  "block.delighto_flight.weather_soil_farmland": "Погодная пашня",
+  "block.delighto_flight.cloudshroom_colony": "Колония облачников",
+  "block.delighto_flight.clear_cloudshroom": "Ясный облачник",
+  "block.delighto_flight.rainy_cloudshroom": "Дождливый облачник",
+  "block.delighto_flight.thunder_cloudshroom": "Громовой облачник",
 
   "effect.delighto_flight.turbulence": "Турбулентность",
   "effect.delighto_flight.turbulence.description": "Делает летающих существ быстрее.",
   "effect.delighto_flight.arc": "Искра",
   "effect.delighto_flight.arc.description": "Шокирует существ рядом с вами.",
+  "effect.delighto_flight.weather_sensing": "Метеозависимость",
+  "effect.delighto_flight.weather_sensing.description": "Даёт различные эффекты в зависимости от погоды.",
 
   "entity.delighto_flight.electric_current": "Электрический ток",
 
@@ -38,6 +51,12 @@
   "delighto_flight.tooltip.bird_feed.when_feeding": "Если скормить прирученному попугаю:",
   "delighto_flight.subtitles.electric_current.discharge": "Разряд",
   "delighto_flight.container.cook_book": "Поваренная книга",
+
+  "delighto_flight.jei.info.thunder_fruit_seed": "Когда в вас ударит молния, стручок кувшинницы в инвентаре превратится в семена громофрукта.",
+  "delighto_flight.jei.info.copper_thunder_fruit": "Накормите этим крипера или жителя.",
+  "delighto_flight.jei.info.magic_chef_hat": "Спрятан в шкафу лесного особняка.",
+  "delighto_flight.jei.info.cook_book": "Продаётся у мясника.",
+  "delighto_flight.jei.info.cloud_berries": "Найдите на облачном острове.",
 
   "death.attack.delighto_flight.shock": "%s пронизан сильным током"
 }
