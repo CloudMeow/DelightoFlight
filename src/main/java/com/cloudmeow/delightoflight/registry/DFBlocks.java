@@ -18,11 +18,11 @@ public class DFBlocks {
     public static final RegistryObject<Block> CLOUD_SILK_BLOCK = BLOCKS.register("cloud_silk_block",
             ()-> new Block(Block.Properties.copy(Blocks.ORANGE_WOOL).strength(0.2f).sound(SoundType.WOOL)));
     public static final RegistryObject<Block> CLEAR_CLOUDSHROOM = BLOCKS.register("clear_cloudshroom",
-            ()-> new Block(Block.Properties.copy(Blocks.BROWN_MUSHROOM)));
+            ()-> new CloudshroomBlock(Block.Properties.copy(Blocks.BROWN_MUSHROOM)));
     public static final RegistryObject<Block> RAINY_CLOUDSHROOM = BLOCKS.register("rainy_cloudshroom",
-            ()-> new Block(Block.Properties.copy(Blocks.BROWN_MUSHROOM)));
+            ()-> new CloudshroomBlock(Block.Properties.copy(Blocks.BROWN_MUSHROOM)));
     public static final RegistryObject<Block> THUNDER_CLOUDSHROOM = BLOCKS.register("thunder_cloudshroom",
-            ()-> new Block(Block.Properties.copy(Blocks.BROWN_MUSHROOM)));
+            ()-> new CloudshroomBlock(Block.Properties.copy(Blocks.BROWN_MUSHROOM)));
     public static final RegistryObject<Block> CLOUD_SILK_BED = BLOCKS.register("cloud_silk_bed", () -> {
         return new CloudSilkBedBlock(Block.Properties.copy(Blocks.BLUE_BED));
     });

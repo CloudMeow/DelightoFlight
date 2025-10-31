@@ -30,16 +30,18 @@ public class CloudshroomColonyBlock extends MushroomColonyBlock implements Entit
 
     public CloudshroomColonyBlock(Properties properties) {
         super(properties, Items.BROWN_MUSHROOM.builtInRegistryHolder());
+        this.registerDefaultState((this.stateDefinition.any()).setValue(COLONY_AGE, 0).setValue(WEATHER_AGE, 0));
     }
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        int age = (Integer)state.getValue(COLONY_AGE);
+        int age = state.getValue(COLONY_AGE);
+        int weather = state.getValue(WEATHER_AGE);
         ItemStack heldStack = player.getItemInHand(hand);
         if (age > 0 && heldStack.is(Tags.Items.SHEARS)) {
-            popResource(level, pos, new ItemStack((level.isThundering() ? DFItems.THUNDER_CLOUDSHROOM.get() : level.isRaining() ? DFItems.RAINY_CLOUDSHROOM.get() : DFItems.CLEAR_CLOUDSHROOM.get()), 1));
-            level.playSound((Player)null, pos, SoundEvents.MOOSHROOM_SHEAR, SoundSource.BLOCKS, 1.0F, 1.0F);
-            level.setBlock(pos, (BlockState)state.setValue(COLONY_AGE, age - 1), 2);
+            popResource(level, pos, new ItemStack((weather == 2 ? DFItems.THUNDER_CLOUDSHROOM.get() : weather == 1 ? DFItems.RAINY_CLOUDSHROOM.get() : DFItems.CLEAR_CLOUDSHROOM.get()), 1));
+            level.playSound(null, pos, SoundEvents.MOOSHROOM_SHEAR, SoundSource.BLOCKS, 1.0F, 1.0F);
+            level.setBlock(pos, state.setValue(COLONY_AGE, age - 1), 2);
             if (!level.isClientSide) {
                 heldStack.hurtAndBreak(1, player, (playerIn) -> {
                     playerIn.broadcastBreakEvent(hand);
@@ -79,11 +81,11 @@ public class CloudshroomColonyBlock extends MushroomColonyBlock implements Entit
 
     public void tick(BlockState state, Level level, BlockPos pos) {
         if (level.isThundering()) {
-            level.setBlock(pos, (BlockState)state.setValue(WEATHER_AGE, 2), 2);
+            level.setBlock(pos, state.setValue(WEATHER_AGE, 2), 2);
         } else if (level.isRaining()) {
-            level.setBlock(pos, (BlockState)state.setValue(WEATHER_AGE, 1), 2);
+            level.setBlock(pos, state.setValue(WEATHER_AGE, 1), 2);
         } else {
-            level.setBlock(pos, (BlockState)state.setValue(WEATHER_AGE, 0), 2);
+            level.setBlock(pos, state.setValue(WEATHER_AGE, 0), 2);
         }
     }
 }
