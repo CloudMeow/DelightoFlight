@@ -19,11 +19,11 @@ public class DFBlocks {
     public static final Supplier<Block> CLOUD_SILK_BLOCK = BLOCKS.register("cloud_silk_block",
             ()-> new Block(Block.Properties.ofFullCopy(Blocks.ORANGE_WOOL).strength(0.2f).sound(SoundType.WOOL)));
     public static final Supplier<Block> CLEAR_CLOUDSHROOM = BLOCKS.register("clear_cloudshroom",
-            ()-> new Block(Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM)));
+            ()-> new CloudshroomBlock(Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM)));
     public static final Supplier<Block> RAINY_CLOUDSHROOM = BLOCKS.register("rainy_cloudshroom",
-            ()-> new Block(Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM)));
+            ()-> new CloudshroomBlock(Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM)));
     public static final Supplier<Block> THUNDER_CLOUDSHROOM = BLOCKS.register("thunder_cloudshroom",
-            ()-> new Block(Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM)));
+            ()-> new CloudshroomBlock(Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM)));
     public static final Supplier<Block> CLOUD_SILK_BED = BLOCKS.register("cloud_silk_bed", () -> {
         return new CloudSilkBedBlock(Block.Properties.ofFullCopy(Blocks.BLUE_BED));
     });

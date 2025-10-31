@@ -3,10 +3,8 @@ package com.cloudmeow.delightoflight.block;
 import com.cloudmeow.delightoflight.block.entity.CloudshroomColonyBlockEntity;
 import com.cloudmeow.delightoflight.registry.DFItems;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.LivingEntity;
@@ -33,17 +31,17 @@ public class CloudshroomColonyBlock extends MushroomColonyBlock implements Entit
     
     public CloudshroomColonyBlock(Properties properties) {
         super(Items.BROWN_MUSHROOM.builtInRegistryHolder(), properties);
-        this.registerDefaultState((BlockState)((BlockState)this.stateDefinition.any()).setValue(COLONY_AGE, 0).setValue(WEATHER_AGE, 0));
+        this.registerDefaultState((this.stateDefinition.any()).setValue(COLONY_AGE, 0).setValue(WEATHER_AGE, 0));
     }
 
     @Override
     public ItemInteractionResult useItemOn(ItemStack heldStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        int age = (Integer)state.getValue(COLONY_AGE);
-        int weather = (Integer)state.getValue(WEATHER_AGE);
+        int age = state.getValue(COLONY_AGE);
+        int weather = state.getValue(WEATHER_AGE);
         if (age > 0 && heldStack.is(Tags.Items.TOOLS_SHEAR)) {
             popResource(level, pos, new ItemStack(weather == 2 ? DFItems.THUNDER_CLOUDSHROOM.get() : weather == 1 ? DFItems.RAINY_CLOUDSHROOM.get() : DFItems.CLEAR_CLOUDSHROOM.get()));
-            level.playSound((Player)null, pos, SoundEvents.MOOSHROOM_SHEAR, SoundSource.BLOCKS, 1.0F, 1.0F);
-            level.setBlock(pos, (BlockState)state.setValue(COLONY_AGE, age - 1), 2);
+            level.playSound(null, pos, SoundEvents.MOOSHROOM_SHEAR, SoundSource.BLOCKS, 1.0F, 1.0F);
+            level.setBlock(pos, state.setValue(COLONY_AGE, age - 1), 2);
             if (!level.isClientSide) {
                 heldStack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
             }
@@ -81,11 +79,11 @@ public class CloudshroomColonyBlock extends MushroomColonyBlock implements Entit
 
     public void tick(BlockState state, Level level, BlockPos pos) {
         if (level.isThundering()) {
-            level.setBlock(pos, (BlockState)state.setValue(WEATHER_AGE, 2), 2);
+            level.setBlock(pos, state.setValue(WEATHER_AGE, 2), 2);
         } else if (level.isRaining()) {
-            level.setBlock(pos, (BlockState)state.setValue(WEATHER_AGE, 1), 2);
+            level.setBlock(pos, state.setValue(WEATHER_AGE, 1), 2);
         } else {
-            level.setBlock(pos, (BlockState)state.setValue(WEATHER_AGE, 0), 2);
+            level.setBlock(pos, state.setValue(WEATHER_AGE, 0), 2);
         }
     }
 }

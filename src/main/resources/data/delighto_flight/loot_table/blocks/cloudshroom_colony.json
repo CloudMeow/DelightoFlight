@@ -15,14 +15,15 @@
                   "condition": "minecraft:block_state_property",
                   "block": "delighto_flight:cloudshroom_colony",
                   "properties": {
-                    "age": "0"
+                    "age": "0",
+                    "weather": "0"
                   }
                 }
               ],
               "functions": [
                 {
                   "function": "minecraft:set_count",
-                  "count": 1
+                  "count": 2
                 }
               ],
               "name": "delighto_flight:clear_cloudshroom"
@@ -34,14 +35,55 @@
                   "condition": "minecraft:block_state_property",
                   "block": "delighto_flight:cloudshroom_colony",
                   "properties": {
-                    "age": "1"
+                    "age": "0",
+                    "weather": "1"
                   }
                 }
               ],
               "functions": [
                 {
                   "function": "minecraft:set_count",
-                  "count": 1
+                  "count": 2
+                }
+              ],
+              "name": "delighto_flight:rainy_cloudshroom"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "delighto_flight:cloudshroom_colony",
+                  "properties": {
+                    "age": "0",
+                    "weather": "2"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 2
+                }
+              ],
+              "name": "delighto_flight:thunder_cloudshroom"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "delighto_flight:cloudshroom_colony",
+                  "properties": {
+                    "age": "1",
+                    "weather": "0"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 3
                 }
               ],
               "name": "delighto_flight:clear_cloudshroom"
@@ -53,14 +95,55 @@
                   "condition": "minecraft:block_state_property",
                   "block": "delighto_flight:cloudshroom_colony",
                   "properties": {
-                    "age": "2"
+                    "age": "1",
+                    "weather": "1"
                   }
                 }
               ],
               "functions": [
                 {
                   "function": "minecraft:set_count",
-                  "count": 1
+                  "count": 3
+                }
+              ],
+              "name": "delighto_flight:rainy_cloudshroom"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "delighto_flight:cloudshroom_colony",
+                  "properties": {
+                    "age": "1",
+                    "weather": "2"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 3
+                }
+              ],
+              "name": "delighto_flight:thunder_cloudshroom"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "delighto_flight:cloudshroom_colony",
+                  "properties": {
+                    "age": "2",
+                    "weather": "0"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 4
                 }
               ],
               "name": "delighto_flight:clear_cloudshroom"
@@ -72,7 +155,48 @@
                   "condition": "minecraft:block_state_property",
                   "block": "delighto_flight:cloudshroom_colony",
                   "properties": {
-                    "age": "3"
+                    "age": "2",
+                    "weather": "1"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 4
+                }
+              ],
+              "name": "delighto_flight:rainy_cloudshroom"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "delighto_flight:cloudshroom_colony",
+                  "properties": {
+                    "age": "2",
+                    "weather": "2"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 4
+                }
+              ],
+              "name": "delighto_flight:thunder_cloudshroom"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "delighto_flight:cloudshroom_colony",
+                  "properties": {
+                    "age": "3",
+                    "weather": "0"
                   }
                 },
                 {
@@ -106,7 +230,7 @@
               "functions": [
                 {
                   "function": "minecraft:set_count",
-                  "count": 1
+                  "count": 5
                 }
               ],
               "name": "delighto_flight:clear_cloudshroom"
@@ -118,7 +242,102 @@
                   "condition": "minecraft:block_state_property",
                   "block": "delighto_flight:cloudshroom_colony",
                   "properties": {
-                    "age": "3"
+                    "age": "3",
+                    "weather": "1"
+                  }
+                },
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "condition": "minecraft:any_of",
+                    "terms": [
+                      {
+                        "ability": "shears_dig",
+                        "condition": "neoforge:can_item_perform_ability"
+                      },
+                      {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "predicates": {
+                            "minecraft:enchantments": [
+                              {
+                                "enchantments": "minecraft:silk_touch",
+                                "levels": {
+                                  "min": 1
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 5
+                }
+              ],
+              "name": "delighto_flight:rainy_cloudshroom"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "delighto_flight:cloudshroom_colony",
+                  "properties": {
+                    "age": "3",
+                    "weather": "2"
+                  }
+                },
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "condition": "minecraft:any_of",
+                    "terms": [
+                      {
+                        "ability": "shears_dig",
+                        "condition": "neoforge:can_item_perform_ability"
+                      },
+                      {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "predicates": {
+                            "minecraft:enchantments": [
+                              {
+                                "enchantments": "minecraft:silk_touch",
+                                "levels": {
+                                  "min": 1
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 5
+                }
+              ],
+              "name": "delighto_flight:thunder_cloudshroom"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "delighto_flight:cloudshroom_colony",
+                  "properties": {
+                    "age": "3",
+                    "weather": "0"
                   }
                 },
                 {
@@ -146,7 +365,83 @@
                   ]
                 }
               ],
-              "name": "delighto_flight:clear_cloudshroom"
+              "name": "delighto_flight:cloudshroom_colony"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "delighto_flight:cloudshroom_colony",
+                  "properties": {
+                    "age": "3",
+                    "weather": "1"
+                  }
+                },
+                {
+                  "condition": "minecraft:any_of",
+                  "terms": [
+                    {
+                      "ability": "shears_dig",
+                      "condition": "neoforge:can_item_perform_ability"
+                    },
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "predicates": {
+                          "minecraft:enchantments": [
+                            {
+                              "enchantments": "minecraft:silk_touch",
+                              "levels": {
+                                "min": 1
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "name": "delighto_flight:cloudshroom_colony"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "delighto_flight:cloudshroom_colony",
+                  "properties": {
+                    "age": "3",
+                    "weather": "2"
+                  }
+                },
+                {
+                  "condition": "minecraft:any_of",
+                  "terms": [
+                    {
+                      "ability": "shears_dig",
+                      "condition": "neoforge:can_item_perform_ability"
+                    },
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "predicates": {
+                          "minecraft:enchantments": [
+                            {
+                              "enchantments": "minecraft:silk_touch",
+                              "levels": {
+                                "min": 1
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "name": "delighto_flight:cloudshroom_colony"
             }
           ]
         }
