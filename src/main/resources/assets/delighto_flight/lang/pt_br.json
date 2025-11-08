@@ -12,11 +12,15 @@
   "item.delighto_flight.magic_chef_hat": "Chapéu Mágico de Chef",
   "item.delighto_flight.ham_salad": "Salada de Presunto",
   "item.delighto_flight.thunder_fruit_stew": "Ensopado Trovejante",
-  "item.delighto_flight.charged_rose_tea": "Chá Rosa Energizado",
-  "item.delighto_flight.cloud_berry_steamed_bun": "Pão de Nuvem",
+  "item.delighto_flight.charged_rose_tea": "Chá de Rosas Energizado",
+  "item.delighto_flight.cloud_berry_steamed_bun": "Pãozinho de Nuvem",
   "item.delighto_flight.cloud_berry_pancake": "Panqueca de Nuvem",
   "item.delighto_flight.copper_thunder_fruit": "Fruto do Trovão Cobreado",
   "item.delighto_flight.cook_book": "Livro de Receitas",
+  "item.delighto_flight.cloud_bread": "Pão das Nuvens",
+  "item.delighto_flight.sparktricity_soda": "Refrigerante de Faísca",
+  "item.delighto_flight.rain_stew": "Ensopado de Chuva",
+  "item.delighto_flight.mushroom_hotpot": "Hotpot de Cogumelos",
 
   "block.delighto_flight.cloud": "Nuvem",
   "block.delighto_flight.cloud_silk_block": "Bloco de Seda das Nuvens",
@@ -25,11 +29,20 @@
   "block.delighto_flight.thunder_vine": "Videira Trovejante",
   "block.delighto_flight.cloud_berry_pancake_tower": "Panquecas de Nuvem",
   "block.delighto_flight.thunder_fruit_stew_block": "Ensopado do Trovão",
+  "block.delighto_flight.mushroom_hotpot_block": "Hotpot de Cogumelos",
+  "block.delighto_flight.weather_soil": "Solo Climático",
+  "block.delighto_flight.weather_soil_farmland": "Terra Climática Arada",
+  "block.delighto_flight.cloudshroom_colony": "Colônia de Nuvemshrooms",
+  "block.delighto_flight.clear_cloudshroom": "Nuvemshroom Limpo",
+  "block.delighto_flight.rainy_cloudshroom": "Nuvemshroom Chuvoso",
+  "block.delighto_flight.thunder_cloudshroom": "Nuvemshroom Trovejante",
 
   "effect.delighto_flight.turbulence": "Turbulência",
   "effect.delighto_flight.turbulence.description": "Aumenta a velocidade de criaturas voadoras.",
   "effect.delighto_flight.arc": "Arco Elétrico",
   "effect.delighto_flight.arc.description": "Eletrocuta criaturas próximas.",
+  "effect.delighto_flight.weather_sensing": "Sensação Climática",
+  "effect.delighto_flight.weather_sensing.description": "Concede efeitos diferentes conforme o clima.",
 
   "entity.delighto_flight.electric_current": "Corrente Elétrica",
 
@@ -38,6 +51,12 @@
   "delighto_flight.tooltip.bird_feed.when_feeding": "Se usado em um papagaio domesticado:",
   "delighto_flight.subtitles.electric_current.discharge": "Descarga elétrica",
   "delighto_flight.container.cook_book": "Livro de Receitas",
+
+  "delighto_flight.jei.info.thunder_fruit_seed": "Quando for atingido por um raio, uma vagem carnívora em seu inventário se transformará em sementes do Fruto do Trovão.",
+  "delighto_flight.jei.info.copper_thunder_fruit": "Alimente um Creeper ou aldeão com isso.",
+  "delighto_flight.jei.info.magic_chef_hat": "Pode ser encontrado em uma mansão do bosque.",
+  "delighto_flight.jei.info.cook_book": "Vendido por açougueiros.",
+  "delighto_flight.jei.info.cloud_berries": "Pode ser encontrado em ilhas nas nuvens.",
 
   "death.attack.delighto_flight.shock": "%s foi atingido por uma descarga elétrica"
 }
