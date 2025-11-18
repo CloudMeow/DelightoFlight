@@ -18,4 +18,6 @@ public class DFMemoryTypes {
             ()-> new MemoryModuleType<>(Optional.empty()));
     public static final Supplier<MemoryModuleType<GlobalPos>> POT = MEMORIES.register("pot",
             ()-> new MemoryModuleType<>(Optional.empty()));
+    public static final Supplier<MemoryModuleType<GlobalPos>> MORE_POT = MEMORIES.register("more_pot",
+            ()-> new MemoryModuleType<>(Optional.empty()));
 }

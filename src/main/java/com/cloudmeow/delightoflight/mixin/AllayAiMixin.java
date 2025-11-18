@@ -1,14 +1,12 @@
 package com.cloudmeow.delightoflight.mixin;
 
-import com.cloudmeow.delightoflight.entity.ai.ChefHatCheck;
-import com.cloudmeow.delightoflight.entity.ai.GetItemFromContainer;
-import com.cloudmeow.delightoflight.entity.ai.PutItemIntoPot;
-import com.cloudmeow.delightoflight.entity.ai.SetTargetFromBlockMemory;
+import com.cloudmeow.delightoflight.entity.ai.*;
 import com.cloudmeow.delightoflight.registry.DFMemoryTypes;
 import com.cloudmeow.delightoflight.registry.DFPoi;
 import com.cloudmeow.delightoflight.utility.DFUtilities;
 import com.cloudmeow.delightoflight.utility.PoiHelper;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.Holder;
@@ -40,7 +38,15 @@ public class AllayAiMixin {
 
     @Unique
     private static void delightoFlight$initWorkActivity(Brain<Allay> brain) {
-        brain.addActivityWithConditions(Activity.WORK, ImmutableList.of(Pair.of(0, ValidateNearbyPoi.create((x) -> x.is(DFPoi.BASKET.getKey()), DFMemoryTypes.BASKET.get())), Pair.of(0, ValidateNearbyPoi.create((x) -> x.is(getPotPoi().getKey()), DFMemoryTypes.POT.get())), Pair.of(1, SetTargetFromBlockMemory.create(DFMemoryTypes.BASKET.get(), 1.2F, 1, 20, 1200)), Pair.of(2, new GetItemFromContainer<>()), Pair.of(3, SetTargetFromBlockMemory.create(DFMemoryTypes.POT.get(), 1.2F, 1, 20, 1200)), Pair.of(4, new PutItemIntoPot<>()), Pair.of(5, new DoNothing(100, 200))), ImmutableSet.of(Pair.of(DFMemoryTypes.IS_CHEF.get(), MemoryStatus.VALUE_PRESENT)));
+        brain.addActivityWithConditions(Activity.WORK, ImmutableList.of(
+                Pair.of(0, ValidateNearbyPoi.create((x) -> x.is(DFPoi.BASKET.getKey()), DFMemoryTypes.BASKET.get())),
+                Pair.of(0, ValidateNearbyPoi.create((x) -> x.is(getPotPoi().getKey()), DFMemoryTypes.POT.get())),
+                Pair.of(0, ValidateNearbyPoi.create((x) -> x.is(DFPoi.MORE_POT.getKey()), DFMemoryTypes.MORE_POT.get())),
+                Pair.of(1, SetTargetFromBlockMemory.create(DFMemoryTypes.BASKET.get(), 1.2F, 1, 20, 1200)),
+                Pair.of(2, new GetItemFromContainer<>()),
+                Pair.of(3, new GateBehavior<>(ImmutableMap.of(), ImmutableSet.of(), GateBehavior.OrderPolicy.ORDERED, GateBehavior.RunningPolicy.RUN_ONE, ImmutableList.of(Pair.of(SetTargetFromBlockMemory.create(DFMemoryTypes.POT.get(), 1.2F, 1, 20, 1200), 2), Pair.of(SetTargetFromBlockMemory.create(DFMemoryTypes.MORE_POT.get(), 1.2F, 1, 20, 1200), 1)))),
+                Pair.of(4, new GateBehavior<>(ImmutableMap.of(), ImmutableSet.of(), GateBehavior.OrderPolicy.ORDERED, GateBehavior.RunningPolicy.RUN_ONE, ImmutableList.of(Pair.of(new PutItemIntoPot<>(), 2), Pair.of(new PutItemIntoOtherPot<>(), 1)))),
+                Pair.of(5, new DoNothing(100, 200))), ImmutableSet.of(Pair.of(DFMemoryTypes.IS_CHEF.get(), MemoryStatus.VALUE_PRESENT)));
     }
 
     @Unique
@@ -50,7 +56,9 @@ public class AllayAiMixin {
             AcquirePoi.create((x) -> {
                 return x.is(DFPoi.BASKET.getKey());}, DFMemoryTypes.BASKET.get(), false, Optional.of((byte)14)),
             AcquirePoi.create((x) -> {
-                return x.is(getPotPoi().getKey());}, DFMemoryTypes.POT.get(), false, Optional.of((byte)14))
+                return x.is(getPotPoi().getKey());}, DFMemoryTypes.POT.get(), false, Optional.of((byte)14)),
+            AcquirePoi.create((x) -> {
+                return x.is(DFPoi.MORE_POT.getKey());}, DFMemoryTypes.MORE_POT.get(), false, Optional.of((byte)14))
             ));
     }
 

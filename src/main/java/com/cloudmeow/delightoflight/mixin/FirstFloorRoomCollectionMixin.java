@@ -11,6 +11,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class FirstFloorRoomCollectionMixin {
     @Inject(method = "get1x1", at = @At("RETURN"), cancellable = true)
     private void get1x1(RandomSource randomSource, CallbackInfoReturnable<String> cir){
-        cir.setReturnValue("1x1_a" + (randomSource.nextInt(6) + 1));
+        cir.setReturnValue("1x1_a" + (randomSource.nextInt(3) == 2 ? 6 : (randomSource.nextInt(5) + 1)));
     }
 }
