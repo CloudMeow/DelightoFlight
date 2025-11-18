@@ -78,10 +78,12 @@ public class ServerEvent {
             if(player.isCrouching()) {
                 if(!allay.hasItemInSlot(EquipmentSlot.HEAD)) {
                     if (heldStack.getItem() == DFItems.MAGIC_CHEF_HAT.get()) {
-                        allay.setItemSlot(EquipmentSlot.HEAD, heldStack);
-                        allay.level().playSound(null, allay.blockPosition(), SoundEvents.WOOL_PLACE, SoundSource.PLAYERS, 0.8F, 0.8F);
-                        if (!player.isCreative()) {
-                            heldStack.shrink(1);
+                        if (!player.level().isClientSide()) {
+                            allay.setItemSlot(EquipmentSlot.HEAD, heldStack.copy());
+                            allay.level().playSound(null, allay.blockPosition(), SoundEvents.WOOL_PLACE, SoundSource.PLAYERS, 0.8F, 0.8F);
+                            if (!player.isCreative()) {
+                                heldStack.shrink(1);
+                            }
                         }
                         event.setCanceled(true);
                     }

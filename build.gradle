@@ -130,6 +130,9 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    maven { // Registrate
+        url "https://maven.tterrag.com/"
+    }
 }
 
 dependencies {
@@ -137,11 +140,16 @@ dependencies {
 
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
-     fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
+    fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
 
+    compileOnly "com.tterrag.registrate:Registrate:MC1.20-1.3.11"
     runtimeOnly fg.deobf("curse.maven:appleskin-248787:4605078")
     implementation fg.deobf("curse.maven:farmers-delight-398521:6917255")
     implementation fg.deobf("curse.maven:chefs-delight-forge-832983:4751395")
+    compileOnly "curse.maven:twilights-flavors-delight-871735:6802211"
+    compileOnly "curse.maven:dungeons-delight-1258923:6997613"
+
+    implementation files("libs/goetydelight-1.0.0-alpha.21+20251024.1.jar")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }

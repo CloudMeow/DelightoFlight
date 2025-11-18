@@ -17,4 +17,16 @@ public class DFUtilities {
     public static boolean chefDelightLoad() {
         return ModList.get().isLoaded("chefsdelight");
     }
+
+    public static boolean twilightDelightLoad() {
+        return ModList.get().isLoaded("twilightdelight");
+    }
+
+    public static boolean goetyDelightLoad() {
+        return ModList.get().isLoaded("goetydelight");
+    }
+
+    public static boolean dungeonsDelightLoad() {
+        return ModList.get().isLoaded("dungeonsdelight");
+    }
 }

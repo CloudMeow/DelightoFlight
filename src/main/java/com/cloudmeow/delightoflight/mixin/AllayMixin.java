@@ -30,6 +30,7 @@ public abstract class AllayMixin {
                 .add(DFMemoryTypes.IS_CHEF.get())
                 .add(DFMemoryTypes.BASKET.get())
                 .add(DFMemoryTypes.POT.get())
+                .add(DFMemoryTypes.MORE_POT.get())
                 .build();
         Brain.Provider<Allay> newProvider = Brain.provider(newMemoryTypes, SENSOR_TYPES);
         cir.setReturnValue(newProvider);
