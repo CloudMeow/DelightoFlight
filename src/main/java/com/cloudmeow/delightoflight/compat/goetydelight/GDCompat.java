@@ -17,7 +17,7 @@ import java.util.List;
 
 public class GDCompat {
     public static Block getGDPot(){
-        if (DFUtilities.twilightDelightLoad()) {
+        if (DFUtilities.goetyDelightLoad()) {
             return ModBlocks.CURSED_INGOT_POT.get();
         }
         return null;
