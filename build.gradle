@@ -98,8 +98,10 @@ dependencies {
     compileOnly "com.tterrag.registrate:Registrate:MC1.20-1.3.11"
     implementation "curse.maven:farmersdelight-398521:${farmersdelight_version}"
     implementation "curse.maven:chefs-delight-forge-832983:6393917"
+    implementation "curse.maven:jade-324717:6853386"
     compileOnly "curse.maven:twilights-flavors-delight-871735:7041427"
     compileOnly "curse.maven:dungeons-delight-1258923:7170434"
+    implementation "curse.maven:thirst-was-taken-679270:5568715"
 
     compileOnly "squeek.appleskin:appleskin-neoforge:${appleskin_version}:api"
     runtimeOnly "squeek.appleskin:appleskin-neoforge:${appleskin_version}"

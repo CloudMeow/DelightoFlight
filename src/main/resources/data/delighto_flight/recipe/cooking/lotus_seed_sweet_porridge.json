@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "tag": "c:crops/rice"
+    },
+	{
+      "item": "delighto_flight:lotus_seeds"
+    },
+	{
+      "item": "minecraft:sugar"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+	"count": 1,
+    "id": "delighto_flight:lotus_seed_sweet_porridge"
+  }
+}

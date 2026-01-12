@@ -1,0 +1,59 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"render_type": "cutout",
+	"ambientocclusion": false,
+	"textures": {
+		"3": "delighto_flight:block/lotus_rhizome",
+		"5": "delighto_flight:block/lotus_rhizome_side",
+		"particle": "delighto_flight:block/lotus_rhizome"
+	},
+	"elements": [
+		{
+			"from": [0.8, 0, 8],
+			"to": [15.2, 16, 8],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8], "rescale": true},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#3"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#3"}
+			}
+		},
+		{
+			"from": [8, 0, 0.8],
+			"to": [8, 16, 15.2],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8], "rescale": true},
+			"faces": {
+				"east": {"uv": [0, 0, 16, 16], "texture": "#3"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#3"}
+			}
+		},
+		{
+			"from": [4, 11, 9],
+			"to": [7, 11, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-9, 10.75, 9]},
+			"faces": {
+				"up": {"uv": [0, 3, 3, 0], "texture": "#5", "tintindex": 0},
+				"down": {"uv": [0, 0, 3, 3], "texture": "#5", "tintindex": 0}
+			}
+		},
+		{
+			"from": [8, 5, 5],
+			"to": [11, 5, 8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-5, 4.75, 5]},
+			"faces": {
+				"up": {"uv": [3, 0, 0, 3], "texture": "#5", "tintindex": 0},
+				"down": {"uv": [3, 3, 0, 0], "texture": "#5", "tintindex": 0}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "group",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1, 2, 3]
+		}
+	]
+}

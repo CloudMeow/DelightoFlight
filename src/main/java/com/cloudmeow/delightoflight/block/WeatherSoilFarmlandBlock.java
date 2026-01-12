@@ -33,7 +33,9 @@ public class WeatherSoilFarmlandBlock extends RichSoilFarmlandBlock {
             BonemealableBlock growable = (BonemealableBlock)aboveBlock;
             if ((double) MathUtils.RAND.nextFloat() <= (Double) Configuration.RICH_SOIL_BOOST_CHANCE.get() && (growable.isValidBonemealTarget(level, abovePos, aboveState) || level.getBlockState(abovePos).is(DFBlocks.THUNDER_VINE.get())) && CommonHooks.canCropGrow(level, abovePos, aboveState, true)) {
                 growable.performBonemeal(level, level.random, abovePos, aboveState);
-                level.setBlockAndUpdate(pos, ModBlocks.RICH_SOIL_FARMLAND.get().defaultBlockState());
+                if (growable instanceof ThunderVineBlock) {
+                    level.setBlockAndUpdate(pos, ModBlocks.RICH_SOIL_FARMLAND.get().defaultBlockState());
+                }
                 CommonHooks.fireCropGrowPost(level, abovePos, aboveState);
             }
         }

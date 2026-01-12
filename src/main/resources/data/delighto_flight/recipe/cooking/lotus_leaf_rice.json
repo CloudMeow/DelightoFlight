@@ -1,0 +1,29 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredients": [
+	{
+      "tag": "c:crops/rice"
+    },
+	{
+      "item": "delighto_flight:lotus_leaf"
+    },
+	{
+      "item": "minecraft:carrot"
+    },
+    {
+      "tag": "c:foods/safe_raw_fish"
+    },
+	{
+      "item": "minecraft:brown_mushroom"
+    },
+    {
+      "tag": "c:crops/cabbage"
+    }
+  ],
+  "result": {
+	"count": 1,
+    "id": "delighto_flight:lotus_leaf_rice_block"
+  }
+}

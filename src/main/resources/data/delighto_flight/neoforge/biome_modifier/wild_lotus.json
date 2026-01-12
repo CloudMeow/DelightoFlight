@@ -1,0 +1,7 @@
+{
+  "type": "farmersdelight:add_features_by_filter",
+  "allowed_biomes": "#c:is_swamp",
+  "denied_biomes": "#c:is_underground",
+  "features": "delighto_flight:patch_wild_lotus",
+  "step": "vegetal_decoration"
+}

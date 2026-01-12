@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "delighto_flight:lotus_root"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 2,
+        "id": "delighto_flight:lotus_root_slice"
+      }
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/knife"
+  }
+}

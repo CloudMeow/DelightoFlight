@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "delighto_flight:block/lotus_flower_stage3"
+  }
+}

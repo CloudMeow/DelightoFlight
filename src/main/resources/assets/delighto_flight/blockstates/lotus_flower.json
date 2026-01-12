@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "flower_age=0,high=0": { "model": "delighto_flight:block/lotus_flower_stage0" },
+        "flower_age=1,high=0": { "model": "delighto_flight:block/lotus_flower_stage1" },
+		"flower_age=2,high=0": { "model": "delighto_flight:block/lotus_flower_stage2" },
+		"flower_age=3,high=0": { "model": "delighto_flight:block/lotus_flower_stage3" },
+		"flower_age=0,high=1": { "model": "delighto_flight:block/lotus_flower_stage0a" },
+        "flower_age=1,high=1": { "model": "delighto_flight:block/lotus_flower_stage1a" },
+		"flower_age=2,high=1": { "model": "delighto_flight:block/lotus_flower_stage2a" },
+		"flower_age=3,high=1": { "model": "delighto_flight:block/lotus_flower_stage3a" }
+    }
+}

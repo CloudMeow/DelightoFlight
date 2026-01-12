@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "rhizome_age=0": { "model": "delighto_flight:block/lotus_rhizome_stage0" },
+        "rhizome_age=1": { "model": "delighto_flight:block/lotus_rhizome_stage1" }
+    }
+}

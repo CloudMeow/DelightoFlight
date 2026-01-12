@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "df_root": {
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "delighto_flight:textures/block/cloud.png",
+    "description": {
+      "translate": "delighto_flight.advancement.root.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "delighto_flight:phantom_wing"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "delighto_flight.advancement.root"
+    }
+  },
+  "requirements": [
+    [
+      "df_root"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

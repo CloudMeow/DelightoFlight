@@ -47,6 +47,24 @@ public class DFFoodValue {
             .nutrition(5).saturationModifier(0.7f)
             .effect(() -> new MobEffectInstance(MobEffects.LEVITATION, 200, 0), 1.0F)
             .effect(() -> new MobEffectInstance(DFEffects.WEATHER_SENSING, 600, 0), 1.0F).build();
+    public static final FoodProperties LOTUS_LEAF_RICE = (new FoodProperties.Builder())
+            .nutrition(13).saturationModifier(0.8f)
+            .effect(() -> new MobEffectInstance(ModEffects.COMFORT, 6000, 0), 1.0F).build();
+    public static final FoodProperties CHICKEN_SOUP_WITH_LOTUS_SEEDS = (new FoodProperties.Builder())
+            .nutrition(10).saturationModifier(0.8f)
+            .effect(() -> new MobEffectInstance(ModEffects.COMFORT, 6000, 0), 1.0F).build();
+    public static final FoodProperties LOTUS_ROOT_SALAD = (new FoodProperties.Builder())
+            .nutrition(6).saturationModifier(0.5f).build();
+    public static final FoodProperties LOTUS_ROOT_SOUP_WITH_PORK_RIBS = (new FoodProperties.Builder())
+            .nutrition(11).saturationModifier(0.9f)
+            .effect(() -> new MobEffectInstance(ModEffects.COMFORT, 6000, 0), 1.0F).build();
+    public static final FoodProperties LOTUS_SEED_CAKE = (new FoodProperties.Builder())
+            .nutrition(9).saturationModifier(0.6f).build();
+    public static final FoodProperties LOTUS_SEED_SWEET_PORRIDGE = (new FoodProperties.Builder())
+            .nutrition(8).saturationModifier(0.8f)
+            .effect(() -> new MobEffectInstance(ModEffects.COMFORT, 3600, 0), 1.0F).build();
+    public static final FoodProperties STUFFED_LOTUS_ROOT = (new FoodProperties.Builder())
+            .nutrition(10).saturationModifier(0.7f).build();
 
     public static final FoodProperties CHARGED_ROSE_TEA = (new FoodProperties.Builder())
             .alwaysEdible().effect(() -> new MobEffectInstance(DFEffects.ARC, 600, 1), 1.0F).build();

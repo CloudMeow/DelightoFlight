@@ -1,5 +1,6 @@
 package com.cloudmeow.delightoflight;
 
+import com.cloudmeow.delightoflight.compat.thirst.ThirstCompat;
 import com.cloudmeow.delightoflight.registry.*;
 import com.cloudmeow.delightoflight.utility.DFUtilities;
 import net.neoforged.bus.api.IEventBus;
@@ -30,9 +31,15 @@ public class DelightoFlight
         DFLootModifiers.LOOT_MODIFIERS.register(modEventBus);
         DFDataComponents.DATA_COMPONENTS.register(modEventBus);
         DFMenus.MENUS.register(modEventBus);
+        DFSensorType.SENSOR_TYPE.register(modEventBus);
+        DFFeatures.FEATURES.register(modEventBus);
+        DFAdvancements.TRIGGERS.register(modEventBus);
 
         if (!DFUtilities.chefDelightLoad()) {
             DFPoi.POT_POI_TYPE.register(modEventBus);
+        }
+        if (DFUtilities.thirstLoad()) {
+            ThirstCompat.init();
         }
     }
 }

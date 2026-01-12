@@ -1,0 +1,31 @@
+{
+  "parent": "delighto_flight:main/root",
+  "criteria": {
+    "weather_sensing": {
+      "conditions": {
+        "effects": {
+          "delighto_flight:weather_sensing": {}
+        }
+      },
+      "trigger": "minecraft:effects_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "delighto_flight.advancement.get_weather_sensing.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "delighto_flight:thunder_cloudshroom"
+    },
+    "title": {
+      "translate": "delighto_flight.advancement.get_weather_sensing"
+    }
+  },
+  "requirements": [
+    [
+      "weather_sensing"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
