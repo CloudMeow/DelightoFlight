@@ -5,6 +5,7 @@ import com.cloudmeow.delightoflight.registry.DFEffects;
 import com.cloudmeow.delightoflight.registry.DFEntityTypes;
 import com.cloudmeow.delightoflight.registry.DFSounds;
 import com.cloudmeow.delightoflight.utility.DFDamageTypes;
+import com.cloudmeow.delightoflight.utility.DFUtilities;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
@@ -38,12 +39,14 @@ public class ElectricCurrent extends Projectile {
             }
         }
         if(this.level() instanceof ServerLevel) {
-            for (LivingEntity living : this.level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(10))) {
-                if (living != owner && !living.getUUID().equals(this.getUUID()) && living.distanceTo(this) - living.getBbWidth() / 2 < 7) {
-                    living.hurt(living.damageSources().source(DFDamageTypes.SHOCK), Config.THUNDER_DAMAGE.get() + power);
-                    if (soundCoolDown <= 0) {
-                        this.level().playSound(null, this.blockPosition(), DFSounds.SHOCK.get(), SoundSource.PLAYERS, 0.8F, 0.8F);
-                        soundCoolDown = 20;
+            if(owner != null) {
+                for (LivingEntity living : this.level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(10))) {
+                    if ((DFUtilities.isConductive(owner) || living != owner) && !living.getUUID().equals(this.getUUID()) && living.distanceTo(this) - living.getBbWidth() / 2 < 7) {
+                        living.hurt(living.damageSources().source(DFDamageTypes.SHOCK), Config.THUNDER_DAMAGE.get() + power);
+                        if (soundCoolDown <= 0) {
+                            this.level().playSound(null, this.blockPosition(), DFSounds.SHOCK.get(), SoundSource.PLAYERS, 0.8F, 0.8F);
+                            soundCoolDown = 20;
+                        }
                     }
                 }
             }

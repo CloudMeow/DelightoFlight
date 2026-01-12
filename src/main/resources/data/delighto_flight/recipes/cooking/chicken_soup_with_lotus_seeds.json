@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "tag": "forge:raw_chicken"
+    },
+	{
+      "item": "delighto_flight:lotus_seeds"
+    },
+	{
+      "item": "delighto_flight:lotus_seeds"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+	"count": 1,
+    "item": "delighto_flight:chicken_soup_with_lotus_seeds"
+  }
+}

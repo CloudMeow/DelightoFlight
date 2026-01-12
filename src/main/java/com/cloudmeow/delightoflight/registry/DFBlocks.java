@@ -5,6 +5,7 @@ import com.cloudmeow.delightoflight.block.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.WaterlilyBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -36,10 +37,24 @@ public class DFBlocks {
             ()-> new ThunderFruitStewBlock(BlockBehaviour.Properties.of().strength(0.5F, 6.0F).sound(SoundType.LANTERN)));
     public static final RegistryObject<Block> MUSHROOM_HOTPOT_BLOCK = BLOCKS.register("mushroom_hotpot_block",
             ()-> new MushroomHotpotBlock(BlockBehaviour.Properties.of().strength(0.5F, 3.0F).sound(SoundType.COPPER)));
+    public static final RegistryObject<Block> LOTUS_LEAF_RICE_BLOCK = BLOCKS.register("lotus_leaf_rice_block",
+            ()-> new LotusLeafRiceBlock(BlockBehaviour.Properties.of().sound(SoundType.WOOD)));
     public static final RegistryObject<Block> WEATHER_SOIL_FARMLAND = BLOCKS.register("weather_soil_farmland",
             ()-> new WeatherSoilFarmlandBlock(Block.Properties.copy(Blocks.FARMLAND)));
     public static final RegistryObject<Block> WEATHER_SOIL = BLOCKS.register("weather_soil",
             ()-> new WeatherSoilBlock(Block.Properties.copy(Blocks.FARMLAND)));
     public static final RegistryObject<Block> CLOUDSHROOM_COLONY = BLOCKS.register("cloudshroom_colony",
             ()-> new CloudshroomColonyBlock(Block.Properties.copy(Blocks.BROWN_MUSHROOM)));
+    public static final RegistryObject<Block> ROOTED_MUD = BLOCKS.register("rooted_mud",
+            ()-> new RootedMudBlock(Block.Properties.copy(Blocks.MUD).sound(SoundType.MUD).randomTicks()));
+    public static final RegistryObject<Block> LOTUS_RHIZOME = BLOCKS.register("lotus_rhizome",
+            ()-> new LotusRhizomeBlock(Block.Properties.copy(Blocks.BIG_DRIPLEAF_STEM).sound(SoundType.BIG_DRIPLEAF)));
+    public static final RegistryObject<Block> LOTUS_BUD = BLOCKS.register("lotus_bud",
+            ()-> new LotusBudBlock(Block.Properties.copy(Blocks.BIG_DRIPLEAF_STEM).sound(SoundType.BIG_DRIPLEAF)));
+    public static final RegistryObject<Block> LOTUS_FLOWER = BLOCKS.register("lotus_flower",
+            ()-> new LotusFlowerBlock(Block.Properties.copy(Blocks.BIG_DRIPLEAF_STEM).sound(SoundType.BIG_DRIPLEAF)));
+    public static final RegistryObject<Block> DECORATIVE_LOTUS_FLOWER = BLOCKS.register("decorative_lotus_flower",
+            ()-> new WaterlilyBlock(Block.Properties.copy(Blocks.BIG_DRIPLEAF_STEM).instabreak().sound(SoundType.LILY_PAD).noOcclusion()));
+    public static final RegistryObject<Block> WILD_LOTUS = BLOCKS.register("wild_lotus",
+            ()-> new WildLotusBlock(Block.Properties.copy(Blocks.TALL_GRASS)));
 }

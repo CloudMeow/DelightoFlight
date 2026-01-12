@@ -1,0 +1,18 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "tag": "forge:raw_pork"
+    },
+	{
+      "item": "delighto_flight:lotus_root"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+	"count": 1,
+    "item": "delighto_flight:lotus_root_soup_with_pork_ribs"
+  }
+}

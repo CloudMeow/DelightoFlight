@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "tag": "forge:dough"
+    },
+	{
+      "item": "delighto_flight:lotus_seeds"
+    },
+	{
+      "item": "minecraft:sugar"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+	"count": 1,
+    "item": "delighto_flight:lotus_seed_cake"
+  }
+}

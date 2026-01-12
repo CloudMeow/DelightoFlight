@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "bud_age=0,high=0,slope=0": {
+      "model": "delighto_flight:block/lotus_bud_stage0"
+    },
+    "bud_age=1,high=0,slope=0": {
+      "model": "delighto_flight:block/lotus_bud_stage1a"
+    },
+    "bud_age=1,high=1,slope=0": {
+      "model": "delighto_flight:block/lotus_bud_stage1ba"
+    },
+    "bud_age=1,high=1,slope=1": {
+      "model": "delighto_flight:block/lotus_bud_stage1bb"
+    },
+    "bud_age=2,high=0,slope=0": {
+      "model": "delighto_flight:block/lotus_bud_stage2a"
+    },
+    "bud_age=2,high=1,slope=0": {
+      "model": "delighto_flight:block/lotus_bud_stage2ba"
+    },
+    "bud_age=2,high=1,slope=1": {
+      "model": "delighto_flight:block/lotus_bud_stage2bb"
+    }
+  }
+}

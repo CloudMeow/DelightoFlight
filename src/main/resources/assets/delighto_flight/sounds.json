@@ -6,5 +6,68 @@
         "name": "delighto_flight:shock"
       }
     ]
+  },
+  "entity.aerolope.ambient": {
+    "category": "neutral",
+	"subtitle": "delighto_flight.subtitles.aerolope.idle",
+    "sounds": [
+      {
+        "name": "delighto_flight:aerolope_idle_1"
+      },
+      {
+        "name": "delighto_flight:aerolope_idle_2"
+      },
+      {
+        "name": "delighto_flight:aerolope_idle_3"
+      },
+	  {
+        "name": "delighto_flight:aerolope_idle_4"
+      }
+    ]
+  },
+  "entity.aerolope.hurt": {
+    "category": "neutral",
+	"subtitle": "delighto_flight.subtitles.aerolope.hurt",
+    "sounds": [
+      {
+        "name": "delighto_flight:aerolope_hurt"
+      }
+    ]
+  },
+  "entity.aerolope.death": {
+    "category": "neutral",
+	"subtitle": "delighto_flight.subtitles.aerolope.death",
+    "sounds": [
+      {
+        "name": "delighto_flight:aerolope_death"
+      }
+    ]
+  },
+  "item.clear_horn": {
+    "category": "neutral",
+	"subtitle": "delighto_flight.subtitles.item.clear_horn",
+    "sounds": [
+      {
+        "name": "delighto_flight:clear_horn"
+      }
+    ]
+  },
+  "item.rainy_horn": {
+    "category": "neutral",
+	"subtitle": "delighto_flight.subtitles.item.rainy_horn",
+    "sounds": [
+      {
+        "name": "delighto_flight:rainy_horn"
+      }
+    ]
+  },
+  "item.thunder_horn": {
+    "category": "neutral",
+	"subtitle": "delighto_flight.subtitles.item.thunder_horn",
+    "sounds": [
+      {
+        "name": "delighto_flight:thunder_horn"
+      }
+    ]
   }
 }

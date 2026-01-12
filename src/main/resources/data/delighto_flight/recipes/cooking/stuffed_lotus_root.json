@@ -1,0 +1,24 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "tag": "forge:dough"
+    },
+	{
+      "tag": "forge:eggs"
+    },
+	{
+      "item": "delighto_flight:lotus_root_slice"
+    },
+	{
+      "tag": "forge:raw_pork"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+	"count": 2,
+    "item": "delighto_flight:stuffed_lotus_root"
+  }
+}

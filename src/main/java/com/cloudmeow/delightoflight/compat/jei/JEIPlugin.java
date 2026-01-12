@@ -10,6 +10,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
+import java.util.List;
+
 @JeiPlugin
 public class JEIPlugin implements IModPlugin {
     private static final ResourceLocation ID = new ResourceLocation(DelightoFlight.MOD_ID, "jei_plugin");
@@ -26,5 +28,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addIngredientInfo(new ItemStack(DFItems.MAGIC_CHEF_HAT.get()), VanillaTypes.ITEM_STACK, Component.translatable(DelightoFlight.MOD_ID + ".jei.info.magic_chef_hat"));
         registration.addIngredientInfo(new ItemStack(DFItems.COOK_BOOK.get()), VanillaTypes.ITEM_STACK, Component.translatable(DelightoFlight.MOD_ID + ".jei.info.cook_book"));
         registration.addIngredientInfo(new ItemStack(DFItems.CLOUD_BERRY.get()), VanillaTypes.ITEM_STACK, Component.translatable(DelightoFlight.MOD_ID + ".jei.info.cloud_berries"));
+        registration.addIngredientInfo(new ItemStack(DFItems.LOTUS_ROOT.get()), VanillaTypes.ITEM_STACK, Component.translatable(DelightoFlight.MOD_ID + ".jei.info.lotus_root"));
+        registration.addIngredientInfo(List.of(new ItemStack(DFItems.LOTUS_SEEDS.get()), new ItemStack(DFItems.WILD_LOTUS.get()), new ItemStack(DFItems.LOTUS_FLOWER.get())), VanillaTypes.ITEM_STACK, Component.translatable(DelightoFlight.MOD_ID + ".jei.info.wild_lotus"));
     }
 }

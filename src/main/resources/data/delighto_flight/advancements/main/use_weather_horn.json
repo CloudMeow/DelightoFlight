@@ -1,0 +1,44 @@
+{
+  "parent": "delighto_flight:main/get_thunder_fruit_seed",
+  "criteria": {
+    "use_rainy_horn": {
+      "conditions": {
+        "item": {
+		  "items": [
+            "delighto_flight:rainy_horn"
+          ]
+        }
+      },
+      "trigger": "minecraft:using_item"
+    },
+    "use_thunder_horn": {
+	  "conditions": {
+        "item": {
+		  "items": [
+            "delighto_flight:thunder_horn"
+          ]
+        }
+      },
+      "trigger": "minecraft:using_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "delighto_flight.advancement.use_weather_horn.desc"
+    },
+    "icon": {
+      "item": "delighto_flight:rainy_horn"
+    },
+    "title": {
+      "translate": "delighto_flight.advancement.use_weather_horn"
+    }
+  },
+  "requirements": [
+    [
+      "use_rainy_horn",
+      "use_thunder_horn"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

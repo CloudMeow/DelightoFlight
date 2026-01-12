@@ -21,6 +21,21 @@
   "item.delighto_flight.sparktricity_soda": "Sparktricity Soda",
   "item.delighto_flight.rain_stew": "Rain Stew",
   "item.delighto_flight.mushroom_hotpot": "Bowl of Mushroom Hotpot",
+  "item.delighto_flight.clear_horn": "Clear Horn",
+  "item.delighto_flight.rainy_horn": "Rainy Horn",
+  "item.delighto_flight.thunder_horn": "Thunder Horn",
+  "item.delighto_flight.aerolope_spawn_egg": "Aerolope Spawn Egg",
+  "item.delighto_flight.lotus_root": "Lotus Root",
+  "item.delighto_flight.lotus_root_slice": "Lotus Root Slice",
+  "item.delighto_flight.lotus_seeds": "Lotus Seeds",
+  "item.delighto_flight.lotus_leaf": "Lotus Leaf",
+  "item.delighto_flight.lotus_leaf_rice": "Bowl of Lotus Leaf Rice",
+  "item.delighto_flight.chicken_soup_with_lotus_seeds": "Chicken Soup with Lotus Seeds",
+  "item.delighto_flight.lotus_root_salad": "Lotus Root Salad",
+  "item.delighto_flight.lotus_root_soup_with_pork_ribs": "Lotus Root Soup with Pork Ribs",
+  "item.delighto_flight.lotus_seed_cake": "Lotus Seed Cake",
+  "item.delighto_flight.lotus_seed_sweet_porridge": "Lotus Seed Sweet Porridge",
+  "item.delighto_flight.stuffed_lotus_root": "Stuffed Lotus Root",
 
   "block.delighto_flight.cloud": "Cloud Block",
   "block.delighto_flight.cloud_silk_block": "Cloud Silk Block",
@@ -30,12 +45,19 @@
   "block.delighto_flight.cloud_berry_pancake_tower": "Pancake Tower with Cloud berry Jam",
   "block.delighto_flight.thunder_fruit_stew_block": "Thunder Fruit Stew",
   "block.delighto_flight.mushroom_hotpot_block": "Mushroom Hotpot",
+  "block.delighto_flight.lotus_leaf_rice_block": "Lotus Leaf Rice",
   "block.delighto_flight.weather_soil": "Weather Soil",
   "block.delighto_flight.weather_soil_farmland": "Weather Soil Farmland",
   "block.delighto_flight.cloudshroom_colony": "Cloudshroom Colony",
   "block.delighto_flight.clear_cloudshroom": "Clear Cloudshroom",
   "block.delighto_flight.rainy_cloudshroom": "Rainy Cloudshroom",
   "block.delighto_flight.thunder_cloudshroom": "Thunder Cloudshroom",
+  "block.delighto_flight.lotus_rhizome": "Lotus Rhizome",
+  "block.delighto_flight.lotus_bud": "Lotus Bud",
+  "block.delighto_flight.lotus_flower": "Lotus Flower",
+  "block.delighto_flight.rooted_mud": "Rooted Mud",
+  "block.delighto_flight.decorative_lotus_flower": "Lotus Flower",
+  "block.delighto_flight.wild_lotus": "Wild Lotus",
 
   "effect.delighto_flight.turbulence": "Turbulence",
   "effect.delighto_flight.turbulence.description": "Make flying entity faster",
@@ -45,11 +67,18 @@
   "effect.delighto_flight.weather_sensing.description": "Get different effects depending on the weather",
 
   "entity.delighto_flight.electric_current": "Electric Current",
+  "entity.delighto_flight.aerolope": "Aerolope",
 
   "fluid_type.delighto_flight.charged_rose_tea_type": "Charged Rose Tea",
 
   "delighto_flight.tooltip.bird_feed.when_feeding": "When fed to a tamed Parrot:",
   "delighto_flight.subtitles.electric_current.discharge": "Discharge",
+  "delighto_flight.subtitles.aerolope.idle": "Aerolope bleats",
+  "delighto_flight.subtitles.aerolope.hurt": "Aerolope hurts",
+  "delighto_flight.subtitles.aerolope.death": "Aerolope dies",
+  "delighto_flight.subtitles.item.clear_horn": "Clear Horn Plays",
+  "delighto_flight.subtitles.item.rainy_horn": "Rainy Horn Plays",
+  "delighto_flight.subtitles.item.thunder_horn": "Thunder Horn Plays",
   "delighto_flight.container.cook_book": "Cook Book",
 
   "delighto_flight.jei.info.thunder_fruit_seed": "When you are struck by lightning, pitcher pod will transform into thunder fruit seeds in inventory.",
@@ -57,6 +86,21 @@
   "delighto_flight.jei.info.magic_chef_hat": "Hidden in the cabinet of a woodland mansion.",
   "delighto_flight.jei.info.cook_book": "Trade with butcher villager.",
   "delighto_flight.jei.info.cloud_berries": "Found on the cloud island.",
+  "delighto_flight.jei.info.wild_lotus": "Lotus can be commonly found as a wild plant in the ponds of all swamps, such as swamps and mangrove swamps",
+  "delighto_flight.jei.info.lotus_root": "Placing a lotus seed into mud transforms it into rooted mud. It will then grow lotus roots in the mud block two blocks below it. Right-click rooted mud with a shovel to harvest the lotus roots.",
 
-  "death.attack.delighto_flight.shock": "heavy current flowed through %s's body"
+  "delighto_flight.advancement.root": "Delight o' Flight",
+  "delighto_flight.advancement.root.desc": "Earthly delicacies or heavenly feasts",
+  "delighto_flight.advancement.get_lotus_night": "The Lotus Pool by Moonlight",
+  "delighto_flight.advancement.get_lotus_night.desc": "I am a part of all that I have met",
+  "delighto_flight.advancement.get_weather_sensing": "Weather with You",
+  "delighto_flight.advancement.get_weather_sensing.desc": "Grants weather sensing effect",
+  "delighto_flight.advancement.get_thuder_fruit_seed": "Harness the Storm",
+  "delighto_flight.advancement.get_thuder_fruit_seed.desc": "Obtain a thunder fruit Seed",
+  "delighto_flight.advancement.use_weather_horn": "Stormcaller",
+  "delighto_flight.advancement.use_weather_horn.desc": "Use weather horn",
+
+  "death.attack.delighto_flight.shock": "heavy current flowed through %s's body",
+
+  "config.jade.plugin_delighto_flight.crop_progress": "Crop Progress"
 }

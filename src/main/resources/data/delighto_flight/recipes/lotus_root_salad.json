@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "delighto_flight:lotus_root_slice"
+    },
+    {
+      "item": "delighto_flight:lotus_root_slice"
+    },
+    {
+      "item": "delighto_flight:lotus_root_slice"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "delighto_flight:lotus_root_salad"
+  }
+}

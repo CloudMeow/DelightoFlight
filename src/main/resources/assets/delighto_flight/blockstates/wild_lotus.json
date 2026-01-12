@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "delighto_flight:block/lotus_rhizome_stage0"
+    },
+    "half=upper": {
+      "model": "delighto_flight:block/wild_lotus_top"
+    }
+  }
+}

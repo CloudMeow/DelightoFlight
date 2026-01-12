@@ -1,6 +1,7 @@
 package com.cloudmeow.delightoflight;
 
 import com.cloudmeow.delightoflight.client.ClientSetup;
+import com.cloudmeow.delightoflight.compat.thirst.ThirstCompat;
 import com.cloudmeow.delightoflight.registry.*;
 import com.cloudmeow.delightoflight.utility.DFUtilities;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -37,9 +38,15 @@ public class DelightoFlight
         DFCreativeModeTabs.TABS.register(modEventBus);
         DFLootModifiers.LOOT_MODIFIERS.register(modEventBus);
         DFMenus.MENUS.register(modEventBus);
+        DFSensorType.SENSOR_TYPE.register(modEventBus);
+        DFFeatures.FEATURES.register(modEventBus);
+        DFAdvancements.register();
 
         if (!DFUtilities.chefDelightLoad()) {
             DFPoi.POT_POI_TYPE.register(modEventBus);
+        }
+        if (DFUtilities.thirstLoad()) {
+            ThirstCompat.init();
         }
     }
 }

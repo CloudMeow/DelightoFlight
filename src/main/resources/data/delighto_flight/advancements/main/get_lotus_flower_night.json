@@ -1,0 +1,26 @@
+{
+  "parent": "delighto_flight:main/root",
+  "criteria": {
+    "get_lotus_night": {
+	  "conditions": {},
+      "trigger": "delighto_flight:cut_lotus_flower_night"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "delighto_flight.advancement.get_lotus_night.desc"
+    },
+    "icon": {
+      "item": "delighto_flight:wild_lotus"
+    },
+    "title": {
+      "translate": "delighto_flight.advancement.get_lotus_night"
+    }
+  },
+  "requirements": [
+    [
+      "get_lotus_night"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
