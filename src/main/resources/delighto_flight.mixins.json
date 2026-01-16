@@ -4,6 +4,7 @@
   "package": "com.cloudmeow.delightoflight.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "LayeredCauldronBlockMixin",
     "AllayAiMixin",
     "AllayMixin",
     "FirstFloorRoomCollectionMixin",

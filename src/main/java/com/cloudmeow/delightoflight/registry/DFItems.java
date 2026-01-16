@@ -46,9 +46,9 @@ public class DFItems {
     public static final Supplier<Item> COPPER_THUNDER_FRUIT = ITEMS.register("copper_thunder_fruit",
             ()-> new Item(new Item.Properties()));
     public static final Supplier<Item> LOTUS_ROOT = ITEMS.register("lotus_root",
-            ()-> new Item(new Item.Properties()));
+            ()-> new Item(new Item.Properties().food(DFFoodValue.LOTUS_ROOT)));
     public static final Supplier<Item> LOTUS_ROOT_SLICE = ITEMS.register("lotus_root_slice",
-            ()-> new Item(new Item.Properties()));
+            ()-> new Item(new Item.Properties().food(DFFoodValue.LOTUS_ROOT_SLICE)));
     public static final Supplier<Item> LOTUS_SEEDS = ITEMS.register("lotus_seeds",
             ()-> new LotusSeed(new Item.Properties()));
     public static final Supplier<Item> LOTUS_LEAF = ITEMS.register("lotus_leaf",

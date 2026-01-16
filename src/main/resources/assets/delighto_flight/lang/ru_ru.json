@@ -21,6 +21,21 @@
   "item.delighto_flight.sparktricity_soda": "Искроэлектрическая сода",
   "item.delighto_flight.rain_stew": "Дождевое рагу",
   "item.delighto_flight.mushroom_hotpot": "Тарелка грибного хого",
+  "item.delighto_flight.clear_horn": "Рог ясной погоды",
+  "item.delighto_flight.rainy_horn": "Рог дождя",
+  "item.delighto_flight.thunder_horn": "Рог грома",
+  "item.delighto_flight.aerolope_spawn_egg": "Яйцо призыва аэролопы",
+  "item.delighto_flight.lotus_root": "Корень лотоса",
+  "item.delighto_flight.lotus_root_slice": "Ломтик корня лотоса",
+  "item.delighto_flight.lotus_seeds": "Семена лотоса",
+  "item.delighto_flight.lotus_leaf": "Лист лотоса",
+  "item.delighto_flight.lotus_leaf_rice": "Тарелка риса с листьями лотоса",
+  "item.delighto_flight.chicken_soup_with_lotus_seeds": "Куриный суп с семенами лотоса",
+  "item.delighto_flight.lotus_root_salad": "Салат из корня лотоса",
+  "item.delighto_flight.lotus_root_soup_with_pork_ribs": "Cуп из корня лотоса со свиными рёбрышками",
+  "item.delighto_flight.lotus_seed_cake": "Торт из семян лотоса",
+  "item.delighto_flight.lotus_seed_sweet_porridge": "Сладкая каша с семенами лотоса",
+  "item.delighto_flight.stuffed_lotus_root": "Фаршированный корень лотоса",
 
   "block.delighto_flight.cloud": "Блок облака",
   "block.delighto_flight.cloud_silk_block": "Блок облачного шёлка",
@@ -30,12 +45,19 @@
   "block.delighto_flight.cloud_berry_pancake_tower": "Башня морошковых блинчиков",
   "block.delighto_flight.thunder_fruit_stew_block": "Тушёный громофрукт",
   "block.delighto_flight.mushroom_hotpot_block": "Грибное хого",
+  "block.delighto_flight.lotus_leaf_rice_block": "Рис с листьями лотоса",
   "block.delighto_flight.weather_soil": "Погодная почва",
   "block.delighto_flight.weather_soil_farmland": "Погодная пашня",
   "block.delighto_flight.cloudshroom_colony": "Колония облачников",
   "block.delighto_flight.clear_cloudshroom": "Ясный облачник",
   "block.delighto_flight.rainy_cloudshroom": "Дождливый облачник",
   "block.delighto_flight.thunder_cloudshroom": "Громовой облачник",
+  "block.delighto_flight.lotus_rhizome": "Корневище лотоса",
+  "block.delighto_flight.lotus_bud": "Бутон лотоса",
+  "block.delighto_flight.lotus_flower": "Цветок лотоса",
+  "block.delighto_flight.rooted_mud": "Корнистая грязь",
+  "block.delighto_flight.decorative_lotus_flower": "Цветок лотоса",
+  "block.delighto_flight.wild_lotus": "Дикий лотос",
 
   "effect.delighto_flight.turbulence": "Турбулентность",
   "effect.delighto_flight.turbulence.description": "Делает летающих существ быстрее.",
@@ -45,11 +67,18 @@
   "effect.delighto_flight.weather_sensing.description": "Даёт различные эффекты в зависимости от погоды.",
 
   "entity.delighto_flight.electric_current": "Электрический ток",
+  "entity.delighto_flight.aerolope": "Аэролопа",
 
   "fluid_type.delighto_flight.charged_rose_tea_type": "Заряженный розовый чай",
 
   "delighto_flight.tooltip.bird_feed.when_feeding": "Если скормить прирученному попугаю:",
   "delighto_flight.subtitles.electric_current.discharge": "Разряд",
+  "delighto_flight.subtitles.aerolope.idle": "Аэролопа блеeт",
+  "delighto_flight.subtitles.aerolope.hurt": "Аэролопа ранена",
+  "delighto_flight.subtitles.aerolope.death": "Аэролопа погибает",
+  "delighto_flight.subtitles.item.clear_horn": "Рог ясной погоды трубит",
+  "delighto_flight.subtitles.item.rainy_horn": "Рог дождя трубит",
+  "delighto_flight.subtitles.item.thunder_horn": "Рог грома трубит",
   "delighto_flight.container.cook_book": "Поваренная книга",
 
   "delighto_flight.jei.info.thunder_fruit_seed": "Когда в вас ударит молния, стручок кувшинницы в инвентаре превратится в семена громофрукта.",
@@ -57,6 +86,21 @@
   "delighto_flight.jei.info.magic_chef_hat": "Спрятан в шкафу лесного особняка.",
   "delighto_flight.jei.info.cook_book": "Продаётся у мясника.",
   "delighto_flight.jei.info.cloud_berries": "Найдите на облачном острове.",
+  "delighto_flight.jei.info.wild_lotus": "Лотос обычно можно встретить как дикорастущее растение в водоёмах всех болот: обычных и мангровых",
+  "delighto_flight.jei.info.lotus_root": "Если посадить семена лотоса в грязь, то она превратится в корнистую грязь. Затем в грязи, расположенной двумя блоками ниже, вырастут корни лотоса. Щёлкните ПКМ по корнистой грязи мотыгой, чтобы собрать корни лотоса.",
 
-  "death.attack.delighto_flight.shock": "%s пронизан сильным током"
+  "delighto_flight.advancement.root": "Delight o' Flight",
+  "delighto_flight.advancement.root.desc": "Деликатесы «Небо и земля»",
+  "delighto_flight.advancement.get_lotus_night": "Лотосы в лунном сиянии",
+  "delighto_flight.advancement.get_lotus_night.desc": "Я часть всего, что повстречал в пути",
+  "delighto_flight.advancement.get_weather_sensing": "Главней всего погода в доме",
+  "delighto_flight.advancement.get_weather_sensing.desc": "Получите эффект метеозависимости",
+  "delighto_flight.advancement.get_thuder_fruit_seed": "Обуздать бурю",
+  "delighto_flight.advancement.get_thuder_fruit_seed.desc": "Получите семена громофрукта",
+  "delighto_flight.advancement.use_weather_horn": "Буревестник",
+  "delighto_flight.advancement.use_weather_horn.desc": "Используйте любой рог погоды",
+
+  "death.attack.delighto_flight.shock": "%s пронизан сильным током",
+
+  "config.jade.plugin_delighto_flight.crop_progress": "Прогресс культуры"
 }

@@ -65,6 +65,10 @@ public class DFFoodValue {
             .effect(() -> new MobEffectInstance(ModEffects.COMFORT, 3600, 0), 1.0F).build();
     public static final FoodProperties STUFFED_LOTUS_ROOT = (new FoodProperties.Builder())
             .nutrition(10).saturationModifier(0.7f).build();
+    public static final FoodProperties LOTUS_ROOT = (new FoodProperties.Builder())
+            .nutrition(2).saturationModifier(0.5f).build();
+    public static final FoodProperties LOTUS_ROOT_SLICE = (new FoodProperties.Builder())
+            .nutrition(1).saturationModifier(0.5f).build();
 
     public static final FoodProperties CHARGED_ROSE_TEA = (new FoodProperties.Builder())
             .alwaysEdible().effect(() -> new MobEffectInstance(DFEffects.ARC, 600, 1), 1.0F).build();

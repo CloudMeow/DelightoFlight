@@ -3,21 +3,17 @@
   "criteria": {
     "use_rainy_horn": {
       "conditions": {
-        "item": [
-          {
-            "items": "delighto_flight:rainy_horn"
-          }
-        ]
+        "item": {
+          "items": "delighto_flight:rainy_horn"
+        }
       },
       "trigger": "minecraft:using_item"
     },
     "use_thunder_horn": {
       "conditions": {
-        "item": [
-          {
-            "items": "delighto_flight:thunder_horn"
-          }
-        ]
+        "item": {
+          "items": "delighto_flight:thunder_horn"
+        }
       },
       "trigger": "minecraft:using_item"
     }
