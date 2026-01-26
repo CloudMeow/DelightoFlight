@@ -101,7 +101,7 @@ public class ServerEvent {
                             }
                             event.setCanceled(true);
                         } else if (heldStack.getItem() == DFItems.COOK_BOOK.get()) {
-                            allay.setItemSlot(EquipmentSlot.CHEST, heldStack);
+                            allay.setItemSlot(EquipmentSlot.CHEST, heldStack.copy());
                             allay.level().playSound(null, allay.blockPosition(), SoundEvents.WOOL_PLACE, SoundSource.PLAYERS, 0.8F, 0.8F);
                             heldStack.shrink(1);
                             event.setCanceled(true);

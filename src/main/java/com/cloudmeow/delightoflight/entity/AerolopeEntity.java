@@ -33,10 +33,8 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
@@ -170,7 +168,7 @@ public class AerolopeEntity extends Animal {
         ItemStack stack = player.getItemInHand(hand);
         if (!this.level().isClientSide) {
             boolean hasHorn = this.hasLeftHorn() || this.hasRightHorn();
-            if (hasHorn && level().getGameRules().getBoolean(GameRules.RULE_WEATHER_CYCLE) && !this.entityData.get(SHAKE)) {
+            if (hasHorn && !this.entityData.get(SHAKE)) {
                 if (isWeatherMushroom(stack)) {
                     this.entityData.set(DELAY, 20);
                     this.mushroom = stack.copy();
