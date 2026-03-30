@@ -22,7 +22,7 @@ public abstract class AbstractCauldronBlockMixin extends Block {
 
     @Override
     public boolean isRandomlyTicking(BlockState blockState) {
-        return blockState.getBlock() instanceof LayeredCauldronBlock;
+        return blockState.getBlock() instanceof LayeredCauldronBlock || super.isRandomlyTicking(blockState);
     }
 
     @Inject(method = "tick", at = @At("RETURN"))

@@ -2,12 +2,10 @@ package com.cloudmeow.delightoflight.event;
 
 import com.cloudmeow.delightoflight.DelightoFlight;
 import com.cloudmeow.delightoflight.registry.DFBlocks;
-import com.cloudmeow.delightoflight.registry.DFEffects;
 import com.cloudmeow.delightoflight.registry.DFItems;
 import com.cloudmeow.delightoflight.utility.DFUtilities;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -30,7 +28,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -41,17 +38,6 @@ import java.util.List;
 
 @Mod.EventBusSubscriber(modid = DelightoFlight.MOD_ID)
 public class ServerEvent {
-    @SubscribeEvent
-    public static void onEffectRemove(MobEffectEvent.Remove event) {
-        if (event.getEffectInstance() == null) {
-            return;
-        }
-        if (event.getEffectInstance().getEffect() == DFEffects.ARC.get()) {
-            CompoundTag entityData = event.getEntity().getPersistentData();
-            entityData.putBoolean("discharge", false);
-        }
-    }
-
     @SubscribeEvent
     public static void onStruckByLightning(LivingHurtEvent event) {
         if(event.getEntity() instanceof Player player) {

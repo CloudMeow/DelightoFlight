@@ -14,6 +14,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -24,20 +25,25 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class ThunderVineBlock extends CropBlock {
     public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 3);
     private static final VoxelShape[] VINE_SHAPES = new VoxelShape[]{
-            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D),
-            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 3.0D, 16.0D),
-            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 5.0D, 16.0D),
-            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 7.0D, 16.0D),
-            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D),
+            Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D),
+            Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D),
+            Block.box(1.0D, 0.0D, 1.0D, 15.0D, 14.0D, 15.0D),
+            Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D)
     };
     public ThunderVineBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(this.getAgeProperty(), 0));
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return VINE_SHAPES[this.getAge(state)];
     }
 
     @Override

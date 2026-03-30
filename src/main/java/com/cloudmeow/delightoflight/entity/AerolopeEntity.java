@@ -2,6 +2,7 @@ package com.cloudmeow.delightoflight.entity;
 
 import com.cloudmeow.delightoflight.entity.ai.aerolope.AerolopeAi;
 import com.cloudmeow.delightoflight.registry.*;
+import com.cloudmeow.delightoflight.utility.DFTags;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Dynamic;
 import net.minecraft.core.BlockPos;
@@ -32,7 +33,6 @@ import net.minecraft.world.entity.animal.goat.Goat;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
@@ -177,7 +177,7 @@ public class AerolopeEntity extends Animal {
                     resetShakeCooldown();
                     if (!player.isCreative()) stack.shrink(1);
                     this.shakeHeadAnimationState.start(this.tickCount);
-                    player.level().playSound(null, player.blockPosition(), SoundEvents.GOAT_EAT, SoundSource.PLAYERS, 0.8F, 0.8F);
+                    this.level().playSound(null, this, SoundEvents.GOAT_EAT, SoundSource.NEUTRAL, 1.0F, Mth.randomBetween(this.level().random, 0.8F, 1.2F));
                 }
             }
         }
@@ -195,7 +195,7 @@ public class AerolopeEntity extends Animal {
 
     @Override
     public boolean isFood(ItemStack itemStack) {
-        return itemStack.is(Items.WHEAT);
+        return itemStack.is(DFTags.AEROLOPE_FOOD);
     }
 
     @Override
