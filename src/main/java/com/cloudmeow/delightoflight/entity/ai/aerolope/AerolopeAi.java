@@ -65,6 +65,6 @@ public class AerolopeAi {
     }
 
     public static Ingredient getTemptations() {
-        return Ingredient.of(DFItems.CLEAR_CLOUDSHROOM.get(), DFItems.RAINY_CLOUDSHROOM.get(), DFItems.THUNDER_CLOUDSHROOM.get(), Items.WHEAT);
+        return Ingredient.of(DFItems.CLEAR_CLOUDSHROOM.get(), DFItems.RAINY_CLOUDSHROOM.get(), DFItems.THUNDER_CLOUDSHROOM.get(), DFItems.CLOUD_BERRY.get(), Items.WHEAT);
     }
 }
