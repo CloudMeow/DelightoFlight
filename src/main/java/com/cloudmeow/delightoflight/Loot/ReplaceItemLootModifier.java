@@ -5,11 +5,19 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
 import net.neoforged.neoforge.common.loot.LootModifier;
 import org.jetbrains.annotations.NotNull;
@@ -43,7 +51,13 @@ public class ReplaceItemLootModifier extends LootModifier {
 
     @Override
     protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext lootContext) {
-        ItemStack addedStack = new ItemStack(addedItem, lootContext.getRandom().nextInt(maxCount - minCount + 1) + minCount);
+        int looting = getLootingLevel(lootContext);
+
+        int base = lootContext.getRandom().nextInt(maxCount - minCount + 1) + minCount;
+        int bonus = lootContext.getRandom().nextInt(looting + 1);
+        int finalCount = base + bonus;
+
+        ItemStack addedStack = new ItemStack(addedItem, finalCount);
 
         generatedLoot.forEach((item) -> {
             if (item.is(removedItem)) {
@@ -70,5 +84,15 @@ public class ReplaceItemLootModifier extends LootModifier {
     @Override
     public MapCodec<? extends IGlobalLootModifier> codec() {
         return CODEC.get();
+    }
+
+    public static int getLootingLevel(LootContext context) {
+        Entity attacker = context.getParamOrNull(LootContextParams.ATTACKING_ENTITY);
+        if (!(attacker instanceof LivingEntity living)) {
+            return 0;
+        }
+
+        Holder<Enchantment> lootingHolder = context.getLevel().registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(Enchantments.LOOTING);
+        return EnchantmentHelper.getTagEnchantmentLevel(lootingHolder, living.getMainHandItem());
     }
 }
