@@ -43,7 +43,13 @@ public class ReplaceItemLootModifier extends LootModifier
 
     @Override
     protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext lootContext) {
-        ItemStack addedStack = new ItemStack(addedItem, lootContext.getRandom().nextInt(maxCount - minCount + 1) + minCount);
+        int looting = lootContext.getLootingModifier();
+
+        int base = lootContext.getRandom().nextInt(maxCount - minCount + 1) + minCount;
+        int bonus = lootContext.getRandom().nextInt(looting + 1);
+        int finalCount = base + bonus;
+
+        ItemStack addedStack = new ItemStack(addedItem, finalCount);
 
         generatedLoot.forEach((item) -> {
             if (item.is(removedItem)) {
