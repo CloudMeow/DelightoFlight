@@ -144,7 +144,7 @@ dependencies {
 
     compileOnly "com.tterrag.registrate:Registrate:MC1.20-1.3.11"
     runtimeOnly fg.deobf("curse.maven:appleskin-248787:4605078")
-    implementation fg.deobf("curse.maven:farmers-delight-398521:6917255")
+    implementation fg.deobf("curse.maven:farmers-delight-398521:8007609")
     implementation fg.deobf("curse.maven:chefs-delight-forge-832983:4751395")
     implementation fg.deobf("curse.maven:jade-324717:6855440")
     compileOnly "curse.maven:twilights-flavors-delight-871735:6802211"

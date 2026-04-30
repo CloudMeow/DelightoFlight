@@ -1,5 +1,5 @@
 {
-    "parent": "farmersdelight:block/crop_cross",
+    "parent": "farmersdelight:block/template_crop_cross",
 	"render_type": "minecraft:cutout",
     "textures": {
         "cross": "delighto_flight:block/thunder_vine_stage0"

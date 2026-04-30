@@ -28,11 +28,11 @@ public class DFFoodValue {
             .effect(() -> new MobEffectInstance(DFEffects.ARC.get(), 1200, 0), 1.0F).build();
     public static final FoodProperties THUNDER_FRUIT_STEW = (new FoodProperties.Builder())
             .nutrition(13).saturationMod(0.8f)
-            .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 6000, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 6000, 0), 1.0F)
             .effect(() -> new MobEffectInstance(DFEffects.ARC.get(), 1200, 0), 1.0F).build();
     public static final FoodProperties RAIN_STEW = (new FoodProperties.Builder())
             .nutrition(9).saturationMod(0.8f)
-            .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 6000, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1.0F)
             .effect(() -> new MobEffectInstance(MobEffects.WATER_BREATHING, 3600, 0), 1.0F)
             .effect(() -> new MobEffectInstance(DFEffects.WEATHER_SENSING.get(), 1200, 0), 1.0F).build();
     public static final FoodProperties MUSHROOM_HOTPOT = (new FoodProperties.Builder())
@@ -40,7 +40,7 @@ public class DFFoodValue {
             .effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 100, 0), 1.0F)
             .effect(() -> new MobEffectInstance(MobEffects.LEVITATION, 100, 0), 1.0F)
             .effect(() -> new MobEffectInstance(MobEffects.WATER_BREATHING, 1200, 0), 1.0F)
-            .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 6000, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 6000, 0), 1.0F)
             .effect(() -> new MobEffectInstance(DFEffects.ARC.get(), 600, 0), 1.0F)
             .effect(() -> new MobEffectInstance(DFEffects.WEATHER_SENSING.get(), 3600, 0), 1.0F).build();
     public static final FoodProperties CLOUD_BREAD = (new FoodProperties.Builder())
@@ -49,20 +49,20 @@ public class DFFoodValue {
             .effect(() -> new MobEffectInstance(DFEffects.WEATHER_SENSING.get(), 600, 0), 1.0F).build();
     public static final FoodProperties LOTUS_LEAF_RICE = (new FoodProperties.Builder())
             .nutrition(14).saturationMod(0.8f)
-            .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 6000, 0), 1.0F).build();
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 6000, 0), 1.0F).build();
     public static final FoodProperties CHICKEN_SOUP_WITH_LOTUS_SEEDS = (new FoodProperties.Builder())
             .nutrition(10).saturationMod(0.8f)
-            .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 6000, 0), 1.0F).build();
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1.0F).build();
     public static final FoodProperties LOTUS_ROOT_SALAD = (new FoodProperties.Builder())
             .nutrition(6).saturationMod(0.5f).build();
     public static final FoodProperties LOTUS_ROOT_SOUP_WITH_PORK_RIBS = (new FoodProperties.Builder())
             .nutrition(11).saturationMod(0.9f)
-            .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 6000, 0), 1.0F).build();
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1.0F).build();
     public static final FoodProperties LOTUS_SEED_CAKE = (new FoodProperties.Builder())
             .nutrition(9).saturationMod(0.6f).build();
     public static final FoodProperties LOTUS_SEED_SWEET_PORRIDGE = (new FoodProperties.Builder())
             .nutrition(8).saturationMod(0.8f)
-            .effect(() -> new MobEffectInstance(ModEffects.COMFORT.get(), 3600, 0), 1.0F).build();
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 1200, 0), 1.0F).build();
     public static final FoodProperties STUFFED_LOTUS_ROOT = (new FoodProperties.Builder())
             .nutrition(10).saturationMod(0.7f).build();
     public static final FoodProperties LOTUS_ROOT = (new FoodProperties.Builder())

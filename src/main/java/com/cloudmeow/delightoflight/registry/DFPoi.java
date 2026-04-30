@@ -29,7 +29,10 @@ public class DFPoi {
             ));
 
     public static final RegistryObject<PoiType> BASKET = POI_TYPE.register("basket",
-            () -> new PoiType(ImmutableSet.copyOf(ModBlocks.BASKET.get().getStateDefinition().getPossibleStates()), 1, 2));
+            () -> new PoiType(ImmutableSet.<BlockState>builder()
+                    .addAll(ModBlocks.WOODEN_BASKET.get().getStateDefinition().getPossibleStates())
+                    .addAll(ModBlocks.BAMBOO_BASKET.get().getStateDefinition().getPossibleStates())
+                    .build(), 1, 2));
 
     public static final RegistryObject<PoiType> POT = POT_POI_TYPE.register("pot",
             () -> new PoiType(ImmutableSet.copyOf(ModBlocks.COOKING_POT.get().getStateDefinition().getPossibleStates()), 1, 2));

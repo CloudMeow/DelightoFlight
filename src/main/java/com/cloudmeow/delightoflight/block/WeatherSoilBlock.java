@@ -7,7 +7,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeHooks;
@@ -16,7 +15,6 @@ import net.minecraftforge.common.ToolActions;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.Configuration;
 import vectorwing.farmersdelight.common.block.RichSoilBlock;
-import vectorwing.farmersdelight.common.registry.ModBlocks;
 import vectorwing.farmersdelight.common.tag.ModTags;
 import vectorwing.farmersdelight.common.utility.MathUtils;
 
@@ -37,7 +35,7 @@ public class WeatherSoilBlock extends RichSoilBlock {
             BlockPos abovePos = pos.above();
             BlockState aboveState = level.getBlockState(abovePos);
             Block aboveBlock = aboveState.getBlock();
-            if (aboveState.is(ModTags.UNAFFECTED_BY_RICH_SOIL)) {
+            if (aboveState.is(ModTags.Blocks.UNAFFECTED_BY_RICH_SOIL)) {
                 return;
             }
 

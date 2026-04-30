@@ -75,7 +75,7 @@ public class BirdFeed extends Item {
     }
 
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag isAdvanced) {
-        if ((Boolean) Configuration.FOOD_EFFECT_TOOLTIP.get()) {
+        if (Configuration.ENABLE_FOOD_EFFECT_TOOLTIP.get()) {
             MutableComponent textWhenFeeding = Component.translatable("delighto_flight." + "tooltip.bird_feed.when_feeding", new Object[0]);
             tooltip.add(textWhenFeeding.withStyle(ChatFormatting.GRAY));
             MutableComponent effectDescription;

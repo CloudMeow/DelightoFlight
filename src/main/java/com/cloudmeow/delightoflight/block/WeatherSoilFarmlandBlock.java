@@ -26,7 +26,7 @@ public class WeatherSoilFarmlandBlock extends RichSoilFarmlandBlock {
         BlockPos abovePos = pos.above();
         BlockState aboveState = level.getBlockState(abovePos);
         Block aboveBlock = aboveState.getBlock();
-        if (aboveState.is(ModTags.UNAFFECTED_BY_RICH_SOIL) || aboveBlock instanceof TallFlowerBlock) {
+        if (aboveState.is(ModTags.Blocks.UNAFFECTED_BY_RICH_SOIL) || aboveBlock instanceof TallFlowerBlock) {
             return;
         }
         if (aboveBlock instanceof BonemealableBlock) {
