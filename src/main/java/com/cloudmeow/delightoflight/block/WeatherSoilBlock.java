@@ -35,7 +35,7 @@ public class WeatherSoilBlock extends RichSoilBlock {
             BlockPos abovePos = pos.above();
             BlockState aboveState = level.getBlockState(abovePos);
             Block aboveBlock = aboveState.getBlock();
-            if (aboveState.is(ModTags.UNAFFECTED_BY_RICH_SOIL)) {
+            if (aboveState.is(ModTags.Blocks.UNAFFECTED_BY_RICH_SOIL)) {
                 return;
             }
 

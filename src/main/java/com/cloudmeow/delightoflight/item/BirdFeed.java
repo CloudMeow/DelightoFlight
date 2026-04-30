@@ -40,7 +40,7 @@ public class BirdFeed extends Item {
     public static final List<MobEffectInstance> EFFECTS = Lists.newArrayList(
             new MobEffectInstance(DFEffects.TURBULENCE, 6000, 0));
 
-    @EventBusSubscriber(modid = DelightoFlight.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
+    @EventBusSubscriber(modid = DelightoFlight.MOD_ID)
     public static class BirdFeedEvent {
         @SubscribeEvent
         public static void onBirdFeedApplied(PlayerInteractEvent.EntityInteract event){
@@ -73,7 +73,7 @@ public class BirdFeed extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag isAdvanced) {
-        if (!Configuration.FOOD_EFFECT_TOOLTIP.get()) {
+        if (!Configuration.ENABLE_FOOD_EFFECT_TOOLTIP.get()) {
             return;
         }
         MutableComponent textWhenFeeding = Component.translatable("delighto_flight." + "tooltip.bird_feed.when_feeding", new Object[0]);

@@ -7,7 +7,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 
-@EventBusSubscriber(modid = DelightoFlight.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = DelightoFlight.MOD_ID)
 public class ModEvent {
     @SubscribeEvent
     public static void registerEntityAttribute(EntityAttributeCreationEvent event) {

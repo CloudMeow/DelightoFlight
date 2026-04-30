@@ -30,7 +30,7 @@ import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 
 import javax.annotation.Nullable;
 
-@EventBusSubscriber(modid = DelightoFlight.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = DelightoFlight.MOD_ID, value = Dist.CLIENT)
 
 public class ClientEvent {
     public static final ModelLayerLocation ALLAY_HAT = new ModelLayerLocation(AllayHatLayer.HAT_TEXTURE, "root");
