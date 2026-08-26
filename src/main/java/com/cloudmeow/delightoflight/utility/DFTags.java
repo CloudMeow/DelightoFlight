@@ -15,6 +15,13 @@ public class DFTags {
 
     public static final TagKey<Item> AEROLOPE_FOOD = modItemTag("aerolope_food");
 
+    public static final TagKey<Item> COTTON_CANDY = commonItemTag("cotton_candy");
+    public static final TagKey<Item> STORAGE_BLOCKS_CLOUD_BERRY_ITEM = commonItemTag("storage_blocks/cloud_berry");
+    public static final TagKey<Item> STORAGE_BLOCKS_THUNDER_FRUIT_ITEM = commonItemTag("storage_blocks/thunder_fruit");
+
+    public static final TagKey<Block> STORAGE_BLOCKS_CLOUD_BERRY = commonBlockTag("storage_blocks/cloud_berry");
+    public static final TagKey<Block> STORAGE_BLOCKS_THUNDER_FRUIT = commonBlockTag("storage_blocks/thunder_fruit");
+
     private static TagKey<EntityType<?>> modEntityTag(String path) {
         return TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(DelightoFlight.MOD_ID, path));
     }
@@ -25,5 +32,13 @@ public class DFTags {
 
     private static TagKey<Item> modItemTag(String path) {
         return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(DelightoFlight.MOD_ID, path));
+    }
+
+    private static TagKey<Item> commonItemTag(String path) {
+        return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", path));
+    }
+
+    private static TagKey<Block> commonBlockTag(String path) {
+        return TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", path));
     }
 }

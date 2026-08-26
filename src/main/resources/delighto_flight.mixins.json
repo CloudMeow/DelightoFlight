@@ -8,6 +8,7 @@
     "AllayAiMixin",
     "AllayMixin",
     "FirstFloorRoomCollectionMixin",
+    "PlayerMixin",
     "ServerLevelMixin",
     "VillagerGoalPackagesMixin",
     "VillagerMixin",

@@ -69,5 +69,14 @@
         "name": "delighto_flight:thunder_horn"
       }
     ]
+  },
+  "block.cotton_candy_machine.work": {
+    "category": "block",
+    "subtitle": "delighto_flight.subtitles.cotton_candy_machine.work",
+    "sounds": [
+      {
+        "name": "delighto_flight:cotton_candy_machine_work"
+      }
+    ]
   }
 }

@@ -26,4 +26,7 @@ public class DFSounds {
             () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(DelightoFlight.MOD_ID, "item.rainy_horn")));
     public static final Supplier<SoundEvent> THUNDER_HORN = SOUNDS.register("item.thunder_horn",
             () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(DelightoFlight.MOD_ID, "item.thunder_horn")));
+
+    public static final Supplier<SoundEvent> COTTON_CANDY_MACHINE_WORK = SOUNDS.register("block.cotton_candy_machine.work",
+            () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(DelightoFlight.MOD_ID, "block.cotton_candy_machine.work")));
 }

@@ -70,6 +70,41 @@ public class DFFoodValue {
     public static final FoodProperties LOTUS_ROOT_SLICE = (new FoodProperties.Builder())
             .nutrition(1).saturationModifier(0.5f).build();
 
+    public static final FoodProperties APPLE_COTTON_CANDY = (new FoodProperties.Builder())
+            .nutrition(6).saturationModifier(0.4f)
+            .effect(() -> new MobEffectInstance(DFEffects.CLOUDWALKING, 200, 0), 1.0F).alwaysEdible().build();
+    public static final FoodProperties CHORUS_FRUIT_COTTON_CANDY = (new FoodProperties.Builder())
+            .nutrition(6).saturationModifier(0.4f)
+            .effect(() -> new MobEffectInstance(DFEffects.CLOUDWALKING, 200, 0), 1.0F).alwaysEdible().build();
+    public static final FoodProperties CLOUD_BERRY_COTTON_CANDY = (new FoodProperties.Builder())
+            .nutrition(4).saturationModifier(0.4f)
+            .effect(() -> new MobEffectInstance(DFEffects.CLOUDWALKING, 200, 0), 1.0F).alwaysEdible().build();
+    public static final FoodProperties ENCHANTED_GOLDEN_APPLE_COTTON_CANDY = (new FoodProperties.Builder())
+            .nutrition(6).saturationModifier(0.4f)
+            .effect(() -> new MobEffectInstance(DFEffects.CLOUDWALKING, 600, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 400, 1), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 6000, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 6000, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 2400, 3), 1.0F).alwaysEdible().build();
+    public static final FoodProperties GLOW_BERRY_COTTON_CANDY = (new FoodProperties.Builder())
+            .nutrition(4).saturationModifier(0.4f)
+            .effect(() -> new MobEffectInstance(DFEffects.CLOUDWALKING, 200, 0), 1.0F).alwaysEdible().build();
+    public static final FoodProperties GOLDEN_APPLE_COTTON_CANDY = (new FoodProperties.Builder())
+            .nutrition(6).saturationModifier(0.4f)
+            .effect(() -> new MobEffectInstance(DFEffects.CLOUDWALKING, 400, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 100, 1), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 2400, 0), 1.0F).alwaysEdible().build();
+    public static final FoodProperties MELON_COTTON_CANDY = (new FoodProperties.Builder())
+            .nutrition(4).saturationModifier(0.4f)
+            .effect(() -> new MobEffectInstance(DFEffects.CLOUDWALKING, 200, 0), 1.0F).alwaysEdible().build();
+    public static final FoodProperties SWEET_BERRY_COTTON_CANDY = (new FoodProperties.Builder())
+            .nutrition(4).saturationModifier(0.4f)
+            .effect(() -> new MobEffectInstance(DFEffects.CLOUDWALKING, 200, 0), 1.0F).alwaysEdible().build();
+    public static final FoodProperties THUNDER_FRUIT_COTTON_CANDY = (new FoodProperties.Builder())
+            .nutrition(5).saturationModifier(0.4f)
+            .effect(() -> new MobEffectInstance(DFEffects.CLOUDWALKING, 600, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(DFEffects.ARC, 1200, 0), 1.0F).alwaysEdible().build();
+
     public static final FoodProperties CHARGED_ROSE_TEA = (new FoodProperties.Builder())
             .alwaysEdible().effect(() -> new MobEffectInstance(DFEffects.ARC, 600, 1), 1.0F).build();
     public static final FoodProperties SPARKTRICITY_SODA = (new FoodProperties.Builder())

@@ -15,6 +15,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class CloudBlock extends Block {
     protected static final VoxelShape SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 12.0, 16.0);
+    protected static final VoxelShape FULL_SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 16.0);
 
     public CloudBlock(Properties properties) {
         super(properties);
@@ -43,6 +44,11 @@ public class CloudBlock extends Block {
 
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return FULL_SHAPE;
+    }
+
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return SHAPE;
     }
 }

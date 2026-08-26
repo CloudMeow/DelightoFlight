@@ -1,6 +1,7 @@
 {
   "values": [
     "delighto_flight:weather_soil",
-    "delighto_flight:weather_soil_farmland"
+    "delighto_flight:weather_soil_farmland",
+	"delighto_flight:rooted_mud"
   ]
 }

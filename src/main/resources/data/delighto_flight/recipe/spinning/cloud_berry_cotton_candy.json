@@ -1,0 +1,20 @@
+﻿{
+  "type": "delighto_flight:spinning",
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "delighto_flight:cloud"
+    },
+    {
+      "item": "delighto_flight:cloud_berries"
+    }
+  ],
+  "result": {
+    "id": "delighto_flight:cloud_berry_cotton_candy",
+    "count": 1
+  },
+  "spinningtime": 200,
+  "color": 16765026
+}

@@ -34,6 +34,8 @@ public class DelightoFlight
         DFSensorType.SENSOR_TYPE.register(modEventBus);
         DFFeatures.FEATURES.register(modEventBus);
         DFAdvancements.TRIGGERS.register(modEventBus);
+        DFRecipeTypes.RECIPE_TYPES.register(modEventBus);
+        DFRecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus);
 
         if (!DFUtilities.chefDelightLoad()) {
             DFPoi.POT_POI_TYPE.register(modEventBus);

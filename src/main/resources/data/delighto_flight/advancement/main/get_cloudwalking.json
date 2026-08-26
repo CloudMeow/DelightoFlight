@@ -1,0 +1,31 @@
+{
+  "parent": "delighto_flight:main/get_cotton_candy_machine",
+  "criteria": {
+    "cloudwalking": {
+      "conditions": {
+        "effects": {
+          "delighto_flight:cloudwalking": {}
+        }
+      },
+      "trigger": "minecraft:effects_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "delighto_flight.advancement.get_cloudwalking.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "delighto_flight:sweet_berry_cotton_candy"
+    },
+    "title": {
+      "translate": "delighto_flight.advancement.get_cloudwalking"
+    }
+  },
+  "requirements": [
+    [
+      "cloudwalking"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

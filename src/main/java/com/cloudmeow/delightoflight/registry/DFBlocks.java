@@ -19,6 +19,10 @@ public class DFBlocks {
             ()-> new CloudBlock(Block.Properties.ofFullCopy(Blocks.ORANGE_WOOL).strength(0.2f).sound(SoundType.WOOL).noOcclusion()));
     public static final Supplier<Block> CLOUD_SILK_BLOCK = BLOCKS.register("cloud_silk_block",
             ()-> new Block(Block.Properties.ofFullCopy(Blocks.ORANGE_WOOL).strength(0.2f).sound(SoundType.WOOL)));
+    public static final Supplier<Block> CLOUD_BERRY_BAG = BLOCKS.register("cloud_berry_bag",
+            () -> new Block(Block.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
+    public static final Supplier<Block> THUNDER_FRUIT_CRATE = BLOCKS.register("thunder_fruit_crate",
+            () -> new Block(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
     public static final Supplier<Block> CLEAR_CLOUDSHROOM = BLOCKS.register("clear_cloudshroom",
             ()-> new CloudshroomBlock(Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM)));
     public static final Supplier<Block> RAINY_CLOUDSHROOM = BLOCKS.register("rainy_cloudshroom",
@@ -58,4 +62,6 @@ public class DFBlocks {
             ()-> new WaterlilyBlock(Block.Properties.ofFullCopy(Blocks.BIG_DRIPLEAF_STEM).instabreak().sound(SoundType.LILY_PAD).noOcclusion()));
     public static final Supplier<Block> WILD_LOTUS = BLOCKS.register("wild_lotus",
             ()-> new WildLotusBlock(Block.Properties.ofFullCopy(Blocks.TALL_GRASS)));
+    public static final Supplier<Block> COTTON_CANDY_MACHINE = BLOCKS.register("cotton_candy_machine",
+            ()-> new CottonCandyMachineBlock(Block.Properties.ofFullCopy(Blocks.BRICKS).noOcclusion()));
 }

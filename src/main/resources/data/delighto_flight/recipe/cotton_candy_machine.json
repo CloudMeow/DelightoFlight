@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "c": {
+      "item": "minecraft:copper_ingot"
+    },
+    "m": {
+      "item": "minecraft:magma_block"
+    },
+    "s": {
+      "item": "minecraft:smooth_stone"
+    },
+    "b": {
+      "item": "minecraft:breeze_rod"
+    }
+  },
+  "pattern": [
+    "c c",
+    "cmc",
+    "sbs"
+  ],
+  "result": {
+    "id": "delighto_flight:cotton_candy_machine"
+  }
+}

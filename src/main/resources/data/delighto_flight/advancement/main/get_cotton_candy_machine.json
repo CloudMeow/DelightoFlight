@@ -1,0 +1,34 @@
+{
+  "parent": "delighto_flight:main/root",
+  "criteria": {
+    "get_cotton_candy_machine": {
+      "conditions": {
+		"location": [
+          {
+            "block": "delighto_flight:cotton_candy_machine",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "delighto_flight.advancement.get_cotton_candy_machine.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "delighto_flight:cotton_candy_machine"
+    },
+    "title": {
+      "translate": "delighto_flight.advancement.get_cotton_candy_machine"
+    }
+  },
+  "requirements": [
+    [
+      "get_cotton_candy_machine"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
