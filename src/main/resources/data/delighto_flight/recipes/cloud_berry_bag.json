@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "CCC",
+    "CCC",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "delighto_flight:cloud_berries"
+    }
+  },
+  "result": {
+    "item": "delighto_flight:cloud_berry_bag"
+  }
+}

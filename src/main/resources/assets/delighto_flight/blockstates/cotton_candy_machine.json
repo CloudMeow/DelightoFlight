@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "delighto_flight:block/cotton_candy_machine"},
+    "facing=south": { "model": "delighto_flight:block/cotton_candy_machine", "y": 180 },
+    "facing=east": { "model": "delighto_flight:block/cotton_candy_machine", "y": 90 },
+    "facing=west": { "model": "delighto_flight:block/cotton_candy_machine", "y": 270 }
+  }
+}

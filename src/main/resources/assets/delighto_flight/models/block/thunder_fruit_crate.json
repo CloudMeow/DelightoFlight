@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "delighto_flight:block/thunder_fruit_crate_top",
+    "bottom": "delighto_flight:block/thunder_fruit_crate_side",
+    "side": "delighto_flight:block/thunder_fruit_crate_side"
+  }
+}

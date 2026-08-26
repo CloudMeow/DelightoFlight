@@ -53,15 +53,11 @@ public class AllayAiMixin {
     @Unique
     private static void delightoFlight$initMoreCoreActivity(Brain<Allay> brain) {
         brain.addActivity(Activity.CORE, 0, ImmutableList.of(
-            new ChefHatCheck<>(),
-            AcquirePoi.create((x) -> {
-                assert DFPoi.BASKET.getKey() != null;
-                return x.is(DFPoi.BASKET.getKey());}, DFMemoryTypes.BASKET.get(), false, Optional.of((byte)14)),
-            AcquirePoi.create((x) -> {
-                return x.is(Objects.requireNonNull(getPotPoi().getKey()));}, DFMemoryTypes.POT.get(), false, Optional.of((byte)14)),
-            AcquirePoi.create((x) -> {
-                return x.is(DFPoi.MORE_POT.getKey());}, DFMemoryTypes.MORE_POT.get(), false, Optional.of((byte)14))
-            ));
+                new ChefHatCheck<>(),
+                AcquirePoiNoClaim.create((x) -> x.is(DFPoi.BASKET.getKey()), DFMemoryTypes.BASKET.get()),
+                AcquirePoiNoClaim.create((x) -> x.is(getPotPoi().getKey()), DFMemoryTypes.POT.get()),
+                AcquirePoiNoClaim.create((x) -> x.is(DFPoi.MORE_POT.getKey()), DFMemoryTypes.MORE_POT.get())
+        ));
     }
 
     @Inject(method = "makeBrain", at = @At("HEAD"))

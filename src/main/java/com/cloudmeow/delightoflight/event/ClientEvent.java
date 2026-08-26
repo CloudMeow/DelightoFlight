@@ -10,6 +10,7 @@ import com.cloudmeow.delightoflight.registry.DFBlockEntities;
 import com.cloudmeow.delightoflight.registry.DFEntityTypes;
 import com.cloudmeow.delightoflight.registry.DFItems;
 import com.cloudmeow.delightoflight.registry.DFModelLayers;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.entity.AllayRenderer;
@@ -23,6 +24,8 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
+import net.minecraftforge.client.gui.overlay.ForgeGui;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -39,6 +42,7 @@ public class ClientEvent {
     @SubscribeEvent
     public static void entityRender(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(DFBlockEntities.CLOUD_SILK_BED.get(), CloudSilkBedBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(DFBlockEntities.COTTON_CANDY_MACHINE.get(), CottonCandyMachineRenderer::new);
         event.registerEntityRenderer(DFEntityTypes.ELECTRIC_CURRENT.get(), ElectricCurrentRenderer::new);
         event.registerEntityRenderer(DFEntityTypes.AEROLOPE.get(), AerolopeRenderer::new);
     }
@@ -54,6 +58,11 @@ public class ClientEvent {
         AllayRenderer renderer = event.getRenderer(EntityType.ALLAY);
         renderer.addLayer(new AllayHatLayer(renderer, event.getEntityModels()));
         renderer.addLayer(new CookBookLayer(renderer, event.getEntityModels()));
+    }
+
+    @SubscribeEvent
+    public static void registerGuiOverlays(RegisterGuiOverlaysEvent event) {
+        event.registerAboveAll("cotton_candy_machine", (ForgeGui gui, GuiGraphics guiGraphics, float partialTick, int screenWidth, int screenHeight) -> CottonCandyMachineHudLayer.render(guiGraphics, partialTick));
     }
 
     @SubscribeEvent

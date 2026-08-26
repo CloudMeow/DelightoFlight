@@ -1,0 +1,34 @@
+{
+  "parent": "delighto_flight:main/get_lotus_flower_night",
+  "criteria": {
+    "eat_lotus": {
+      "conditions": {
+        "item": {
+          "items": [
+            "delighto_flight:lotus_root"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "delighto_flight.advancement.eat_lotus.desc"
+    },
+    "icon": {
+      "count": 1,
+      "item": "delighto_flight:lotus_root"
+    },
+    "title": {
+      "translate": "delighto_flight.advancement.eat_lotus"
+    }
+  },
+  "requirements": [
+    [
+      "eat_lotus"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "delighto_flight:block/cloud_berry_bag_top",
+    "bottom": "delighto_flight:block/cloud_berry_bag_bottom",
+    "side": "delighto_flight:block/cloud_berry_bag_side"
+  }
+}

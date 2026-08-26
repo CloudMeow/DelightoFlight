@@ -18,6 +18,10 @@ public class DFBlocks {
             ()-> new CloudBlock(Block.Properties.copy(Blocks.ORANGE_WOOL).strength(0.2f).sound(SoundType.WOOL).noOcclusion()));
     public static final RegistryObject<Block> CLOUD_SILK_BLOCK = BLOCKS.register("cloud_silk_block",
             ()-> new Block(Block.Properties.copy(Blocks.ORANGE_WOOL).strength(0.2f).sound(SoundType.WOOL)));
+    public static final RegistryObject<Block> CLOUD_BERRY_BAG = BLOCKS.register("cloud_berry_bag",
+            () -> new Block(Block.Properties.copy(Blocks.WHITE_WOOL)));
+    public static final RegistryObject<Block> THUNDER_FRUIT_CRATE = BLOCKS.register("thunder_fruit_crate",
+            () -> new Block(Block.Properties.copy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> CLEAR_CLOUDSHROOM = BLOCKS.register("clear_cloudshroom",
             ()-> new CloudshroomBlock(Block.Properties.copy(Blocks.BROWN_MUSHROOM)));
     public static final RegistryObject<Block> RAINY_CLOUDSHROOM = BLOCKS.register("rainy_cloudshroom",
@@ -57,4 +61,6 @@ public class DFBlocks {
             ()-> new WaterlilyBlock(Block.Properties.copy(Blocks.BIG_DRIPLEAF_STEM).instabreak().sound(SoundType.LILY_PAD).noOcclusion()));
     public static final RegistryObject<Block> WILD_LOTUS = BLOCKS.register("wild_lotus",
             ()-> new WildLotusBlock(Block.Properties.copy(Blocks.TALL_GRASS)));
+    public static final RegistryObject<Block> COTTON_CANDY_MACHINE = BLOCKS.register("cotton_candy_machine",
+            ()-> new CottonCandyMachineBlock(Block.Properties.copy(Blocks.BRICKS).noOcclusion()));
 }

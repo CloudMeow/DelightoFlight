@@ -57,12 +57,24 @@ public class DFCreativeModeTabs {
                 output.accept(DFItems.LOTUS_ROOT_SALAD.get());
                 output.accept(DFItems.CHARGED_ROSE_TEA.get());
                 output.accept(DFItems.SPARKTRICITY_SODA.get());
+                output.accept(DFItems.APPLE_COTTON_CANDY.get());
+                output.accept(DFItems.CHORUS_FRUIT_COTTON_CANDY.get());
+                output.accept(DFItems.CLOUD_BERRY_COTTON_CANDY.get());
+                output.accept(DFItems.ENCHANTED_GOLDEN_APPLE_COTTON_CANDY.get());
+                output.accept(DFItems.GLOW_BERRY_COTTON_CANDY.get());
+                output.accept(DFItems.GOLDEN_APPLE_COTTON_CANDY.get());
+                output.accept(DFItems.MELON_COTTON_CANDY.get());
+                output.accept(DFItems.SWEET_BERRY_COTTON_CANDY.get());
+                output.accept(DFItems.THUNDER_FRUIT_COTTON_CANDY.get());
+                output.accept(DFItems.CLOUD_BERRY_BAG.get());
+                output.accept(DFItems.THUNDER_FRUIT_CRATE.get());
                 output.accept(DFItems.CLOUD.get());
                 output.accept(DFItems.CLOUD_SILK_BLOCK.get());
                 output.accept(DFItems.CLOUD_SILK_BED.get());
                 output.accept(DFItems.WEATHER_SOIL.get());
                 output.accept(DFItems.WEATHER_SOIL_FARMLAND.get());
                 output.accept(DFItems.ROOTED_MUD.get());
+                output.accept(DFItems.COTTON_CANDY_MACHINE.get());
                 output.accept(DFItems.WILD_LOTUS.get());
                 output.accept(DFItems.AEROLOPE_SPAWN_EGG.get());
             })

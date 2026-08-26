@@ -2,6 +2,7 @@ package com.cloudmeow.delightoflight;
 
 import com.cloudmeow.delightoflight.client.ClientSetup;
 import com.cloudmeow.delightoflight.compat.thirst.ThirstCompat;
+import com.cloudmeow.delightoflight.event.ModEvent;
 import com.cloudmeow.delightoflight.registry.*;
 import com.cloudmeow.delightoflight.utility.DFUtilities;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -22,6 +23,7 @@ public class DelightoFlight
         if (FMLEnvironment.dist.isClient()) {
             modEventBus.addListener(ClientSetup::screenInit);
         }
+//        modEventBus.addListener(ModEvent::setup);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.CONFIG);
 
@@ -40,6 +42,8 @@ public class DelightoFlight
         DFMenus.MENUS.register(modEventBus);
         DFSensorType.SENSOR_TYPE.register(modEventBus);
         DFFeatures.FEATURES.register(modEventBus);
+        DFRecipeTypes.RECIPE_TYPES.register(modEventBus);
+        DFRecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus);
         DFAdvancements.register();
 
         if (!DFUtilities.chefDelightLoad()) {

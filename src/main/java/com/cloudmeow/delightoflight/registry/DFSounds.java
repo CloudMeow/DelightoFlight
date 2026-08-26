@@ -26,4 +26,6 @@ public class DFSounds {
     public static final RegistryObject<SoundEvent> THUNDER_HORN = SOUNDS.register("item.thunder_horn",
             () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(DelightoFlight.MOD_ID, "item.thunder_horn")));
 
+    public static final RegistryObject<SoundEvent> COTTON_CANDY_MACHINE_WORK = SOUNDS.register("block.cotton_candy_machine.work",
+            () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(DelightoFlight.MOD_ID, "block.cotton_candy_machine.work")));
 }

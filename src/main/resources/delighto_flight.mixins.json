@@ -5,10 +5,11 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "delighto_flight.refmap.json",
   "mixins": [
+    "AbstractCauldronBlockMixin",
     "AllayAiMixin",
     "AllayMixin",
     "FirstFloorRoomCollectionMixin",
-    "AbstractCauldronBlockMixin",
+    "PlayerMixin",
     "ServerLevelMixin",
     "VillagerGoalPackagesMixin",
     "VillagerMixin",

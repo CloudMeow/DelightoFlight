@@ -1,11 +1,8 @@
 package com.cloudmeow.delightoflight.registry;
 
-import com.cloudmeow.delightoflight.item.AerolopeHorn;
-import com.cloudmeow.delightoflight.item.CookBook;
-import com.cloudmeow.delightoflight.item.LotusSeed;
+import com.cloudmeow.delightoflight.item.*;
 import com.cloudmeow.delightoflight.utility.DFFoodValue;
 import com.cloudmeow.delightoflight.DelightoFlight;
-import com.cloudmeow.delightoflight.item.BirdFeed;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -14,6 +11,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.item.ConsumableItem;
 import vectorwing.farmersdelight.common.item.DrinkableItem;
+
+import java.util.function.Supplier;
 
 public class DFItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, DelightoFlight.MOD_ID);
@@ -24,6 +23,10 @@ public class DFItems {
 
     public static Item.Properties drinkItem() {
         return new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).stacksTo(16);
+    }
+
+    public static Item.Properties cottonCandyItem(FoodProperties food) {
+        return new Item.Properties().food(food).craftRemainder(Items.STICK).stacksTo(64);
     }
 
     public static final RegistryObject<Item> CLOUD_SILK = ITEMS.register("cloud_silk",
@@ -48,10 +51,34 @@ public class DFItems {
             ()-> new Item(new Item.Properties().food(DFFoodValue.LOTUS_ROOT)));
     public static final RegistryObject<Item> LOTUS_ROOT_SLICE = ITEMS.register("lotus_root_slice",
             ()-> new Item(new Item.Properties().food(DFFoodValue.LOTUS_ROOT_SLICE)));
-    public static final RegistryObject<Item> LOTUS_SEEDS = ITEMS.register("lotus_seeds",
-            ()-> new LotusSeed(new Item.Properties()));
     public static final RegistryObject<Item> LOTUS_LEAF = ITEMS.register("lotus_leaf",
             ()-> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> APPLE_COTTON_CANDY = ITEMS.register("apple_cotton_candy",
+            ()-> new ConsumableItem(cottonCandyItem(DFFoodValue.APPLE_COTTON_CANDY), true));
+    public static final RegistryObject<Item> CHORUS_FRUIT_COTTON_CANDY = ITEMS.register("chorus_fruit_cotton_candy",
+            ()-> new ConsumableChorusFruit(cottonCandyItem(DFFoodValue.CHORUS_FRUIT_COTTON_CANDY)));
+    public static final RegistryObject<Item> CLOUD_BERRY_COTTON_CANDY = ITEMS.register("cloud_berry_cotton_candy",
+            ()-> new ConsumableItem(cottonCandyItem(DFFoodValue.CLOUD_BERRY_COTTON_CANDY), true));
+    public static final RegistryObject<Item> ENCHANTED_GOLDEN_APPLE_COTTON_CANDY = ITEMS.register("enchanted_golden_apple_cotton_candy",
+            ()-> new ConsumableItem(cottonCandyItem(DFFoodValue.ENCHANTED_GOLDEN_APPLE_COTTON_CANDY).rarity(Rarity.EPIC), true){
+                @Override
+                public boolean isFoil(ItemStack stack) {
+                    return true;
+                }
+            }
+    );
+    public static final RegistryObject<Item> GLOW_BERRY_COTTON_CANDY = ITEMS.register("glow_berry_cotton_candy",
+            ()-> new ConsumableItem(cottonCandyItem(DFFoodValue.GLOW_BERRY_COTTON_CANDY), true));
+    public static final RegistryObject<Item> GOLDEN_APPLE_COTTON_CANDY = ITEMS.register("golden_apple_cotton_candy",
+            ()-> new ConsumableItem(cottonCandyItem(DFFoodValue.GOLDEN_APPLE_COTTON_CANDY), true));
+    public static final RegistryObject<Item> MELON_COTTON_CANDY = ITEMS.register("melon_cotton_candy",
+            ()-> new ConsumableItem(cottonCandyItem(DFFoodValue.MELON_COTTON_CANDY), true));
+    public static final RegistryObject<Item> SWEET_BERRY_COTTON_CANDY = ITEMS.register("sweet_berry_cotton_candy",
+            ()-> new ConsumableItem(cottonCandyItem(DFFoodValue.SWEET_BERRY_COTTON_CANDY), true));
+    public static final RegistryObject<Item> THUNDER_FRUIT_COTTON_CANDY = ITEMS.register("thunder_fruit_cotton_candy",
+            ()-> new ConsumableItem(cottonCandyItem(DFFoodValue.THUNDER_FRUIT_COTTON_CANDY), true));
+    public static final RegistryObject<Item> LOTUS_SEEDS = ITEMS.register("lotus_seeds",
+            ()-> new LotusSeed(new Item.Properties()));
     public static final RegistryObject<Item> LOTUS_FLOWER = ITEMS.register("lotus_flower",
             ()-> new PlaceOnWaterBlockItem(DFBlocks.DECORATIVE_LOTUS_FLOWER.get(), new Item.Properties()));
     public static final RegistryObject<Item> BIRD_FEED = ITEMS.register("bird_feed",
@@ -112,6 +139,12 @@ public class DFItems {
             ()-> new BlockItem(DFBlocks.CLOUDSHROOM_COLONY.get(), new Item.Properties()));
     public static final RegistryObject<Item> ROOTED_MUD = ITEMS.register("rooted_mud",
             ()-> new BlockItem(DFBlocks.ROOTED_MUD.get(), new Item.Properties()));
+    public static final RegistryObject<Item> COTTON_CANDY_MACHINE = ITEMS.register("cotton_candy_machine",
+            ()-> new BlockItem(DFBlocks.COTTON_CANDY_MACHINE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> CLOUD_BERRY_BAG = ITEMS.register("cloud_berry_bag",
+            ()-> new BlockItem(DFBlocks.CLOUD_BERRY_BAG.get(), new Item.Properties()));
+    public static final RegistryObject<Item> THUNDER_FRUIT_CRATE = ITEMS.register("thunder_fruit_crate",
+            ()-> new BlockItem(DFBlocks.THUNDER_FRUIT_CRATE.get(), new Item.Properties()));
     public static final RegistryObject<Item> CHARGED_ROSE_TEA = ITEMS.register("charged_rose_tea",
             ()-> new DrinkableItem(drinkItem().food(DFFoodValue.CHARGED_ROSE_TEA), true, false));
     public static final RegistryObject<Item> SPARKTRICITY_SODA = ITEMS.register("sparktricity_soda",
@@ -126,6 +159,8 @@ public class DFItems {
             ()-> new AerolopeHorn(new Item.Properties().stacksTo(1), 2));
     public static final RegistryObject<Item> WILD_LOTUS = ITEMS.register("wild_lotus",
             ()-> new DoubleHighBlockItem(DFBlocks.WILD_LOTUS.get(), new Item.Properties()));
+
+
 
     public static final RegistryObject<Item> AEROLOPE_SPAWN_EGG = ITEMS.register("aerolope_spawn_egg",
             ()-> new ForgeSpawnEggItem(DFEntityTypes.AEROLOPE, 0xb7a6ba, 0x4a486f, new Item.Properties()));

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "TTT",
+    "TTT",
+    "TTT"
+  ],
+  "key": {
+    "T": {
+      "item": "delighto_flight:thunder_fruit"
+    }
+  },
+  "result": {
+    "item": "delighto_flight:thunder_fruit_crate"
+  }
+}
