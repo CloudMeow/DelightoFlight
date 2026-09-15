@@ -2,7 +2,6 @@ package com.cloudmeow.delightoflight;
 
 import com.cloudmeow.delightoflight.client.ClientSetup;
 import com.cloudmeow.delightoflight.compat.thirst.ThirstCompat;
-import com.cloudmeow.delightoflight.event.ModEvent;
 import com.cloudmeow.delightoflight.registry.*;
 import com.cloudmeow.delightoflight.utility.DFUtilities;
 import net.minecraftforge.eventbus.api.IEventBus;

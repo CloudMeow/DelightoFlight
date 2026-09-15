@@ -1,25 +1,52 @@
 {
   "variants": {
-    "bud_age=0,high=0,slope=0": {
-      "model": "delighto_flight:block/lotus_bud_stage0"
-    },
-    "bud_age=1,high=0,slope=0": {
-      "model": "delighto_flight:block/lotus_bud_stage1a"
-    },
-    "bud_age=1,high=1,slope=0": {
-      "model": "delighto_flight:block/lotus_bud_stage1ba"
-    },
-    "bud_age=1,high=1,slope=1": {
-      "model": "delighto_flight:block/lotus_bud_stage1bb"
-    },
-    "bud_age=2,high=0,slope=0": {
-      "model": "delighto_flight:block/lotus_bud_stage2a"
-    },
-    "bud_age=2,high=1,slope=0": {
-      "model": "delighto_flight:block/lotus_bud_stage2ba"
-    },
-    "bud_age=2,high=1,slope=1": {
-      "model": "delighto_flight:block/lotus_bud_stage2bb"
-    }
+    "facing=north,bud_age=0,high=0,slope=0": { "model": "delighto_flight:block/lotus_bud_stage0" },
+    "facing=east,bud_age=0,high=0,slope=0": { "model": "delighto_flight:block/lotus_bud_stage0", "y": 90 },
+    "facing=south,bud_age=0,high=0,slope=0": { "model": "delighto_flight:block/lotus_bud_stage0", "y": 180 },
+    "facing=west,bud_age=0,high=0,slope=0": { "model": "delighto_flight:block/lotus_bud_stage0", "y": 270 },
+    "facing=north,bud_age=0,high=0,slope=1": { "model": "delighto_flight:block/lotus_bud_stage0" },
+    "facing=east,bud_age=0,high=0,slope=1": { "model": "delighto_flight:block/lotus_bud_stage0", "y": 90 },
+    "facing=south,bud_age=0,high=0,slope=1": { "model": "delighto_flight:block/lotus_bud_stage0", "y": 180 },
+    "facing=west,bud_age=0,high=0,slope=1": { "model": "delighto_flight:block/lotus_bud_stage0", "y": 270 },
+    "facing=north,bud_age=0,high=1,slope=0": { "model": "delighto_flight:block/lotus_bud_stage0" },
+    "facing=east,bud_age=0,high=1,slope=0": { "model": "delighto_flight:block/lotus_bud_stage0", "y": 90 },
+    "facing=south,bud_age=0,high=1,slope=0": { "model": "delighto_flight:block/lotus_bud_stage0", "y": 180 },
+    "facing=west,bud_age=0,high=1,slope=0": { "model": "delighto_flight:block/lotus_bud_stage0", "y": 270 },
+    "facing=north,bud_age=0,high=1,slope=1": { "model": "delighto_flight:block/lotus_bud_stage0" },
+    "facing=east,bud_age=0,high=1,slope=1": { "model": "delighto_flight:block/lotus_bud_stage0", "y": 90 },
+    "facing=south,bud_age=0,high=1,slope=1": { "model": "delighto_flight:block/lotus_bud_stage0", "y": 180 },
+    "facing=west,bud_age=0,high=1,slope=1": { "model": "delighto_flight:block/lotus_bud_stage0", "y": 270 },
+    "facing=north,bud_age=1,high=0,slope=0": { "model": "delighto_flight:block/lotus_bud_stage1a" },
+    "facing=east,bud_age=1,high=0,slope=0": { "model": "delighto_flight:block/lotus_bud_stage1a", "y": 90 },
+    "facing=south,bud_age=1,high=0,slope=0": { "model": "delighto_flight:block/lotus_bud_stage1a", "y": 180 },
+    "facing=west,bud_age=1,high=0,slope=0": { "model": "delighto_flight:block/lotus_bud_stage1a", "y": 270 },
+    "facing=north,bud_age=1,high=0,slope=1": { "model": "delighto_flight:block/lotus_bud_stage0" },
+    "facing=east,bud_age=1,high=0,slope=1": { "model": "delighto_flight:block/lotus_bud_stage0", "y": 90 },
+    "facing=south,bud_age=1,high=0,slope=1": { "model": "delighto_flight:block/lotus_bud_stage0", "y": 180 },
+    "facing=west,bud_age=1,high=0,slope=1": { "model": "delighto_flight:block/lotus_bud_stage0", "y": 270 },
+    "facing=north,bud_age=1,high=1,slope=0": { "model": "delighto_flight:block/lotus_bud_stage1ba" },
+    "facing=east,bud_age=1,high=1,slope=0": { "model": "delighto_flight:block/lotus_bud_stage1ba", "y": 90 },
+    "facing=south,bud_age=1,high=1,slope=0": { "model": "delighto_flight:block/lotus_bud_stage1ba", "y": 180 },
+    "facing=west,bud_age=1,high=1,slope=0": { "model": "delighto_flight:block/lotus_bud_stage1ba", "y": 270 },
+    "facing=north,bud_age=1,high=1,slope=1": { "model": "delighto_flight:block/lotus_bud_stage1bb" },
+    "facing=east,bud_age=1,high=1,slope=1": { "model": "delighto_flight:block/lotus_bud_stage1bb", "y": 90 },
+    "facing=south,bud_age=1,high=1,slope=1": { "model": "delighto_flight:block/lotus_bud_stage1bb", "y": 180 },
+    "facing=west,bud_age=1,high=1,slope=1": { "model": "delighto_flight:block/lotus_bud_stage1bb", "y": 270 },
+    "facing=north,bud_age=2,high=0,slope=0": { "model": "delighto_flight:block/lotus_bud_stage2a" },
+    "facing=east,bud_age=2,high=0,slope=0": { "model": "delighto_flight:block/lotus_bud_stage2a", "y": 90 },
+    "facing=south,bud_age=2,high=0,slope=0": { "model": "delighto_flight:block/lotus_bud_stage2a", "y": 180 },
+    "facing=west,bud_age=2,high=0,slope=0": { "model": "delighto_flight:block/lotus_bud_stage2a", "y": 270 },
+    "facing=north,bud_age=2,high=0,slope=1": { "model": "delighto_flight:block/lotus_bud_stage0" },
+    "facing=east,bud_age=2,high=0,slope=1": { "model": "delighto_flight:block/lotus_bud_stage0", "y": 90 },
+    "facing=south,bud_age=2,high=0,slope=1": { "model": "delighto_flight:block/lotus_bud_stage0", "y": 180 },
+    "facing=west,bud_age=2,high=0,slope=1": { "model": "delighto_flight:block/lotus_bud_stage0", "y": 270 },
+    "facing=north,bud_age=2,high=1,slope=0": { "model": "delighto_flight:block/lotus_bud_stage2ba" },
+    "facing=east,bud_age=2,high=1,slope=0": { "model": "delighto_flight:block/lotus_bud_stage2ba", "y": 90 },
+    "facing=south,bud_age=2,high=1,slope=0": { "model": "delighto_flight:block/lotus_bud_stage2ba", "y": 180 },
+    "facing=west,bud_age=2,high=1,slope=0": { "model": "delighto_flight:block/lotus_bud_stage2ba", "y": 270 },
+    "facing=north,bud_age=2,high=1,slope=1": { "model": "delighto_flight:block/lotus_bud_stage2bb" },
+    "facing=east,bud_age=2,high=1,slope=1": { "model": "delighto_flight:block/lotus_bud_stage2bb", "y": 90 },
+    "facing=south,bud_age=2,high=1,slope=1": { "model": "delighto_flight:block/lotus_bud_stage2bb", "y": 180 },
+    "facing=west,bud_age=2,high=1,slope=1": { "model": "delighto_flight:block/lotus_bud_stage2bb", "y": 270 }
   }
 }

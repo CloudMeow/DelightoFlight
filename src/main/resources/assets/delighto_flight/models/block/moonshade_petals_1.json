@@ -1,0 +1,17 @@
+{
+  "render_type": "cutout",
+  "textures": {
+    "particle": "delighto_flight:block/moonshade_petals",
+    "flowerbed": "delighto_flight:block/moonshade_petals"
+  },
+  "elements": [
+    {
+      "from": [0, 0.5, 0],
+      "to": [8, 0.5, 8],
+      "faces": {
+        "up": {"uv": [0, 0, 8, 8], "texture": "#flowerbed"},
+        "down": {"uv": [0, 8, 8, 0], "texture": "#flowerbed"}
+      }
+    }
+  ]
+}

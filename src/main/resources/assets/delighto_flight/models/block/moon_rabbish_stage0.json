@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/crop",
+  "render_type": "cutout",
+  "textures": {
+    "crop": "delighto_flight:block/moon_rabbish_stage0"
+  }
+}

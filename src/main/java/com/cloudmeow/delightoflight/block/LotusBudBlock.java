@@ -22,46 +22,73 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
 
-public class LotusBudBlock extends GrowingPlantHeadBlock implements LiquidBlockContainer {
+public class LotusBudBlock extends Block implements LiquidBlockContainer, BonemealableBlock  {
+    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final IntegerProperty BUD_AGE = IntegerProperty.create("bud_age", 0, 2);
     public static final IntegerProperty HIGH = IntegerProperty.create("high", 0, 1);
     public static final IntegerProperty SLOPE = IntegerProperty.create("slope", 0, 1);
     protected static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 16.0D, 12.0D);
 
     public LotusBudBlock(Properties properties) {
-        super(properties, Direction.UP, SHAPE, false, 0.14D);
-        this.registerDefaultState(this.stateDefinition.any().setValue(BUD_AGE, 0).setValue(HIGH, 0).setValue(SLOPE, 0));
+        super(properties);
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(BUD_AGE, 0).setValue(HIGH, 0).setValue(SLOPE, 0));
     }
 
     @Override
-    protected boolean canAttachTo(BlockState state) {
-        return state.is(DFBlocks.ROOTED_MUD.get()) || state.is(DFBlocks.LOTUS_RHIZOME.get());
+    public BlockState rotate(BlockState state, Rotation rotation) {
+        return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
     }
 
     @Override
-    public boolean canSurvive(BlockState p_53876_, LevelReader p_53877_, BlockPos p_53878_) {
-        return super.canSurvive(p_53876_, p_53877_, p_53878_);
+    public BlockState mirror(BlockState state, Mirror mirror) {
+        return state.rotate(mirror.getRotation(state.getValue(FACING)));
     }
 
     @Override
-    protected boolean canGrowInto(BlockState state) {
-        return state.is(Blocks.WATER);
+    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+        BlockState below = level.getBlockState(pos.below());
+        return below.is(DFBlocks.ROOTED_MUD.get()) || below.is(DFBlocks.LOTUS_RHIZOME.get());
+    }
+
+    @Nullable
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
+        if (fluidstate.is(FluidTags.WATER) && fluidstate.getAmount() == 8 && this.canSurvive(this.defaultBlockState(), context.getLevel(), context.getClickedPos())) {
+            return super.getStateForPlacement(context);
+        }
+        return null;
     }
 
     @Override
-    protected Block getBodyBlock() {
-        return DFBlocks.LOTUS_RHIZOME.get();
+    public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
+        if (!state.canSurvive(level, pos)) {
+            level.scheduleTick(pos, this, 1);
+        }
+
+        if (direction == Direction.UP && (neighborState.is(this) || neighborState.is(DFBlocks.LOTUS_RHIZOME.get()))) {
+            return DFBlocks.LOTUS_RHIZOME.get().defaultBlockState();
+        }
+
+        level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+
+        return super.updateShape(state, direction, neighborState, level, pos, neighborPos);
     }
+
+
 
     @Override
     public boolean canPlaceLiquid(BlockGetter blockGetter, BlockPos pos, BlockState state, Fluid fluid) {
@@ -74,38 +101,15 @@ public class LotusBudBlock extends GrowingPlantHeadBlock implements LiquidBlockC
     }
 
     @Override
-    protected int getBlocksToGrowWhenBonemealed(RandomSource randomSource) {
-        return 1;
-    }
-
-    @Override
-    public BlockState updateShape(BlockState state, Direction direction, BlockState blockState1, LevelAccessor level, BlockPos blockPos, BlockPos blockPos1) {
-        if (direction == this.growthDirection.getOpposite() && !state.canSurvive(level, blockPos)) {
-            level.scheduleTick(blockPos, this, 1);
-        }
-
-        if (direction != this.growthDirection || !blockState1.is(this) && !blockState1.is(this.getBodyBlock())) {
-            if (this.scheduleFluidTicks) {
-                level.scheduleTick(blockPos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
-            }
-
-            return super.updateShape(state, direction, blockState1, level, blockPos, blockPos1);
-        } else {
-            return this.updateBodyAfterConvertedFromHead(state, this.getBodyBlock().defaultBlockState().setValue(LotusRhizomeBlock.RHIZOME_AGE, level.getBlockState(blockPos.below()).is(DFBlocks.ROOTED_MUD.get()) ? 0 : 1));
-        }
-    }
-
-    @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        super.createBlockStateDefinition(builder);
-        builder.add(BUD_AGE).add(HIGH).add(SLOPE);
+        builder.add(FACING, BUD_AGE, HIGH, SLOPE);
     }
 
-    @Nullable
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext blockPlaceContext) {
-        FluidState fluidstate = blockPlaceContext.getLevel().getFluidState(blockPlaceContext.getClickedPos());
-        return fluidstate.is(FluidTags.WATER) && fluidstate.getAmount() == 8 ? super.getStateForPlacement(blockPlaceContext) : null;
+    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        if (!state.canSurvive(level, pos)) {
+            level.destroyBlock(pos, true);
+        }
     }
 
     @Override
@@ -114,23 +118,34 @@ public class LotusBudBlock extends GrowingPlantHeadBlock implements LiquidBlockC
     }
 
     @Override
-    public void performBonemeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos pos, BlockState state) {
-        BlockPos nextGrowth = pos.relative(this.growthDirection);
-        if (this.canGrowInto(serverLevel.getBlockState(nextGrowth))) {
-            serverLevel.setBlockAndUpdate(nextGrowth, this.getGrowIntoState(state, serverLevel.random));
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return SHAPE;
+    }
+
+    @Override
+    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        if (level.getBlockState(pos.above()).is(Blocks.WATER) && random.nextDouble() < 0.14D) {
+            level.setBlockAndUpdate(pos.above(), state);
         }
-        growLotusFlower(serverLevel, pos, state);
+        growLotusFlower(level, pos, state);
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState, boolean isClient) {
-        return super.isValidBonemealTarget(levelReader, blockPos, blockState, false) || levelReader.getBlockState(blockPos.above()).isAir();
+    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean isClient) {
+        return level.getBlockState(pos.above()).is(Blocks.WATER) || state.getValue(BUD_AGE) < 2 || level.getBlockState(pos.above()).isAir();
     }
 
     @Override
-    public void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
-        super.randomTick(blockState, serverLevel, blockPos, randomSource);
-        growLotusFlower(serverLevel, blockPos, blockState);
+    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+        if (level.getBlockState(pos.above()).is(Blocks.WATER)) {
+            level.setBlockAndUpdate(pos.above(), state);
+        }
+        growLotusFlower(level, pos, state);
+    }
+
+    @Override
+    public boolean isBonemealSuccess(Level p_220878_, RandomSource p_220879_, BlockPos p_220880_, BlockState p_220881_) {
+        return true;
     }
 
     public void growLotusFlower(ServerLevel serverLevel, BlockPos blockPos, BlockState blockState) {
@@ -180,10 +195,5 @@ public class LotusBudBlock extends GrowingPlantHeadBlock implements LiquidBlockC
         } else {
             return super.use(state, level, pos, player, hand, result);
         }
-    }
-
-    @Override
-    public long getSeed(BlockState p_60539_, BlockPos p_60540_) {
-        return super.getSeed(p_60539_, p_60540_);
     }
 }

@@ -13,14 +13,14 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
 
-public class ElectricCurrent extends Projectile {
+public class ElectricCurrentEntity extends Projectile {
     private int soundCoolDown = 0;
 
-    public ElectricCurrent(EntityType<? extends ElectricCurrent> type, Level level) {
+    public ElectricCurrentEntity(EntityType<? extends ElectricCurrentEntity> type, Level level) {
         super(type, level);
     }
 
-    public ElectricCurrent(LivingEntity owner) {
+    public ElectricCurrentEntity(LivingEntity owner) {
         super(DFEntityTypes.ELECTRIC_CURRENT.get(), owner.level());
     }
 
@@ -34,7 +34,7 @@ public class ElectricCurrent extends Projectile {
             if(owner.getEffect(DFEffects.ARC.get()) != null) {
                 if(this.level() instanceof ServerLevel) {
                     for (LivingEntity living : this.level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(10))) {
-                        if ((DFUtilities.isConductive(owner) || living != owner) && !living.getUUID().equals(this.getUUID()) && living.distanceTo(this) - living.getBbWidth() / 2 < 7) {
+                        if (canBeHurt(living, owner)) {
                             living.hurt(living.damageSources().source(DFDamageTypes.SHOCK), Config.THUNDER_DAMAGE.get() + owner.getEffect(DFEffects.ARC.get()).getAmplifier());
                             if (soundCoolDown <= 0) {
                                 this.level().playSound(null, this.blockPosition(), DFSounds.SHOCK.get(), SoundSource.PLAYERS, 0.8F, 0.8F);
@@ -52,6 +52,14 @@ public class ElectricCurrent extends Projectile {
         } else {
             this.discard();
         }
+    }
+
+    public boolean canBeHurt(LivingEntity living, LivingEntity owner) {
+        return (DFUtilities.isConductive(owner) || canBeHurt(living));
+    }
+
+    public boolean canBeHurt(LivingEntity living) {
+        return (Config.HURT_PASSIVE_MOBS.get() || !living.getType().getCategory().isFriendly()) && !living.getUUID().equals(this.getUUID()) && living.distanceTo(this) - living.getBbWidth() / 2 < 7;
     }
 
     @Override

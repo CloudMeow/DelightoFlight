@@ -12,8 +12,6 @@ import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.item.ConsumableItem;
 import vectorwing.farmersdelight.common.item.DrinkableItem;
 
-import java.util.function.Supplier;
-
 public class DFItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, DelightoFlight.MOD_ID);
 
@@ -145,6 +143,16 @@ public class DFItems {
             ()-> new BlockItem(DFBlocks.CLOUD_BERRY_BAG.get(), new Item.Properties()));
     public static final RegistryObject<Item> THUNDER_FRUIT_CRATE = ITEMS.register("thunder_fruit_crate",
             ()-> new BlockItem(DFBlocks.THUNDER_FRUIT_CRATE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> MOON_RABBISH_CRATE = ITEMS.register("moon_rabbish_crate",
+            ()-> new BlockItem(DFBlocks.MOON_RABBISH_CRATE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> MOON_RABBISH = ITEMS.register("moon_rabbish",
+            ()-> new BlockItem(DFBlocks.MOON_RABBISH.get(), new Item.Properties().food(DFFoodValue.MOON_RABBISH)));
+    public static final RegistryObject<Item> MOONSHADE = ITEMS.register("moonshade",
+            ()-> new BlockItem(DFBlocks.MOONSHADE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> MOONSHADE_PETALS = ITEMS.register("moonshade_petals",
+            ()-> new BlockItem(DFBlocks.MOONSHADE_PETALS.get(), new Item.Properties()));
+    public static final RegistryObject<Item> MOONSHADE_NECTAR = ITEMS.register("moonshade_nectar",
+            ()-> new HoneyBottleItem(new Item.Properties().food(DFFoodValue.MOONSHADE_NECTAR).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16)));
     public static final RegistryObject<Item> CHARGED_ROSE_TEA = ITEMS.register("charged_rose_tea",
             ()-> new DrinkableItem(drinkItem().food(DFFoodValue.CHARGED_ROSE_TEA), true, false));
     public static final RegistryObject<Item> SPARKTRICITY_SODA = ITEMS.register("sparktricity_soda",
@@ -159,8 +167,6 @@ public class DFItems {
             ()-> new AerolopeHorn(new Item.Properties().stacksTo(1), 2));
     public static final RegistryObject<Item> WILD_LOTUS = ITEMS.register("wild_lotus",
             ()-> new DoubleHighBlockItem(DFBlocks.WILD_LOTUS.get(), new Item.Properties()));
-
-
 
     public static final RegistryObject<Item> AEROLOPE_SPAWN_EGG = ITEMS.register("aerolope_spawn_egg",
             ()-> new ForgeSpawnEggItem(DFEntityTypes.AEROLOPE, 0xb7a6ba, 0x4a486f, new Item.Properties()));

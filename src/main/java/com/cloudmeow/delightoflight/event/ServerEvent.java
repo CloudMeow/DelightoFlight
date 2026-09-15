@@ -1,8 +1,8 @@
 package com.cloudmeow.delightoflight.event;
 
 import com.cloudmeow.delightoflight.DelightoFlight;
-import com.cloudmeow.delightoflight.registry.DFBlocks;
-import com.cloudmeow.delightoflight.registry.DFItems;
+import com.cloudmeow.delightoflight.entity.MoonSlashEntity;
+import com.cloudmeow.delightoflight.registry.*;
 import com.cloudmeow.delightoflight.utility.DFUtilities;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.core.BlockPos;
@@ -10,6 +10,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -28,6 +30,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.MobEffectEvent;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -159,5 +163,60 @@ public class ServerEvent {
                 }
             }
         }
+    }
+
+    @SubscribeEvent
+    public static void onMoonEffectApplicable(MobEffectEvent.Applicable event) {
+        if (!(event.getEntity() instanceof Player player) || player.level().isClientSide()) return;
+        MobEffect effect = event.getEffectInstance().getEffect();
+        if (player.hasEffect(DFEffects.FULL_MOON.get())) {
+            if (effect == DFEffects.WAXING_CRESCENT.get() || effect == DFEffects.WANING_CRESCENT.get()) {
+                event.setResult(MobEffectEvent.Applicable.Result.DENY);
+            }
+        }
+        if (effect == DFEffects.WAXING_CRESCENT.get()) {
+            if (player.getEffect(DFEffects.WANING_CRESCENT.get()) != null) {
+                int fullMoonDuration = event.getEffectInstance().getDuration();
+                player.removeEffect(DFEffects.WANING_CRESCENT.get());
+                player.addEffect(new MobEffectInstance(DFEffects.FULL_MOON.get(), fullMoonDuration));
+                event.setResult(MobEffectEvent.Applicable.Result.DENY);
+            }
+        }
+        if (effect == DFEffects.WANING_CRESCENT.get()) {
+            if (player.getEffect(DFEffects.WAXING_CRESCENT.get()) != null) {
+                int fullMoonDuration = event.getEffectInstance().getDuration();
+                player.removeEffect(DFEffects.WAXING_CRESCENT.get());
+                player.addEffect(new MobEffectInstance(DFEffects.FULL_MOON.get(), fullMoonDuration));
+                event.setResult(MobEffectEvent.Applicable.Result.DENY);
+            }
+        }
+
+    }
+
+    @SubscribeEvent
+    public static void onPlayerAttack(AttackEntityEvent event) {
+        Player player = event.getEntity();
+        if (player.level().isClientSide()) return;
+        if (player.getAttackStrengthScale(0.0F) < 1.0F) return;
+
+        int shape;
+        if (player.hasEffect(DFEffects.FULL_MOON.get())) {
+            shape = 0;
+        } else if (player.hasEffect(DFEffects.WAXING_CRESCENT.get())) {
+            shape = 1;
+        } else if (player.hasEffect(DFEffects.WANING_CRESCENT.get())) {
+            shape = 2;
+        } else {
+            return;
+        }
+
+        MoonSlashEntity slash = new MoonSlashEntity(DFEntityTypes.MOON_SLASH.get(), player.level());
+        slash.setShape(shape);
+        slash.setLookDirection(player.getLookAngle());
+        slash.setAttacker(player);
+        slash.setPos(player.position().x, player.position().y + 0.5F, player.position().z);
+        slash.setYRot(player.getYRot());
+        player.level().addFreshEntity(slash);
+        player.level().playSound(null, player.blockPosition(), DFSounds.MOON_SLASH.get(), SoundSource.PLAYERS, 0.8F, 0.8F);
     }
 }

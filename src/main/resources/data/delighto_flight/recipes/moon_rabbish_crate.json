@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "RRR",
+    "RRR",
+    "RRR"
+  ],
+  "key": {
+    "R": {
+      "item": "delighto_flight:moon_rabbish"
+    }
+  },
+  "result": {
+    "item": "delighto_flight:moon_rabbish_crate"
+  }
+}

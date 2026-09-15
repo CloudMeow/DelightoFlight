@@ -7,9 +7,17 @@
       }
     ]
   },
+  "entity.moon_slash.slash": {
+    "subtitle": "delighto_flight.subtitles.moon_slash.slash",
+    "sounds": [
+      {
+        "name": "delighto_flight:moon_slash"
+      }
+    ]
+  },
   "entity.aerolope.ambient": {
     "category": "neutral",
-	"subtitle": "delighto_flight.subtitles.aerolope.idle",
+    "subtitle": "delighto_flight.subtitles.aerolope.idle",
     "sounds": [
       {
         "name": "delighto_flight:aerolope_idle_1"
@@ -20,14 +28,14 @@
       {
         "name": "delighto_flight:aerolope_idle_3"
       },
-	  {
+      {
         "name": "delighto_flight:aerolope_idle_4"
       }
     ]
   },
   "entity.aerolope.hurt": {
     "category": "neutral",
-	"subtitle": "delighto_flight.subtitles.aerolope.hurt",
+    "subtitle": "delighto_flight.subtitles.aerolope.hurt",
     "sounds": [
       {
         "name": "delighto_flight:aerolope_hurt"
@@ -36,7 +44,7 @@
   },
   "entity.aerolope.death": {
     "category": "neutral",
-	"subtitle": "delighto_flight.subtitles.aerolope.death",
+    "subtitle": "delighto_flight.subtitles.aerolope.death",
     "sounds": [
       {
         "name": "delighto_flight:aerolope_death"
@@ -45,7 +53,7 @@
   },
   "item.clear_horn": {
     "category": "neutral",
-	"subtitle": "delighto_flight.subtitles.item.clear_horn",
+    "subtitle": "delighto_flight.subtitles.item.clear_horn",
     "sounds": [
       {
         "name": "delighto_flight:clear_horn"
@@ -54,7 +62,7 @@
   },
   "item.rainy_horn": {
     "category": "neutral",
-	"subtitle": "delighto_flight.subtitles.item.rainy_horn",
+    "subtitle": "delighto_flight.subtitles.item.rainy_horn",
     "sounds": [
       {
         "name": "delighto_flight:rainy_horn"
@@ -63,7 +71,7 @@
   },
   "item.thunder_horn": {
     "category": "neutral",
-	"subtitle": "delighto_flight.subtitles.item.thunder_horn",
+    "subtitle": "delighto_flight.subtitles.item.thunder_horn",
     "sounds": [
       {
         "name": "delighto_flight:thunder_horn"
@@ -76,6 +84,33 @@
     "sounds": [
       {
         "name": "delighto_flight:cotton_candy_machine_work"
+      }
+    ]
+  },
+  "block.cotton_candy_machine.place": {
+    "category": "block",
+    "subtitle": "delighto_flight.subtitles.cotton_candy_machine.place",
+    "sounds": [
+      {
+        "name": "delighto_flight:cotton_candy_machine_place"
+      }
+    ]
+  },
+  "block.cotton_candy_machine.remove": {
+    "category": "block",
+    "subtitle": "delighto_flight.subtitles.cotton_candy_machine.remove",
+    "sounds": [
+      {
+        "name": "delighto_flight:cotton_candy_machine_remove"
+      }
+    ]
+  },
+  "misc.moonlight_transformation.craft": {
+    "category": "block",
+    "subtitle": "delighto_flight.subtitles.moonlight_transformation.craft",
+    "sounds": [
+      {
+        "name": "delighto_flight:moonlight_transformation"
       }
     ]
   }

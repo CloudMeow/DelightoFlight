@@ -91,7 +91,8 @@ public class RootedMudBlock extends Block implements BonemealableBlock {
     }
 
     public void growLotusBud(ServerLevel level, BlockPos pos) {
-        level.setBlockAndUpdate(pos.above(), DFBlocks.LOTUS_BUD.get().defaultBlockState());
+        Direction facing = Direction.Plane.HORIZONTAL.getRandomDirection(level.random);
+        level.setBlockAndUpdate(pos.above(), DFBlocks.LOTUS_BUD.get().defaultBlockState().setValue(LotusBudBlock.FACING, facing));
     }
 
     public boolean hasWaterAbove(LevelReader level, BlockPos pos) {

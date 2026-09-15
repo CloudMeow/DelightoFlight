@@ -2,11 +2,14 @@ package com.cloudmeow.delightoflight.registry;
 
 import com.cloudmeow.delightoflight.DelightoFlight;
 import com.cloudmeow.delightoflight.block.*;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.WaterlilyBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -21,6 +24,8 @@ public class DFBlocks {
     public static final RegistryObject<Block> CLOUD_BERRY_BAG = BLOCKS.register("cloud_berry_bag",
             () -> new Block(Block.Properties.copy(Blocks.WHITE_WOOL)));
     public static final RegistryObject<Block> THUNDER_FRUIT_CRATE = BLOCKS.register("thunder_fruit_crate",
+            () -> new Block(Block.Properties.copy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> MOON_RABBISH_CRATE = BLOCKS.register("moon_rabbish_crate",
             () -> new Block(Block.Properties.copy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> CLEAR_CLOUDSHROOM = BLOCKS.register("clear_cloudshroom",
             ()-> new CloudshroomBlock(Block.Properties.copy(Blocks.BROWN_MUSHROOM)));
@@ -54,7 +59,7 @@ public class DFBlocks {
     public static final RegistryObject<Block> LOTUS_RHIZOME = BLOCKS.register("lotus_rhizome",
             ()-> new LotusRhizomeBlock(Block.Properties.copy(Blocks.BIG_DRIPLEAF_STEM).sound(SoundType.BIG_DRIPLEAF)));
     public static final RegistryObject<Block> LOTUS_BUD = BLOCKS.register("lotus_bud",
-            ()-> new LotusBudBlock(Block.Properties.copy(Blocks.BIG_DRIPLEAF_STEM).sound(SoundType.BIG_DRIPLEAF)));
+            ()-> new LotusBudBlock(Block.Properties.copy(Blocks.BIG_DRIPLEAF_STEM).sound(SoundType.BIG_DRIPLEAF).randomTicks()));
     public static final RegistryObject<Block> LOTUS_FLOWER = BLOCKS.register("lotus_flower",
             ()-> new LotusFlowerBlock(Block.Properties.copy(Blocks.BIG_DRIPLEAF_STEM).sound(SoundType.BIG_DRIPLEAF)));
     public static final RegistryObject<Block> DECORATIVE_LOTUS_FLOWER = BLOCKS.register("decorative_lotus_flower",
@@ -63,4 +68,10 @@ public class DFBlocks {
             ()-> new WildLotusBlock(Block.Properties.copy(Blocks.TALL_GRASS)));
     public static final RegistryObject<Block> COTTON_CANDY_MACHINE = BLOCKS.register("cotton_candy_machine",
             ()-> new CottonCandyMachineBlock(Block.Properties.copy(Blocks.BRICKS).noOcclusion()));
+    public static final RegistryObject<Block> MOON_RABBISH = BLOCKS.register("moon_rabbish",
+            ()-> new MoonRabbishBlock(Block.Properties.copy(Blocks.CARROTS).mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> MOONSHADE = BLOCKS.register("moonshade",
+            () -> new MoonshadeBlock(MobEffects.WITHER, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> MOONSHADE_PETALS = BLOCKS.register("moonshade_petals",
+            () -> new MoonshadePetalsBlock(Block.Properties.copy(Blocks.PINK_PETALS)));
 }

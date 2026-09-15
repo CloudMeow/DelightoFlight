@@ -1,6 +1,6 @@
 package com.cloudmeow.delightoflight.effect;
 
-import com.cloudmeow.delightoflight.entity.ElectricCurrent;
+import com.cloudmeow.delightoflight.entity.ElectricCurrentEntity;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
@@ -14,17 +14,17 @@ public class ArcEffect extends MobEffect {
     public void applyEffectTick(LivingEntity entity, int amplifier) {
         if (!entity.level().isClientSide && entity.getHealth() > 0) {
             boolean hasArc = false;
-            for (ElectricCurrent arc : entity.level().getEntitiesOfClass(ElectricCurrent.class, entity.getBoundingBox().inflate(20))) {
+            for (ElectricCurrentEntity arc : entity.level().getEntitiesOfClass(ElectricCurrentEntity.class, entity.getBoundingBox().inflate(20))) {
                 if (arc.getOwner() != null && arc.getOwner().getUUID().equals(entity.getUUID())) {
                     hasArc = true;
                     break;
                 }
             }
             if (!hasArc) {
-                ElectricCurrent electricCurrent = new ElectricCurrent(entity);
-                electricCurrent.setPos(entity.position());
-                electricCurrent.setOwner(entity);
-                entity.level().addFreshEntity(electricCurrent);
+                ElectricCurrentEntity electricCurrentEntity = new ElectricCurrentEntity(entity);
+                electricCurrentEntity.setPos(entity.position());
+                electricCurrentEntity.setOwner(entity);
+                entity.level().addFreshEntity(electricCurrentEntity);
             }
         }
     }

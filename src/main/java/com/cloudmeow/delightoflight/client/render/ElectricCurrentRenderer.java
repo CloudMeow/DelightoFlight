@@ -1,7 +1,7 @@
 package com.cloudmeow.delightoflight.client.render;
 
 import com.cloudmeow.delightoflight.DelightoFlight;
-import com.cloudmeow.delightoflight.entity.ElectricCurrent;
+import com.cloudmeow.delightoflight.entity.ElectricCurrentEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
@@ -23,20 +23,20 @@ import java.util.List;
 import java.util.Random;
 
 @OnlyIn(Dist.CLIENT)
-public class ElectricCurrentRenderer extends EntityRenderer<ElectricCurrent> {
+public class ElectricCurrentRenderer extends EntityRenderer<ElectricCurrentEntity> {
     private static final ResourceLocation CENTER_TEXTURE = new ResourceLocation(DelightoFlight.MOD_ID, "textures/entity/center.png");
     public ElectricCurrentRenderer(EntityRendererProvider.Context context) {
         super(context);
     }
 
     @Override
-    public ResourceLocation getTextureLocation(ElectricCurrent entity) {
+    public ResourceLocation getTextureLocation(ElectricCurrentEntity entity) {
         return CENTER_TEXTURE;
     }
 
     //code from ISS
     @Override
-    public void render(ElectricCurrent entity, float p_114486_, float p_114487_, PoseStack poseStack, MultiBufferSource bufferSource, int p_114490_) {
+    public void render(ElectricCurrentEntity entity, float p_114486_, float p_114487_, PoseStack poseStack, MultiBufferSource bufferSource, int p_114490_) {
         List<Vec3> targetVecs = getTargets(entity);
         if (targetVecs.isEmpty()) {
             return;
@@ -54,7 +54,7 @@ public class ElectricCurrentRenderer extends EntityRenderer<ElectricCurrent> {
         super.render(entity, p_114486_, p_114487_, poseStack, bufferSource, p_114490_);
     }
 
-    private void renderArc(List<Vec3> segments, PoseStack.Pose pose, MultiBufferSource bufferSource,ElectricCurrent entity) {
+    private void renderArc(List<Vec3> segments, PoseStack.Pose pose, MultiBufferSource bufferSource, ElectricCurrentEntity entity) {
         VertexConsumer consumer = bufferSource.getBuffer(RenderType.entityTranslucentEmissive(getTextureLocation(entity)));
         float width = 0.25f;
         float height = width;
@@ -116,10 +116,10 @@ public class ElectricCurrentRenderer extends EntityRenderer<ElectricCurrent> {
         return new Vec3(x, y, z);
     }
 
-    public List<Vec3> getTargets(ElectricCurrent entity) {
+    public List<Vec3> getTargets(ElectricCurrentEntity entity) {
         List<Vec3> targetVectors = new ArrayList<>();
         for (LivingEntity living : entity.level().getEntitiesOfClass(LivingEntity.class, entity.getBoundingBox().inflate(10))) {
-            if (living != entity.getOwner() && !living.getUUID().equals(entity.getUUID()) && living.distanceTo(entity) - living.getBbWidth() / 2 < 7) {
+            if (entity.canBeHurt(living)) {
                 Vec3 relativePosition = living.position().subtract(entity.position());
                 targetVectors.add(relativePosition);
             }

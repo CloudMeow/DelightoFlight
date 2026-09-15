@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "delighto_flight:moon_rabbish_crate"
+    }
+  ],
+  "result": {
+    "item": "delighto_flight:moon_rabbish",
+    "count": 9
+  }
+}
