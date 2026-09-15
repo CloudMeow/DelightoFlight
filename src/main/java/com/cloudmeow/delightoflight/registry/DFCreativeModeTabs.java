@@ -35,6 +35,10 @@ public class DFCreativeModeTabs {
                 output.accept(DFItems.LOTUS_SEEDS.get());
                 output.accept(DFItems.LOTUS_ROOT.get());
                 output.accept(DFItems.LOTUS_ROOT_SLICE.get());
+                output.accept(DFItems.MOON_RABBISH.get());
+                output.accept(DFItems.MOONSHADE.get());
+                output.accept(DFItems.MOONSHADE_PETALS.get());
+                output.accept(DFItems.MOONSHADE_NECTAR.get());
                 output.accept(DFItems.CLOUD_BERRY.get());
                 output.accept(DFItems.CLOUD_BREAD.get());
                 output.accept(DFItems.CLOUD_BERRY_STEAMED_BUN.get());
@@ -69,6 +73,7 @@ public class DFCreativeModeTabs {
                 output.accept(DFItems.THUNDER_FRUIT_COTTON_CANDY.get());
                 output.accept(DFItems.CLOUD_BERRY_BAG.get());
                 output.accept(DFItems.THUNDER_FRUIT_CRATE.get());
+                output.accept(DFItems.MOON_RABBISH_CRATE.get());
                 output.accept(DFItems.CLOUD.get());
                 output.accept(DFItems.CLOUD_SILK_BLOCK.get());
                 output.accept(DFItems.CLOUD_SILK_BED.get());

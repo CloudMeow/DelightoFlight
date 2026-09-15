@@ -1,8 +1,8 @@
 package com.cloudmeow.delightoflight.event;
 
 import com.cloudmeow.delightoflight.DelightoFlight;
-import com.cloudmeow.delightoflight.registry.DFBlocks;
-import com.cloudmeow.delightoflight.registry.DFItems;
+import com.cloudmeow.delightoflight.entity.MoonSlashEntity;
+import com.cloudmeow.delightoflight.registry.*;
 import com.cloudmeow.delightoflight.utility.DFUtilities;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.core.BlockPos;
@@ -25,12 +25,16 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
+import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
@@ -161,5 +165,60 @@ public class ServerEvent {
                 }
             }
         }
+    }
+
+    @SubscribeEvent
+    public static void onMoonEffectApplicable(MobEffectEvent.Applicable event) {
+        if (!(event.getEntity() instanceof Player player) || player.level().isClientSide()) return;
+        MobEffect effect = event.getEffectInstance().getEffect().value();
+        if (player.hasEffect(DFEffects.FULL_MOON)) {
+            if (effect == DFEffects.WAXING_CRESCENT.value() || effect == DFEffects.WANING_CRESCENT.value()) {
+                event.setResult(MobEffectEvent.Applicable.Result.DO_NOT_APPLY);
+            }
+        }
+        if (effect == DFEffects.WAXING_CRESCENT.value()) {
+            if (player.getEffect(DFEffects.WANING_CRESCENT) != null) {
+                int fullMoonDuration = event.getEffectInstance().getDuration();
+                player.removeEffect(DFEffects.WANING_CRESCENT);
+                player.addEffect(new MobEffectInstance(DFEffects.FULL_MOON, fullMoonDuration));
+                event.setResult(MobEffectEvent.Applicable.Result.DO_NOT_APPLY);
+            }
+        }
+        if (effect == DFEffects.WANING_CRESCENT.value()) {
+            if (player.getEffect(DFEffects.WAXING_CRESCENT) != null) {
+                int fullMoonDuration = event.getEffectInstance().getDuration();
+                player.removeEffect(DFEffects.WAXING_CRESCENT);
+                player.addEffect(new MobEffectInstance(DFEffects.FULL_MOON, fullMoonDuration));
+                event.setResult(MobEffectEvent.Applicable.Result.DO_NOT_APPLY);
+            }
+        }
+
+    }
+
+    @SubscribeEvent
+    public static void onPlayerAttack(AttackEntityEvent event) {
+        Player player = event.getEntity();
+        if (player.level().isClientSide()) return;
+        if (player.getAttackStrengthScale(0.0F) < 1.0F) return;
+
+        int shape;
+        if (player.hasEffect(DFEffects.FULL_MOON)) {
+            shape = 0;
+        } else if (player.hasEffect(DFEffects.WAXING_CRESCENT)) {
+            shape = 1;
+        } else if (player.hasEffect(DFEffects.WANING_CRESCENT)) {
+            shape = 2;
+        } else {
+            return;
+        }
+
+        MoonSlashEntity slash = new MoonSlashEntity(DFEntityTypes.MOON_SLASH.get(), player.level());
+        slash.setShape(shape);
+        slash.setLookDirection(player.getLookAngle());
+        slash.setAttacker(player);
+        slash.setPos(player.position().x, player.position().y + 0.5F, player.position().z);
+        slash.setYRot(player.getYRot());
+        player.level().addFreshEntity(slash);
+        player.level().playSound(null, player.blockPosition(), DFSounds.MOON_SLASH.get(), SoundSource.PLAYERS, 0.8F, 0.8F);
     }
 }

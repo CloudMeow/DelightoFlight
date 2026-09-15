@@ -2,6 +2,7 @@ package com.cloudmeow.delightoflight.block;
 
 import com.cloudmeow.delightoflight.block.entity.CottonCandyMachineBlockEntity;
 import com.cloudmeow.delightoflight.registry.DFBlockEntities;
+import com.cloudmeow.delightoflight.registry.DFSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundSource;
@@ -29,7 +30,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
-import vectorwing.farmersdelight.common.registry.ModSounds;
 
 public class CottonCandyMachineBlock extends Block implements EntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
@@ -72,8 +72,7 @@ public class CottonCandyMachineBlock extends Block implements EntityBlock {
                 player.getInventory().add(removedStack);
             }
             Vec3 centerPos = pos.getCenter();
-            //声音事件记得改
-            level.playSound(null, centerPos.x(), centerPos.y(), centerPos.z(), ModSounds.BLOCK_CUTTING_BOARD_REMOVE.get(), SoundSource.BLOCKS, 0.25F, 0.5F);
+            level.playSound(null, centerPos.x(), centerPos.y(), centerPos.z(), DFSounds.COTTON_CANDY_MACHINE_REMOVE.get(), SoundSource.BLOCKS, 0.25F, 0.5F);
             return ItemInteractionResult.SUCCESS;
         }
 
@@ -86,7 +85,7 @@ public class CottonCandyMachineBlock extends Block implements EntityBlock {
                 player.setItemSlot(EquipmentSlot.MAINHAND, remainderStack);
             }
             Vec3 centerPos = pos.getCenter();
-            level.playSound(null, centerPos.x(), centerPos.y(), centerPos.z(), ModSounds.BLOCK_CUTTING_BOARD_PLACE.get(), SoundSource.BLOCKS, 1.0F, 0.8F);
+            level.playSound(null, centerPos.x(), centerPos.y(), centerPos.z(), DFSounds.COTTON_CANDY_MACHINE_PLACE.get(), SoundSource.BLOCKS, 1.0F, 0.8F);
             return ItemInteractionResult.SUCCESS;
         }
 

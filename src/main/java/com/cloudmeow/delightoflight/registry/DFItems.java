@@ -143,6 +143,16 @@ public class DFItems {
             ()-> new BlockItem(DFBlocks.CLOUD_BERRY_BAG.get(), new Item.Properties()));
     public static final Supplier<Item> THUNDER_FRUIT_CRATE = ITEMS.register("thunder_fruit_crate",
             ()-> new BlockItem(DFBlocks.THUNDER_FRUIT_CRATE.get(), new Item.Properties()));
+    public static final Supplier<Item> MOON_RABBISH_CRATE = ITEMS.register("moon_rabbish_crate",
+            ()-> new BlockItem(DFBlocks.MOON_RABBISH_CRATE.get(), new Item.Properties()));
+    public static final Supplier<Item> MOON_RABBISH = ITEMS.register("moon_rabbish",
+            ()-> new BlockItem(DFBlocks.MOON_RABBISH.get(), new Item.Properties().food(DFFoodValue.MOON_RABBISH)));
+    public static final Supplier<Item> MOONSHADE = ITEMS.register("moonshade",
+            ()-> new BlockItem(DFBlocks.MOONSHADE.get(), new Item.Properties()));
+    public static final Supplier<Item> MOONSHADE_PETALS = ITEMS.register("moonshade_petals",
+            ()-> new BlockItem(DFBlocks.MOONSHADE_PETALS.get(), new Item.Properties()));
+    public static final Supplier<Item> MOONSHADE_NECTAR = ITEMS.register("moonshade_nectar",
+            ()-> new HoneyBottleItem(new Item.Properties().food(DFFoodValue.MOONSHADE_NECTAR).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16)));
     public static final Supplier<Item> CHARGED_ROSE_TEA = ITEMS.register("charged_rose_tea",
             ()-> new DrinkableItem(drinkItem().food(DFFoodValue.CHARGED_ROSE_TEA), true, false));
     public static final Supplier<Item> SPARKTRICITY_SODA = ITEMS.register("sparktricity_soda",

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "delighto_flight:block/moon_rabbish_crate_top",
+    "bottom": "farmersdelight:block/crate_bottom",
+    "side": "delighto_flight:block/moon_rabbish_crate_side"
+  }
+}

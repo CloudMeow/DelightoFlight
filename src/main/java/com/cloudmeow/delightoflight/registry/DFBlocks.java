@@ -3,11 +3,14 @@ package com.cloudmeow.delightoflight.registry;
 import com.cloudmeow.delightoflight.DelightoFlight;
 import com.cloudmeow.delightoflight.block.*;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.WaterlilyBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
@@ -22,6 +25,8 @@ public class DFBlocks {
     public static final Supplier<Block> CLOUD_BERRY_BAG = BLOCKS.register("cloud_berry_bag",
             () -> new Block(Block.Properties.ofFullCopy(Blocks.WHITE_WOOL)));
     public static final Supplier<Block> THUNDER_FRUIT_CRATE = BLOCKS.register("thunder_fruit_crate",
+            () -> new Block(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+    public static final Supplier<Block> MOON_RABBISH_CRATE = BLOCKS.register("moon_rabbish_crate",
             () -> new Block(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
     public static final Supplier<Block> CLEAR_CLOUDSHROOM = BLOCKS.register("clear_cloudshroom",
             ()-> new CloudshroomBlock(Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM)));
@@ -55,7 +60,7 @@ public class DFBlocks {
     public static final Supplier<Block> LOTUS_RHIZOME = BLOCKS.register("lotus_rhizome",
             ()-> new LotusRhizomeBlock(Block.Properties.ofFullCopy(Blocks.BIG_DRIPLEAF_STEM).sound(SoundType.BIG_DRIPLEAF)));
     public static final Supplier<Block> LOTUS_BUD = BLOCKS.register("lotus_bud",
-            ()-> new LotusBudBlock(Block.Properties.ofFullCopy(Blocks.BIG_DRIPLEAF_STEM).sound(SoundType.BIG_DRIPLEAF)));
+            ()-> new LotusBudBlock(Block.Properties.ofFullCopy(Blocks.BIG_DRIPLEAF_STEM).sound(SoundType.BIG_DRIPLEAF).randomTicks()));
     public static final Supplier<Block> LOTUS_FLOWER = BLOCKS.register("lotus_flower",
             ()-> new LotusFlowerBlock(Block.Properties.ofFullCopy(Blocks.BIG_DRIPLEAF_STEM).sound(SoundType.BIG_DRIPLEAF)));
     public static final Supplier<Block> DECORATIVE_LOTUS_FLOWER = BLOCKS.register("decorative_lotus_flower",
@@ -64,4 +69,10 @@ public class DFBlocks {
             ()-> new WildLotusBlock(Block.Properties.ofFullCopy(Blocks.TALL_GRASS)));
     public static final Supplier<Block> COTTON_CANDY_MACHINE = BLOCKS.register("cotton_candy_machine",
             ()-> new CottonCandyMachineBlock(Block.Properties.ofFullCopy(Blocks.BRICKS).noOcclusion()));
+    public static final Supplier<Block> MOON_RABBISH = BLOCKS.register("moon_rabbish",
+            ()-> new MoonRabbishBlock(Block.Properties.ofFullCopy(Blocks.CARROTS).mapColor(MapColor.PLANT).noOcclusion().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
+    public static final Supplier<Block> MOONSHADE = BLOCKS.register("moonshade",
+            () -> new MoonshadeBlock(MobEffects.WITHER, 8.0F, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY)));
+    public static final Supplier<Block> MOONSHADE_PETALS = BLOCKS.register("moonshade_petals",
+            () -> new MoonshadePetalsBlock(Block.Properties.ofFullCopy(Blocks.PINK_PETALS)));
 }

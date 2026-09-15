@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "P",
+    "S",
+    "H"
+  ],
+  "key": {
+    "P": {
+      "item": "delighto_flight:moonshade_petals"
+    },
+    "S": {
+      "item": "minecraft:sugar"
+    },
+    "H": {
+      "item": "minecraft:honey_bottle"
+    }
+  },
+  "result": {
+    "id": "delighto_flight:moonshade_nectar"
+  }
+}

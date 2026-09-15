@@ -1,0 +1,33 @@
+{
+  "render_type": "cutout",
+  "textures": {
+    "particle": "delighto_flight:block/moonshade_petals",
+    "flowerbed": "delighto_flight:block/moonshade_petals"
+  },
+  "elements": [
+    {
+      "from": [0, 0.5, 0],
+      "to": [8, 0.5, 8],
+      "faces": {
+        "up": {"uv": [0, 0, 8, 8], "texture": "#flowerbed"},
+        "down": {"uv": [0, 8, 8, 0], "texture": "#flowerbed"}
+      }
+    },
+    {
+      "from": [0, 1.5, 8],
+      "to": [8, 1.5, 16],
+      "faces": {
+        "up": {"uv": [8, 0, 16, 8], "texture": "#flowerbed"},
+        "down": {"uv": [8, 8, 16, 0], "texture": "#flowerbed"}
+      }
+    },
+    {
+      "from": [8, 0.5, 8],
+      "to": [16, 0.5, 16],
+      "faces": {
+        "up": {"uv": [8, 8, 16, 16], "texture": "#flowerbed"},
+        "down": {"uv": [8, 16, 16, 8], "texture": "#flowerbed"}
+      }
+    }
+  ]
+}

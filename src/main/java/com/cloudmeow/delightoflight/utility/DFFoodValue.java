@@ -69,6 +69,8 @@ public class DFFoodValue {
             .nutrition(2).saturationModifier(0.5f).build();
     public static final FoodProperties LOTUS_ROOT_SLICE = (new FoodProperties.Builder())
             .nutrition(1).saturationModifier(0.5f).build();
+    public static final FoodProperties MOON_RABBISH = (new FoodProperties.Builder())
+            .nutrition(4).saturationModifier(0.7f).build();
 
     public static final FoodProperties APPLE_COTTON_CANDY = (new FoodProperties.Builder())
             .nutrition(6).saturationModifier(0.4f)
@@ -105,6 +107,8 @@ public class DFFoodValue {
             .effect(() -> new MobEffectInstance(DFEffects.CLOUDWALKING, 600, 0), 1.0F)
             .effect(() -> new MobEffectInstance(DFEffects.ARC, 1200, 0), 1.0F).alwaysEdible().build();
 
+    public static final FoodProperties MOONSHADE_NECTAR = (new FoodProperties.Builder())
+            .nutrition(6).saturationModifier(0.6f).build();
     public static final FoodProperties CHARGED_ROSE_TEA = (new FoodProperties.Builder())
             .alwaysEdible().effect(() -> new MobEffectInstance(DFEffects.ARC, 600, 1), 1.0F).build();
     public static final FoodProperties SPARKTRICITY_SODA = (new FoodProperties.Builder())

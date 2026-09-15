@@ -45,6 +45,7 @@
   "item.delighto_flight.melon_cotton_candy": "Melon Cotton Candy",
   "item.delighto_flight.sweet_berry_cotton_candy": "Sweet Berry Cotton Candy",
   "item.delighto_flight.thunder_fruit_cotton_candy": "Thunder Fruit Cotton Candy",
+  "item.delighto_flight.moonshade_nectar": "Moonshade Nectar",
 
   "block.delighto_flight.cloud": "Cloud Block",
   "block.delighto_flight.cloud_silk_block": "Cloud Silk Block",
@@ -70,6 +71,10 @@
   "block.delighto_flight.decorative_lotus_flower": "Lotus Flower",
   "block.delighto_flight.wild_lotus": "Wild Lotus",
   "block.delighto_flight.cotton_candy_machine": "Cotton Candy Machine",
+  "block.delighto_flight.moonshade_petals": "Moonshade Petals",
+  "block.delighto_flight.moonshade": "Moonshade",
+  "block.delighto_flight.moon_rabbish": "Moon Rabbish",
+  "block.delighto_flight.moon_rabbish_crate": "Moon Rabbish Crate",
 
   "effect.delighto_flight.turbulence": "Turbulence",
   "effect.delighto_flight.turbulence.description": "Make flying entity faster",
@@ -79,8 +84,15 @@
   "effect.delighto_flight.weather_sensing.description": "Get different effects depending on the weather",
   "effect.delighto_flight.cloudwalking": "Cloudwalking",
   "effect.delighto_flight.cloudwalking.description": "Hold Space to rise",
+  "effect.delighto_flight.waxing_crescent": "Waxing Crescent",
+  "effect.delighto_flight.waxing_crescent.description": "Attack with Right Half-Moon Slash",
+  "effect.delighto_flight.waning_crescent": "Waning Crescent",
+  "effect.delighto_flight.waning_crescent.description": "Attack with Left Half-Moon Slash",
+  "effect.delighto_flight.full_moon": "Full Moon",
+  "effect.delighto_flight.full_moon.description": "Attack with Full-Moon Slash",
 
   "entity.delighto_flight.electric_current": "Electric Current",
+  "entity.delighto_flight.moon_slash": "Moon Slash",
   "entity.delighto_flight.aerolope": "Aerolope",
 
   "fluid_type.delighto_flight.charged_rose_tea_type": "Charged Rose Tea",
@@ -94,6 +106,10 @@
   "delighto_flight.subtitles.item.rainy_horn": "Rainy Horn Plays",
   "delighto_flight.subtitles.item.thunder_horn": "Thunder Horn Plays",
   "delighto_flight.subtitles.cotton_candy_machine.work": "Cotton Candy Machine Work",
+  "delighto_flight.subtitles.cotton_candy_machine.place": "Put item into the Cotton Candy Machine",
+  "delighto_flight.subtitles.cotton_candy_machine.remove": "Remove item from Cotton Candy Machine",
+  "delighto_flight.subtitles.moonlight_transformation.craft": "Moonlight Transformation",
+  "delighto_flight.subtitles.moon_slash.slash": "Moon Slash",
   "delighto_flight.container.cook_book": "Cook Book",
 
   "delighto_flight.jei.title.spinning": "Spinning",

@@ -55,6 +55,7 @@ public class ClientEvent {
         event.registerBlockEntityRenderer(DFBlockEntities.COTTON_CANDY_MACHINE.get(), CottonCandyMachineRenderer::new);
         event.registerEntityRenderer(DFEntityTypes.ELECTRIC_CURRENT.get(), ElectricCurrentRenderer::new);
         event.registerEntityRenderer(DFEntityTypes.AEROLOPE.get(), AerolopeRenderer::new);
+        event.registerEntityRenderer(DFEntityTypes.MOON_SLASH.get(), MoonSlashRenderer::new);
     }
 
     @SubscribeEvent

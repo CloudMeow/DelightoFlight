@@ -45,6 +45,7 @@
   "item.delighto_flight.melon_cotton_candy": "西瓜棉花糖",
   "item.delighto_flight.sweet_berry_cotton_candy": "甜浆果棉花糖",
   "item.delighto_flight.thunder_fruit_cotton_candy": "雷电果棉花糖",
+  "item.delighto_flight.moonshade_nectar": "月影花蜜",
 
   "block.delighto_flight.cloud": "云块",
   "block.delighto_flight.cloud_silk_block": "云绸块",
@@ -70,6 +71,10 @@
   "block.delighto_flight.decorative_lotus_flower": "莲花",
   "block.delighto_flight.wild_lotus": "野生莲花",
   "block.delighto_flight.cotton_candy_machine": "棉花糖机",
+  "block.delighto_flight.moonshade_petals": "月影玫瑰花瓣",
+  "block.delighto_flight.moonshade": "月影玫瑰",
+  "block.delighto_flight.moon_rabbish": "月兔萝卜",
+  "block.delighto_flight.moon_rabbish_crate": "箱装月兔萝卜",
 
   "effect.delighto_flight.turbulence": "湍流",
   "effect.delighto_flight.turbulence.description": "让飞行生物飞更快",
@@ -79,8 +84,15 @@
   "effect.delighto_flight.weather_sensing.description": "根据不同天气获得不同效果",
   "effect.delighto_flight.cloudwalking": "云端漫步",
   "effect.delighto_flight.cloudwalking.description": "按住空格往上升",
+  "effect.delighto_flight.waxing_crescent": "上弦月",
+  "effect.delighto_flight.waxing_crescent.description": "攻击附带右半月斩击",
+  "effect.delighto_flight.waning_crescent": "下弦月",
+  "effect.delighto_flight.waning_crescent.description": "攻击附带左半月斩击",
+  "effect.delighto_flight.full_moon": "满月",
+  "effect.delighto_flight.full_moon.description": "攻击附带满月斩击",
 
   "entity.delighto_flight.electric_current": "电流",
+  "entity.delighto_flight.moon_slash": "月斩",
   "entity.delighto_flight.aerolope": "空羚",
 
   "fluid_type.delighto_flight.charged_rose_tea_type": "充能玫瑰茶",
@@ -94,6 +106,10 @@
   "delighto_flight.subtitles.item.rainy_horn": "雨瀑号角：吹奏",
   "delighto_flight.subtitles.item.thunder_horn": "雷电号角：吹奏",
   "delighto_flight.subtitles.cotton_candy_machine.work": "棉花糖机：工作",
+  "delighto_flight.subtitles.cotton_candy_machine.place": "物品：放入棉花糖机",
+  "delighto_flight.subtitles.cotton_candy_machine.remove": "物品：从棉花糖机移除",
+  "delighto_flight.subtitles.moonlight_transformation.craft": "月光：转化",
+  "delighto_flight.subtitles.moon_slash.slash": "月光：斩击",
   "delighto_flight.container.cook_book": "菜品配方书",
 
   "delighto_flight.jei.title.spinning": "缠糖",

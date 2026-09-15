@@ -1,10 +1,7 @@
 package com.cloudmeow.delightoflight.registry;
 
 import com.cloudmeow.delightoflight.DelightoFlight;
-import com.cloudmeow.delightoflight.effect.ArcEffect;
-import com.cloudmeow.delightoflight.effect.CloudwalkingEffect;
-import com.cloudmeow.delightoflight.effect.TurbulenceEffect;
-import com.cloudmeow.delightoflight.effect.WeatherSensingEffect;
+import com.cloudmeow.delightoflight.effect.*;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffect;
@@ -17,4 +14,7 @@ public class DFEffects {
     public static final Holder<MobEffect> ARC = EFFECTS.register("arc", ArcEffect::new);
     public static final Holder<MobEffect> WEATHER_SENSING = EFFECTS.register("weather_sensing", WeatherSensingEffect::new);
     public static final Holder<MobEffect> CLOUDWALKING = EFFECTS.register("cloudwalking", CloudwalkingEffect::new);
+    public static final Holder<MobEffect> WAXING_CRESCENT = EFFECTS.register("waxing_crescent", WaxingCrescentEffect::new);
+    public static final Holder<MobEffect> WANING_CRESCENT = EFFECTS.register("waning_crescent", WaningCrescentEffect::new);
+    public static final Holder<MobEffect> FULL_MOON = EFFECTS.register("full_moon", FullMoonEffect::new);
 }
