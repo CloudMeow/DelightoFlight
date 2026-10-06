@@ -36,6 +36,7 @@ public class DelightoFlight
         DFAdvancements.TRIGGERS.register(modEventBus);
         DFRecipeTypes.RECIPE_TYPES.register(modEventBus);
         DFRecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus);
+        DFAttachments.ATTACHMENT_TYPES.register(modEventBus);
 
         if (!DFUtilities.chefDelightLoad()) {
             DFPoi.POT_POI_TYPE.register(modEventBus);

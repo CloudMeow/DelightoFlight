@@ -39,6 +39,8 @@ public class DFCreativeModeTabs {
                 output.accept(DFItems.MOONSHADE.get());
                 output.accept(DFItems.MOONSHADE_PETALS.get());
                 output.accept(DFItems.MOONSHADE_NECTAR.get());
+                output.accept(DFItems.STARDROP.get());
+                output.accept(DFItems.ASTRAL_BERRIES.get());
                 output.accept(DFItems.CLOUD_BERRY.get());
                 output.accept(DFItems.CLOUD_BREAD.get());
                 output.accept(DFItems.CLOUD_BERRY_STEAMED_BUN.get());

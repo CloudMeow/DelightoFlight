@@ -10,6 +10,7 @@
     "FirstFloorRoomCollectionMixin",
     "ItemEntityMixin",
     "PlayerMixin",
+    "ProjectileMixin",
     "ServerLevelMixin",
     "VillagerGoalPackagesMixin",
     "VillagerMixin",

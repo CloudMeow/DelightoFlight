@@ -2,7 +2,6 @@ package com.cloudmeow.delightoflight.item;
 
 import com.cloudmeow.delightoflight.registry.DFSounds;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;

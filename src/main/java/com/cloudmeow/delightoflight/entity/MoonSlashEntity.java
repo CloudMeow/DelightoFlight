@@ -1,10 +1,14 @@
 package com.cloudmeow.delightoflight.entity;
 
+import com.cloudmeow.delightoflight.registry.DFEffects;
+import com.cloudmeow.delightoflight.utility.DFDamageTypes;
+import com.cloudmeow.delightoflight.utility.DFUtilities;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -16,6 +20,7 @@ import java.util.UUID;
 
 public class MoonSlashEntity extends Entity {
     private static final EntityDataAccessor<Integer> SHAPE = SynchedEntityData.defineId(MoonSlashEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Boolean> GRIND_HERBS = SynchedEntityData.defineId(MoonSlashEntity.class, EntityDataSerializers.BOOLEAN);
 
     private Vec3 lookDirection = new Vec3(0.0, 0.0, 1.0);
     private UUID attackerId;
@@ -40,17 +45,27 @@ public class MoonSlashEntity extends Entity {
         this.entityData.set(SHAPE, shape);
     }
 
+    public boolean hasGrindHerbs() {
+        return this.entityData.get(GRIND_HERBS);
+    }
+
+    public void setGrindHerbs(boolean grindHerbs) {
+        this.entityData.set(GRIND_HERBS, grindHerbs);
+    }
+
     public void setLookDirection(Vec3 lookDirection) {
         this.lookDirection = lookDirection;
     }
 
     public void setAttacker(Player player) {
         this.attackerId = player.getUUID();
+        this.setGrindHerbs(DFUtilities.hasGrindHerbs(player));
     }
 
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         builder.define(SHAPE, 0);
+        builder.define(GRIND_HERBS, false);
     }
 
     @Override
@@ -84,8 +99,16 @@ public class MoonSlashEntity extends Entity {
                     if (cross > 0) continue;
                 }
             }
-            target.hurt(attacker.damageSources().playerAttack(attacker), 4.0F);
+            target.hurt(getDamageSource(attacker), getEffectAmplifier(attacker));
         }
+    }
+
+    public DamageSource getDamageSource(Player attacker) {
+        return DFUtilities.hasGrindHerbs(attacker) ? attacker.damageSources().source(DFDamageTypes.MOONLIGHT_ATTACK, attacker) : attacker.damageSources().playerAttack(attacker);
+    }
+
+    public float getEffectAmplifier(Player attacker) {
+        return isFullMoon() ? 4.0F * (attacker.getEffect(DFEffects.FULL_MOON).getAmplifier() + 1) : 3.0F * (isRight() ? (attacker.getEffect(DFEffects.WAXING_CRESCENT).getAmplifier() + 1) : (attacker.getEffect(DFEffects.WANING_CRESCENT).getAmplifier() + 1));
     }
 
     @Override

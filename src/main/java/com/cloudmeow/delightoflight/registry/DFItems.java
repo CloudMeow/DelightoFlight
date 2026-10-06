@@ -1,12 +1,8 @@
 package com.cloudmeow.delightoflight.registry;
 
-import com.cloudmeow.delightoflight.item.AerolopeHorn;
-import com.cloudmeow.delightoflight.item.ConsumableChorusFruit;
-import com.cloudmeow.delightoflight.item.CookBook;
-import com.cloudmeow.delightoflight.item.LotusSeed;
-import com.cloudmeow.delightoflight.utility.DFFoodValue;
 import com.cloudmeow.delightoflight.DelightoFlight;
-import com.cloudmeow.delightoflight.item.BirdFeed;
+import com.cloudmeow.delightoflight.item.*;
+import com.cloudmeow.delightoflight.utility.DFFoodValue;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
@@ -57,6 +53,8 @@ public class DFItems {
             ()-> new Item(new Item.Properties().food(DFFoodValue.LOTUS_ROOT_SLICE)));
     public static final Supplier<Item> LOTUS_LEAF = ITEMS.register("lotus_leaf",
             ()-> new Item(new Item.Properties()));
+    public static final Supplier<Item> STARDROP = ITEMS.register("stardrop",
+            ()-> new Stardrop(new Item.Properties().food(DFFoodValue.STARDROP).rarity(Rarity.UNCOMMON)));
     public static final Supplier<Item> APPLE_COTTON_CANDY = ITEMS.register("apple_cotton_candy",
             ()-> new ConsumableItem(cottonCandyItem(DFFoodValue.APPLE_COTTON_CANDY), true));
     public static final Supplier<Item> CHORUS_FRUIT_COTTON_CANDY = ITEMS.register("chorus_fruit_cotton_candy",
@@ -85,6 +83,8 @@ public class DFItems {
             ()-> new ItemNameBlockItem(DFBlocks.CLOUD_BERRY_BUSH.get(), new Item.Properties().food(DFFoodValue.CLOUD_BERRY)));
     public static final Supplier<Item> THUNDER_FRUIT_SEED = ITEMS.register("thunder_fruit_seeds",
             ()-> new ItemNameBlockItem(DFBlocks.THUNDER_VINE.get(), new Item.Properties()));
+    public static final Supplier<Item> ASTRAL_BERRIES = ITEMS.register("astral_berries",
+            ()-> new ItemNameBlockItem(DFBlocks.ASTRAL_BERRY_VINES.get(), new Item.Properties().food(DFFoodValue.ASTRAL_BERRY)));
     public static final Supplier<Item> ORLEANS_PHANTOM_WING = ITEMS.register("new_orleans_phantom_wing",
             ()-> new ConsumableItem(bowlFoodItem(DFFoodValue.ORLEANS_PHANTOM_WING), true));
     public static final Supplier<Item> CLOUD_BERRY_CHEESE = ITEMS.register("cheese_cloud_berry_jam",

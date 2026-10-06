@@ -3,13 +3,17 @@ package com.cloudmeow.delightoflight.event;
 import com.cloudmeow.delightoflight.DelightoFlight;
 import com.cloudmeow.delightoflight.entity.MoonSlashEntity;
 import com.cloudmeow.delightoflight.registry.*;
+import com.cloudmeow.delightoflight.utility.DFDamageTypes;
 import com.cloudmeow.delightoflight.utility.DFUtilities;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -25,8 +29,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -35,7 +38,9 @@ import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 
@@ -220,5 +225,58 @@ public class ServerEvent {
         slash.setYRot(player.getYRot());
         player.level().addFreshEntity(slash);
         player.level().playSound(null, player.blockPosition(), DFSounds.MOON_SLASH.get(), SoundSource.PLAYERS, 0.8F, 0.8F);
+    }
+
+    @SubscribeEvent
+    public static void onMoonlightTrans(PlayerTickEvent.Post event) {
+        Player player = event.getEntity();
+        if (player.level().isClientSide()) return;
+        Level level = player.level();
+        ItemStack output = getTransformOutput(player, level);
+        boolean isValid = !output.isEmpty() && level.isNight() && level.getRainLevel(1.0F) <= 0.0F;
+        if (isValid) {
+            float theta = level.getTimeOfDay(1.0F) * (float) (Math.PI * 2.0);
+            Vec3 moonDir = new Vec3(Mth.sin(theta), -Mth.cos(theta), 0.0);
+            isValid = (player.getViewVector(1.0F).dot(moonDir) >= 0.998) && level.canSeeSky(player.blockPosition());
+        }
+        if (!isValid) {
+            player.removeData(DFAttachments.MOONLIGHT_PROGRESS);
+            return;
+        }
+
+        int progress = player.getData(DFAttachments.MOONLIGHT_PROGRESS) + 1;
+        if (progress >= 20) {
+            applyTrans(player, level, output);
+            player.removeData(DFAttachments.MOONLIGHT_PROGRESS);
+        } else {
+            player.setData(DFAttachments.MOONLIGHT_PROGRESS, progress);
+        }
+    }
+
+    public static void applyTrans(Player player, Level level, ItemStack output) {
+        if (!player.getInventory().add(output)) {
+            player.drop(output, false);
+        }
+        player.getMainHandItem().shrink(1);
+        player.hurt(player.damageSources().source(DFDamageTypes.MOONLIGHT_ATTACK), 4.0F);
+        level.playSound(null, player.blockPosition(), DFSounds.MOONLIGHT_TRANSFORMATION.get(), SoundSource.PLAYERS, 1.0F, 1.0F);
+    }
+
+    public static ItemStack getTransformOutput(Player player, Level level) {
+        ItemStack handItem = player.getMainHandItem();
+        int moonPhase = level.getMoonPhase();
+        if (moonPhase == 0 && handItem.is(Items.GOLDEN_CARROT)) return DFItems.MOON_RABBISH.get().getDefaultInstance();
+        if (moonPhase == 4 && handItem.is(Items.WITHER_ROSE)) return DFItems.MOONSHADE.get().getDefaultInstance();
+        return ItemStack.EMPTY;
+    }
+
+    @SubscribeEvent
+    public static void onStardropEaterLogin(PlayerEvent.PlayerLoggedInEvent event) {
+        DFUtilities.applyStardropBonus(event.getEntity());
+    }
+
+    @SubscribeEvent
+    public static void onStardropEaterClone(PlayerEvent.Clone event) {
+        DFUtilities.applyStardropBonus(event.getEntity());
     }
 }

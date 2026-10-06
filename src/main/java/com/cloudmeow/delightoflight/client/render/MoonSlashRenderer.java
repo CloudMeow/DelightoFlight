@@ -46,10 +46,13 @@ public class MoonSlashRenderer extends EntityRenderer<MoonSlashEntity> {
         VertexConsumer vc = buffer.getBuffer(RenderType.entityTranslucent(getTextureLocation(entity)));
         Matrix4f mat = pose.last().pose();
 
-        vc.addVertex(mat, entity.isRight() ? -w : w, -h, 0).setColor(1.0F, 1.0F, 1.0F, shape == 0 ? 0.5F : 1.0F).setUv(0.0F, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setNormal(0F, 1F, 0F).setLight(240);
-        vc.addVertex(mat, entity.isRight() ? w : -w, -h, 0).setColor(1.0F, 1.0F, 1.0F, shape == 0 ? 0.5F : 0.0F).setUv(1.0F, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setNormal(0F, 1F, 0F).setLight(240);
-        vc.addVertex(mat, entity.isRight() ? w : -w, h, 0).setColor(1.0F, 1.0F, 1.0F, shape == 0 ? 0.5F : 0.0F).setUv(1.0F, 0.0F).setOverlay(OverlayTexture.NO_OVERLAY).setNormal(0F, 1F, 0F).setLight(240);
-        vc.addVertex(mat, entity.isRight() ? -w : w, h, 0).setColor(1.0F, 1.0F, 1.0F, shape == 0 ? 0.5F : 1.0F).setUv(0.0F, 0.0F).setOverlay(OverlayTexture.NO_OVERLAY).setNormal(0F, 1F, 0F).setLight(240);
+        float red = entity.hasGrindHerbs() ? 0.6F : 1.0F;
+        float green = entity.hasGrindHerbs() ? 0.8F : 1.0F;
+
+        vc.addVertex(mat, entity.isRight() ? -w : w, -h, 0).setColor(red, green, 1.0F, shape == 0 ? 0.5F : 1.0F).setUv(0.0F, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setNormal(0F, 1F, 0F).setLight(240);
+        vc.addVertex(mat, entity.isRight() ? w : -w, -h, 0).setColor(red, green, 1.0F, shape == 0 ? 0.5F : 0.0F).setUv(1.0F, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setNormal(0F, 1F, 0F).setLight(240);
+        vc.addVertex(mat, entity.isRight() ? w : -w, h, 0).setColor(red, green, 1.0F, shape == 0 ? 0.5F : 0.0F).setUv(1.0F, 0.0F).setOverlay(OverlayTexture.NO_OVERLAY).setNormal(0F, 1F, 0F).setLight(240);
+        vc.addVertex(mat, entity.isRight() ? -w : w, h, 0).setColor(red, green, 1.0F, shape == 0 ? 0.5F : 1.0F).setUv(0.0F, 0.0F).setOverlay(OverlayTexture.NO_OVERLAY).setNormal(0F, 1F, 0F).setLight(240);
 
         pose.popPose();
     }

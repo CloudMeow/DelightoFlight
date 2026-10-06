@@ -1,6 +1,6 @@
 {
   "values": [
-    "#c:cheese",
-    "#c:cheeses"
+    { "id": "#c:cheese", "required": false },
+    { "id": "#c:cheeses", "required": false }
   ]
 }

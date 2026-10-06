@@ -5,6 +5,6 @@ import net.minecraft.world.effect.MobEffectCategory;
 
 public class FullMoonEffect extends MobEffect {
     public FullMoonEffect() {
-        super(MobEffectCategory.BENEFICIAL, 16777215);
+        super(MobEffectCategory.BENEFICIAL, 16775885);
     }
 }

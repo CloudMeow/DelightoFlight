@@ -17,4 +17,6 @@ public class DFEffects {
     public static final Holder<MobEffect> WAXING_CRESCENT = EFFECTS.register("waxing_crescent", WaxingCrescentEffect::new);
     public static final Holder<MobEffect> WANING_CRESCENT = EFFECTS.register("waning_crescent", WaningCrescentEffect::new);
     public static final Holder<MobEffect> FULL_MOON = EFFECTS.register("full_moon", FullMoonEffect::new);
+    public static final Holder<MobEffect> DIM = EFFECTS.register("dim", DimEffect::new);
+    public static final Holder<MobEffect> GRIND_HERBS = EFFECTS.register("grind_herbs", GrindHerbsEffect::new);
 }

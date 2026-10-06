@@ -1,12 +1,18 @@
 package com.cloudmeow.delightoflight.utility;
 
+import com.cloudmeow.delightoflight.DelightoFlight;
+import com.cloudmeow.delightoflight.registry.DFAttachments;
+import com.cloudmeow.delightoflight.registry.DFEffects;
 import com.cloudmeow.delightoflight.registry.DFItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.protocol.game.ClientboundMoveEntityPacket;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -15,12 +21,18 @@ import net.minecraft.world.level.material.Fluids;
 import net.neoforged.fml.ModList;
 
 public class DFUtilities {
+    public static final ResourceLocation STARDROP_HEALTH_ID = ResourceLocation.fromNamespaceAndPath(DelightoFlight.MOD_ID, "stardrop_health");
+
     public static boolean checkChefHatExist(LivingEntity entity) {
         return entity.getItemBySlot(EquipmentSlot.HEAD).getItem() == DFItems.MAGIC_CHEF_HAT.get();
     }
 
     public static boolean checkCookBookExist(LivingEntity entity) {
         return entity.getItemBySlot(EquipmentSlot.CHEST).getItem() == DFItems.COOK_BOOK.get();
+    }
+
+    public static boolean hasGrindHerbs(LivingEntity entity) {
+        return entity.hasEffect(DFEffects.GRIND_HERBS);
     }
 
     public static boolean getConnectedBlock(BlockGetter blockGetter, BlockPos pos, Block block, Direction direction, Block needBlock, int howLong) {
@@ -85,5 +97,10 @@ public class DFUtilities {
         BlockPos pos = owner.blockPosition();
         FluidState fluidState = world.getFluidState(pos);
         return world.isRainingAt(pos) || fluidState.getType().isSame(Fluids.WATER);
+    }
+
+    public static void applyStardropBonus(Player player) {
+        if (!Boolean.TRUE.equals(player.getExistingDataOrNull(DFAttachments.STARDROP_EATER))) return;
+        player.getAttribute(Attributes.MAX_HEALTH).addOrUpdateTransientModifier(new AttributeModifier(STARDROP_HEALTH_ID, 2.0, AttributeModifier.Operation.ADD_VALUE));
     }
 }

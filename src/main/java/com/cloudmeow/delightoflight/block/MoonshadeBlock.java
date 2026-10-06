@@ -4,6 +4,7 @@ import com.cloudmeow.delightoflight.registry.DFBlocks;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
@@ -57,7 +58,8 @@ public class MoonshadeBlock extends FlowerBlock {
         if (level.getBlockState(pos.below()).isAir()) return false;
         BlockState existing = level.getBlockState(pos);
         if (existing.isAir()) {
-            level.setBlock(pos, DFBlocks.MOONSHADE_PETALS.get().defaultBlockState(), 2);
+            Direction facing = Direction.Plane.HORIZONTAL.getRandomDirection(level.random);
+            level.setBlock(pos, DFBlocks.MOONSHADE_PETALS.get().defaultBlockState().setValue(MoonshadePetalsBlock.FACING, facing), 2);
             return true;
         } else if (existing.is(DFBlocks.MOONSHADE_PETALS.get())) {
             int amount = existing.getValue(MoonshadePetalsBlock.AMOUNT);
