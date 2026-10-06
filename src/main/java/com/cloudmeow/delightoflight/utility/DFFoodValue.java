@@ -71,6 +71,10 @@ public class DFFoodValue {
             .nutrition(1).saturationMod(0.5f).build();
     public static final FoodProperties MOON_RABBISH = (new FoodProperties.Builder())
             .nutrition(4).saturationMod(0.7f).build();
+    public static final FoodProperties STARDROP = (new FoodProperties.Builder())
+            .nutrition(10).saturationMod(1.0f).alwaysEat().build();
+    public static final FoodProperties ASTRAL_BERRY = (new FoodProperties.Builder())
+            .nutrition(2).saturationMod(0.3f).build();
 
     public static final FoodProperties APPLE_COTTON_CANDY = (new FoodProperties.Builder())
             .nutrition(6).saturationMod(0.4f)

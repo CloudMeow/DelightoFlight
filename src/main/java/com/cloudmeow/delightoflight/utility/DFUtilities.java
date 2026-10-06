@@ -1,11 +1,15 @@
 package com.cloudmeow.delightoflight.utility;
 
+import com.cloudmeow.delightoflight.registry.DFEffects;
 import com.cloudmeow.delightoflight.registry.DFItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -13,13 +17,21 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.fml.ModList;
 
+import java.util.UUID;
+
 public class DFUtilities {
+    public static final UUID STARDROP_HEALTH_UUID = UUID.fromString("a3b1c2d4-5678-4abc-9def-0123456789ab");
+
     public static boolean checkChefHatExist(LivingEntity entity) {
         return entity.getItemBySlot(EquipmentSlot.HEAD).getItem() == DFItems.MAGIC_CHEF_HAT.get();
     }
 
     public static boolean checkCookBookExist(LivingEntity entity) {
         return entity.getItemBySlot(EquipmentSlot.CHEST).getItem() == DFItems.COOK_BOOK.get();
+    }
+
+    public static boolean hasGrindHerbs(LivingEntity entity) {
+        return entity.hasEffect(DFEffects.GRIND_HERBS.get());
     }
 
     public static boolean getConnectedBlock(BlockGetter blockGetter, BlockPos pos, Block block, Direction direction, Block needBlock, int howLong) {
@@ -83,5 +95,13 @@ public class DFUtilities {
         BlockPos pos = owner.blockPosition();
         FluidState fluidState = world.getFluidState(pos);
         return world.isRainingAt(pos) || fluidState.getType().isSame(Fluids.WATER);
+    }
+
+    public static void applyStardropBonus(Player player) {
+        if (!player.getPersistentData().getBoolean("delighto_flight:stardrop_eater")) return;
+
+        var attribute = player.getAttribute(Attributes.MAX_HEALTH);
+        attribute.removeModifier(STARDROP_HEALTH_UUID);
+        attribute.addTransientModifier(new AttributeModifier(STARDROP_HEALTH_UUID, "delighto_flight:stardrop", 2.0, AttributeModifier.Operation.ADDITION));
     }
 }

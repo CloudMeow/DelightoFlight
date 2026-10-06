@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "delighto_flight:shock"
+    "delighto_flight:shock",
+    "delighto_flight:moonlight_attack"
   ]
 }

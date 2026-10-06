@@ -2,7 +2,6 @@ package com.cloudmeow.delightoflight.registry;
 
 import com.cloudmeow.delightoflight.DelightoFlight;
 import com.cloudmeow.delightoflight.crafting.CottonCandyMachineRecipe;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.registries.DeferredRegister;

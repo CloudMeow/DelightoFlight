@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "berries=false,tip=false": { "model": "delighto_flight:block/astral_berry_vines_plant" },
+        "berries=false,tip=true": { "model": "delighto_flight:block/astral_berry_vines_plant_end" },
+        "berries=true,glow=false,tip=false": { "model": "delighto_flight:block/astral_berry_vines_plant_berries" },
+        "berries=true,glow=false,tip=true": { "model": "delighto_flight:block/astral_berry_vines_plant_berries_end" },
+        "berries=true,glow=true,tip=false": { "model": "delighto_flight:block/astral_berry_vines_plant_berries_glow" },
+        "berries=true,glow=true,tip=true": { "model": "delighto_flight:block/astral_berry_vines_plant_berries_glow_end" }
+    }
+}

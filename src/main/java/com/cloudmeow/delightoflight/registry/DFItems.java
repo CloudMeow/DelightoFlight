@@ -1,8 +1,8 @@
 package com.cloudmeow.delightoflight.registry;
 
+import com.cloudmeow.delightoflight.DelightoFlight;
 import com.cloudmeow.delightoflight.item.*;
 import com.cloudmeow.delightoflight.utility.DFFoodValue;
-import com.cloudmeow.delightoflight.DelightoFlight;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -11,6 +11,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.item.ConsumableItem;
 import vectorwing.farmersdelight.common.item.DrinkableItem;
+
+import java.util.function.Supplier;
 
 public class DFItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, DelightoFlight.MOD_ID);
@@ -51,6 +53,8 @@ public class DFItems {
             ()-> new Item(new Item.Properties().food(DFFoodValue.LOTUS_ROOT_SLICE)));
     public static final RegistryObject<Item> LOTUS_LEAF = ITEMS.register("lotus_leaf",
             ()-> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> STARDROP = ITEMS.register("stardrop",
+            ()-> new Stardrop(new Item.Properties().food(DFFoodValue.STARDROP).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> APPLE_COTTON_CANDY = ITEMS.register("apple_cotton_candy",
             ()-> new ConsumableItem(cottonCandyItem(DFFoodValue.APPLE_COTTON_CANDY), true));
     public static final RegistryObject<Item> CHORUS_FRUIT_COTTON_CANDY = ITEMS.register("chorus_fruit_cotton_candy",
@@ -85,6 +89,8 @@ public class DFItems {
             ()-> new ItemNameBlockItem(DFBlocks.CLOUD_BERRY_BUSH.get(), new Item.Properties().food(DFFoodValue.CLOUD_BERRY)));
     public static final RegistryObject<Item> THUNDER_FRUIT_SEED = ITEMS.register("thunder_fruit_seeds",
             ()-> new ItemNameBlockItem(DFBlocks.THUNDER_VINE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> ASTRAL_BERRIES = ITEMS.register("astral_berries",
+            ()-> new ItemNameBlockItem(DFBlocks.ASTRAL_BERRY_VINES.get(), new Item.Properties().food(DFFoodValue.ASTRAL_BERRY)));
     public static final RegistryObject<Item> ORLEANS_PHANTOM_WING = ITEMS.register("new_orleans_phantom_wing",
             ()-> new ConsumableItem(bowlFoodItem(DFFoodValue.ORLEANS_PHANTOM_WING), true));
     public static final RegistryObject<Item> CLOUD_BERRY_CHEESE = ITEMS.register("cheese_cloud_berry_jam",

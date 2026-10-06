@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "delighto_flight:astral_berries",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "delighto_flight:astral_berry_vines_plant",
+              "properties": {
+                "berries": "true"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "function": "minecraft:explosion_decay"
+    }
+  ]
+}

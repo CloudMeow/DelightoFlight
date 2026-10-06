@@ -46,6 +46,8 @@
   "item.delighto_flight.sweet_berry_cotton_candy": "甜浆果棉花糖",
   "item.delighto_flight.thunder_fruit_cotton_candy": "雷电果棉花糖",
   "item.delighto_flight.moonshade_nectar": "月影花蜜",
+  "item.delighto_flight.stardrop": "星之果实",
+  "item.delighto_flight.astral_berries": "星辉浆果",
 
   "block.delighto_flight.cloud": "云块",
   "block.delighto_flight.cloud_silk_block": "云绸块",
@@ -75,6 +77,8 @@
   "block.delighto_flight.moonshade": "月影玫瑰",
   "block.delighto_flight.moon_rabbish": "月兔萝卜",
   "block.delighto_flight.moon_rabbish_crate": "箱装月兔萝卜",
+  "block.delighto_flight.astral_berry_vines": "星辉浆果藤",
+  "block.delighto_flight.astral_berry_vines_plant": "星辉浆果藤",
 
   "effect.delighto_flight.turbulence": "湍流",
   "effect.delighto_flight.turbulence.description": "让飞行生物飞更快",
@@ -85,11 +89,15 @@
   "effect.delighto_flight.cloudwalking": "云端漫步",
   "effect.delighto_flight.cloudwalking.description": "按住空格往上升",
   "effect.delighto_flight.waxing_crescent": "上弦月",
-  "effect.delighto_flight.waxing_crescent.description": "攻击附带右半月斩击",
+  "effect.delighto_flight.waxing_crescent.description": "攻击附带右半月斩击\n月药强化:无视护甲",
   "effect.delighto_flight.waning_crescent": "下弦月",
-  "effect.delighto_flight.waning_crescent.description": "攻击附带左半月斩击",
+  "effect.delighto_flight.waning_crescent.description": "攻击附带左半月斩击\n月药强化:无视护甲",
   "effect.delighto_flight.full_moon": "满月",
-  "effect.delighto_flight.full_moon.description": "攻击附带满月斩击",
+  "effect.delighto_flight.full_moon.description": "攻击附带满月斩击\n月药强化:无视护甲",
+  "effect.delighto_flight.dim": "朦胧",
+  "effect.delighto_flight.dim.description": "每级夜晚时增加10%弹射物闪避概率\n月药强化:全天生效",
+  "effect.delighto_flight.grind_herbs": "捣药",
+  "effect.delighto_flight.grind_herbs.description": "强化月光类的Buff效果",
 
   "entity.delighto_flight.electric_current": "电流",
   "entity.delighto_flight.moon_slash": "月斩",
@@ -142,6 +150,7 @@
   "delighto_flight.cotton_candy_machine.occupied": "其它玩家正在缠棉花糖",
 
   "death.attack.delighto_flight.shock": "强电流穿过了 %s 的身体",
+  "death.attack.delighto_flight.moonlight_attack": "%s 被月光撕成碎片了",
 
   "config.jade.plugin_delighto_flight.crop_progress": "作物生长进度"
 }

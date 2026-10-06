@@ -14,6 +14,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.function.Supplier;
+
 public class DFBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, DelightoFlight.MOD_ID);
 
@@ -74,4 +76,8 @@ public class DFBlocks {
             () -> new MoonshadeBlock(MobEffects.WITHER, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.GRASS).offsetType(BlockBehaviour.OffsetType.XZ).pushReaction(PushReaction.DESTROY)));
     public static final RegistryObject<Block> MOONSHADE_PETALS = BLOCKS.register("moonshade_petals",
             () -> new MoonshadePetalsBlock(Block.Properties.copy(Blocks.PINK_PETALS)));
+    public static final RegistryObject<Block> ASTRAL_BERRY_VINES = BLOCKS.register("astral_berry_vines",
+            () -> new AstralBerryVinesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().noCollission().lightLevel(AstralBerryVines.emission(14)).instabreak().sound(SoundType.CAVE_VINES).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> ASTRAL_BERRY_VINES_PLANT = BLOCKS.register("astral_berry_vines_plant",
+            () -> new AstralBerryVinesPlantBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().lightLevel(AstralBerryVines.emission(14)).instabreak().sound(SoundType.CAVE_VINES).pushReaction(PushReaction.DESTROY)));
 }

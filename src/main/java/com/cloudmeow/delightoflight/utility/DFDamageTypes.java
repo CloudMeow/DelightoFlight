@@ -8,4 +8,5 @@ import net.minecraft.world.damagesource.DamageType;
 
 public class DFDamageTypes {
     public static final ResourceKey<DamageType> SHOCK = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DelightoFlight.MOD_ID, "shock"));
+    public static final ResourceKey<DamageType> MOONLIGHT_ATTACK = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DelightoFlight.MOD_ID, "moonlight_attack"));
 }

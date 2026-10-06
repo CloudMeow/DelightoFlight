@@ -46,6 +46,8 @@
   "item.delighto_flight.sweet_berry_cotton_candy": "Sweet Berry Cotton Candy",
   "item.delighto_flight.thunder_fruit_cotton_candy": "Thunder Fruit Cotton Candy",
   "item.delighto_flight.moonshade_nectar": "Moonshade Nectar",
+  "item.delighto_flight.stardrop": "Stardrop",
+  "item.delighto_flight.astral_berries": "Astral Berries",
 
   "block.delighto_flight.cloud": "Cloud Block",
   "block.delighto_flight.cloud_silk_block": "Cloud Silk Block",
@@ -75,6 +77,8 @@
   "block.delighto_flight.moonshade": "Moonshade",
   "block.delighto_flight.moon_rabbish": "Moon Rabbish",
   "block.delighto_flight.moon_rabbish_crate": "Moon Rabbish Crate",
+  "block.delighto_flight.astral_berry_vines": "Astral Berry Vines",
+  "block.delighto_flight.astral_berry_vines_plant": "Astral Berry Vines",
 
   "effect.delighto_flight.turbulence": "Turbulence",
   "effect.delighto_flight.turbulence.description": "Make flying entity faster",
@@ -85,11 +89,15 @@
   "effect.delighto_flight.cloudwalking": "Cloudwalking",
   "effect.delighto_flight.cloudwalking.description": "Hold Space to rise",
   "effect.delighto_flight.waxing_crescent": "Waxing Crescent",
-  "effect.delighto_flight.waxing_crescent.description": "Attack with Right Half-Moon Slash",
+  "effect.delighto_flight.waxing_crescent.description": "Attack with Right Half-Moon Slash\nMoonbrew Empowerment: Ignores Armor",
   "effect.delighto_flight.waning_crescent": "Waning Crescent",
-  "effect.delighto_flight.waning_crescent.description": "Attack with Left Half-Moon Slash",
+  "effect.delighto_flight.waning_crescent.description": "Attack with Left Half-Moon Slash\nMoonbrew Empowerment: Ignores Armor",
   "effect.delighto_flight.full_moon": "Full Moon",
-  "effect.delighto_flight.full_moon.description": "Attack with Full-Moon Slash",
+  "effect.delighto_flight.full_moon.description": "Attack with Full-Moon Slash\nMoonbrew Empowerment: Ignores Armor",
+  "effect.delighto_flight.dim": "Dim",
+  "effect.delighto_flight.dim.description": "Grants a 10% chance to dodge projectiles per level at night\nMoonbrew Empowerment: Works All Day",
+  "effect.delighto_flight.grind_herbs": "Grind Herbs",
+  "effect.delighto_flight.grind_herbs.description": "Empowers the effect about moonlight",
 
   "entity.delighto_flight.electric_current": "Electric Current",
   "entity.delighto_flight.moon_slash": "Moon Slash",
@@ -142,6 +150,7 @@
   "delighto_flight.cotton_candy_machine.occupied": "Other players are spinning cotton candy.",
 
   "death.attack.delighto_flight.shock": "heavy current flowed through %s's body",
+  "death.attack.delighto_flight.moonlight_attack": "%s was torn to shreds by the moonlight",
 
   "config.jade.plugin_delighto_flight.crop_progress": "Crop Progress"
 }

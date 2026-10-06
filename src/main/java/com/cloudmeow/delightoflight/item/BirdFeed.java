@@ -1,9 +1,9 @@
 package com.cloudmeow.delightoflight.item;
 
-import com.cloudmeow.delightoflight.registry.DFEffects;
-import com.cloudmeow.delightoflight.utility.DFTags;
 import com.cloudmeow.delightoflight.DelightoFlight;
+import com.cloudmeow.delightoflight.registry.DFEffects;
 import com.cloudmeow.delightoflight.registry.DFItems;
+import com.cloudmeow.delightoflight.utility.DFTags;
 import com.google.common.collect.Lists;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
