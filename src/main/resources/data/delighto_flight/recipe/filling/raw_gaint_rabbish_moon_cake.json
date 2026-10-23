@@ -1,0 +1,7 @@
+{
+  "type": "delighto_flight:raw_moon_cake_filling",
+  "ingredient": {
+    "item": "delighto_flight:rabbish_mooncake_filling"
+  },
+  "result": "delighto_flight:raw_gaint_rabbish_moon_cake"
+}

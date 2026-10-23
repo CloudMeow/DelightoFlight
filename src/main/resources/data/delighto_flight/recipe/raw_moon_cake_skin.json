@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "tag": "c:foods/dough"
+    }
+  },
+  "pattern": [
+    "   ",
+    "D D",
+	"DDD"
+  ],
+  "result": {
+    "id": "delighto_flight:raw_moon_cake_skin"
+  }
+}

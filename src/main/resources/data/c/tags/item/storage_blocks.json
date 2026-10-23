@@ -1,7 +1,9 @@
 {
   "values": [
     "#c:storage_blocks/cloud_berry",
+    "#c:storage_blocks/astral_berry",
     "#c:storage_blocks/thunder_fruit",
-    "#c:storage_blocks/moon_rabbish"
+	"#c:storage_blocks/moon_rabbish",
+	"#c:storage_blocks/lotus_root"
   ]
 }

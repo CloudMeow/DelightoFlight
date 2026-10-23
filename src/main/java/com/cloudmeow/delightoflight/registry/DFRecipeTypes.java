@@ -2,6 +2,7 @@ package com.cloudmeow.delightoflight.registry;
 
 import com.cloudmeow.delightoflight.DelightoFlight;
 import com.cloudmeow.delightoflight.crafting.CottonCandyMachineRecipe;
+import com.cloudmeow.delightoflight.crafting.RawMoonCakeFillingRecipe;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -13,6 +14,7 @@ public class DFRecipeTypes {
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, DelightoFlight.MOD_ID);
 
     public static final Supplier<RecipeType<CottonCandyMachineRecipe>> SPINNING = RECIPE_TYPES.register("spinning", () -> registerRecipeType("spinning"));
+    public static final Supplier<RecipeType<RawMoonCakeFillingRecipe>> RAW_MOON_CAKE_FILLING = RECIPE_TYPES.register("raw_moon_cake_filling", () -> registerRecipeType("raw_moon_cake_filling"));
 
     public static <T extends Recipe<?>> RecipeType<T> registerRecipeType(final String identifier) {
         return new RecipeType<>()

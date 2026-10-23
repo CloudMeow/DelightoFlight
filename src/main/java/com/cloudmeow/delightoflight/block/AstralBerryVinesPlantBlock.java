@@ -50,8 +50,8 @@ public class AstralBerryVinesPlantBlock extends GrowingPlantBodyBlock implements
     }
 
     @Override
-    protected BlockState updateHeadAfterConvertedFromBody(BlockState body, BlockState head) {
-        return body;
+    protected BlockState updateHeadAfterConvertedFromBody(BlockState head, BlockState body) {
+        return head;
     }
 
     @Override

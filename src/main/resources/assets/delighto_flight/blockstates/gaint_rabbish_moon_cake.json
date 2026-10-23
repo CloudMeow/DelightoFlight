@@ -1,0 +1,160 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "part": "0",
+        "servings": "0"
+      },
+      "apply": {
+        "model": "delighto_flight:block/gaint_rabbish_moon_cake_stage0"
+      }
+    },
+    {
+      "when": {
+        "part": "0",
+        "servings": "1"
+      },
+      "apply": {
+        "model": "delighto_flight:block/gaint_rabbish_moon_cake_stage1"
+      }
+    },
+    {
+      "when": {
+        "part": "0",
+        "servings": "2"
+      },
+      "apply": {
+        "model": "delighto_flight:block/gaint_rabbish_moon_cake_stage2"
+      }
+    },
+    {
+      "when": {
+        "part": "0",
+        "servings": "3"
+      },
+      "apply": {
+        "model": "delighto_flight:block/gaint_rabbish_moon_cake_stage3"
+      }
+    },
+    {
+      "when": {
+        "part": "1",
+        "servings": "0"
+      },
+      "apply": {
+        "model": "delighto_flight:block/gaint_rabbish_moon_cake_stage0",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "part": "1",
+        "servings": "1"
+      },
+      "apply": {
+        "model": "delighto_flight:block/gaint_rabbish_moon_cake_stage1",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "part": "1",
+        "servings": "2"
+      },
+      "apply": {
+        "model": "delighto_flight:block/gaint_rabbish_moon_cake_stage2",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "part": "1",
+        "servings": "3"
+      },
+      "apply": {
+        "model": "delighto_flight:block/gaint_rabbish_moon_cake_stage3",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "part": "2",
+        "servings": "0"
+      },
+      "apply": {
+        "model": "delighto_flight:block/gaint_rabbish_moon_cake_stage0",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "part": "2",
+        "servings": "1"
+      },
+      "apply": {
+        "model": "delighto_flight:block/gaint_rabbish_moon_cake_stage1",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "part": "2",
+        "servings": "2"
+      },
+      "apply": {
+        "model": "delighto_flight:block/gaint_rabbish_moon_cake_stage2",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "part": "2",
+        "servings": "3"
+      },
+      "apply": {
+        "model": "delighto_flight:block/gaint_rabbish_moon_cake_stage3",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "part": "3",
+        "servings": "0"
+      },
+      "apply": {
+        "model": "delighto_flight:block/gaint_rabbish_moon_cake_stage0",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "part": "3",
+        "servings": "1"
+      },
+      "apply": {
+        "model": "delighto_flight:block/gaint_rabbish_moon_cake_stage1",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "part": "3",
+        "servings": "2"
+      },
+      "apply": {
+        "model": "delighto_flight:block/gaint_rabbish_moon_cake_stage2",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "part": "3",
+        "servings": "3"
+      },
+      "apply": {
+        "model": "delighto_flight:block/gaint_rabbish_moon_cake_stage3",
+        "y": 180
+      }
+    }
+  ]
+}

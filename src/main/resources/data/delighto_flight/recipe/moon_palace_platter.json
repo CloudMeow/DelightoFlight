@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:cooked_rabbit"
+    },
+    {
+      "item": "delighto_flight:moon_rabbish"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "tag": "c:crops/cabbage"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "id": "delighto_flight:moon_palace_platter"
+  }
+}

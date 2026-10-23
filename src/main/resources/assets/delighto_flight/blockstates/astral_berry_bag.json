@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "glow=false": {
+      "model": "delighto_flight:block/astral_berry_bag"
+    },
+    "glow=true": {
+      "model": "delighto_flight:block/astral_berry_bag_glow"
+    }
+  }
+}

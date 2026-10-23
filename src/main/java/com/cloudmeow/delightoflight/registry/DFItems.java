@@ -53,8 +53,18 @@ public class DFItems {
             ()-> new Item(new Item.Properties().food(DFFoodValue.LOTUS_ROOT_SLICE)));
     public static final Supplier<Item> LOTUS_LEAF = ITEMS.register("lotus_leaf",
             ()-> new Item(new Item.Properties()));
+    public static final Supplier<Item> RABBISH_MOONCAKE_FILLING = ITEMS.register("rabbish_mooncake_filling",
+            ()-> new Item(new Item.Properties()));
     public static final Supplier<Item> STARDROP = ITEMS.register("stardrop",
             ()-> new Stardrop(new Item.Properties().food(DFFoodValue.STARDROP).rarity(Rarity.UNCOMMON)));
+    public static final Supplier<Item> GAINT_RABBISH_MOON_CAKE_SLICE = ITEMS.register("gaint_rabbish_moon_cake_slice",
+            ()-> new ConsumableItem(new Item.Properties().food(DFFoodValue.GAINT_RABBISH_MOON_CAKE_SLICE)));
+    public static final Supplier<Item> MOONSHADE_NECTAR_BREAD = ITEMS.register("moonshade_nectar_bread",
+            ()-> new ConsumableItem(new Item.Properties().food(DFFoodValue.MOONSHADE_NECTAR_BREAD)));
+    public static final Supplier<Item> MOON_PALACE_PLATTER = ITEMS.register("moon_palace_platter",
+            ()-> new ConsumableItem(bowlFoodItem(DFFoodValue.MOON_PALACE_PLATTER), true));
+    public static final Supplier<Item> CELESTIAL_PUDDING_SLICE = ITEMS.register("celestial_pudding_slice",
+            ()-> new ConsumableItem(new Item.Properties().food(DFFoodValue.CELESTIAL_PUDDING_SLICE), true));
     public static final Supplier<Item> APPLE_COTTON_CANDY = ITEMS.register("apple_cotton_candy",
             ()-> new ConsumableItem(cottonCandyItem(DFFoodValue.APPLE_COTTON_CANDY), true));
     public static final Supplier<Item> CHORUS_FRUIT_COTTON_CANDY = ITEMS.register("chorus_fruit_cotton_candy",
@@ -73,6 +83,8 @@ public class DFItems {
             ()-> new ConsumableItem(cottonCandyItem(DFFoodValue.SWEET_BERRY_COTTON_CANDY), true));
     public static final Supplier<Item> THUNDER_FRUIT_COTTON_CANDY = ITEMS.register("thunder_fruit_cotton_candy",
             ()-> new ConsumableItem(cottonCandyItem(DFFoodValue.THUNDER_FRUIT_COTTON_CANDY), true));
+    public static final Supplier<Item> ASTRAL_BERRY_COTTON_CANDY = ITEMS.register("astral_berry_cotton_candy",
+            ()-> new ConsumableItem(cottonCandyItem(DFFoodValue.ASTRAL_BERRY_COTTON_CANDY), true));
     public static final Supplier<Item> LOTUS_SEEDS = ITEMS.register("lotus_seeds",
             ()-> new LotusSeed(new Item.Properties()));
     public static final Supplier<Item> LOTUS_FLOWER = ITEMS.register("lotus_flower",
@@ -108,7 +120,7 @@ public class DFItems {
     public static final Supplier<Item> LOTUS_SEED_SWEET_PORRIDGE = ITEMS.register("lotus_seed_sweet_porridge",
             ()-> new ConsumableItem(bowlFoodItem(DFFoodValue.LOTUS_SEED_SWEET_PORRIDGE), true));
     public static final Supplier<Item> CLOUD_BREAD = ITEMS.register("cloud_bread",
-            ()-> new ConsumableItem(new Item.Properties().food(DFFoodValue.CLOUD_BREAD), true));
+            ()-> new CloudBread(new Item.Properties().food(DFFoodValue.CLOUD_BREAD), true));
     public static final Supplier<Item> CLOUD = ITEMS.register("cloud",
             ()-> new BlockItem(DFBlocks.CLOUD.get(), new Item.Properties()));
     public static final Supplier<Item> CLOUD_SILK_BLOCK = ITEMS.register("cloud_silk_block",
@@ -141,22 +153,34 @@ public class DFItems {
             ()-> new BlockItem(DFBlocks.COTTON_CANDY_MACHINE.get(), new Item.Properties()));
     public static final Supplier<Item> CLOUD_BERRY_BAG = ITEMS.register("cloud_berry_bag",
             ()-> new BlockItem(DFBlocks.CLOUD_BERRY_BAG.get(), new Item.Properties()));
+    public static final Supplier<Item> ASTRAL_BERRY_BAG = ITEMS.register("astral_berry_bag",
+            ()-> new BlockItem(DFBlocks.ASTRAL_BERRY_BAG.get(), new Item.Properties()));
     public static final Supplier<Item> THUNDER_FRUIT_CRATE = ITEMS.register("thunder_fruit_crate",
             ()-> new BlockItem(DFBlocks.THUNDER_FRUIT_CRATE.get(), new Item.Properties()));
     public static final Supplier<Item> MOON_RABBISH_CRATE = ITEMS.register("moon_rabbish_crate",
             ()-> new BlockItem(DFBlocks.MOON_RABBISH_CRATE.get(), new Item.Properties()));
+    public static final Supplier<Item> LOTUS_ROOT_CRATE = ITEMS.register("lotus_root_crate",
+            ()-> new BlockItem(DFBlocks.LOTUS_ROOT_CRATE.get(), new Item.Properties()));
     public static final Supplier<Item> MOON_RABBISH = ITEMS.register("moon_rabbish",
             ()-> new BlockItem(DFBlocks.MOON_RABBISH.get(), new Item.Properties().food(DFFoodValue.MOON_RABBISH)));
+    public static final Supplier<Item> RAW_MOON_CAKE_SKIN = ITEMS.register("raw_moon_cake_skin",
+            ()-> new BlockItem(DFBlocks.RAW_MOON_CAKE_SKIN.get(), new Item.Properties()));
+    public static final Supplier<Item> GAINT_RABBISH_MOON_CAKE = ITEMS.register("gaint_rabbish_moon_cake",
+            ()-> new BlockItem(DFBlocks.GAINT_RABBISH_MOON_CAKE.get(), new Item.Properties()));
     public static final Supplier<Item> MOONSHADE = ITEMS.register("moonshade",
             ()-> new BlockItem(DFBlocks.MOONSHADE.get(), new Item.Properties()));
     public static final Supplier<Item> MOONSHADE_PETALS = ITEMS.register("moonshade_petals",
             ()-> new BlockItem(DFBlocks.MOONSHADE_PETALS.get(), new Item.Properties()));
+    public static final Supplier<Item> CELESTIAL_PUDDING = ITEMS.register("celestial_pudding",
+            ()-> new BlockItem(DFBlocks.CELESTIAL_PUDDING_BLOCK.get(), new Item.Properties()));
     public static final Supplier<Item> MOONSHADE_NECTAR = ITEMS.register("moonshade_nectar",
             ()-> new HoneyBottleItem(new Item.Properties().food(DFFoodValue.MOONSHADE_NECTAR).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16)));
     public static final Supplier<Item> CHARGED_ROSE_TEA = ITEMS.register("charged_rose_tea",
             ()-> new DrinkableItem(drinkItem().food(DFFoodValue.CHARGED_ROSE_TEA), true, false));
     public static final Supplier<Item> SPARKTRICITY_SODA = ITEMS.register("sparktricity_soda",
             ()-> new DrinkableItem(drinkItem().food(DFFoodValue.SPARKTRICITY_SODA), true, false));
+    public static final Supplier<Item> RABBISH_JUICE = ITEMS.register("rabbish_juice",
+            ()-> new DrinkableItem(drinkItem().food(DFFoodValue.RABBISH_JUICE), true, false));
     public static final Supplier<Item> COOK_BOOK = ITEMS.register("cook_book",
             ()-> new CookBook(new Item.Properties().stacksTo(1)));
     public static final Supplier<Item> CLEAR_HORN = ITEMS.register("clear_horn",
