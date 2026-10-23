@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "tag": "forge:dough"
+    }
+  },
+  "pattern": [
+    "   ",
+    "D D",
+	"DDD"
+  ],
+  "result": {
+    "item": "delighto_flight:raw_moon_cake_skin"
+  }
+}

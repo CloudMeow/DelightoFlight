@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "LLL",
+    "LLL",
+    "LLL"
+  ],
+  "key": {
+    "L": {
+      "item": "delighto_flight:lotus_root"
+    }
+  },
+  "result": {
+    "item": "delighto_flight:lotus_root_crate"
+  }
+}

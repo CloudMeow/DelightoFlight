@@ -14,6 +14,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.function.Supplier;
+
 public class DFBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, DelightoFlight.MOD_ID);
 
@@ -23,9 +25,13 @@ public class DFBlocks {
             ()-> new Block(Block.Properties.copy(Blocks.ORANGE_WOOL).strength(0.2f).sound(SoundType.WOOL)));
     public static final RegistryObject<Block> CLOUD_BERRY_BAG = BLOCKS.register("cloud_berry_bag",
             () -> new Block(Block.Properties.copy(Blocks.WHITE_WOOL)));
+    public static final RegistryObject<Block> ASTRAL_BERRY_BAG = BLOCKS.register("astral_berry_bag",
+            () -> new AstralBerryBagBlock(Block.Properties.copy(Blocks.WHITE_WOOL).lightLevel(state -> state.getValue(AstralBerryBagBlock.GLOW) ? 14 : 0)));
     public static final RegistryObject<Block> THUNDER_FRUIT_CRATE = BLOCKS.register("thunder_fruit_crate",
             () -> new Block(Block.Properties.copy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> MOON_RABBISH_CRATE = BLOCKS.register("moon_rabbish_crate",
+            () -> new Block(Block.Properties.copy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> LOTUS_ROOT_CRATE = BLOCKS.register("lotus_root_crate",
             () -> new Block(Block.Properties.copy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> CLEAR_CLOUDSHROOM = BLOCKS.register("clear_cloudshroom",
             ()-> new CloudshroomBlock(Block.Properties.copy(Blocks.BROWN_MUSHROOM)));
@@ -78,4 +84,12 @@ public class DFBlocks {
             () -> new AstralBerryVinesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().noCollission().lightLevel(AstralBerryVines.emission(14)).instabreak().sound(SoundType.CAVE_VINES).pushReaction(PushReaction.DESTROY)));
     public static final RegistryObject<Block> ASTRAL_BERRY_VINES_PLANT = BLOCKS.register("astral_berry_vines_plant",
             () -> new AstralBerryVinesPlantBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().lightLevel(AstralBerryVines.emission(14)).instabreak().sound(SoundType.CAVE_VINES).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> RAW_GAINT_RABBISH_MOON_CAKE = BLOCKS.register("raw_gaint_rabbish_moon_cake",
+            () -> new RawMoonCakeBlock(Block.Properties.copy(Blocks.CAKE).noOcclusion().emissiveRendering((state, level, pos) -> true), DFBlocks.GAINT_RABBISH_MOON_CAKE));
+    public static final RegistryObject<Block> RAW_MOON_CAKE_SKIN = BLOCKS.register("raw_moon_cake_skin",
+            () -> new RawMoonCakeSkinBlock(Block.Properties.copy(Blocks.CAKE).noOcclusion().emissiveRendering((state, level, pos) -> true)));
+    public static final RegistryObject<Block> GAINT_RABBISH_MOON_CAKE = BLOCKS.register("gaint_rabbish_moon_cake",
+            () -> new MoonCakeBlock(Block.Properties.copy(Blocks.CAKE).noOcclusion().emissiveRendering((state, level, pos) -> true), DFItems.GAINT_RABBISH_MOON_CAKE_SLICE));
+    public static final RegistryObject<Block> CELESTIAL_PUDDING_BLOCK = BLOCKS.register("celestial_pudding_block",
+            () -> new CelestialPuddingBlock(Block.Properties.copy(Blocks.CAKE), DFItems.CELESTIAL_PUDDING_SLICE));
 }

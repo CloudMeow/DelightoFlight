@@ -1,0 +1,39 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "part": "0"
+      },
+      "apply": {
+        "model": "delighto_flight:block/raw_moon_cake_skin"
+      }
+    },
+    {
+      "when": {
+        "part": "1"
+      },
+      "apply": {
+        "model": "delighto_flight:block/raw_moon_cake_skin",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "part": "2"
+      },
+      "apply": {
+        "model": "delighto_flight:block/raw_moon_cake_skin",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "part": "3"
+      },
+      "apply": {
+        "model": "delighto_flight:block/raw_moon_cake_skin",
+        "y": 180
+      }
+    }
+  ]
+}

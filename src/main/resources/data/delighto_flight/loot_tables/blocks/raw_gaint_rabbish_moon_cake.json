@@ -1,0 +1,51 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "delighto_flight:raw_gaint_rabbish_moon_cake",
+          "properties": {
+            "part": "0"
+          }
+        }
+      ],
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "delighto_flight:raw_moon_cake_skin"
+        }
+      ]
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        },
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "delighto_flight:raw_gaint_rabbish_moon_cake",
+          "properties": {
+            "filling": "1",
+            "part": "0"
+          }
+        }
+      ],
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "farmersdelight:wheat_dough"
+        }
+      ]
+    }
+  ],
+  "random_sequence": "delighto_flight:blocks/raw_gaint_rabbish_moon_cake"
+}

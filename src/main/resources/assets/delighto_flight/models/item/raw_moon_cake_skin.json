@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "delighto_flight:item/raw_moon_cake_skin"
+  }
+}

@@ -75,6 +75,13 @@ public class DFFoodValue {
             .nutrition(10).saturationMod(1.0f).alwaysEat().build();
     public static final FoodProperties ASTRAL_BERRY = (new FoodProperties.Builder())
             .nutrition(2).saturationMod(0.3f).build();
+    public static final FoodProperties MOONSHADE_NECTAR_BREAD = (new FoodProperties.Builder())
+            .nutrition(11).saturationMod(0.6f)
+            .effect(() -> new MobEffectInstance(DFEffects.DIM.get(), 2400, 1), 1.0F).build();
+    public static final FoodProperties MOON_PALACE_PLATTER = (new FoodProperties.Builder())
+            .nutrition(14).saturationMod(0.6f)
+            .effect(() -> new MobEffectInstance(DFEffects.GRIND_HERBS.get(), 2400, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(ModEffects.NOURISHMENT.get(), 3600, 0), 1.0F).build();
 
     public static final FoodProperties APPLE_COTTON_CANDY = (new FoodProperties.Builder())
             .nutrition(6).saturationMod(0.4f)
@@ -110,6 +117,17 @@ public class DFFoodValue {
             .nutrition(5).saturationMod(0.4f)
             .effect(() -> new MobEffectInstance(DFEffects.CLOUDWALKING.get(), 600, 0), 1.0F)
             .effect(() -> new MobEffectInstance(DFEffects.ARC.get(), 1200, 0), 1.0F).alwaysEat().build();
+    public static final FoodProperties ASTRAL_BERRY_COTTON_CANDY = (new FoodProperties.Builder())
+            .nutrition(5).saturationMod(0.4f)
+            .effect(() -> new MobEffectInstance(DFEffects.CLOUDWALKING.get(), 600, 0), 1.0F).alwaysEat().build();
+    public static final FoodProperties GAINT_RABBISH_MOON_CAKE_SLICE = (new FoodProperties.Builder())
+            .nutrition(4).saturationMod(0.3f)
+            .effect(() -> new MobEffectInstance(DFEffects.GRIND_HERBS.get(), 2400, 0), 1.0F).alwaysEat().build();
+    public static final FoodProperties CELESTIAL_PUDDING_SLICE = (new FoodProperties.Builder())
+            .nutrition(3).saturationMod(0.5f).fast()
+            .effect(() -> new MobEffectInstance(MobEffects.GLOWING, 600, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(DFEffects.DIM.get(), 600, 4), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 200, 0), 1.0F).build();
 
     public static final FoodProperties MOONSHADE_NECTAR = (new FoodProperties.Builder())
             .nutrition(6).saturationMod(0.6f).build();
@@ -119,4 +137,7 @@ public class DFFoodValue {
             .alwaysEat()
             .effect(() -> new MobEffectInstance(DFEffects.ARC.get(), 200, 0), 1.0F)
             .effect(() -> new MobEffectInstance(DFEffects.WEATHER_SENSING.get(), 600, 0), 1.0F).build();
+    public static final FoodProperties RABBISH_JUICE = (new FoodProperties.Builder())
+            .alwaysEat()
+            .effect(() -> new MobEffectInstance(DFEffects.GRIND_HERBS.get(), 2400, 0), 1.0F).build();
 }

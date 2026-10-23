@@ -1,0 +1,26 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "item": "delighto_flight:astral_berries"
+    },
+    {
+      "item": "delighto_flight:moonshade_nectar"
+    },
+    {
+      "tag": "forge:eggs"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "item": "delighto_flight:celestial_pudding"
+  }
+}

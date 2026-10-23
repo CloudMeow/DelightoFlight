@@ -1,0 +1,82 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "part": "0",
+        "filling": "0"
+      },
+      "apply": {
+        "model": "delighto_flight:block/raw_gaint_rabbish_moon_cake"
+      }
+    },
+    {
+      "when": {
+        "part": "1",
+        "filling": "0"
+      },
+      "apply": {
+        "model": "delighto_flight:block/raw_gaint_rabbish_moon_cake",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "part": "2",
+        "filling": "0"
+      },
+      "apply": {
+        "model": "delighto_flight:block/raw_gaint_rabbish_moon_cake",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "part": "3",
+        "filling": "0"
+      },
+      "apply": {
+        "model": "delighto_flight:block/raw_gaint_rabbish_moon_cake",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "part": "0",
+        "filling": "1"
+      },
+      "apply": {
+        "model": "delighto_flight:block/raw_gaint_moon_cake"
+      }
+    },
+    {
+      "when": {
+        "part": "1",
+        "filling": "1"
+      },
+      "apply": {
+        "model": "delighto_flight:block/raw_gaint_moon_cake",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "part": "2",
+        "filling": "1"
+      },
+      "apply": {
+        "model": "delighto_flight:block/raw_gaint_moon_cake",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "part": "3",
+        "filling": "1"
+      },
+      "apply": {
+        "model": "delighto_flight:block/raw_gaint_moon_cake",
+        "y": 180
+      }
+    }
+  ]
+}

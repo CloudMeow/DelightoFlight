@@ -37,9 +37,6 @@ public class AstralBerryVinesPlantBlock extends GrowingPlantBodyBlock implements
     @Override
     public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
         BlockState updated = super.updateShape(state, facing, facingState, level, currentPos, facingPos);
-        if (!updated.is(this)) {
-            updated = state;
-        }
         if (facing == this.growthDirection) {
             updated = updated.setValue(TIP, !facingState.is(this.getBodyBlock()));
         }
@@ -48,7 +45,7 @@ public class AstralBerryVinesPlantBlock extends GrowingPlantBodyBlock implements
 
     @Override
     protected BlockState updateHeadAfterConvertedFromBody(BlockState head, BlockState body) {
-        return body;
+        return head;
     }
 
     @Override
