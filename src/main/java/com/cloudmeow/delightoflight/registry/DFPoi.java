@@ -3,6 +3,7 @@ package com.cloudmeow.delightoflight.registry;
 import com.cloudmeow.delightoflight.DelightoFlight;
 import com.cloudmeow.delightoflight.block.CloudSilkBedBlock;
 import com.cloudmeow.delightoflight.compat.dungeonsdelight.DDCompat;
+import com.cloudmeow.delightoflight.compat.goetydelight.GDCompat;
 import com.cloudmeow.delightoflight.compat.twilightdelight.TDCompat;
 import com.cloudmeow.delightoflight.utility.DFUtilities;
 import com.google.common.collect.ImmutableSet;
@@ -40,5 +41,6 @@ public class DFPoi {
             () -> new PoiType(ImmutableSet.<BlockState>builder()
                     .addAll(DFUtilities.twilightDelightLoad() ? TDCompat.getTDPot().getStateDefinition().getPossibleStates() : Collections.emptySet())
                     .addAll(DFUtilities.dungeonsDelightLoad() ? DDCompat.getDDPot().getStateDefinition().getPossibleStates() : Collections.emptySet())
+                    .addAll(DFUtilities.goetyDelightLoad() ? GDCompat.getGDPot().getStateDefinition().getPossibleStates() : Collections.emptySet())
                     .build(), 1, 2));
 }

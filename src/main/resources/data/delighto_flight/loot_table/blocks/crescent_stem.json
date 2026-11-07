@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "delighto_flight:crescent_seeds",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "count": 1
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "random_sequence": "delighto_flight:blocks/crescent_stem"
+}

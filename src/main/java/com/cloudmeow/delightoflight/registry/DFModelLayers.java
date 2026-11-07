@@ -9,4 +9,5 @@ import net.neoforged.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public interface DFModelLayers {
     ModelLayerLocation AEROLOPE = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(DelightoFlight.MOD_ID, "aerolope"), "main");
+    ModelLayerLocation PHANTOM_MEMBRANE_BALLOON = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(DelightoFlight.MOD_ID, "phantom_membrane_balloon"), "main");
 }

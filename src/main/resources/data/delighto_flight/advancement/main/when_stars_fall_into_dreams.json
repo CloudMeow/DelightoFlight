@@ -1,0 +1,35 @@
+{
+  "parent": "delighto_flight:main/root",
+  "criteria": {
+    "eat_stardrop": {
+      "conditions": {
+        "item": {
+          "items": "delighto_flight:stardrop"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "delighto_flight.advancement.when_stars_fall_into_dreams.desc"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "count": 1,
+      "id": "delighto_flight:stardrop"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "delighto_flight.advancement.when_stars_fall_into_dreams"
+    }
+  },
+  "requirements": [
+    [
+      "eat_stardrop"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

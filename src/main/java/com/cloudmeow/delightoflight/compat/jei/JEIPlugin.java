@@ -46,6 +46,13 @@ public class JEIPlugin implements IModPlugin {
         registration.addIngredientInfo(new ItemStack(DFItems.CLOUD_BERRY.get()), VanillaTypes.ITEM_STACK, Component.translatable(DelightoFlight.MOD_ID + ".jei.info.cloud_berries"));
         registration.addIngredientInfo(new ItemStack(DFItems.LOTUS_ROOT.get()), VanillaTypes.ITEM_STACK, Component.translatable(DelightoFlight.MOD_ID + ".jei.info.lotus_root"));
         registration.addIngredientInfo(List.of(new ItemStack(DFItems.LOTUS_SEEDS.get()), new ItemStack(DFItems.WILD_LOTUS.get()), new ItemStack(DFItems.LOTUS_FLOWER.get())), VanillaTypes.ITEM_STACK, Component.translatable(DelightoFlight.MOD_ID + ".jei.info.wild_lotus"));
+        registration.addIngredientInfo(new ItemStack(DFItems.CRESCENT_SEEDS.get()), VanillaTypes.ITEM_STACK, Component.translatable(DelightoFlight.MOD_ID + ".jei.info.crescent_seeds"));
+        registration.addIngredientInfo(new ItemStack(DFItems.MOONSHADE.get()), VanillaTypes.ITEM_STACK, Component.translatable(DelightoFlight.MOD_ID + ".jei.info.moonshade"));
+        registration.addIngredientInfo(new ItemStack(DFItems.MOON_RABBISH.get()), VanillaTypes.ITEM_STACK, Component.translatable(DelightoFlight.MOD_ID + ".jei.info.moon_rabbish"));
+        registration.addIngredientInfo(new ItemStack(DFItems.STARDROP.get()), VanillaTypes.ITEM_STACK, Component.translatable(DelightoFlight.MOD_ID + ".jei.info.stardrop"));
+        registration.addIngredientInfo(new ItemStack(DFItems.ASTRAL_BERRIES.get()), VanillaTypes.ITEM_STACK, Component.translatable(DelightoFlight.MOD_ID + ".jei.info.astral_berries"));
+        registration.addIngredientInfo(new ItemStack(DFItems.PHANTOM_MEMBRANE_BALLOON.get()), VanillaTypes.ITEM_STACK, Component.translatable(DelightoFlight.MOD_ID + ".jei.info.phantom_membrane_balloon"));
+        registration.addIngredientInfo(new ItemStack(DFItems.GAINT_RABBISH_MOON_CAKE.get()), VanillaTypes.ITEM_STACK, Component.translatable(DelightoFlight.MOD_ID + ".jei.info.gaint_rabbish_moon_cake"));
     }
 
 

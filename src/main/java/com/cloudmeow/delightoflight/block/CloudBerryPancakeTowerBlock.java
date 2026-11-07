@@ -22,6 +22,7 @@ public class CloudBerryPancakeTowerBlock extends FeastBlock {
         super(properties, DFItems.CLOUD_BERRY_PANCAKE, true);
     }
 
+    @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         int serving = state.getValue(SERVINGS);
         if (serving > 0) {

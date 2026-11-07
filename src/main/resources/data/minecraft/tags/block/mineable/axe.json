@@ -1,7 +1,11 @@
 {
   "values": [
+    "delighto_flight:waxing_crescent_slivermelon",
+    "delighto_flight:waning_crescent_slivermelon",
+    "delighto_flight:mixing_crescent_slivermelon",
     "delighto_flight:thunder_fruit_crate",
     "delighto_flight:moon_rabbish_crate",
-    "delighto_flight:lotus_root_crate"
+    "delighto_flight:lotus_root_crate",
+    "delighto_flight:waxing_crescent_egg_soup_block"
   ]
 }

@@ -29,7 +29,9 @@ public abstract class LayeredCauldronBlockMixin extends AbstractCauldronBlock {
             boolean canSpawnCloud = blockPos.getY() < 319 && blockPos.getY() > 192 && serverLevel.getBlockState(blockPos.above()).isAir() && serverLevel.canSeeSky(blockPos);
             if (canSpawnCloud) {
                 serverLevel.setBlockAndUpdate(blockPos.above(), DFBlocks.CLOUD.get().defaultBlockState());
-                LayeredCauldronBlock.lowerFillLevel(blockState, serverLevel, blockPos);
+                if (random.nextInt(10) == 0) {
+                    LayeredCauldronBlock.lowerFillLevel(blockState, serverLevel, blockPos);
+                }
             }
         }
     }

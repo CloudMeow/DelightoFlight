@@ -32,6 +32,12 @@ public class DFBlocks {
             () -> new Block(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
     public static final Supplier<Block> LOTUS_ROOT_CRATE = BLOCKS.register("lotus_root_crate",
             () -> new Block(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+    public static final Supplier<Block> WAXING_CRESCENT_SLIVERMELON = BLOCKS.register("waxing_crescent_slivermelon",
+            () -> new Block(Block.Properties.ofFullCopy(Blocks.MELON).lightLevel(state -> 11)));
+    public static final Supplier<Block> WANING_CRESCENT_SLIVERMELON = BLOCKS.register("waning_crescent_slivermelon",
+            () -> new Block(Block.Properties.ofFullCopy(Blocks.MELON).lightLevel(state -> 11)));
+    public static final Supplier<Block> MIXING_CRESCENT_SLIVERMELON = BLOCKS.register("mixing_crescent_slivermelon",
+            () -> new Block(Block.Properties.ofFullCopy(Blocks.MELON).lightLevel(state -> 11)));
     public static final Supplier<Block> CLEAR_CLOUDSHROOM = BLOCKS.register("clear_cloudshroom",
             ()-> new CloudshroomBlock(Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM)));
     public static final Supplier<Block> RAINY_CLOUDSHROOM = BLOCKS.register("rainy_cloudshroom",
@@ -91,4 +97,10 @@ public class DFBlocks {
             () -> new MoonCakeBlock(Block.Properties.ofFullCopy(Blocks.CAKE).noOcclusion().emissiveRendering((state, level, pos) -> true), DFItems.GAINT_RABBISH_MOON_CAKE_SLICE));
     public static final Supplier<Block> CELESTIAL_PUDDING_BLOCK = BLOCKS.register("celestial_pudding_block",
             () -> new CelestialPuddingBlock(Block.Properties.ofFullCopy(Blocks.CAKE), DFItems.CELESTIAL_PUDDING_SLICE));
+    public static final Supplier<Block> CRESCENT_STEM = BLOCKS.register("crescent_stem",
+            () -> new CrescentStemBlock(Block.Properties.ofFullCopy(Blocks.MELON_STEM)));
+    public static final Supplier<Block> WANING_CRESCENT_JELLY_BLOCK = BLOCKS.register("waning_crescent_jelly_block",
+            () -> new WaningCrescentJellyBlock(Block.Properties.ofFullCopy(Blocks.CAKE).lightLevel(state -> 11)));
+    public static final Supplier<Block> WAXING_CRESCENT_EGG_SOUP_BLOCK = BLOCKS.register("waxing_crescent_egg_soup_block",
+            () -> new WaxingCrescentEggSoupBlock(Block.Properties.ofFullCopy(Blocks.PUMPKIN).lightLevel(state -> 11)));
 }

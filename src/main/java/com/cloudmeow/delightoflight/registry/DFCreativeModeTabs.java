@@ -18,11 +18,13 @@ public class DFCreativeModeTabs {
                 output.accept(DFItems.CLEAR_HORN.get());
                 output.accept(DFItems.RAINY_HORN.get());
                 output.accept(DFItems.THUNDER_HORN.get());
+                output.accept(DFItems.PHANTOM_MEMBRANE_BALLOON.get());
                 output.accept(DFItems.COOK_BOOK.get());
                 output.accept(DFItems.CLOUD_SILK.get());
                 output.accept(DFItems.PHANTOM_WING.get());
                 output.accept(DFItems.MAGIC_CHEF_HAT.get());
                 output.accept(DFItems.BIRD_FEED.get());
+                output.accept(DFItems.CRESCENT_SEEDS.get());
                 output.accept(DFItems.MOONSHADE.get());
                 output.accept(DFItems.MOONSHADE_PETALS.get());
                 output.accept(DFItems.CLOUDSHROOM_COLONY.get());
@@ -41,6 +43,10 @@ public class DFCreativeModeTabs {
                 output.accept(DFItems.STARDROP.get());
                 output.accept(DFItems.ASTRAL_BERRIES.get());
                 output.accept(DFItems.CLOUD_BERRY.get());
+                output.accept(DFItems.WAXING_CRESCENT_SLIVERMELON_SLICE.get());
+                output.accept(DFItems.WANING_CRESCENT_SLIVERMELON_SLICE.get());
+                output.accept(DFItems.WANING_CRESCENT_JELLY_BLOCK.get());
+                output.accept(DFItems.WANING_CRESCENT_JELLY_SLICE.get());
                 output.accept(DFItems.CELESTIAL_PUDDING.get());
                 output.accept(DFItems.CELESTIAL_PUDDING_SLICE.get());
                 output.accept(DFItems.MOONSHADE_NECTAR.get());
@@ -53,11 +59,13 @@ public class DFCreativeModeTabs {
                 output.accept(DFItems.RAW_MOON_CAKE_SKIN.get());
                 output.accept(DFItems.GAINT_RABBISH_MOON_CAKE.get());
                 output.accept(DFItems.GAINT_RABBISH_MOON_CAKE_SLICE.get());
+                output.accept(DFItems.WAXING_CRESCENT_CAKE.get());
                 output.accept(DFItems.LOTUS_SEED_CAKE.get());
                 output.accept(DFItems.STUFFED_LOTUS_ROOT.get());
                 output.accept(DFItems.CLOUD_BERRY_CHEESE.get());
                 output.accept(DFItems.ORLEANS_PHANTOM_WING.get());
                 output.accept(DFItems.MOON_PALACE_PLATTER.get());
+                output.accept(DFItems.WANING_CRESCENT_PASTA.get());
                 output.accept(DFItems.HAM_SALAD.get());
                 output.accept(DFItems.THUNDER_FRUIT_STEW_BLOCK.get());
                 output.accept(DFItems.THUNDER_FRUIT_STEW.get());
@@ -66,6 +74,8 @@ public class DFCreativeModeTabs {
                 output.accept(DFItems.MUSHROOM_HOTPOT.get());
                 output.accept(DFItems.LOTUS_LEAF_RICE_BLOCK.get());
                 output.accept(DFItems.LOTUS_LEAF_RICE.get());
+                output.accept(DFItems.WAXING_CRESCENT_EGG_SOUP_BLOCK.get());
+                output.accept(DFItems.WAXING_CRESCENT_EGG_SOUP.get());
                 output.accept(DFItems.CHICKEN_SOUP_WITH_LOTUS_SEEDS.get());
                 output.accept(DFItems.LOTUS_ROOT_SOUP_WITH_PORK_RIBS.get());
                 output.accept(DFItems.LOTUS_SEED_SWEET_PORRIDGE.get());
@@ -73,6 +83,7 @@ public class DFCreativeModeTabs {
                 output.accept(DFItems.CHARGED_ROSE_TEA.get());
                 output.accept(DFItems.SPARKTRICITY_SODA.get());
                 output.accept(DFItems.RABBISH_JUICE.get());
+                output.accept(DFItems.ASTRAL_BERRY_SMOOTHIE.get());
                 output.accept(DFItems.APPLE_COTTON_CANDY.get());
                 output.accept(DFItems.CHORUS_FRUIT_COTTON_CANDY.get());
                 output.accept(DFItems.CLOUD_BERRY_COTTON_CANDY.get());
@@ -83,6 +94,9 @@ public class DFCreativeModeTabs {
                 output.accept(DFItems.SWEET_BERRY_COTTON_CANDY.get());
                 output.accept(DFItems.THUNDER_FRUIT_COTTON_CANDY.get());
                 output.accept(DFItems.ASTRAL_BERRY_COTTON_CANDY.get());
+                output.accept(DFItems.WAXING_CRESCENT_SLIVERMELON.get());
+                output.accept(DFItems.WANING_CRESCENT_SLIVERMELON.get());
+                output.accept(DFItems.MIXING_CRESCENT_SLIVERMELON.get());
                 output.accept(DFItems.CLOUD_BERRY_BAG.get());
                 output.accept(DFItems.ASTRAL_BERRY_BAG.get());
                 output.accept(DFItems.THUNDER_FRUIT_CRATE.get());

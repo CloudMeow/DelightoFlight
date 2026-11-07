@@ -1,6 +1,7 @@
 package com.cloudmeow.delightoflight.entity.ai;
 
 import com.cloudmeow.delightoflight.compat.dungeonsdelight.DDCompat;
+import com.cloudmeow.delightoflight.compat.goetydelight.GDCompat;
 import com.cloudmeow.delightoflight.registry.DFDataComponents;
 import com.cloudmeow.delightoflight.registry.DFMemoryTypes;
 import com.cloudmeow.delightoflight.utility.DFUtilities;
@@ -45,6 +46,8 @@ public class PutItemIntoOtherPot<E extends LivingEntity> extends Behavior<E> {
                 addIngredient(cooker, livingEntity);
             } else if (DFUtilities.dungeonsDelightLoad() && DDCompat.isMonsterPot(entity)) {
                 DDCompat.addIngredientForDDPot(entity, livingEntity);
+            } else if (DFUtilities.goetyDelightLoad() && GDCompat.isCursedPot(entity)) {
+                GDCompat.addIngredientForGDPot(entity, livingEntity);
             }
         }
     }

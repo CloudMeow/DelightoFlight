@@ -2,9 +2,11 @@ package com.cloudmeow.delightoflight.network;
 
 import com.cloudmeow.delightoflight.DelightoFlight;
 import com.cloudmeow.delightoflight.block.entity.CottonCandyMachineBlockEntity;
+import com.cloudmeow.delightoflight.network.payload.HeartAnimationPayload;
 import com.cloudmeow.delightoflight.network.payload.SpinProgressPayload;
 import com.cloudmeow.delightoflight.network.payload.StartSpinningPayload;
 import com.cloudmeow.delightoflight.network.payload.StopSpinningPayload;
+import com.cloudmeow.delightoflight.utility.DFUtilities;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -22,6 +24,7 @@ public class DFNetworking {
         registrar.playToServer(StartSpinningPayload.TYPE, StartSpinningPayload.STREAM_CODEC, StartSpinningPayloadHandler::handleSpinCottonCandy);
         registrar.playToServer(StopSpinningPayload.TYPE, StopSpinningPayload.STREAM_CODEC, StopSpinningPayloadHandler::handleSpinCottonCandy);
         registrar.playToClient(SpinProgressPayload.TYPE, SpinProgressPayload.STREAM_CODEC, SpinProgressPayloadHandler::handleSpinProgress);
+        registrar.playToClient(HeartAnimationPayload.TYPE, HeartAnimationPayload.STREAM_CODEC, HeartAnimationPayloadHandler::handle);
     }
 
     public static class StartSpinningPayloadHandler {
@@ -49,6 +52,12 @@ public class DFNetworking {
             if (context.player().level() instanceof ClientLevel clientLevel && clientLevel.getBlockEntity(payload.pos()) instanceof CottonCandyMachineBlockEntity machine) {
                 machine.setSpinTime(payload.spinTime());
             }
+        }
+    }
+
+    public static class HeartAnimationPayloadHandler {
+        public static void handle(HeartAnimationPayload payload, IPayloadContext context) {
+            DFUtilities.playHeartAnimation(payload.stack(), context.player());
         }
     }
 }

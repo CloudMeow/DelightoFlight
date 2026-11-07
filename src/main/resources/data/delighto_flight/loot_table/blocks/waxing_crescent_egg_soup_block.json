@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "delighto_flight:waxing_crescent_egg_soup_block",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "servings": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "delighto_flight:waxing_crescent_egg_soup_block"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "delighto_flight:blocks/waxing_crescent_egg_soup_block"
+}
