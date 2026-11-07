@@ -30,7 +30,7 @@ public class MoonshadeBlock extends FlowerBlock {
     @Override
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (!level.isNight()) return;
-        if (random.nextInt(3) != 0) return;
+        if (random.nextInt(6) != 0) return;
         for (int attempt = 0; attempt < 4; attempt++) {
             BlockPos target = pos.offset(random.nextInt(5) - 2, 0, random.nextInt(5) - 2);
             if (placePetals(level, target)) break;
@@ -38,7 +38,11 @@ public class MoonshadeBlock extends FlowerBlock {
     }
 
     private boolean placePetals(ServerLevel level, BlockPos pos) {
-        if (level.getBlockState(pos.below()).isAir()) return false;
+        BlockState belowState = level.getBlockState(pos.below());
+        if (!belowState.isFaceSturdy(level, pos.below(), Direction.UP)) {
+            return false;
+        }
+
         BlockState existing = level.getBlockState(pos);
         if (existing.isAir()) {
             Direction facing = Direction.Plane.HORIZONTAL.getRandomDirection(level.random);

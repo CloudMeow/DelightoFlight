@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " P ",
+    "PCP",
+    "LP "
+  ],
+  "key": {
+    "C": {
+      "item": "delighto_flight:cloud"
+    },
+	"L": {
+      "item": "minecraft:lead"
+    },
+	"P": {
+      "item": "minecraft:phantom_membrane"
+    }
+  },
+  "result": {
+    "item": "delighto_flight:phantom_membrane_balloon"
+  }
+}

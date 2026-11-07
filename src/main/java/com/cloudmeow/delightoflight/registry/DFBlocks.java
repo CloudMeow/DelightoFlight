@@ -14,8 +14,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.function.Supplier;
-
 public class DFBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, DelightoFlight.MOD_ID);
 
@@ -33,6 +31,12 @@ public class DFBlocks {
             () -> new Block(Block.Properties.copy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> LOTUS_ROOT_CRATE = BLOCKS.register("lotus_root_crate",
             () -> new Block(Block.Properties.copy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> WAXING_CRESCENT_SLIVERMELON = BLOCKS.register("waxing_crescent_slivermelon",
+            () -> new Block(Block.Properties.copy(Blocks.MELON).lightLevel(state -> 11)));
+    public static final RegistryObject<Block> WANING_CRESCENT_SLIVERMELON = BLOCKS.register("waning_crescent_slivermelon",
+            () -> new Block(Block.Properties.copy(Blocks.MELON).lightLevel(state -> 11)));
+    public static final RegistryObject<Block> MIXING_CRESCENT_SLIVERMELON = BLOCKS.register("mixing_crescent_slivermelon",
+            () -> new Block(Block.Properties.copy(Blocks.MELON).lightLevel(state -> 11)));
     public static final RegistryObject<Block> CLEAR_CLOUDSHROOM = BLOCKS.register("clear_cloudshroom",
             ()-> new CloudshroomBlock(Block.Properties.copy(Blocks.BROWN_MUSHROOM)));
     public static final RegistryObject<Block> RAINY_CLOUDSHROOM = BLOCKS.register("rainy_cloudshroom",
@@ -92,4 +96,10 @@ public class DFBlocks {
             () -> new MoonCakeBlock(Block.Properties.copy(Blocks.CAKE).noOcclusion().emissiveRendering((state, level, pos) -> true), DFItems.GAINT_RABBISH_MOON_CAKE_SLICE));
     public static final RegistryObject<Block> CELESTIAL_PUDDING_BLOCK = BLOCKS.register("celestial_pudding_block",
             () -> new CelestialPuddingBlock(Block.Properties.copy(Blocks.CAKE), DFItems.CELESTIAL_PUDDING_SLICE));
+    public static final RegistryObject<Block> CRESCENT_STEM = BLOCKS.register("crescent_stem",
+            () -> new CrescentStemBlock(Block.Properties.copy(Blocks.MELON_STEM)));
+    public static final RegistryObject<Block> WANING_CRESCENT_JELLY_BLOCK = BLOCKS.register("waning_crescent_jelly_block",
+            () -> new WaningCrescentJellyBlock(Block.Properties.copy(Blocks.CAKE).lightLevel(state -> 11)));
+    public static final RegistryObject<Block> WAXING_CRESCENT_EGG_SOUP_BLOCK = BLOCKS.register("waxing_crescent_egg_soup_block",
+            () -> new WaxingCrescentEggSoupBlock(Block.Properties.copy(Blocks.PUMPKIN).lightLevel(state -> 11)));
 }

@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cooking",
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "tag": "forge:cooked_eggs"
+    },
+    {
+      "tag": "forge:pasta"
+    },
+    {
+      "item": "delighto_flight:waning_crescent_slivermelon_slice"
+    },
+    {
+      "item": "delighto_flight:waning_crescent_slivermelon_slice"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "item": "delighto_flight:waning_crescent_pasta"
+  }
+}

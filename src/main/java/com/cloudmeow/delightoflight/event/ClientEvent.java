@@ -4,6 +4,7 @@ import com.cloudmeow.delightoflight.DelightoFlight;
 import com.cloudmeow.delightoflight.client.model.AerolopeModel;
 import com.cloudmeow.delightoflight.client.model.AllayHatModel;
 import com.cloudmeow.delightoflight.client.model.CookBookModel;
+import com.cloudmeow.delightoflight.client.model.PhantomMembraneBalloonModel;
 import com.cloudmeow.delightoflight.client.render.*;
 import com.cloudmeow.delightoflight.entity.AerolopeEntity;
 import com.cloudmeow.delightoflight.registry.DFBlockEntities;
@@ -46,6 +47,7 @@ public class ClientEvent {
         event.registerEntityRenderer(DFEntityTypes.ELECTRIC_CURRENT.get(), ElectricCurrentRenderer::new);
         event.registerEntityRenderer(DFEntityTypes.AEROLOPE.get(), AerolopeRenderer::new);
         event.registerEntityRenderer(DFEntityTypes.MOON_SLASH.get(), MoonSlashRenderer::new);
+        event.registerEntityRenderer(DFEntityTypes.PHANTOM_MEMBRANE_BALLOON.get(), PhantomMembraneBalloonRenderer::new);
     }
 
     @SubscribeEvent
@@ -103,6 +105,7 @@ public class ClientEvent {
     @SubscribeEvent
     public static void registerEntityLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(DFModelLayers.AEROLOPE, AerolopeModel::createBodyLayer);
+        event.registerLayerDefinition(DFModelLayers.PHANTOM_MEMBRANE_BALLOON, PhantomMembraneBalloonModel::createBodyLayer);
     }
 
     @SubscribeEvent

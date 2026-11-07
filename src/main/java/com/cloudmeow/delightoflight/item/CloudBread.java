@@ -6,7 +6,7 @@ import net.minecraft.world.phys.Vec3;
 import vectorwing.farmersdelight.common.item.ConsumableItem;
 
 public class CloudBread extends ConsumableItem {
-    private static final double RISE_SPEED = 0.02D;
+    private static final double RISE_SPEED = 0.08D;
 
     public CloudBread(Properties properties, boolean hasFoodEffectTooltip) {
         super(properties, hasFoodEffectTooltip);

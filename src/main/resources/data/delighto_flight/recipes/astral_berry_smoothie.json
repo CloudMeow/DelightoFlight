@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:ice"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+	{
+      "item": "delighto_flight:astral_berries"
+    },
+	{
+      "item": "minecraft:melon_slice"
+    },
+	{
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "item": "delighto_flight:astral_berry_smoothie"
+  },
+  "show_notification": false
+}

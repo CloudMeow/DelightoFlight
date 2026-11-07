@@ -1,0 +1,30 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "count": 1,
+    "item": "delighto_flight:waxing_crescent_slivermelon"
+  },
+  "cookingtime": 400,
+  "experience": 2.0,
+  "ingredients": [
+	{
+      "tag": "forge:raw_fishes/cod"
+    },
+    {
+      "tag": "forge:crops/onion"
+    },
+	{
+      "item": "minecraft:dried_kelp"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "tag": "forge:eggs"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "delighto_flight:waxing_crescent_egg_soup_block"
+  }
+}

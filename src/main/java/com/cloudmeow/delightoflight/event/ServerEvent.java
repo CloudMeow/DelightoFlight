@@ -1,15 +1,20 @@
 package com.cloudmeow.delightoflight.event;
 
+import com.cloudmeow.delightoflight.Config;
 import com.cloudmeow.delightoflight.DelightoFlight;
 import com.cloudmeow.delightoflight.entity.MoonSlashEntity;
+import com.cloudmeow.delightoflight.network.DFNetworking;
 import com.cloudmeow.delightoflight.registry.*;
 import com.cloudmeow.delightoflight.utility.DFDamageTypes;
 import com.cloudmeow.delightoflight.utility.DFUtilities;
+import com.cloudmeow.delightoflight.utility.StardropData;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffect;
@@ -33,6 +38,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
@@ -227,6 +233,7 @@ public class ServerEvent {
         slash.setPos(player.position().x, player.position().y + 0.5F, player.position().z);
         slash.setYRot(player.getYRot());
         player.level().addFreshEntity(slash);
+        event.getTarget().invulnerableTime = 0;
         player.level().playSound(null, player.blockPosition(), DFSounds.MOON_SLASH.get(), SoundSource.PLAYERS, 0.8F, 0.8F);
     }
 
@@ -276,19 +283,57 @@ public class ServerEvent {
         int moonPhase = level.getMoonPhase();
         if (moonPhase == 0 && handItem.is(Items.GOLDEN_CARROT)) return DFItems.MOON_RABBISH.get().getDefaultInstance();
         if (moonPhase == 4 && handItem.is(Items.WITHER_ROSE)) return DFItems.MOONSHADE.get().getDefaultInstance();
+        if ((moonPhase == 2 || moonPhase == 6) && handItem.is(Items.MELON_SEEDS)) return DFItems.CRESCENT_SEEDS.get().getDefaultInstance();
         return ItemStack.EMPTY;
     }
 
     @SubscribeEvent
     public static void onStardropEaterLogin(PlayerEvent.PlayerLoggedInEvent event) {
-        DFUtilities.applyStardropBonus(event.getEntity());
+        if (event.getEntity() instanceof ServerPlayer player) {
+            DFNetworking.syncStardropState(player);
+        }
     }
 
     @SubscribeEvent
-    public static void onClone(PlayerEvent.Clone event) {
-        if (event.getOriginal().getPersistentData().getBoolean("delighto_flight:stardrop_eater")) {
-            event.getEntity().getPersistentData().putBoolean("delighto_flight:stardrop_eater", true);
+    public static void onPlayerClone(PlayerEvent.Clone event) {
+        StardropData.copyTo(event.getOriginal(), event.getEntity());
+    }
+
+    @SubscribeEvent
+    public static void onStardropProtection(LivingDamageEvent event) {
+        if (!(event.getEntity() instanceof ServerPlayer player)) return;
+        if (event.getSource().is(DamageTypeTags.BYPASSES_INVULNERABILITY)) return;
+        if (!StardropData.hasEaten(player)) return;
+        if (StardropData.isOnCooldown(player)) return;
+        if (event.getAmount() < player.getMaxHealth() * 0.5F) return;
+
+        event.setAmount(0.0F);
+        StardropData.setCooldown(player, true);
+        StardropData.setRecovery(player, 0);
+        player.level().playSound(null, player.blockPosition(), SoundEvents.TOTEM_USE, SoundSource.PLAYERS, 1.0F, 1.0F);
+
+        ItemStack heartStack = new ItemStack(player.level().getLevelData().isHardcore() ? DFItems.HARDCORE_STARDROP_HEART.get() : DFItems.STARDROP_HEART.get());
+        DFNetworking.sendHeartAnimation(player, heartStack);
+        DFNetworking.syncStardropState(player);
+    }
+
+    @SubscribeEvent
+    public static void onStardropRecovery(TickEvent.PlayerTickEvent event) {
+        if (event.phase != TickEvent.Phase.END) return;
+        if (!(event.player instanceof ServerPlayer player)) return;
+        if (!player.isAlive()) return;
+        if (!StardropData.isOnCooldown(player)) return;
+
+        Level level = player.level();
+        if (!level.isNight() || level.isRaining() || !level.canSeeSky(player.blockPosition())) return;
+
+        int recovery = StardropData.getRecovery(player) + 1;
+        if (recovery >= Config.STARDROP_RECOVERY_TICKS.get()) {
+            StardropData.setCooldown(player, false);
+            StardropData.setRecovery(player, 0);
+            DFNetworking.syncStardropState(player);
+        } else {
+            StardropData.setRecovery(player, recovery);
         }
-        DFUtilities.applyStardropBonus(event.getEntity());
     }
 }

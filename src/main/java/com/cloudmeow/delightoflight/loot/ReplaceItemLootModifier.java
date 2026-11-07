@@ -1,4 +1,4 @@
-package com.cloudmeow.delightoflight.Loot;
+package com.cloudmeow.delightoflight.loot;
 
 import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;

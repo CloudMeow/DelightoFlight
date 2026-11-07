@@ -2,21 +2,27 @@ package com.cloudmeow.delightoflight.network;
 
 import com.cloudmeow.delightoflight.DelightoFlight;
 import com.cloudmeow.delightoflight.block.entity.CottonCandyMachineBlockEntity;
+import com.cloudmeow.delightoflight.utility.DFUtilities;
+import com.cloudmeow.delightoflight.utility.StardropData;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.network.NetworkRegistry;
+import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 
+import java.util.UUID;
 import java.util.function.Supplier;
 
 public class DFNetworking {
-    private static final String PROTOCOL_VERSION = "1";
+    private static final String PROTOCOL_VERSION = "3";
 
     public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
             new ResourceLocation(DelightoFlight.MOD_ID, "main"),
@@ -42,6 +48,25 @@ public class DFNetworking {
                 SpinProgressMessage::new,
                 SpinProgressMessage::handle
         );
+        INSTANCE.registerMessage(id++, SyncStardropMessage.class,
+                SyncStardropMessage::encode,
+                SyncStardropMessage::new,
+                SyncStardropMessage::handle
+        );
+        INSTANCE.registerMessage(id++, HeartAnimationMessage.class,
+                HeartAnimationMessage::encode,
+                HeartAnimationMessage::new,
+                HeartAnimationMessage::handle
+        );
+    }
+
+    public static void syncStardropState(ServerPlayer player) {
+        INSTANCE.send(PacketDistributor.PLAYER.with(() -> player),
+                new SyncStardropMessage(player.getUUID(), StardropData.hasEaten(player), StardropData.isOnCooldown(player)));
+    }
+
+    public static void sendHeartAnimation(ServerPlayer player, ItemStack stack) {
+        INSTANCE.send(PacketDistributor.PLAYER.with(() -> player), new HeartAnimationMessage(stack));
     }
 
     public static class StartSpinningMessage {
@@ -127,6 +152,64 @@ public class DFNetworking {
                     if (be instanceof CottonCandyMachineBlockEntity machine) {
                         machine.setSpinTime(msg.spinTime);
                     }
+                }
+            });
+            ctx.get().setPacketHandled(true);
+        }
+    }
+
+    public static class SyncStardropMessage {
+        private final UUID playerUUID;
+        private final boolean eaten;
+        private final boolean cooldown;
+
+        public SyncStardropMessage(UUID playerUUID, boolean eaten, boolean cooldown) {
+            this.playerUUID = playerUUID;
+            this.eaten = eaten;
+            this.cooldown = cooldown;
+        }
+
+        public SyncStardropMessage(FriendlyByteBuf buf) {
+            this.playerUUID = buf.readUUID();
+            this.eaten = buf.readBoolean();
+            this.cooldown = buf.readBoolean();
+        }
+
+        public void encode(FriendlyByteBuf buf) {
+            buf.writeUUID(playerUUID);
+            buf.writeBoolean(eaten);
+            buf.writeBoolean(cooldown);
+        }
+
+        public static void handle(SyncStardropMessage msg, Supplier<NetworkEvent.Context> ctx) {
+            ctx.get().enqueueWork(() -> {
+                ClientStardropData.setEaten(msg.playerUUID, msg.eaten);
+                ClientStardropData.setCooldown(msg.playerUUID, msg.cooldown);
+            });
+            ctx.get().setPacketHandled(true);
+        }
+    }
+
+    public static class HeartAnimationMessage {
+        private final ItemStack stack;
+
+        public HeartAnimationMessage(ItemStack stack) {
+            this.stack = stack;
+        }
+
+        public HeartAnimationMessage(FriendlyByteBuf buf) {
+            this.stack = buf.readItem();
+        }
+
+        public void encode(FriendlyByteBuf buf) {
+            buf.writeItem(stack);
+        }
+
+        public static void handle(HeartAnimationMessage msg, Supplier<NetworkEvent.Context> ctx) {
+            ctx.get().enqueueWork(() -> {
+                Player player = Minecraft.getInstance().player;
+                if (player != null && !msg.stack.isEmpty()) {
+                    DFUtilities.playHeartAnimation(msg.stack, player);
                 }
             });
             ctx.get().setPacketHandled(true);

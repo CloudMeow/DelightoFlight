@@ -55,6 +55,10 @@ public class DFItems {
             ()-> new Item(new Item.Properties()));
     public static final RegistryObject<Item> RABBISH_MOONCAKE_FILLING = ITEMS.register("rabbish_mooncake_filling",
             ()-> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> WAXING_CRESCENT_SLIVERMELON_SLICE = ITEMS.register("waxing_crescent_slivermelon_slice",
+            ()-> new Item(new Item.Properties().food(DFFoodValue.WAXING_CRESCENT_SLIVERMELON_SLICE)));
+    public static final RegistryObject<Item> WANING_CRESCENT_SLIVERMELON_SLICE = ITEMS.register("waning_crescent_slivermelon_slice",
+            ()-> new Item(new Item.Properties().food(DFFoodValue.WANING_CRESCENT_SLIVERMELON_SLICE)));
     public static final RegistryObject<Item> STARDROP = ITEMS.register("stardrop",
             ()-> new Stardrop(new Item.Properties().food(DFFoodValue.STARDROP).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> GAINT_RABBISH_MOON_CAKE_SLICE = ITEMS.register("gaint_rabbish_moon_cake_slice",
@@ -65,8 +69,12 @@ public class DFItems {
             ()-> new ConsumableItem(bowlFoodItem(DFFoodValue.MOON_PALACE_PLATTER), true));
     public static final RegistryObject<Item> CELESTIAL_PUDDING_SLICE = ITEMS.register("celestial_pudding_slice",
             ()-> new ConsumableItem(new Item.Properties().food(DFFoodValue.CELESTIAL_PUDDING_SLICE), true));
+    public static final RegistryObject<Item> ASTRAL_BERRY_SMOOTHIE = ITEMS.register("astral_berry_smoothie",
+            ()-> new ConsumableItem(drinkItem().food(DFFoodValue.ASTRAL_BERRY_SMOOTHIE), true));
     public static final RegistryObject<Item> APPLE_COTTON_CANDY = ITEMS.register("apple_cotton_candy",
             ()-> new ConsumableItem(cottonCandyItem(DFFoodValue.APPLE_COTTON_CANDY), true));
+    public static final RegistryObject<Item> WANING_CRESCENT_JELLY_SLICE = ITEMS.register("waning_crescent_jelly_slice",
+            ()-> new ConsumableItem(new Item.Properties().food(DFFoodValue.WANING_CRESCENT_JELLY_SLICE), true));
     public static final RegistryObject<Item> CHORUS_FRUIT_COTTON_CANDY = ITEMS.register("chorus_fruit_cotton_candy",
             ()-> new ConsumableChorusFruit(cottonCandyItem(DFFoodValue.CHORUS_FRUIT_COTTON_CANDY)));
     public static final RegistryObject<Item> CLOUD_BERRY_COTTON_CANDY = ITEMS.register("cloud_berry_cotton_candy",
@@ -103,6 +111,8 @@ public class DFItems {
             ()-> new ItemNameBlockItem(DFBlocks.THUNDER_VINE.get(), new Item.Properties()));
     public static final RegistryObject<Item> ASTRAL_BERRIES = ITEMS.register("astral_berries",
             ()-> new ItemNameBlockItem(DFBlocks.ASTRAL_BERRY_VINES.get(), new Item.Properties().food(DFFoodValue.ASTRAL_BERRY)));
+    public static final RegistryObject<Item> CRESCENT_SEEDS = ITEMS.register("crescent_seeds",
+            ()-> new ItemNameBlockItem(DFBlocks.CRESCENT_STEM.get(), new Item.Properties()));
     public static final RegistryObject<Item> ORLEANS_PHANTOM_WING = ITEMS.register("new_orleans_phantom_wing",
             ()-> new ConsumableItem(bowlFoodItem(DFFoodValue.ORLEANS_PHANTOM_WING), true));
     public static final RegistryObject<Item> CLOUD_BERRY_CHEESE = ITEMS.register("cheese_cloud_berry_jam",
@@ -125,6 +135,12 @@ public class DFItems {
             ()-> new ConsumableItem(bowlFoodItem(DFFoodValue.LOTUS_ROOT_SOUP_WITH_PORK_RIBS), true));
     public static final RegistryObject<Item> LOTUS_SEED_SWEET_PORRIDGE = ITEMS.register("lotus_seed_sweet_porridge",
             ()-> new ConsumableItem(bowlFoodItem(DFFoodValue.LOTUS_SEED_SWEET_PORRIDGE), true));
+    public static final RegistryObject<Item> WANING_CRESCENT_PASTA = ITEMS.register("waning_crescent_pasta",
+            ()-> new ConsumableItem(bowlFoodItem(DFFoodValue.WANING_CRESCENT_PASTA), true));
+    public static final RegistryObject<Item> WAXING_CRESCENT_CAKE = ITEMS.register("waxing_crescent_cake",
+            ()-> new ConsumableItem(new Item.Properties().food(DFFoodValue.WAXING_CRESCENT_CAKE), true));
+    public static final RegistryObject<Item> WAXING_CRESCENT_EGG_SOUP = ITEMS.register("waxing_crescent_egg_soup",
+            ()-> new ConsumableItem(bowlFoodItem(DFFoodValue.WAXING_CRESCENT_EGG_SOUP), true));
     public static final RegistryObject<Item> CLOUD_BREAD = ITEMS.register("cloud_bread",
             ()-> new CloudBread(new Item.Properties().food(DFFoodValue.CLOUD_BREAD), true));
     public static final RegistryObject<Item> CLOUD = ITEMS.register("cloud",
@@ -179,6 +195,16 @@ public class DFItems {
             ()-> new BlockItem(DFBlocks.MOONSHADE_PETALS.get(), new Item.Properties()));
     public static final RegistryObject<Item> CELESTIAL_PUDDING = ITEMS.register("celestial_pudding",
             ()-> new BlockItem(DFBlocks.CELESTIAL_PUDDING_BLOCK.get(), new Item.Properties()));
+    public static final RegistryObject<Item> WAXING_CRESCENT_SLIVERMELON = ITEMS.register("waxing_crescent_slivermelon",
+            ()-> new BlockItem(DFBlocks.WAXING_CRESCENT_SLIVERMELON.get(), new Item.Properties()));
+    public static final RegistryObject<Item> WANING_CRESCENT_SLIVERMELON = ITEMS.register("waning_crescent_slivermelon",
+            ()-> new BlockItem(DFBlocks.WANING_CRESCENT_SLIVERMELON.get(), new Item.Properties()));
+    public static final RegistryObject<Item> MIXING_CRESCENT_SLIVERMELON = ITEMS.register("mixing_crescent_slivermelon",
+            ()-> new BlockItem(DFBlocks.MIXING_CRESCENT_SLIVERMELON.get(), new Item.Properties()));
+    public static final RegistryObject<Item> WANING_CRESCENT_JELLY_BLOCK = ITEMS.register("waning_crescent_jelly_block",
+            ()-> new BlockItem(DFBlocks.WANING_CRESCENT_JELLY_BLOCK.get(), new Item.Properties().stacksTo(1)));
+    public static final Supplier<Item> WAXING_CRESCENT_EGG_SOUP_BLOCK = ITEMS.register("waxing_crescent_egg_soup_block",
+            ()-> new BlockItem(DFBlocks.WAXING_CRESCENT_EGG_SOUP_BLOCK.get(), new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> MOONSHADE_NECTAR = ITEMS.register("moonshade_nectar",
             ()-> new HoneyBottleItem(new Item.Properties().food(DFFoodValue.MOONSHADE_NECTAR).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16)));
     public static final RegistryObject<Item> CHARGED_ROSE_TEA = ITEMS.register("charged_rose_tea",
@@ -197,7 +223,14 @@ public class DFItems {
             ()-> new AerolopeHorn(new Item.Properties().stacksTo(1), 2));
     public static final RegistryObject<Item> WILD_LOTUS = ITEMS.register("wild_lotus",
             ()-> new DoubleHighBlockItem(DFBlocks.WILD_LOTUS.get(), new Item.Properties()));
+    public static final RegistryObject<Item> PHANTOM_MEMBRANE_BALLOON = ITEMS.register("phantom_membrane_balloon",
+            ()-> new PhantomMembraneBalloon(new Item.Properties()));
 
     public static final RegistryObject<Item> AEROLOPE_SPAWN_EGG = ITEMS.register("aerolope_spawn_egg",
             ()-> new ForgeSpawnEggItem(DFEntityTypes.AEROLOPE, 0xb7a6ba, 0x4a486f, new Item.Properties()));
+
+    public static final RegistryObject<Item> STARDROP_HEART = ITEMS.register("stardrop_heart",
+            ()-> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> HARDCORE_STARDROP_HEART = ITEMS.register("hardcore_stardrop_heart",
+            ()-> new Item(new Item.Properties()));
 }

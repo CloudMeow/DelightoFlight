@@ -1,12 +1,12 @@
 package com.cloudmeow.delightoflight.block;
 
+import com.cloudmeow.delightoflight.utility.DFUtilities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -51,28 +51,6 @@ public class CelestialPuddingBlock extends PieBlock {
             default    -> Rotation.NONE;
         };
 
-        return rotateShape(shape, rotation);
-    }
-
-    private static VoxelShape rotateShape(VoxelShape shape, Rotation rotation) {
-        if (rotation == Rotation.NONE) return shape;
-
-        VoxelShape result = Shapes.empty();
-        for (AABB aabb : shape.toAabbs()) {
-            double x1 = aabb.minX, y1 = aabb.minY, z1 = aabb.minZ;
-            double x2 = aabb.maxX, y2 = aabb.maxY, z2 = aabb.maxZ;
-            AABB rotated;
-            switch (rotation) {
-                case CLOCKWISE_90 -> rotated = new AABB(1 - z2, y1, x1, 1 - z1, y2, x2);
-                case CLOCKWISE_180 -> rotated = new AABB(1 - x2, y1, 1 - z2, 1 - x1, y2, 1 - z1);
-                case COUNTERCLOCKWISE_90 -> rotated = new AABB(z1, y1, 1 - x2, z2, y2, 1 - x1);
-                default -> rotated = aabb;
-            }
-            result = Shapes.or(result, Block.box(
-                    rotated.minX * 16, rotated.minY * 16, rotated.minZ * 16,
-                    rotated.maxX * 16, rotated.maxY * 16, rotated.maxZ * 16
-            ));
-        }
-        return result;
+        return DFUtilities.rotateShape(shape, rotation);
     }
 }

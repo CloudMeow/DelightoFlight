@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "delighto_flight:waning_crescent_slivermelon"
+    }
+  ],
+  "result": [
+    {
+      "count": 4,
+      "item": "delighto_flight:waning_crescent_slivermelon_slice"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

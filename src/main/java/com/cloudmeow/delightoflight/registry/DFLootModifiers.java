@@ -1,7 +1,7 @@
 package com.cloudmeow.delightoflight.registry;
 
 import com.cloudmeow.delightoflight.DelightoFlight;
-import com.cloudmeow.delightoflight.Loot.ReplaceItemLootModifier;
+import com.cloudmeow.delightoflight.loot.ReplaceItemLootModifier;
 import com.mojang.serialization.Codec;
 import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.registries.DeferredRegister;

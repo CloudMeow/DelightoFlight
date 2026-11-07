@@ -4,6 +4,7 @@ import com.cloudmeow.delightoflight.DelightoFlight;
 import com.cloudmeow.delightoflight.entity.AerolopeEntity;
 import com.cloudmeow.delightoflight.entity.ElectricCurrentEntity;
 import com.cloudmeow.delightoflight.entity.MoonSlashEntity;
+import com.cloudmeow.delightoflight.entity.PhantomMembraneBalloonEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.registries.DeferredRegister;
@@ -19,4 +20,6 @@ public class DFEntityTypes {
             () -> EntityType.Builder.of(AerolopeEntity::new, MobCategory.CREATURE).sized(0.9F, 1.6F).build("aerolope"));
     public static final RegistryObject<EntityType<MoonSlashEntity>> MOON_SLASH = ENTITY_TYPES.register("moon_slash",
             () -> EntityType.Builder.of(MoonSlashEntity::new, MobCategory.MISC).sized(0.8F, 0.4F).fireImmune().build("moon_slash"));
+    public static final RegistryObject<EntityType<PhantomMembraneBalloonEntity>> PHANTOM_MEMBRANE_BALLOON = ENTITY_TYPES.register("phantom_membrane_balloon",
+            () -> EntityType.Builder.of(PhantomMembraneBalloonEntity::new, MobCategory.MISC).sized(1.0F, 1.5F).build("phantom_membrane_balloon"));
 }

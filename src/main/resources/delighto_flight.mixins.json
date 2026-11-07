@@ -18,6 +18,7 @@
     "WoodlandMansionPieceMixin"
   ],
   "client": [
+    "client.GuiMixin"
   ],
   "injectors": {
     "defaultRequire": 1

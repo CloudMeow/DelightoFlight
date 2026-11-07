@@ -43,15 +43,15 @@ public class MoonSlashRenderer extends EntityRenderer<MoonSlashEntity> {
         float w = shape == 0 ? 3.0F : 2.0F;
         float h = shape == 0 ? 3.0F : 2.0F;
 
-        VertexConsumer vc = buffer.getBuffer(RenderType.entityCutout(getTextureLocation(entity)));
+        VertexConsumer vc = buffer.getBuffer(RenderType.entityTranslucent(getTextureLocation(entity)));
         Matrix4f mat = pose.last().pose();
 
         float red = entity.hasGrindHerbs() ? 0.6F : 1.0F;
         float green = entity.hasGrindHerbs() ? 0.8F : 1.0F;
 
         vc.vertex(mat, entity.isRight() ? -w : w, -h, 0).color(red, green, 1.0F, shape == 0 ? 0.5F : 1.0F).uv(0.0F, 1.0F).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(240).normal(0F, 1F, 0F).endVertex();
-        vc.vertex(mat, entity.isRight() ? w : -w, -h, 0).color(red, green, 1.0F, shape == 0 ? 1.0F : 0.0F).uv(1.0F, 1.0F).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(240).normal(0F, 1F, 0F).endVertex();
-        vc.vertex(mat, entity.isRight() ? w : -w, h, 0).color(red, green, 1.0F, shape == 0 ? 1.0F : 0.0F).uv(1.0F, 0.0F).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(240).normal(0F, 1F, 0F).endVertex();
+        vc.vertex(mat, entity.isRight() ? w : -w, -h, 0).color(red, green, 1.0F, shape == 0 ? 0.5F : 0.0F).uv(1.0F, 1.0F).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(240).normal(0F, 1F, 0F).endVertex();
+        vc.vertex(mat, entity.isRight() ? w : -w, h, 0).color(red, green, 1.0F, shape == 0 ? 0.5F : 0.0F).uv(1.0F, 0.0F).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(240).normal(0F, 1F, 0F).endVertex();
         vc.vertex(mat, entity.isRight() ? -w : w, h, 0).color(red, green, 1.0F, shape == 0 ? 0.5F : 1.0F).uv(0.0F, 0.0F).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(240).normal(0F, 1F, 0F).endVertex();
 
         pose.popPose();

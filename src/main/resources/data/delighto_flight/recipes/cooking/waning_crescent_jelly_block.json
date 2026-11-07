@@ -1,0 +1,29 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "item": "delighto_flight:waning_crescent_slivermelon_slice"
+    },
+    {
+      "item": "delighto_flight:waning_crescent_slivermelon_slice"
+    },
+    {
+      "item": "minecraft:melon_slice"
+    },
+    {
+      "item": "minecraft:melon_slice"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+	{
+      "item": "minecraft:slime_ball"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "item": "delighto_flight:waning_crescent_jelly_block"
+  }
+}
