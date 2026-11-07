@@ -1,6 +1,7 @@
 package com.cloudmeow.delightoflight.block;
 
 import com.cloudmeow.delightoflight.block.entity.CottonCandyMachineBlockEntity;
+import com.cloudmeow.delightoflight.client.CottonCandyMachineClientTicker;
 import com.cloudmeow.delightoflight.registry.DFBlockEntities;
 import com.cloudmeow.delightoflight.registry.DFSounds;
 import net.minecraft.core.BlockPos;
@@ -119,7 +120,7 @@ public class CottonCandyMachineBlock extends Block implements EntityBlock {
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntity) {
         if (level.isClientSide) {
-            return createTickerHelper(blockEntity, DFBlockEntities.COTTON_CANDY_MACHINE.get(), CottonCandyMachineBlockEntity::animationTick);
+            return createTickerHelper(blockEntity, DFBlockEntities.COTTON_CANDY_MACHINE.get(), CottonCandyMachineClientTicker::animationTick);
         }
         return createTickerHelper(blockEntity, DFBlockEntities.COTTON_CANDY_MACHINE.get(), CottonCandyMachineBlockEntity::spinningTick);
     }
