@@ -55,10 +55,10 @@ public class DFItems {
             ()-> new Item(new Item.Properties()));
     public static final RegistryObject<Item> RABBISH_MOONCAKE_FILLING = ITEMS.register("rabbish_mooncake_filling",
             ()-> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> WAXING_CRESCENT_SLIVERMELON_SLICE = ITEMS.register("waxing_crescent_slivermelon_slice",
-            ()-> new Item(new Item.Properties().food(DFFoodValue.WAXING_CRESCENT_SLIVERMELON_SLICE)));
-    public static final RegistryObject<Item> WANING_CRESCENT_SLIVERMELON_SLICE = ITEMS.register("waning_crescent_slivermelon_slice",
-            ()-> new Item(new Item.Properties().food(DFFoodValue.WANING_CRESCENT_SLIVERMELON_SLICE)));
+    public static final RegistryObject<Item> WAXING_CRESCENT_SILVERMELON_SLICE = ITEMS.register("waxing_crescent_silvermelon_slice",
+            ()-> new Item(new Item.Properties().food(DFFoodValue.WAXING_CRESCENT_SILVERMELON_SLICE)));
+    public static final RegistryObject<Item> WANING_CRESCENT_SILVERMELON_SLICE = ITEMS.register("waning_crescent_silvermelon_slice",
+            ()-> new Item(new Item.Properties().food(DFFoodValue.WANING_CRESCENT_SILVERMELON_SLICE)));
     public static final RegistryObject<Item> STARDROP = ITEMS.register("stardrop",
             ()-> new Stardrop(new Item.Properties().food(DFFoodValue.STARDROP).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> GAINT_RABBISH_MOON_CAKE_SLICE = ITEMS.register("gaint_rabbish_moon_cake_slice",
@@ -195,12 +195,12 @@ public class DFItems {
             ()-> new BlockItem(DFBlocks.MOONSHADE_PETALS.get(), new Item.Properties()));
     public static final RegistryObject<Item> CELESTIAL_PUDDING = ITEMS.register("celestial_pudding",
             ()-> new BlockItem(DFBlocks.CELESTIAL_PUDDING_BLOCK.get(), new Item.Properties()));
-    public static final RegistryObject<Item> WAXING_CRESCENT_SLIVERMELON = ITEMS.register("waxing_crescent_slivermelon",
-            ()-> new BlockItem(DFBlocks.WAXING_CRESCENT_SLIVERMELON.get(), new Item.Properties()));
-    public static final RegistryObject<Item> WANING_CRESCENT_SLIVERMELON = ITEMS.register("waning_crescent_slivermelon",
-            ()-> new BlockItem(DFBlocks.WANING_CRESCENT_SLIVERMELON.get(), new Item.Properties()));
-    public static final RegistryObject<Item> MIXING_CRESCENT_SLIVERMELON = ITEMS.register("mixing_crescent_slivermelon",
-            ()-> new BlockItem(DFBlocks.MIXING_CRESCENT_SLIVERMELON.get(), new Item.Properties()));
+    public static final RegistryObject<Item> WAXING_CRESCENT_SILVERMELON = ITEMS.register("waxing_crescent_silvermelon",
+            ()-> new BlockItem(DFBlocks.WAXING_CRESCENT_SILVERMELON.get(), new Item.Properties()));
+    public static final RegistryObject<Item> WANING_CRESCENT_SILVERMELON = ITEMS.register("waning_crescent_silvermelon",
+            ()-> new BlockItem(DFBlocks.WANING_CRESCENT_SILVERMELON.get(), new Item.Properties()));
+    public static final RegistryObject<Item> MIXING_CRESCENT_SILVERMELON = ITEMS.register("mixing_crescent_silvermelon",
+            ()-> new BlockItem(DFBlocks.MIXING_CRESCENT_SILVERMELON.get(), new Item.Properties()));
     public static final RegistryObject<Item> WANING_CRESCENT_JELLY_BLOCK = ITEMS.register("waning_crescent_jelly_block",
             ()-> new BlockItem(DFBlocks.WANING_CRESCENT_JELLY_BLOCK.get(), new Item.Properties().stacksTo(1)));
     public static final Supplier<Item> WAXING_CRESCENT_EGG_SOUP_BLOCK = ITEMS.register("waxing_crescent_egg_soup_block",

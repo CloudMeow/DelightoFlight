@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "delighto_flight:item/waning_crescent_slivermelon_slice"
-  }
-}

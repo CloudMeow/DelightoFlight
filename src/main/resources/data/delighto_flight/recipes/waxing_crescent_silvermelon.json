@@ -8,10 +8,10 @@
   ],
   "key": {
     "S": {
-      "item": "delighto_flight:waning_crescent_slivermelon_slice"
+      "item": "delighto_flight:waxing_crescent_silvermelon_slice"
     }
   },
   "result": {
-    "item": "delighto_flight:waning_crescent_slivermelon"
+    "item": "delighto_flight:waxing_crescent_silvermelon"
   }
 }

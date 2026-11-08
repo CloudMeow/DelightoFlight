@@ -2,7 +2,7 @@
   "type": "farmersdelight:cooking",
   "container": {
     "count": 1,
-    "item": "delighto_flight:waxing_crescent_slivermelon"
+    "item": "delighto_flight:waxing_crescent_silvermelon"
   },
   "cookingtime": 400,
   "experience": 2.0,

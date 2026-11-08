@@ -123,13 +123,13 @@ public class CrescentStemBlock extends BushBlock implements BonemealableBlock {
 
         Connection connection = state.getValue(CONNECTION);
         if (direction == Direction.UP && connection.hasUp()
-                && !neighborState.is(DFBlocks.WAXING_CRESCENT_SLIVERMELON.get())
-                && !neighborState.is(DFBlocks.MIXING_CRESCENT_SLIVERMELON.get())) {
+                && !neighborState.is(DFBlocks.WAXING_CRESCENT_SILVERMELON.get())
+                && !neighborState.is(DFBlocks.MIXING_CRESCENT_SILVERMELON.get())) {
             state = state.setValue(CONNECTION, connection.withoutUp());
         }
         else if (direction == Direction.DOWN && connection.hasDown()
-                && !neighborState.is(DFBlocks.WANING_CRESCENT_SLIVERMELON.get())
-                && !neighborState.is(DFBlocks.MIXING_CRESCENT_SLIVERMELON.get())) {
+                && !neighborState.is(DFBlocks.WANING_CRESCENT_SILVERMELON.get())
+                && !neighborState.is(DFBlocks.MIXING_CRESCENT_SILVERMELON.get())) {
             state = state.setValue(CONNECTION, connection.withoutDown());
         }
         return super.updateShape(state, direction, neighborState, level, pos, neighborPos);
@@ -159,16 +159,16 @@ public class CrescentStemBlock extends BushBlock implements BonemealableBlock {
                 BlockState fruitState = level.getBlockState(fruitPos);
 
                 if (level.isEmptyBlock(fruitPos)) {
-                    Block fruit = growUp ? DFBlocks.WAXING_CRESCENT_SLIVERMELON.get() : DFBlocks.WANING_CRESCENT_SLIVERMELON.get();
+                    Block fruit = growUp ? DFBlocks.WAXING_CRESCENT_SILVERMELON.get() : DFBlocks.WANING_CRESCENT_SILVERMELON.get();
                     level.setBlockAndUpdate(fruitPos, fruit.defaultBlockState());
                     Connection newConnection = growUp ? connection.withUp() : connection.withDown();
                     level.setBlockAndUpdate(pos, state.setValue(CONNECTION, newConnection));
-                } else if (growUp && fruitState.is(DFBlocks.WANING_CRESCENT_SLIVERMELON.get())) {
-                    level.setBlockAndUpdate(fruitPos, DFBlocks.MIXING_CRESCENT_SLIVERMELON.get().defaultBlockState());
+                } else if (growUp && fruitState.is(DFBlocks.WANING_CRESCENT_SILVERMELON.get())) {
+                    level.setBlockAndUpdate(fruitPos, DFBlocks.MIXING_CRESCENT_SILVERMELON.get().defaultBlockState());
                     Connection newConnection = connection.withUp();
                     level.setBlockAndUpdate(pos, state.setValue(CONNECTION, newConnection));
-                } else if (!growUp && fruitState.is(DFBlocks.WAXING_CRESCENT_SLIVERMELON.get())) {
-                    level.setBlockAndUpdate(fruitPos, DFBlocks.MIXING_CRESCENT_SLIVERMELON.get().defaultBlockState());
+                } else if (!growUp && fruitState.is(DFBlocks.WAXING_CRESCENT_SILVERMELON.get())) {
+                    level.setBlockAndUpdate(fruitPos, DFBlocks.MIXING_CRESCENT_SILVERMELON.get().defaultBlockState());
                     Connection newConnection = connection.withDown();
                     level.setBlockAndUpdate(pos, state.setValue(CONNECTION, newConnection));
                 }
