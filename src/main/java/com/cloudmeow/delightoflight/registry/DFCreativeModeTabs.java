@@ -43,8 +43,8 @@ public class DFCreativeModeTabs {
                 output.accept(DFItems.STARDROP.get());
                 output.accept(DFItems.ASTRAL_BERRIES.get());
                 output.accept(DFItems.CLOUD_BERRY.get());
-                output.accept(DFItems.WAXING_CRESCENT_SLIVERMELON_SLICE.get());
-                output.accept(DFItems.WANING_CRESCENT_SLIVERMELON_SLICE.get());
+                output.accept(DFItems.WAXING_CRESCENT_SILVERMELON_SLICE.get());
+                output.accept(DFItems.WANING_CRESCENT_SILVERMELON_SLICE.get());
                 output.accept(DFItems.WANING_CRESCENT_JELLY_BLOCK.get());
                 output.accept(DFItems.WANING_CRESCENT_JELLY_SLICE.get());
                 output.accept(DFItems.CELESTIAL_PUDDING.get());
@@ -94,9 +94,9 @@ public class DFCreativeModeTabs {
                 output.accept(DFItems.SWEET_BERRY_COTTON_CANDY.get());
                 output.accept(DFItems.THUNDER_FRUIT_COTTON_CANDY.get());
                 output.accept(DFItems.ASTRAL_BERRY_COTTON_CANDY.get());
-                output.accept(DFItems.WAXING_CRESCENT_SLIVERMELON.get());
-                output.accept(DFItems.WANING_CRESCENT_SLIVERMELON.get());
-                output.accept(DFItems.MIXING_CRESCENT_SLIVERMELON.get());
+                output.accept(DFItems.WAXING_CRESCENT_SILVERMELON.get());
+                output.accept(DFItems.WANING_CRESCENT_SILVERMELON.get());
+                output.accept(DFItems.MIXING_CRESCENT_SILVERMELON.get());
                 output.accept(DFItems.CLOUD_BERRY_BAG.get());
                 output.accept(DFItems.ASTRAL_BERRY_BAG.get());
                 output.accept(DFItems.THUNDER_FRUIT_CRATE.get());

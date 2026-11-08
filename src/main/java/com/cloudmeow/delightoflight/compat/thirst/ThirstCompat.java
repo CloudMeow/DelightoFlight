@@ -25,8 +25,8 @@ public class ThirstCompat {
         event.addFood(DFItems.SPARKTRICITY_SODA.get(), 8, 10);
         event.addFood(DFItems.STARDROP.get(), 10, 20);
         event.addFood(DFItems.ASTRAL_BERRIES.get(), 2, 3);
-        event.addFood(DFItems.WAXING_CRESCENT_SLIVERMELON_SLICE.get(), 3, 4);
-        event.addFood(DFItems.WANING_CRESCENT_SLIVERMELON_SLICE.get(), 3, 4);
+        event.addFood(DFItems.WAXING_CRESCENT_SILVERMELON_SLICE.get(), 3, 4);
+        event.addFood(DFItems.WANING_CRESCENT_SILVERMELON_SLICE.get(), 3, 4);
         event.addFood(DFItems.RABBISH_JUICE.get(), 6, 8);
         event.addFood(DFItems.ASTRAL_BERRY_SMOOTHIE.get(), 7, 7);
         event.addFood(DFItems.WAXING_CRESCENT_EGG_SOUP.get(), 5, 6);

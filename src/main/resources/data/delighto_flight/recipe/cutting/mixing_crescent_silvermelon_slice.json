@@ -2,20 +2,20 @@
   "type": "farmersdelight:cutting",
   "ingredients": [
     {
-      "item": "delighto_flight:mixing_crescent_slivermelon"
+      "item": "delighto_flight:mixing_crescent_silvermelon"
     }
   ],
   "result": [
     {
       "item": {
         "count": 3,
-        "id": "delighto_flight:waning_crescent_slivermelon_slice"
+        "id": "delighto_flight:waning_crescent_silvermelon_slice"
       }
     },
     {
       "item": {
         "count": 3,
-        "id": "delighto_flight:waxing_crescent_slivermelon_slice"
+        "id": "delighto_flight:waxing_crescent_silvermelon_slice"
       }
     }
   ],

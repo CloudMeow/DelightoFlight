@@ -9,7 +9,7 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "delighto_flight:waxing_crescent_slivermelon",
+              "name": "delighto_flight:waning_crescent_silvermelon",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",
@@ -30,7 +30,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "delighto_flight:waxing_crescent_slivermelon_slice",
+              "name": "delighto_flight:waning_crescent_silvermelon_slice",
               "functions": [
                 {
                   "function": "minecraft:set_count",
@@ -60,5 +60,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "delighto_flight:blocks/waxing_crescent_slivermelon"
+  "random_sequence": "delighto_flight:blocks/waning_crescent_silvermelon"
 }

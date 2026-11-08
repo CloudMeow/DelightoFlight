@@ -32,11 +32,11 @@ public class DFBlocks {
             () -> new Block(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
     public static final Supplier<Block> LOTUS_ROOT_CRATE = BLOCKS.register("lotus_root_crate",
             () -> new Block(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
-    public static final Supplier<Block> WAXING_CRESCENT_SLIVERMELON = BLOCKS.register("waxing_crescent_slivermelon",
+    public static final Supplier<Block> WAXING_CRESCENT_SILVERMELON = BLOCKS.register("waxing_crescent_silvermelon",
             () -> new Block(Block.Properties.ofFullCopy(Blocks.MELON).lightLevel(state -> 11)));
-    public static final Supplier<Block> WANING_CRESCENT_SLIVERMELON = BLOCKS.register("waning_crescent_slivermelon",
+    public static final Supplier<Block> WANING_CRESCENT_SILVERMELON = BLOCKS.register("waning_crescent_silvermelon",
             () -> new Block(Block.Properties.ofFullCopy(Blocks.MELON).lightLevel(state -> 11)));
-    public static final Supplier<Block> MIXING_CRESCENT_SLIVERMELON = BLOCKS.register("mixing_crescent_slivermelon",
+    public static final Supplier<Block> MIXING_CRESCENT_SILVERMELON = BLOCKS.register("mixing_crescent_silvermelon",
             () -> new Block(Block.Properties.ofFullCopy(Blocks.MELON).lightLevel(state -> 11)));
     public static final Supplier<Block> CLEAR_CLOUDSHROOM = BLOCKS.register("clear_cloudshroom",
             ()-> new CloudshroomBlock(Block.Properties.ofFullCopy(Blocks.BROWN_MUSHROOM)));

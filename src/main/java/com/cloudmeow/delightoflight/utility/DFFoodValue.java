@@ -90,10 +90,10 @@ public class DFFoodValue {
             .effect(() -> new MobEffectInstance(MobEffects.GLOWING, 600, 0), 1.0F)
             .effect(() -> new MobEffectInstance(DFEffects.DIM, 2400, 5), 1.0F)
             .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 200, 0), 1.0F).build();
-    public static final FoodProperties WAXING_CRESCENT_SLIVERMELON_SLICE = (new FoodProperties.Builder())
+    public static final FoodProperties WAXING_CRESCENT_SILVERMELON_SLICE = (new FoodProperties.Builder())
             .nutrition(2).saturationModifier(0.3f)
             .effect(() -> new MobEffectInstance(DFEffects.WAXING_CRESCENT, 600, 0), 1.0F).build();
-    public static final FoodProperties WANING_CRESCENT_SLIVERMELON_SLICE = (new FoodProperties.Builder())
+    public static final FoodProperties WANING_CRESCENT_SILVERMELON_SLICE = (new FoodProperties.Builder())
             .nutrition(2).saturationModifier(0.3f)
             .effect(() -> new MobEffectInstance(DFEffects.WANING_CRESCENT, 600, 0), 1.0F).build();
     public static final FoodProperties WANING_CRESCENT_JELLY_SLICE = (new FoodProperties.Builder())
@@ -147,7 +147,8 @@ public class DFFoodValue {
             .effect(() -> new MobEffectInstance(DFEffects.ARC, 1200, 0), 1.0F).alwaysEdible().build();
     public static final FoodProperties ASTRAL_BERRY_COTTON_CANDY = (new FoodProperties.Builder())
             .nutrition(5).saturationModifier(0.4f)
-            .effect(() -> new MobEffectInstance(DFEffects.CLOUDWALKING, 600, 0), 1.0F).alwaysEdible().build();
+            .effect(() -> new MobEffectInstance(DFEffects.CLOUDWALKING, 600, 0), 1.0F)
+            .effect(() -> new MobEffectInstance(MobEffects.GLOWING, 600, 0), 1.0F).alwaysEdible().build();
 
     public static final FoodProperties MOONSHADE_NECTAR = (new FoodProperties.Builder())
             .nutrition(6).saturationModifier(0.6f)
