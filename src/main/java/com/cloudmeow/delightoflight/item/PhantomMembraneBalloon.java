@@ -2,14 +2,15 @@ package com.cloudmeow.delightoflight.item;
 
 import com.cloudmeow.delightoflight.entity.PhantomMembraneBalloonEntity;
 import com.cloudmeow.delightoflight.registry.DFEntityTypes;
-import com.cloudmeow.delightoflight.registry.DFItems;
+import com.cloudmeow.delightoflight.registry.DFRecipeTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
@@ -48,22 +49,19 @@ public class PhantomMembraneBalloon extends Item {
     private static void transferBasketContents(Level level, BlockPos pos, PhantomMembraneBalloonEntity balloon) {
         if (!(level.getBlockEntity(pos) instanceof Container container)) return;
 
-        int glowBerries = 0;
-        int netherStars = 0;
+        RecipeManager recipeManager = level.getRecipeManager();
         for (int i = 0; i < container.getContainerSize(); i++) {
             ItemStack stack = container.getItem(i);
-            if (stack.is(Items.GLOW_BERRIES)) {
-                glowBerries += stack.getCount();
-            } else if (stack.is(Items.NETHER_STAR)) {
-                netherStars += stack.getCount();
-            }
-        }
+            if (stack.isEmpty()) continue;
 
-        if (glowBerries > 0) {
-            balloon.setStoredAstralBerries(new ItemStack(level.isNight() ? DFItems.ASTRAL_BERRIES.get() : Items.GLOW_BERRIES, glowBerries));
-        }
-        if (netherStars > 0) {
-            balloon.setStoredStardrops(new ItemStack(level.isNight() ? DFItems.STARDROP.get() : Items.NETHER_STAR, netherStars));
+            recipeManager.getRecipeFor(DFRecipeTypes.SPACE_CONVERSION.get(), new SingleRecipeInput(stack), level)
+                .ifPresent(holder -> {
+                    ItemStack result = holder.value().getResultItem(level.registryAccess()).copy();
+                    int count = result.getCount() * stack.getCount();
+                    if (count <= 0) return;
+                    result.setCount(count);
+                    balloon.addStoredProduct(result);
+                });
         }
 
         container.clearContent();

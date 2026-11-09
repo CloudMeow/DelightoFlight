@@ -39,10 +39,6 @@ public class CookBookModel<T extends Allay> extends HierarchicalModel<T> {
 
 	@Override
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-//		this.root().getAllParts().forEach(ModelPart::resetPose);
-//		animationState.updateTime(ageInTicks, 1.0F);
-//		this.animate(animationState, CookBookAnimations.BOOK, ageInTicks);
-
 		if (entity.isDancing()) {
 			float f = ageInTicks - (float)entity.tickCount;
 			float f7 = ageInTicks * 8.0F * ((float)Math.PI / 180F) + limbSwingAmount;
