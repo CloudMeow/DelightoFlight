@@ -1,0 +1,10 @@
+{
+  "type": "delighto_flight:space_conversion",
+  "ingredient": {
+    "item": "minecraft:glow_berries"
+  },
+  "result": {
+    "item": "delighto_flight:astral_berries",
+    "count": 1
+  }
+}

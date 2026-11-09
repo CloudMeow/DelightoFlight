@@ -1,6 +1,8 @@
 package com.cloudmeow.delightoflight.entity;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -11,14 +13,16 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PhantomMembraneBalloonEntity extends Entity {
     private static final int RISE_START_TICK = 10;
     private static final double RISE_HEIGHT = 200.0D;
 
     private static final EntityDataAccessor<Boolean> BAMBOO_BASKET = SynchedEntityData.defineId(PhantomMembraneBalloonEntity.class, EntityDataSerializers.BOOLEAN);
 
-    private ItemStack storedAstralBerries = ItemStack.EMPTY;
-    private ItemStack storedStardrops = ItemStack.EMPTY;
+    private final List<ItemStack> storedProducts = new ArrayList<>();
     private double launchStartY = Double.NaN;
 
     private double lerpX;
@@ -45,20 +49,31 @@ public class PhantomMembraneBalloonEntity extends Entity {
         this.entityData.set(BAMBOO_BASKET, bamboo);
     }
 
-    public ItemStack getStoredAstralBerries() {
-        return this.storedAstralBerries;
+    public void addStoredProduct(ItemStack stack) {
+        if (stack.isEmpty()) {
+            return;
+        }
+
+        for (ItemStack stored : this.storedProducts) {
+            if (ItemStack.isSameItemSameTags(stored, stack)) {
+                stored.grow(stack.getCount());
+                return;
+            }
+        }
+
+        this.storedProducts.add(stack.copy());
     }
 
-    public void setStoredAstralBerries(ItemStack stack) {
-        this.storedAstralBerries = stack;
+    public List<ItemStack> getStoredProducts() {
+        return this.storedProducts;
     }
 
-    public ItemStack getStoredStardrops() {
-        return this.storedStardrops;
+    public float getRiseAge(float partialTick) {
+        return Math.max(0.0F, (float) this.tickCount + partialTick - (float) RISE_START_TICK);
     }
 
-    public void setStoredStardrops(ItemStack stack) {
-        this.storedStardrops = stack;
+    public boolean isRising() {
+        return this.tickCount > RISE_START_TICK;
     }
 
     @Override
@@ -91,8 +106,9 @@ public class PhantomMembraneBalloonEntity extends Entity {
         this.setPos(this.getX(), this.getY() + speed, this.getZ());
 
         if (this.getY() - this.launchStartY >= RISE_HEIGHT) {
-            dropGlowingItem(this.storedAstralBerries);
-            dropGlowingItem(this.storedStardrops);
+            for (ItemStack stack : this.storedProducts) {
+                this.dropGlowingItem(stack);
+            }
             this.discard();
         }
     }
@@ -118,8 +134,16 @@ public class PhantomMembraneBalloonEntity extends Entity {
     @Override
     protected void readAdditionalSaveData(CompoundTag compound) {
         this.setBambooBasket(compound.getBoolean("BambooBasket"));
-        this.storedAstralBerries = ItemStack.of(compound.getCompound("AstralBerries"));
-        this.storedStardrops = ItemStack.of(compound.getCompound("Stardrops"));
+        this.storedProducts.clear();
+        if (compound.contains("Products")) {
+            ListTag list = compound.getList("Products", Tag.TAG_COMPOUND);
+            for (int i = 0; i < list.size(); i++) {
+                ItemStack stack = ItemStack.of(list.getCompound(i));
+                if (!stack.isEmpty()) {
+                    this.storedProducts.add(stack);
+                }
+            }
+        }
         if (compound.contains("LaunchStartY")) {
             this.launchStartY = compound.getDouble("LaunchStartY");
         }
@@ -128,8 +152,16 @@ public class PhantomMembraneBalloonEntity extends Entity {
     @Override
     protected void addAdditionalSaveData(CompoundTag compound) {
         compound.putBoolean("BambooBasket", this.isBambooBasket());
-        compound.put("AstralBerries", this.storedAstralBerries.save(new CompoundTag()));
-        compound.put("Stardrops", this.storedStardrops.save(new CompoundTag()));
+        ListTag list = new ListTag();
+        for (ItemStack stack : this.storedProducts) {
+            if (stack.isEmpty()) {
+                continue;
+            }
+            CompoundTag itemTag = new CompoundTag();
+            stack.save(itemTag);
+            list.add(itemTag);
+        }
+        compound.put("Products", list);
         if (!Double.isNaN(this.launchStartY)) {
             compound.putDouble("LaunchStartY", this.launchStartY);
         }

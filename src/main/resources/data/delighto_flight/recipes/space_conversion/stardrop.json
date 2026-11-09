@@ -1,0 +1,10 @@
+{
+  "type": "delighto_flight:space_conversion",
+  "ingredient": {
+    "item": "minecraft:nether_star"
+  },
+  "result": {
+    "item": "delighto_flight:stardrop",
+    "count": 1
+  }
+}

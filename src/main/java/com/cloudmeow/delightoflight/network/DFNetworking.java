@@ -2,7 +2,7 @@ package com.cloudmeow.delightoflight.network;
 
 import com.cloudmeow.delightoflight.DelightoFlight;
 import com.cloudmeow.delightoflight.block.entity.CottonCandyMachineBlockEntity;
-import com.cloudmeow.delightoflight.utility.DFUtilities;
+import com.cloudmeow.delightoflight.client.HeartAnimationHandler;
 import com.cloudmeow.delightoflight.utility.StardropData;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -10,9 +10,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
@@ -206,12 +207,8 @@ public class DFNetworking {
         }
 
         public static void handle(HeartAnimationMessage msg, Supplier<NetworkEvent.Context> ctx) {
-            ctx.get().enqueueWork(() -> {
-                Player player = Minecraft.getInstance().player;
-                if (player != null && !msg.stack.isEmpty()) {
-                    DFUtilities.playHeartAnimation(msg.stack, player);
-                }
-            });
+            ctx.get().enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT,
+                    () -> () -> HeartAnimationHandler.handle(msg.stack)));
             ctx.get().setPacketHandled(true);
         }
     }

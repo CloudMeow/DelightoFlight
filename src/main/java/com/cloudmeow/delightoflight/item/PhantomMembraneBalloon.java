@@ -1,18 +1,20 @@
 package com.cloudmeow.delightoflight.item;
 
+import com.cloudmeow.delightoflight.crafting.SpaceConversionRecipe;
 import com.cloudmeow.delightoflight.entity.PhantomMembraneBalloonEntity;
 import com.cloudmeow.delightoflight.registry.DFEntityTypes;
-import com.cloudmeow.delightoflight.registry.DFItems;
+import com.cloudmeow.delightoflight.registry.DFRecipeTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
+
+import java.util.List;
 
 public class PhantomMembraneBalloon extends Item {
     public PhantomMembraneBalloon(Properties properties) {
@@ -48,24 +50,27 @@ public class PhantomMembraneBalloon extends Item {
     private static void transferBasketContents(Level level, BlockPos pos, PhantomMembraneBalloonEntity balloon) {
         if (!(level.getBlockEntity(pos) instanceof Container container)) return;
 
-        int glowBerries = 0;
-        int netherStars = 0;
+        List<SpaceConversionRecipe> recipes = level.getRecipeManager().getAllRecipesFor(DFRecipeTypes.SPACE_CONVERSION.get());
+
         for (int i = 0; i < container.getContainerSize(); i++) {
             ItemStack stack = container.getItem(i);
-            if (stack.is(Items.GLOW_BERRIES)) {
-                glowBerries += stack.getCount();
-            } else if (stack.is(Items.NETHER_STAR)) {
-                netherStars += stack.getCount();
-            }
-        }
+            if (stack.isEmpty()) continue;
 
-        if (glowBerries > 0) {
-            balloon.setStoredAstralBerries(new ItemStack(level.isNight() ? DFItems.ASTRAL_BERRIES.get() : Items.GLOW_BERRIES, glowBerries));
-        }
-        if (netherStars > 0) {
-            balloon.setStoredStardrops(new ItemStack(level.isNight() ? DFItems.STARDROP.get() : Items.NETHER_STAR, netherStars));
+            SpaceConversionRecipe recipe = findConversion(recipes, stack);
+            if (recipe == null) continue;
+
+            balloon.addStoredProduct(recipe.createResult(stack));
         }
 
         container.clearContent();
+    }
+
+    private static SpaceConversionRecipe findConversion(List<SpaceConversionRecipe> recipes, ItemStack stack) {
+        for (SpaceConversionRecipe recipe : recipes) {
+            if (recipe.getIngredient().test(stack)) {
+                return recipe;
+            }
+        }
+        return null;
     }
 }

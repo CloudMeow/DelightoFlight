@@ -15,6 +15,7 @@ import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -53,7 +54,16 @@ public class PhantomMembraneBalloonRenderer extends EntityRenderer<PhantomMembra
                 ? ModBlocks.BAMBOO_BASKET.get().defaultBlockState()
                 : ModBlocks.WOODEN_BASKET.get().defaultBlockState();
 
+        float riseAge = entity.getRiseAge(partialTick);
+        float fadeIn = Mth.clamp(riseAge / 20.0F, 0.0F, 1.0F);
+        float phase = riseAge * 0.15F;
+        float balloonSway = Mth.sin(phase) * 10.0F * fadeIn;
+        float basketSway = Mth.sin(phase - 0.45F) * 9.0F * fadeIn;
+
         poseStack.pushPose();
+        poseStack.translate(0.0F, BALLOON_BOTTOM_Y, 0.0F);
+        poseStack.mulPose(Axis.ZP.rotationDegrees(basketSway));
+        poseStack.translate(0.0F, -BALLOON_BOTTOM_Y, 0.0F);
         poseStack.translate(-0.5F, 0.0F, -0.5F);
         this.blockRenderer.renderSingleBlock(basketState, poseStack, bufferSource, packedLight, OverlayTexture.NO_OVERLAY);
         poseStack.popPose();
@@ -63,6 +73,13 @@ public class PhantomMembraneBalloonRenderer extends EntityRenderer<PhantomMembra
         poseStack.translate(0.0F, 1.0F, 0.0F);
         poseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
         poseStack.translate(0.0F, -1.0F, 0.0F);
+
+        if (entity.isRising()) {
+            poseStack.translate(0.0F, 2.0F, 0.0F);
+            poseStack.mulPose(Axis.ZP.rotationDegrees(balloonSway));
+            poseStack.translate(0.0F, -2.0F, 0.0F);
+        }
+
         this.model.setupAnim(entity, 0.0F, 0.0F, entity.tickCount + partialTick, 0.0F, 0.0F);
         VertexConsumer buffer = bufferSource.getBuffer(this.model.renderType(TEXTURE));
         this.model.renderToBuffer(poseStack, buffer, packedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
@@ -81,19 +98,30 @@ public class PhantomMembraneBalloonRenderer extends EntityRenderer<PhantomMembra
 
         VertexConsumer ropeBuffer = bufferSource.getBuffer(RenderType.entityCutoutNoCull(ROPE_TEXTURE));
         Vec3 cameraPos = Minecraft.getInstance().gameRenderer.getMainCamera().getPosition();
-        Vector3f cameraLocal = new Vector3f((float) (cameraPos.x - entity.getX()), (float) (cameraPos.y - entity.getY()), (float) (cameraPos.z - entity.getZ()));
-        renderRope(ropeBuffer, poseStack, minX, top, minZ, packedLight, cameraLocal);
-        renderRope(ropeBuffer, poseStack, maxX, top, minZ, packedLight, cameraLocal);
-        renderRope(ropeBuffer, poseStack, minX, top, maxZ, packedLight, cameraLocal);
-        renderRope(ropeBuffer, poseStack, maxX, top, maxZ, packedLight, cameraLocal);
+        Vector3f cameraLocal = new Vector3f(
+                (float) (cameraPos.x - entity.getX()),
+                (float) (cameraPos.y - entity.getY()),
+                (float) (cameraPos.z - entity.getZ())
+        );
+        Vector3f ropeStart = rotateAroundZ(0.0F, BALLOON_BOTTOM_Y, 0.0F, 2.0F, balloonSway);
+        renderRope(ropeBuffer, poseStack, ropeStart, rotateAroundZ(minX, top, minZ, BALLOON_BOTTOM_Y, basketSway), packedLight, cameraLocal);
+        renderRope(ropeBuffer, poseStack, ropeStart, rotateAroundZ(maxX, top, minZ, BALLOON_BOTTOM_Y, basketSway), packedLight, cameraLocal);
+        renderRope(ropeBuffer, poseStack, ropeStart, rotateAroundZ(minX, top, maxZ, BALLOON_BOTTOM_Y, basketSway), packedLight, cameraLocal);
+        renderRope(ropeBuffer, poseStack, ropeStart, rotateAroundZ(maxX, top, maxZ, BALLOON_BOTTOM_Y, basketSway), packedLight, cameraLocal);
 
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
 
-    private static void renderRope(VertexConsumer buffer, PoseStack poseStack, float x, float y, float z, int packedLight, Vector3f cameraLocal) {
+    private static Vector3f rotateAroundZ(float x, float y, float z, float pivotY, float angleDegrees) {
+        float radians = angleDegrees * Mth.DEG_TO_RAD;
+        float cos = Mth.cos(radians);
+        float sin = Mth.sin(radians);
+        float dy = y - pivotY;
+        return new Vector3f(x * cos - dy * sin, pivotY + x * sin + dy * cos, z);
+    }
+
+    private static void renderRope(VertexConsumer buffer, PoseStack poseStack, Vector3f start, Vector3f end, int packedLight, Vector3f cameraLocal) {
         Matrix4f matrix = poseStack.last().pose();
-        Vector3f start = new Vector3f(0.0F, BALLOON_BOTTOM_Y, 0.0F);
-        Vector3f end = new Vector3f(x, y, z);
         Vector3f direction = new Vector3f(end).sub(start).normalize();
         Vector3f reference = Math.abs(direction.y) > 0.99F ? new Vector3f(1.0F, 0.0F, 0.0F) : new Vector3f(0.0F, 1.0F, 0.0F);
 

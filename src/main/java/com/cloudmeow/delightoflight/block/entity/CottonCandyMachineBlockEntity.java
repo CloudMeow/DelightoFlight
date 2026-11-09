@@ -1,16 +1,12 @@
 package com.cloudmeow.delightoflight.block.entity;
 
 import com.cloudmeow.delightoflight.DelightoFlight;
-import com.cloudmeow.delightoflight.client.sound.CottonCandyMachineSound;
 import com.cloudmeow.delightoflight.crafting.CottonCandyMachineRecipe;
 import com.cloudmeow.delightoflight.network.DFNetworking;
 import com.cloudmeow.delightoflight.registry.DFBlockEntities;
 import com.cloudmeow.delightoflight.registry.DFRecipeTypes;
-import com.cloudmeow.delightoflight.registry.DFSounds;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -29,7 +25,6 @@ import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 import net.minecraftforge.network.PacketDistributor;
 import org.jetbrains.annotations.NotNull;
-import org.joml.Vector3f;
 import vectorwing.farmersdelight.common.block.entity.SyncedBlockEntity;
 
 import java.util.Optional;
@@ -351,11 +346,4 @@ public class CottonCandyMachineBlockEntity extends SyncedBlockEntity {
             }
         };
     }
-
-//    @Override
-//    public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-//        return super.getCapability(cap, side);
-//    }
-
-
 }
