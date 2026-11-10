@@ -54,14 +54,25 @@ public class PhantomMembraneBalloonEntity extends Entity {
             return;
         }
 
+        int remaining = stack.getCount();
+        // ItemStack saves its count as a signed byte in 1.20.1.
+        int limit = Math.min(stack.getMaxStackSize(), Byte.MAX_VALUE);
         for (ItemStack stored : this.storedProducts) {
-            if (ItemStack.isSameItemSameTags(stored, stack)) {
-                stored.grow(stack.getCount());
-                return;
+            if (stored.getCount() < limit && ItemStack.isSameItemSameTags(stored, stack)) {
+                int count = Math.min(remaining, limit - stored.getCount());
+                stored.grow(count);
+                remaining -= count;
+                if (remaining == 0) {
+                    return;
+                }
             }
         }
 
-        this.storedProducts.add(stack.copy());
+        while (remaining > 0) {
+            int count = Math.min(remaining, limit);
+            this.storedProducts.add(stack.copyWithCount(count));
+            remaining -= count;
+        }
     }
 
     public List<ItemStack> getStoredProducts() {
@@ -135,14 +146,14 @@ public class PhantomMembraneBalloonEntity extends Entity {
     protected void readAdditionalSaveData(CompoundTag compound) {
         this.setBambooBasket(compound.getBoolean("BambooBasket"));
         this.storedProducts.clear();
-        if (compound.contains("Products")) {
+        if (compound.contains("Products", Tag.TAG_LIST)) {
             ListTag list = compound.getList("Products", Tag.TAG_COMPOUND);
             for (int i = 0; i < list.size(); i++) {
-                ItemStack stack = ItemStack.of(list.getCompound(i));
-                if (!stack.isEmpty()) {
-                    this.storedProducts.add(stack);
-                }
+                this.addStoredProduct(ItemStack.of(list.getCompound(i)));
             }
+        } else {
+            this.addStoredProduct(ItemStack.of(compound.getCompound("AstralBerries")));
+            this.addStoredProduct(ItemStack.of(compound.getCompound("Stardrops")));
         }
         if (compound.contains("LaunchStartY")) {
             this.launchStartY = compound.getDouble("LaunchStartY");
