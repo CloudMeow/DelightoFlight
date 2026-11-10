@@ -51,11 +51,7 @@ public class ReplaceItemLootModifier extends LootModifier
 
         ItemStack addedStack = new ItemStack(addedItem, finalCount);
 
-        generatedLoot.forEach((item) -> {
-            if (item.is(removedItem)) {
-                generatedLoot.remove(item);
-            }
-        });
+        generatedLoot.removeIf(item -> item.is(removedItem));
 
         if (addedStack.getCount() < addedStack.getMaxStackSize()) {
             generatedLoot.add(addedStack);

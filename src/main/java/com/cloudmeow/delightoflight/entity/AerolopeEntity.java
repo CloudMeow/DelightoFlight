@@ -7,6 +7,7 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Dynamic;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -238,8 +239,8 @@ public class AerolopeEntity extends Animal {
     @Override
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
-        if (tag.contains("Mushroom")) {
-            this.mushroom = ItemStack.of(tag.getCompound("Mushroom"));
+        if (!this.mushroom.isEmpty()) {
+            tag.put("Mushroom", this.mushroom.save(new CompoundTag()));
         }
         tag.putInt("Delay", this.getShakeHeadDelay());
         tag.putBoolean("Shaking", this.isShaking());
@@ -250,13 +251,24 @@ public class AerolopeEntity extends Animal {
     @Override
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
-        if (!getMushroom().isEmpty()) {
-            tag.put("Mushroom", getMushroom().save(new CompoundTag()));
+        if (tag.contains("Mushroom", Tag.TAG_COMPOUND)) {
+            ItemStack savedMushroom = ItemStack.of(tag.getCompound("Mushroom"));
+            if (this.isWeatherMushroom(savedMushroom)) {
+                this.mushroom = savedMushroom;
+            }
         }
-        this.entityData.set(DELAY, tag.getInt("Delay"));
-        this.entityData.set(SHAKE, tag.getBoolean("Shaking"));
-        this.entityData.set(DATA_HAS_LEFT_HORN, tag.getBoolean("HasLeftHorn"));
-        this.entityData.set(DATA_HAS_RIGHT_HORN, tag.getBoolean("HasRightHorn"));
+        if (tag.contains("Delay", Tag.TAG_INT)) {
+            this.entityData.set(DELAY, tag.getInt("Delay"));
+        }
+        if (tag.contains("Shaking", Tag.TAG_BYTE)) {
+            this.entityData.set(SHAKE, tag.getBoolean("Shaking"));
+        }
+        if (tag.contains("HasLeftHorn", Tag.TAG_BYTE)) {
+            this.entityData.set(DATA_HAS_LEFT_HORN, tag.getBoolean("HasLeftHorn"));
+        }
+        if (tag.contains("HasRightHorn", Tag.TAG_BYTE)) {
+            this.entityData.set(DATA_HAS_RIGHT_HORN, tag.getBoolean("HasRightHorn"));
+        }
     }
 
     @Override

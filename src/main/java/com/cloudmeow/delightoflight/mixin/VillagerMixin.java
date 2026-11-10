@@ -5,11 +5,15 @@ import com.cloudmeow.delightoflight.registry.DFPoi;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.GlobalPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.game.DebugPackets;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.behavior.AcquirePoi;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
+import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.schedule.Activity;
@@ -41,6 +45,27 @@ public abstract class VillagerMixin extends AbstractVillager {
             assert DFPoi.CLOUD_BED.getKey() != null;
             return x.is(DFPoi.CLOUD_BED.getKey());}, MemoryModuleType.HOME, false, Optional.of((byte)14)))
         ));
+    }
+
+    @Inject(method = "releasePoi", at = @At("TAIL"))
+    private void delightoFlight$releaseCloudBed(MemoryModuleType<GlobalPos> memory, CallbackInfo ci) {
+        if (memory != MemoryModuleType.HOME || !(this.level() instanceof ServerLevel level)) {
+            return;
+        }
+
+        this.getBrain().getMemory(MemoryModuleType.HOME).ifPresent(home -> {
+            ServerLevel homeLevel = level.getServer().getLevel(home.dimension());
+            if (homeLevel == null) {
+                return;
+            }
+
+            PoiManager pois = homeLevel.getPoiManager();
+            BlockPos pos = home.pos();
+            if (pois.existsAtPosition(DFPoi.CLOUD_BED.getKey(), pos) && pois.getFreeTickets(pos) == 0) {
+                pois.release(pos);
+                DebugPackets.sendPoiTicketCountPacket(homeLevel, pos);
+            }
+        });
     }
 
     @Inject(method = "startSleeping", at = @At("HEAD"))

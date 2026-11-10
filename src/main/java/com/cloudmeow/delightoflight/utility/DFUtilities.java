@@ -4,9 +4,12 @@ import com.cloudmeow.delightoflight.registry.DFEffects;
 import com.cloudmeow.delightoflight.registry.DFItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -18,6 +21,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.items.IItemHandler;
 
 public class DFUtilities {
     public static boolean checkChefHatExist(LivingEntity entity) {
@@ -26,6 +30,27 @@ public class DFUtilities {
 
     public static boolean checkCookBookExist(LivingEntity entity) {
         return entity.getItemBySlot(EquipmentSlot.CHEST).getItem() == DFItems.COOK_BOOK.get();
+    }
+
+    public static void insertCookBookIngredient(IItemHandler inventory, LivingEntity entity) {
+        ItemStack held = entity.getItemBySlot(EquipmentSlot.MAINHAND);
+        ItemStack cookBook = entity.getItemBySlot(EquipmentSlot.CHEST);
+        CompoundTag tag = cookBook.getTag();
+        if (held.isEmpty() || cookBook.isEmpty() || tag == null || !tag.contains("Items", Tag.TAG_COMPOUND)) {
+            return;
+        }
+
+        int slotCount = tag.getCompound("Items").getList("Items", Tag.TAG_COMPOUND).size();
+        int slot = tag.getInt("Slot");
+        if (slot < 0 || slot >= slotCount || slot >= inventory.getSlots()) {
+            return;
+        }
+
+        ItemStack leftover = inventory.insertItem(slot, held, false);
+        entity.setItemSlot(EquipmentSlot.MAINHAND, leftover);
+        if (leftover.isEmpty()) {
+            tag.putInt("Slot", (slot + 1) % slotCount);
+        }
     }
 
     public static boolean hasGrindHerbs(LivingEntity entity) {
