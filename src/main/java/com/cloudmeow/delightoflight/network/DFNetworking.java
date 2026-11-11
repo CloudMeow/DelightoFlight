@@ -118,7 +118,9 @@ public class DFNetworking {
                 ServerPlayer player = ctx.get().getSender();
                 if (player == null) return;
                 BlockEntity be = player.serverLevel().getBlockEntity(msg.pos);
-                if (be instanceof CottonCandyMachineBlockEntity machine) {
+                if (be instanceof CottonCandyMachineBlockEntity machine
+                        && (machine.getSpinningPlayerId() == null
+                        || machine.getSpinningPlayerId().equals(player.getUUID()))) {
                     machine.stopSpinning();
                 }
             });

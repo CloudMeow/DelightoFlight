@@ -13,8 +13,12 @@ import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.common.util.RecipeMatcher;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CottonCandyMachineRecipe implements Recipe<RecipeWrapper> {
     public static final int INPUT_SLOTS = 3;
@@ -49,26 +53,16 @@ public class CottonCandyMachineRecipe implements Recipe<RecipeWrapper> {
 
     @Override
     public boolean matches(RecipeWrapper inv, Level level) {
-        NonNullList<ItemStack> remaining = NonNullList.withSize(inv.getContainerSize(), ItemStack.EMPTY);
-        for (int i = 0; i < inv.getContainerSize(); i++) {
-            remaining.set(i, inv.getItem(i).copy());
-        }
-        for (Ingredient ingredient : inputItems) {
-            if (ingredient.isEmpty()) continue;
-            boolean found = false;
-            for (int i = 0; i < remaining.size(); i++) {
-                ItemStack stack = remaining.get(i);
-                if (!stack.isEmpty() && ingredient.test(stack)) {
-                    remaining.set(i, ItemStack.EMPTY);
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                return false;
+        List<ItemStack> inputs = new ArrayList<>();
+
+        for (int i = 0; i < INPUT_SLOTS; i++) {
+            ItemStack stack = inv.getItem(i);
+            if (!stack.isEmpty()) {
+                inputs.add(stack);
             }
         }
-        return true;
+
+        return inputs.size() == this.inputItems.size() && RecipeMatcher.findMatches(inputs, this.inputItems) != null;
     }
 
     @Override
@@ -153,6 +147,7 @@ public class CottonCandyMachineRecipe implements Recipe<RecipeWrapper> {
 
         @Override
         public void toNetwork(FriendlyByteBuf buffer, CottonCandyMachineRecipe recipe) {
+            buffer.writeUtf(recipe.getGroup());
             buffer.writeVarInt(recipe.inputItems.size());
             for (Ingredient ingredient : recipe.inputItems) {
                 ingredient.toNetwork(buffer);

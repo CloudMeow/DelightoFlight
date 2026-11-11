@@ -55,7 +55,6 @@ public class PhantomMembraneBalloonEntity extends Entity {
         }
 
         int remaining = stack.getCount();
-        // ItemStack saves its count as a signed byte in 1.20.1.
         int limit = Math.min(stack.getMaxStackSize(), Byte.MAX_VALUE);
         for (ItemStack stored : this.storedProducts) {
             if (stored.getCount() < limit && ItemStack.isSameItemSameTags(stored, stack)) {
@@ -151,9 +150,6 @@ public class PhantomMembraneBalloonEntity extends Entity {
             for (int i = 0; i < list.size(); i++) {
                 this.addStoredProduct(ItemStack.of(list.getCompound(i)));
             }
-        } else {
-            this.addStoredProduct(ItemStack.of(compound.getCompound("AstralBerries")));
-            this.addStoredProduct(ItemStack.of(compound.getCompound("Stardrops")));
         }
         if (compound.contains("LaunchStartY")) {
             this.launchStartY = compound.getDouble("LaunchStartY");

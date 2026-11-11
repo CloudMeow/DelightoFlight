@@ -28,16 +28,12 @@ public class CottonCandyMachineSound extends AbstractTickableSoundInstance {
 
     @Override
     public void tick() {
-        if (machine == null || machine.isRemoved()) {
+        if (machine == null || machine.isRemoved() || !machine.isSpinning()) {
             this.stop();
             return;
         }
 
-        if (machine.isSpinning()) {
-            this.volume = Math.min(1.0F, this.volume + 0.05F);
-        } else {
-            this.volume = Math.max(0.0F, this.volume - 0.05F);
-        }
+        this.volume = Math.min(1.0F, this.volume + 0.05F);
     }
 
     @Override

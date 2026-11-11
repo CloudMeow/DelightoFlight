@@ -37,7 +37,6 @@ public class CottonCandyMachineBlockEntity extends SyncedBlockEntity {
 
     private final RecipeManager.CachedCheck<RecipeWrapper, CottonCandyMachineRecipe> quickCheck;
 
-    private boolean isPlaying;
     private boolean isSpinning;
     private int spinTime;
     private int spinTimeTotal;
@@ -96,13 +95,14 @@ public class CottonCandyMachineBlockEntity extends SyncedBlockEntity {
             return;
         }
 
-        boolean didInventoryChange = false;
+        boolean didInventoryChange;
 
         Optional<CottonCandyMachineRecipe> recipe = machine.getMatchingRecipe(new RecipeWrapper(machine.inventory));
         if (recipe.isPresent()) {
             didInventoryChange = machine.processCooking(recipe.get(), machine);
         } else {
-            machine.spinTime = 0;
+            machine.stopSpinning();
+            return;
         }
 
         if (didInventoryChange) {
@@ -132,24 +132,17 @@ public class CottonCandyMachineBlockEntity extends SyncedBlockEntity {
                     ItemEntity itemEntity = new ItemEntity((ServerLevel) level, machine.getBlockPos().getX() + 0.5, machine.getBlockPos().getY() + 0.8, machine.getBlockPos().getZ() + 0.5, output);
                     itemEntity.setDeltaMovement(player.getLookAngle().reverse().scale(0.4D));
                     level.addFreshEntity(itemEntity);
-                    consumeIngredients(recipe);
+                    consumeIngredients();
                 }
             }
         }
         return true;
     }
 
-    private void consumeIngredients(CottonCandyMachineRecipe recipe) {
-        for (var ingredient : recipe.getIngredients()) {
-            if (ingredient.isEmpty()) {
-                continue;
-            }
-            for (int i = 0; i < inventory.getSlots(); i++) {
-                ItemStack stack = inventory.getStackInSlot(i);
-                if (!stack.isEmpty() && ingredient.test(stack)) {
-                    inventory.extractItem(i, 1, false);
-                    break;
-                }
+    private void consumeIngredients() {
+        for (int i = 0; i < INGREDIENT_SLOT; i++) {
+            if (!inventory.getStackInSlot(i).isEmpty()) {
+                inventory.extractItem(i, 1, false);
             }
         }
     }
@@ -208,18 +201,11 @@ public class CottonCandyMachineBlockEntity extends SyncedBlockEntity {
         if (spinningPlayerId == null) return false;
         ServerPlayer player = level.getServer().getPlayerList().getPlayer(spinningPlayerId);
         if (player == null || !player.isAlive()) return false;
+        if (!player.getMainHandItem().is(Items.STICK)) return false;
 
         BlockHitResult hit = (BlockHitResult) player.pick(5.0, 1.0F, false);
         if (hit.getType() != HitResult.Type.BLOCK) return false;
         return hit.getBlockPos().equals(worldPosition);
-    }
-
-    public boolean isPlaying() {
-        return this.isPlaying;
-    }
-
-    public void setPlaying(boolean playing) {
-        this.isPlaying = playing;
     }
 
     @Override
