@@ -59,18 +59,26 @@ public class PhantomMembraneBalloonEntity extends Entity {
     }
 
     public void addStoredProduct(ItemStack stack) {
-        if (stack.isEmpty()) {
-            return;
-        }
+        if (stack.isEmpty()) return;
 
+        int remaining = stack.getCount();
+        int limit = Math.min(stack.getMaxStackSize(), Byte.MAX_VALUE);
         for (ItemStack stored : this.storedProducts) {
-            if (ItemStack.isSameItemSameComponents(stored, stack)) {
-                stored.grow(stack.getCount());
-                return;
+            if (stored.getCount() < limit && ItemStack.isSameItemSameComponents(stored, stack)) {
+                int count = Math.min(remaining, limit - stored.getCount());
+                stored.grow(count);
+                remaining -= count;
+                if (remaining == 0) {
+                    return;
+                }
             }
         }
 
-        this.storedProducts.add(stack.copy());
+        while (remaining > 0) {
+            int count = Math.min(remaining, limit);
+            this.storedProducts.add(stack.copyWithCount(count));
+            remaining -= count;
+        }
     }
 
     @Override

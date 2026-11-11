@@ -9,6 +9,7 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -24,6 +25,7 @@ public class MoonSlashEntity extends Entity {
 
     private Vec3 lookDirection = new Vec3(0.0, 0.0, 1.0);
     private UUID attackerId;
+    private float damage;
 
     public MoonSlashEntity(EntityType<?> type, Level level) {
         super(type, level);
@@ -59,6 +61,7 @@ public class MoonSlashEntity extends Entity {
 
     public void setAttacker(Player player) {
         this.attackerId = player.getUUID();
+        this.damage = getEffectAmplifier(player);
         this.setGrindHerbs(DFUtilities.hasGrindHerbs(player));
     }
 
@@ -99,7 +102,7 @@ public class MoonSlashEntity extends Entity {
                     if (cross > 0) continue;
                 }
             }
-            target.hurt(getDamageSource(attacker), getEffectAmplifier(attacker));
+            target.hurt(getDamageSource(attacker), this.damage);
         }
     }
 
@@ -108,7 +111,11 @@ public class MoonSlashEntity extends Entity {
     }
 
     public float getEffectAmplifier(Player attacker) {
-        return isFullMoon() ? 4.0F * (attacker.getEffect(DFEffects.FULL_MOON).getAmplifier() + 1) : 3.0F * (isRight() ? (attacker.getEffect(DFEffects.WAXING_CRESCENT).getAmplifier() + 1) : (attacker.getEffect(DFEffects.WANING_CRESCENT).getAmplifier() + 1));
+        boolean fullMoon = isFullMoon();
+        MobEffectInstance effect = attacker.getEffect(fullMoon ? DFEffects.FULL_MOON
+                : isRight() ? DFEffects.WAXING_CRESCENT : DFEffects.WANING_CRESCENT);
+        int level = effect == null ? 1 : effect.getAmplifier() + 1;
+        return (fullMoon ? 4.0F : 3.0F) * level;
     }
 
     @Override

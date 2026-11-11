@@ -144,13 +144,14 @@ public class AerolopeEntity extends Animal {
         if (this.getBrain().getMemory(DFMemoryTypes.SHAKE_HEAD_TICKS.get()).isEmpty()) {
             shakeHead(false);
         }
-        if (hasLeftHorn() && hasRightHorn()) {
-            this.getBrain().setMemory(DFMemoryTypes.GROW_HORN_TICKS.get(), -1);
-        }
-        if (!this.isBaby() && this.getBrain().getMemory(DFMemoryTypes.GROW_HORN_TICKS.get()).isEmpty() && (!hasLeftHorn() || !hasRightHorn())) {
-            growHorn();
-        }
         if (!this.level().isClientSide) {
+            if (hasLeftHorn() && hasRightHorn()) {
+                this.getBrain().setMemory(DFMemoryTypes.GROW_HORN_TICKS.get(), -1);
+            }
+            if (!this.isBaby() && this.getBrain().getMemory(DFMemoryTypes.GROW_HORN_TICKS.get()).isEmpty() && (!hasLeftHorn() || !hasRightHorn())) {
+                growHorn();
+            }
+
             int delayTime = this.entityData.get(DELAY);
             if (delayTime > 0) {
                 this.entityData.set(DELAY, delayTime - 1);
@@ -242,6 +243,7 @@ public class AerolopeEntity extends Animal {
         tag.putBoolean("Shaking", this.isShaking());
         tag.putBoolean("HasLeftHorn", this.hasLeftHorn());
         tag.putBoolean("HasRightHorn", this.hasRightHorn());
+        this.getBrain().getMemory(DFMemoryTypes.GROW_HORN_TICKS.get()).ifPresent(ticks -> tag.putInt("GrowHornTicks", ticks));
     }
 
     @Override
@@ -252,6 +254,13 @@ public class AerolopeEntity extends Animal {
         this.entityData.set(SHAKE, tag.getBoolean("Shaking"));
         this.entityData.set(DATA_HAS_LEFT_HORN, tag.getBoolean("HasLeftHorn"));
         this.entityData.set(DATA_HAS_RIGHT_HORN, tag.getBoolean("HasRightHorn"));
+
+        if (tag.contains("GrowHornTicks")) {
+            int growHornTicks = tag.getInt("GrowHornTicks");
+            if (growHornTicks > 0) {
+                this.getBrain().setMemory(DFMemoryTypes.GROW_HORN_TICKS.get(), growHornTicks);
+            }
+        }
     }
 
     @Override

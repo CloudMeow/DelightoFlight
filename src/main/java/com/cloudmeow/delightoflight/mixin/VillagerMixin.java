@@ -5,11 +5,17 @@ import com.cloudmeow.delightoflight.registry.DFPoi;
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.GlobalPos;
+import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.game.DebugPackets;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.behavior.AcquirePoi;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
+import net.minecraft.world.entity.ai.village.poi.PoiManager;
+import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.schedule.Activity;
@@ -41,6 +47,28 @@ public abstract class VillagerMixin extends AbstractVillager {
             assert DFPoi.CLOUD_BED.getKey() != null;
             return x.is(DFPoi.CLOUD_BED.getKey());}, MemoryModuleType.HOME, false, Optional.of((byte)14)))
         ));
+    }
+
+    @Inject(method = "releasePoi", at = @At("HEAD"), cancellable = true)
+    protected void releaseCloudBedPoi(MemoryModuleType<GlobalPos> moduleType, CallbackInfo ci) {
+        if (moduleType != MemoryModuleType.HOME || !(this.level() instanceof ServerLevel serverLevel)) {
+            return;
+        }
+
+        this.getBrain().getMemory(MemoryModuleType.HOME).ifPresent(globalPos -> {
+            ServerLevel poiLevel = serverLevel.getServer().getLevel(globalPos.dimension());
+            if (poiLevel == null) {
+                return;
+            }
+
+            PoiManager poiManager = poiLevel.getPoiManager();
+            Optional<Holder<PoiType>> poiType = poiManager.getType(globalPos.pos());
+            if (poiType.isPresent() && poiType.get().is(DFPoi.CLOUD_BED.getKey())) {
+                poiManager.release(globalPos.pos());
+                DebugPackets.sendPoiTicketCountPacket(poiLevel, globalPos.pos());
+                ci.cancel();
+            }
+        });
     }
 
     @Inject(method = "startSleeping", at = @At("HEAD"))

@@ -2,6 +2,7 @@ package com.cloudmeow.delightoflight.utility;
 
 import com.cloudmeow.delightoflight.DelightoFlight;
 import com.cloudmeow.delightoflight.network.payload.HeartAnimationPayload;
+import com.cloudmeow.delightoflight.registry.DFDataComponents;
 import com.cloudmeow.delightoflight.registry.DFEffects;
 import com.cloudmeow.delightoflight.registry.DFItems;
 import net.minecraft.client.Minecraft;
@@ -14,6 +15,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -25,6 +27,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.fml.ModList;
+import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.network.PacketDistributor;
 
 public class DFUtilities {
@@ -36,6 +39,24 @@ public class DFUtilities {
 
     public static boolean checkCookBookExist(LivingEntity entity) {
         return entity.getItemBySlot(EquipmentSlot.CHEST).getItem() == DFItems.COOK_BOOK.get();
+    }
+
+    public static void insertCookBookIngredient(IItemHandler inventory, LivingEntity entity) {
+        ItemStack held = entity.getItemBySlot(EquipmentSlot.MAINHAND);
+        ItemStack cookBook = entity.getItemBySlot(EquipmentSlot.CHEST);
+        ItemContainerContents contents = cookBook.get(DFDataComponents.COOK_BOOK);
+        if (held.isEmpty() || contents == null) return;
+
+        int slotCount = contents.getSlots();
+        Integer slotComponent = cookBook.get(DFDataComponents.CURRENT_SLOT);
+        int currentSlot = slotComponent != null ? slotComponent : 0;
+        if (currentSlot < 0 || currentSlot >= slotCount || currentSlot >= inventory.getSlots()) return;
+
+        ItemStack leftover = inventory.insertItem(currentSlot, held, false);
+        entity.setItemSlot(EquipmentSlot.MAINHAND, leftover);
+        if (leftover.isEmpty()) {
+            cookBook.set(DFDataComponents.CURRENT_SLOT, (currentSlot + 1) % slotCount);
+        }
     }
 
     public static boolean hasGrindHerbs(LivingEntity entity) {

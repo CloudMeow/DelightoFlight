@@ -41,7 +41,9 @@ public class DFNetworking {
         public static void handleSpinCottonCandy(StopSpinningPayload payload, IPayloadContext context) {
             ServerPlayer player = (ServerPlayer) context.player();
             BlockEntity be = player.serverLevel().getBlockEntity(payload.pos());
-            if (be instanceof CottonCandyMachineBlockEntity machine) {
+            if (be instanceof CottonCandyMachineBlockEntity machine
+                    && (machine.getSpinningPlayerId() == null
+                    || machine.getSpinningPlayerId().equals(player.getUUID()))) {
                 machine.stopSpinning();
             }
         }

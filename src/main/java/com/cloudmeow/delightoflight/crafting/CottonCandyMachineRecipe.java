@@ -18,6 +18,9 @@ import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.common.util.RecipeMatcher;
 import net.neoforged.neoforge.items.wrapper.RecipeWrapper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CottonCandyMachineRecipe implements Recipe<RecipeWrapper> {
     public static final int INPUT_SLOTS = 3;
 
@@ -60,17 +63,14 @@ public class CottonCandyMachineRecipe implements Recipe<RecipeWrapper> {
 
     @Override
     public boolean matches(RecipeWrapper inv, Level level) {
-        java.util.List<ItemStack> inputs = new java.util.ArrayList<>();
-        int i = 0;
-
-        for (int j = 0; j < INPUT_SLOTS; ++j) {
-            ItemStack itemstack = inv.getItem(j);
-            if (!itemstack.isEmpty()) {
-                ++i;
-                inputs.add(itemstack);
+        List<ItemStack> inputs = new ArrayList<>();
+        for (int slot = 0; slot < INPUT_SLOTS; slot++) {
+            ItemStack stack = inv.getItem(slot);
+            if (!stack.isEmpty()) {
+                inputs.add(stack);
             }
         }
-        return i == this.inputItems.size() && RecipeMatcher.findMatches(inputs, this.inputItems) != null;
+        return inputs.size() == this.inputItems.size() && RecipeMatcher.findMatches(inputs, this.inputItems) != null;
     }
 
     @Override

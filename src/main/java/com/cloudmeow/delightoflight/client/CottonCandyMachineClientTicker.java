@@ -12,12 +12,24 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import org.joml.Vector3f;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @OnlyIn(Dist.CLIENT)
 public final class CottonCandyMachineClientTicker {
+    private static final Map<BlockPos, CottonCandyMachineSound> SOUNDS = new HashMap<>();
+    private static Level lastLevel;
+
     private CottonCandyMachineClientTicker() {
     }
 
     public static void animationTick(Level level, BlockPos pos, BlockState state, CottonCandyMachineBlockEntity be) {
+        if (level != lastLevel) {
+            SOUNDS.values().forEach(sound -> Minecraft.getInstance().getSoundManager().stop(sound));
+            SOUNDS.clear();
+            lastLevel = level;
+        }
+
         if (be.isSpinning()) {
             double cx = pos.getX() + 0.5D;
             double cy = pos.getY() + 0.6875D;
@@ -39,13 +51,17 @@ public final class CottonCandyMachineClientTicker {
                 double tangent = 0.05D;
                 level.addParticle(particleData, x, y, z, -Math.sin(angle) * tangent, 0.03D, Math.cos(angle) * tangent);
             }
-            if (!be.isPlaying()) {
-                Minecraft.getInstance().getSoundManager().play(
-                        new CottonCandyMachineSound(be, DFSounds.COTTON_CANDY_MACHINE_WORK.get(), pos.getCenter()));
-                be.setPlaying(true);
+            CottonCandyMachineSound sound = SOUNDS.get(pos);
+            if (sound == null || sound.isStopped()) {
+                sound = new CottonCandyMachineSound(be, DFSounds.COTTON_CANDY_MACHINE_WORK.get(), pos.getCenter());
+                SOUNDS.put(pos, sound);
+                Minecraft.getInstance().getSoundManager().play(sound);
             }
         } else {
-            be.setPlaying(false);
+            CottonCandyMachineSound sound = SOUNDS.remove(pos);
+            if (sound != null) {
+                Minecraft.getInstance().getSoundManager().stop(sound);
+            }
         }
     }
 }
